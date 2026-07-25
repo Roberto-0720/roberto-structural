@@ -16,11 +16,11 @@ const HEADER_HTML = `
     <b>Roberto<br>Structural</b>
   </a>
   <nav class="nav-links">
-    <a href="index.html#industries" data-vi="Lĩnh vực" data-en="Industries">Lĩnh vực</a>
-    <a href="index.html#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a>
-    <a href="index.html#projects" data-vi="Dự án" data-en="Projects">Dự án</a>
+    <a href="index.html#industries" data-vi="Lĩnh vực" data-en="Expertise">Lĩnh vực</a>
+    <a href="insights.html" data-nav="insights" data-vi="Bài viết" data-en="Insights">Bài viết</a>
     <a href="tools.html" data-nav="tools" data-vi="Phần mềm" data-en="Software">Phần mềm</a>
     <a href="drawings.html" data-nav="drawings" data-vi="Bản vẽ" data-en="Drawings">Bản vẽ</a>
+    <a href="index.html#projects" data-vi="Dự án" data-en="Projects">Dự án</a>
     <a href="index.html#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a>
   </nav>
   <div class="nav-right">
@@ -48,9 +48,10 @@ const FOOTER_HTML = `
       <h4 data-vi="Liên kết" data-en="Links">Liên kết</h4>
       <a href="index.html#industries" data-vi="Lĩnh vực" data-en="Industries">Lĩnh vực</a>
       <a href="index.html#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a>
-      <a href="index.html#projects" data-vi="Dự án" data-en="Projects">Dự án</a>
+      <a href="insights.html" data-vi="Bài viết" data-en="Insights">Bài viết</a>
       <a href="tools.html" data-vi="Phần mềm" data-en="Software">Phần mềm</a>
       <a href="drawings.html" data-vi="Bản vẽ" data-en="Drawings">Bản vẽ</a>
+      <a href="index.html#projects" data-vi="Dự án" data-en="Projects">Dự án</a>
     </div>
     <div>
       <h4 data-vi="Lĩnh vực" data-en="Sectors">Lĩnh vực</h4>
