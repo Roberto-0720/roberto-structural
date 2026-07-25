@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>404 — Roberto Structural</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<style>
+  :root{--charcoal:#1C1F22;--accent:#D97B34;--accent-hover:#C2651F;--steel:#9AA0A6;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
+    font-family:"Segoe UI",system-ui,sans-serif;color:#fff;padding:2rem;
+    background:radial-gradient(900px 500px at 80% -10%,rgba(217,123,52,.20),transparent 60%),
+      radial-gradient(800px 500px at 10% 110%,rgba(23,160,146,.22),transparent 60%),
+      linear-gradient(160deg,#15171a,#1C1F22 60%,#23272c);}
+  .badge{width:56px;height:56px;border-radius:14px;background:var(--charcoal);border:1px solid rgba(255,255,255,.12);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.4rem;margin:0 auto 1.6rem}
+  .badge span:first-child{color:#E6E9EC}.badge span:last-child{color:var(--accent)}
+  h1{font-size:clamp(3.5rem,12vw,6rem);letter-spacing:.02em;line-height:1}
+  h2{font-size:clamp(1.1rem,3vw,1.5rem);margin-top:.6rem;text-transform:uppercase;letter-spacing:.04em}
+  p{color:var(--steel);margin:1rem auto 2rem;max-width:44ch}
+  a.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:#fff;text-decoration:none;
+    font-weight:600;padding:.85rem 1.7rem;border-radius:8px;transition:all .25s}
+  a.btn:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:0 10px 24px rgba(217,123,52,.3)}
+  .brand{margin-top:2.5rem;color:var(--steel);font-size:.85rem;letter-spacing:.1em;text-transform:uppercase}
+</style>
+</head>
+<body>
+  <div>
+    <div class="badge"><span>R</span><span>S</span></div>
+    <h1>404</h1>
+    <h2>Page not found</h2>
+    <p>The page you're looking for doesn't exist or has moved.<br>Trang bạn tìm không tồn tại hoặc đã được di chuyển.</p>
+    <a id="homeLink" class="btn" href="/">← Back to home</a>
+    <div class="brand">Roberto Structural</div>
+  </div>
+  <script>
+    // Point "Home" to the site root (works for GitHub project sites and custom domains)
+    var seg = location.pathname.split('/').filter(Boolean);
+    var base = (location.hostname.endsWith('github.io') && seg.length > 0) ? '/' + seg[0] + '/' : '/';
+    document.getElementById('homeLink').setAttribute('href', base);
+  </script>
+</body>
+</html>
