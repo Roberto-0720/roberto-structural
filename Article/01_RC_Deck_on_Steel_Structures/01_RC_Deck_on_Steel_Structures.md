@@ -7,7 +7,14 @@
 
 ## 1. Sàn Deck là gì? | What is a deck slab?
 
-**VI —** Sàn deck dùng tấm tôn định hình làm coffa lưu, bê tông đổ lên trên. Có hai họ khác nhau về bản chất: **composite deck** (tôn có gân dập embossment, khóa cơ học với bê tông, tôn *chính là* cốt chịu kéo) và **form deck** (tôn chỉ làm coffa, cốt thép bố trí riêng). Ưu điểm khi dùng cho nhà thép: không cần hoặc giảm tối đa giàn giáo chống đỡ; tấm tôn trở thành mặt bằng thi công an toàn ngay khi lắp xong; tốc độ lắp dựng nhanh, đồng bộ với tiến độ dựng thép; sóng tôn rỗng làm giảm tự trọng so với sàn đặc cùng nhịp, và là không gian sẵn có để luồn ống, cáp điện.
+**VI —** Sàn deck dùng tấm tôn định hình làm coffa lưu, bê tông đổ lên trên. Có hai loại khác nhau về bản chất: 
+**- Composite Deck:** Tôn có gân dập embossment, khóa cơ học với bê tông, tôn *chính là* cốt chịu kéo.
+**- Form deck:** Tôn chỉ làm coffa, cốt thép bố trí riêng. 
+Ưu điểm khi dùng cho nhà thép: 
+- Không cần hoặc giảm tối đa giàn giáo chống đỡ; 
+- Tấm tôn trở thành mặt bằng thi công an toàn ngay khi lắp xong; 
+- Tốc độ lắp dựng nhanh, đồng bộ với tiến độ dựng kết cấuthép; sóng tôn rỗng làm giảm tải trọng bản thân so với sàn đặc cùng nhịp;
+- Và là không gian sẵn có để luồn ống, cáp điện...
 
 **EN —** A deck slab uses profiled steel sheeting as permanent formwork with concrete cast on top. Two families differ fundamentally: **composite deck** (embossed sheeting mechanically interlocked with the concrete, where the sheeting *is* the tensile reinforcement) and **form deck** (sheeting as formwork only, with separate rebar). Advantages on steel-framed buildings: shoring eliminated or minimised; the sheeting becomes a safe working platform immediately after installation; erection speed matches the steel programme; hollow ribs reduce self-weight against a solid slab of equal span and provide ready-made routing for conduits and cables.
 
@@ -15,7 +22,14 @@
 
 ## 2. Mô hình hoá trong phần mềm phân tích | Modelling in analysis software
 
-**VI —** Ba loại tiết diện tấm khác nhau ở thành phần độ cứng mà chúng cung cấp: **Plate** chỉ có uốn ngoài mặt phẳng; **Membrane** chỉ có độ cứng trong mặt phẳng; **Shell** có cả hai. Với sàn deck làm việc một phương, **Membrane** thường là lựa chọn sạch hơn Shell — vì Shell tạo độ cứng uốn hai phương *không tồn tại* trên thực tế, và sẽ "chia" bớt moment của dầm chính, khiến dầm bị đánh giá thiếu.
+**VI —** Ba loại tiết diện tấm (Area Section Type) cung cấp 3 kiểu ứng xử khác nhau:
+**- Plate:** chịu cắt, chịu uốn ngoài mặt phẳng; 
+**- Membrane** chịu kéo nén trong mặt phẳng tấm; 
+**- Shell:** bao gồm cả Plate & Membrane. 
+
+Phần mềm phân tích kết cấu cung cấp thêm hai loại ứng xử nữa cho phần tử tấm:
+- Thin: bỏ qua biến dạng cắt ngang ngoài mặt phẳng tấm: (Đề xuất khi tỷ lệ chiều dày/nhịp ngắn <= 1/10-1/20)
+- Thick: kế đến biến dạng cắt ngang ngoài mặt phẳng tấm: (Đề xuất khi tỷ lệ chiều dày/nhịp ngắn > 1/10)
 
 Điểm ít được để ý: sàn deck **dị hướng**. Sàn dày 200 mm không có 200 mm bê tông đặc — phần sóng tôn là rỗng, và độ cứng trong mặt phẳng chỉ do lớp bê tông phủ trên đỉnh sóng đảm nhiệm. Vì vậy f11 ≠ f22, và các hệ số này nên được suy ra từ giá trị G′ trong catalog tôn theo SDI DDM4 / AISI S310 — **không phải chọn ngược** để ra một tỷ số ứng suất trông vừa mắt.
 
