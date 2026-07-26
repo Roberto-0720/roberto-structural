@@ -120,6 +120,21 @@ function renderArticle(){
         </figure>` : '' }
       `).join('')}
       ${ a.footnote ? `<p class="art-note reveal" ${abi(a.footnote)}>${aesc(a.footnote.en)}</p>` : '' }
+
+      <div class="art-share reveal">
+        <span data-vi="Chia sẻ bài viết" data-en="Share this article">Share this article</span>
+        <div class="art-share-btns">
+          <a href="#" onclick="return rsShare('facebook')" aria-label="Share on Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+          </a>
+          <a href="#" onclick="return rsShare('linkedin')" aria-label="Share on LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+          <a href="#" onclick="return rsShare('copy')" aria-label="Copy link" title="Copy link">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg>
+          </a>
+        </div>
+      </div>
     </article>
 
     <nav class="art-nav">
@@ -136,6 +151,27 @@ function renderArticle(){
   window.RS.setLang(window.RS.lang);
   refreshDates();
 }
+
+/* Share the current article */
+window.rsShare = function(where){
+  const url = location.href;
+  const title = document.title;
+  if(where === 'facebook'){
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), '_blank', 'width=620,height=520');
+  } else if(where === 'linkedin'){
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url), '_blank', 'width=620,height=560');
+  } else if(where === 'copy'){
+    const done = ()=>alert(window.RS.lang==='vi' ? 'Đã sao chép link bài viết.' : 'Article link copied.');
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(done).catch(()=>{});
+    } else {
+      const t=document.createElement('textarea'); t.value=url; document.body.appendChild(t); t.select();
+      try{ document.execCommand('copy'); done(); }catch(e){}
+      document.body.removeChild(t);
+    }
+  }
+  return false;
+};
 
 /* Simple image zoom for article figures (reuses the .lb lightbox styles) */
 window.rsArtZoom = function(src){

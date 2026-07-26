@@ -40,8 +40,12 @@ const FOOTER_HTML = `
       <h4>Roberto Structural</h4>
       <p style="color:var(--steel-light);font-size:.9rem;max-width:34ch">Engineering Strength Into Every Structure. <span data-vi="Kết cấu công nghiệp & nhà máy." data-en="Industrial & plant structures.">Kết cấu công nghiệp & nhà máy.</span></p>
       <div class="social">
-        <a href="#" aria-label="Facebook" title="Facebook">f</a>
-        <a href="#" aria-label="YouTube" title="YouTube">▶</a>
+        <a href="https://www.facebook.com/profile.php?id=61592180834713" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@RobertoStructural" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.09 0 12 0 12s0 3.91.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.91 24 12 24 12s0-3.91-.5-5.8zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+        </a>
       </div>
     </div>
     <div>
@@ -168,9 +172,20 @@ window.rsSubmitGate = async function(){
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ alert(RS.lang==='vi'?'Vui lòng nhập email hợp lệ.':'Please enter a valid email.'); return; }
   const it = RS_gateItem;
   if(window.RS_FORM_ENDPOINT){
+    // Send a human-readable payload so the notification email is easy to scan.
+    const itemName = it && it.name ? (it.name.en || it.name.vi) : '';
+    const kind = it && it.screenshots && it.version ? 'Software' : (it ? 'Drawing set' : '');
+    const when = new Date().toLocaleString('en-GB', { timeZone:'Asia/Ho_Chi_Minh', hour12:false });
     try{
       await fetch(window.RS_FORM_ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body: JSON.stringify({ email, item: it&&(it.id||''), ts:new Date().toISOString() }) });
+        body: JSON.stringify({
+          email,
+          product: itemName,
+          type: kind,
+          product_id: it && (it.id||''),
+          downloaded_at: when + ' (GMT+7)',
+          page: location.href
+        }) });
     }catch(err){ /* ignore network errors */ }
   }
   document.getElementById('gateForm').classList.add('hidden');
