@@ -10,21 +10,23 @@
       "date"    : "YYYY-MM-DD" (used for display and sorting)
       "readmin" : estimated reading time in minutes
    3. Put figures in  Resource/articles/<slug>/  and reference them in
-      the section's "figure" field.
-   4. Each section = one heading + paragraphs (vi + en).
-      - "heading": { vi, en }
-      - "body"   : array of paragraphs; each paragraph is { vi, en }
-      - "figure" : optional { src, caption:{vi,en} }  shown after the text
-      Use <b>...</b> inside text for bold. Plain text otherwise.
-   5. To EDIT an article later, just change the text here — nothing else to touch.
+      the section's "figures" array.
+   4. Each section = one heading + a "body" array of BLOCKS:
+        { vi, en }                            → paragraph
+        { type:"subhead", vi, en }            → sub-heading
+        { type:"list", items:[{vi,en},...] }  → bulleted list
+        { type:"table", head:[...], rows:[[...]] } → table
+      Optional "figures": [ { src, caption:{vi,en} }, ... ]  (one or many)
+   5. Text may contain <b> <i> <br> for formatting.
+   6. To EDIT an article later, just change the text here — nothing else to touch.
    ============================================================ */
 
 window.ARTICLE_CATEGORIES = [
-  { vi: "Kết cấu thép",      en: "Steel Structures" },
-  { vi: "Kết cấu BTCT",      en: "Reinforced Concrete" },
+  { vi: "Kết cấu thép",        en: "Steel Structures" },
+  { vi: "Kết cấu BTCT",        en: "Reinforced Concrete" },
   { vi: "Mô hình & Phân tích", en: "Modelling & Analysis" },
-  { vi: "Thi công",          en: "Construction" },
-  { vi: "Móng thiết bị",     en: "Equipment Foundations" }
+  { vi: "Thi công",            en: "Construction" },
+  { vi: "Móng thiết bị",       en: "Equipment Foundations" }
 ];
 
 window.ARTICLES = [
@@ -33,7 +35,7 @@ window.ARTICLES = [
     no: "01",
     category: { vi: "Kết cấu thép", en: "Steel Structures" },
     date: "2026-07-25",
-    readmin: 8,
+    readmin: 9,
     title: {
       vi: "Sàn Deck trên kết cấu thép — Bốn góc nhìn dễ bị bỏ qua",
       en: "RC Deck on Steel Structures — Four Overlooked Perspectives"
@@ -48,39 +50,95 @@ window.ARTICLES = [
         heading: { vi: "1. Sàn Deck là gì?", en: "1. What is a deck slab?" },
         body: [
           {
-            vi: "Sàn deck dùng tấm tôn định hình làm coffa lưu, bê tông đổ lên trên. Có hai họ khác nhau về bản chất: <b>composite deck</b> (tôn có gân dập embossment, khóa cơ học với bê tông, tôn <i>chính là</i> cốt chịu kéo) và <b>form deck</b> (tôn chỉ làm coffa, cốt thép bố trí riêng).",
-            en: "A deck slab uses profiled steel sheeting as permanent formwork with concrete cast on top. Two families differ fundamentally: <b>composite deck</b> (embossed sheeting mechanically interlocked with the concrete, where the sheeting <i>is</i> the tensile reinforcement) and <b>form deck</b> (sheeting as formwork only, with separate rebar)."
+            vi: "Sàn deck dùng tấm tôn định hình làm coffa lưu, bê tông đổ lên trên. Có hai loại khác nhau về bản chất:",
+            en: "A deck slab uses profiled steel sheeting as permanent formwork with concrete cast on top. Two families differ fundamentally:"
           },
           {
-            vi: "Ưu điểm khi dùng cho nhà thép: không cần hoặc giảm tối đa giàn giáo chống đỡ; tấm tôn trở thành mặt bằng thi công an toàn ngay khi lắp xong; tốc độ lắp dựng nhanh, đồng bộ với tiến độ dựng thép; sóng tôn rỗng làm giảm tự trọng so với sàn đặc cùng nhịp, và là không gian sẵn có để luồn ống, cáp điện.",
-            en: "Advantages on steel-framed buildings: shoring eliminated or minimised; the sheeting becomes a safe working platform immediately after installation; erection speed matches the steel programme; hollow ribs reduce self-weight against a solid slab of equal span and provide ready-made routing for conduits and cables."
+            type: "list",
+            items: [
+              { vi: "<b>Composite deck:</b> tôn có gân dập (embossment), khóa cơ học với bê tông, tôn <i>chính là</i> cốt chịu kéo.", en: "<b>Composite deck:</b> embossed sheeting mechanically interlocked with the concrete — the sheeting <i>is</i> the tensile reinforcement." },
+              { vi: "<b>Form deck:</b> tôn chỉ làm coffa, cốt thép bố trí riêng.", en: "<b>Form deck:</b> sheeting acts as formwork only; reinforcement is placed separately." }
+            ]
+          },
+          {
+            vi: "Ưu điểm khi dùng cho công trình sử dụng kết cấu thép:",
+            en: "Advantages on steel-framed buildings:"
+          },
+          {
+            type: "list",
+            items: [
+              { vi: "Giảm tối đa giàn giáo chống đỡ; tấm tôn trở thành mặt bằng thi công an toàn ngay khi lắp xong.", en: "Shoring eliminated or minimised; the sheeting becomes a safe working platform immediately after installation." },
+              { vi: "Tốc độ thi công nhanh, đồng bộ với tiến độ lắp dựng kết cấu thép; sóng tôn rỗng làm giảm tải trọng bản thân so với sàn đặc cùng nhịp, và là không gian sẵn có để luồn ống, cáp điện.", en: "Erection speed matches the steel programme; hollow ribs reduce self-weight against a solid slab of equal span and provide ready-made routing for conduits and cables." }
+            ]
           }
         ],
-        figure: {
-          src: "Resource/articles/01-deck-slab/fig1.png",
-          caption: { vi: "Cấu tạo sàn deck: tôn định hình, chốt chịu cắt, lưới thép và dầm thép đỡ.", en: "Deck slab anatomy: profiled sheeting, shear studs, wire mesh and supporting steel beam." }
-        }
+        figures: [
+          {
+            src: "Resource/articles/01-deck-slab/fig1.png",
+            caption: { vi: "Cấu tạo sàn deck: tôn định hình, chốt chịu cắt, lưới thép và dầm thép đỡ.", en: "Deck slab anatomy: profiled sheeting, shear studs, wire mesh and supporting steel beam." }
+          },
+          {
+            src: "Resource/articles/01-deck-slab/fig3.png",
+            caption: { vi: "Hai cơ chế truyền lực cắt: chốt chịu cắt đầu mũ (trái) và khóa cơ học của gân dập trên tôn (phải).", en: "The two shear-transfer mechanisms: headed shear stud (left) and mechanical embossment interlock (right)." }
+          }
+        ]
       },
       {
         heading: { vi: "2. Mô hình hoá trong phần mềm phân tích", en: "2. Modelling in analysis software" },
         body: [
           {
-            vi: "Ba loại tiết diện tấm khác nhau ở thành phần độ cứng mà chúng cung cấp: <b>Plate</b> chỉ có uốn ngoài mặt phẳng; <b>Membrane</b> chỉ có độ cứng trong mặt phẳng; <b>Shell</b> có cả hai. Với sàn deck làm việc một phương, <b>Membrane</b> thường là lựa chọn sạch hơn Shell — vì Shell tạo độ cứng uốn hai phương <i>không tồn tại</i> trên thực tế, và sẽ “chia” bớt moment của dầm chính, khiến dầm bị đánh giá thiếu.",
-            en: "The three area-section types differ in which stiffness they supply: <b>Plate</b> gives out-of-plane bending only; <b>Membrane</b> gives in-plane stiffness only; <b>Shell</b> gives both. For one-way deck, <b>Membrane</b> is usually cleaner than Shell — Shell introduces two-way bending stiffness that <i>does not physically exist</i>, and it siphons moment away from the supporting girder, under-estimating the beam."
+            vi: "Ba loại tiết diện tấm (Area Section Type) cung cấp ba cách ứng xử khác nhau:",
+            en: "The three area-section types supply three different behaviours:"
           },
           {
-            vi: "Điểm ít được để ý: sàn deck <b>dị hướng</b>. Sàn dày 200 mm không có 200 mm bê tông đặc — phần sóng tôn là rỗng, và độ cứng trong mặt phẳng chỉ do lớp bê tông phủ trên đỉnh sóng đảm nhiệm. Vì vậy f11 ≠ f22, và các hệ số này nên được suy ra từ giá trị G′ trong catalog tôn theo SDI DDM4 / AISI S310 — <b>không phải chọn ngược</b> để ra một tỷ số ứng suất trông vừa mắt.",
-            en: "An often-missed point: deck is <b>orthotropic</b>. A 200 mm slab does not contain 200 mm of solid concrete — the ribs are voided, and in-plane stiffness comes only from the topping above the rib crest. Hence f11 ≠ f22, and these modifiers should be derived from the manufacturer's G′ per SDI DDM4 / AISI S310 — <b>not reverse-tuned</b> to produce a comfortable-looking utilisation ratio."
+            type: "list",
+            items: [
+              { vi: "<b>Plate:</b> chịu uốn và cắt ngoài mặt phẳng.", en: "<b>Plate:</b> out-of-plane bending and shear." },
+              { vi: "<b>Membrane:</b> chịu kéo nén <b>trong mặt phẳng</b> (f11, f22, f12).", en: "<b>Membrane:</b> in-plane axial (f11, f22, f12)." },
+              { vi: "<b>Shell:</b> kết hợp cả Plate và Membrane.", en: "<b>Shell:</b> both Plate and Membrane combined." }
+            ]
           },
           {
-            vi: "Về diaphragm, khác biệt cốt lõi: <b>Rigid</b> là một <i>ràng buộc động học</i>, hoạt động độc lập với độ cứng của tấm — kể cả khi tấm là None. <b>Semi-rigid</b> thì ngược lại, nó chỉ là một <i>nhãn</i>, và toàn bộ ứng xử dựa vào độ cứng membrane thực của tấm. Hệ quả trực tiếp: cấu hình <b>None + Semi-rigid không truyền được lực ngang</b> — không có đường truyền lực, và yêu cầu lệch tâm ngẫu nhiên 5% cũng không được áp đặt đúng. Nếu muốn bỏ qua đóng góp của sàn, phải dùng None + <b>Rigid</b>.",
-            en: "On diaphragms, the essential distinction: <b>Rigid</b> is a <i>kinematic constraint</i> that works independently of shell stiffness — even with the slab set to None. <b>Semi-rigid</b> is the opposite: it is only a <i>label</i>, and behaviour relies entirely on the shell's real membrane stiffness. The direct consequence: <b>None + Semi-rigid transfers no lateral load</b> — there is no load path, and the 5% accidental eccentricity requirement is not genuinely enforced. To neglect the slab's contribution, use None + <b>Rigid</b>."
+            vi: "Riêng với Shell và Plate, phần mềm phân tích còn phân biệt theo cách xử lý biến dạng cắt ngang:",
+            en: "For Shell and Plate only, the software further distinguishes how transverse shear is treated:"
+          },
+          {
+            type: "list",
+            items: [
+              { vi: "<b>Thin:</b> bỏ qua biến dạng cắt ngang ngoài mặt phẳng (tỷ lệ chiều dày/nhịp cạnh ngắn của sàn &lt; 1/10–1/20).", en: "<b>Thin:</b> transverse shear deformation ignored — use where t/L (short span) &lt; 1/10–1/20." },
+              { vi: "<b>Thick:</b> có kể đến biến dạng cắt ngang (tỷ lệ chiều dày/nhịp cạnh ngắn của sàn &gt; 1/5–1/10).", en: "<b>Thick:</b> transverse shear included — use where t/L &gt; 1/5–1/10." }
+            ]
+          },
+          {
+            vi: "Tùy chọn này <b>không áp dụng cho Membrane</b>.",
+            en: "This option <b>does not apply to Membrane</b>."
+          },
+          {
+            vi: "Điểm ít được để ý: <b>sàn dày 200 mm không có 200 mm bê tông đặc</b> — phần sóng tôn là rỗng, và độ cứng trong mặt phẳng chỉ do lớp bê tông phủ trên đỉnh sóng đảm nhiệm. Sàn deck <b>dị hướng</b>: độ cứng theo phương song song sóng tôn nhỏ hơn hẳn phương vuông góc, nên f11 ≠ f22.",
+            en: "An often-missed point: <b>a 200 mm slab does not contain 200 mm of solid concrete</b> — the ribs are voided, and in-plane stiffness comes only from the topping above the rib crest. Deck is <b>orthotropic</b>: stiffness parallel to the ribs is markedly lower than perpendicular to them, so f11 ≠ f22."
+          },
+          {
+            vi: "Về diaphragm, khác biệt cốt lõi:",
+            en: "On diaphragms, the essential distinction:"
+          },
+          {
+            type: "list",
+            items: [
+              { vi: "<b>Rigid</b> là một <i>ràng buộc động học</i>, hoạt động độc lập với độ cứng của tấm. Rigid vẫn ảnh hưởng ngay cả khi Stiffness Modifiers = 0 hoặc Section Properties = None.", en: "<b>Rigid</b> is a <i>kinematic constraint</i> that works independently of shell stiffness. It remains effective even with Stiffness Modifiers = 0 or Section Properties = None." },
+              { vi: "<b>Semi-rigid</b> thì ngược lại — nó chỉ là một <i>nhãn</i>, và toàn bộ ứng xử dựa vào độ cứng membrane thực của tấm (f11, f22, f12). Semi-rigid chỉ có tác dụng khi Section Type = Shell hoặc Membrane với Stiffness Modifiers &gt; 0.", en: "<b>Semi-rigid</b> is the opposite — it is only a <i>label</i>, and behaviour relies entirely on the shell's real membrane stiffness (f11, f22, f12). It takes effect only where Section Type = Shell or Membrane with Stiffness Modifiers &gt; 0." }
+            ]
+          },
+          {
+            vi: "Semi-rigid <b>mất ý nghĩa</b> nếu Section Type = Plate, hoặc Properties = None, hoặc Stiffness Modifiers = 0: không có đường truyền lực ngang, và yêu cầu lệch tâm ngẫu nhiên 5% cũng không được áp đặt đúng.",
+            en: "Semi-rigid becomes <b>meaningless</b> where Section Type = Plate, or Properties = None, or Stiffness Modifiers = 0: there is no lateral load path, and the 5% accidental eccentricity requirement is not genuinely enforced."
           }
         ],
-        figure: {
-          src: "Resource/articles/01-deck-slab/fig2.png",
-          caption: { vi: "Mô hình phần tử hữu hạn sàn deck liên hợp — tôn, bê tông và chốt chịu cắt khai báo riêng.", en: "Finite-element model of composite deck — sheeting, concrete and shear studs defined separately." }
-        }
+        figures: [
+          {
+            src: "Resource/articles/01-deck-slab/fig2.png",
+            caption: { vi: "Mô hình phần tử hữu hạn sàn deck liên hợp — tôn, bê tông và chốt chịu cắt khai báo riêng.", en: "Finite-element model of composite deck — sheeting, concrete and shear studs defined separately." }
+          }
+        ]
       },
       {
         heading: { vi: "3. Hai kiểu liên kết thiết bị", en: "3. Two ways to support equipment" },
@@ -90,35 +148,111 @@ window.ARTICLES = [
             en: "The decisive question is not “which detail looks better” but <b>“where should the load go?”</b>"
           },
           {
-            vi: "<b>Qua bệ RC trên sàn</b> (anchor bolt hoặc embedded part đặt trong bệ): tải đi vào sàn. Sàn deck có chiều dày hữu hiệu mỏng và bị chi phối bởi chọc xuyên, nên hướng này phù hợp với <b>support nhỏ và trung bình</b> — giá đỡ ống, bơm, máy nén đặt trên bệ. Lắp đặt phải chờ bệ đủ cường độ sau khi rót vữa, tức là bị ràng buộc trình tự.",
-            en: "<b>Via an RC pedestal on the slab</b> (anchor bolts or embedded plate cast into the pedestal): the load enters the slab. Deck slabs have a thin effective depth and are punching-shear governed, so this route suits <b>small to medium supports</b> — pipe supports, pumps, compressors seated on a pedestal. Installation must wait for the pedestal grout to gain strength, which constrains the erection sequence."
+            vi: "<b>Qua bệ RC trên sàn</b> (anchor bolt hoặc embedded part đặt trong bệ): tải đi vào sàn. Sàn deck có chiều dày hữu hiệu mỏng và bị chi phối bởi chọc thủng, nên hướng này phù hợp với <b>support nhỏ và trung bình</b> — pipe support cho ống nhỏ, bệ máy bơm, bệ máy nén. Lắp đặt phải chờ bệ đủ cường độ, tức là bị ràng buộc trình tự.",
+            en: "<b>Via an RC pedestal on the slab</b> (anchor bolts or embedded plate cast into the pedestal): the load enters the slab. Deck slabs have a thin effective depth and are punching-shear governed, so this route suits <b>small to medium supports</b> — pipe supports, pump and compressor bases. Installation must wait for the pedestal to gain strength, which constrains the erection sequence."
           },
           {
-            vi: "<b>Trực tiếp vào dầm thép bên dưới</b>, xuyên qua sàn: tải <b>bỏ qua sàn</b> và đi thẳng vào cấu kiện vốn được thiết kế để chịu nó. Đây là hướng cho <b>thiết bị nặng</b> — bồn đứng, bồn ngang, thiết bị có tải ngang lớn. Đổi lại: phải lắp trước khi đổ bê tông, và cần chi tiết mối nối riêng — cốt thép gia cường quanh lỗ xuyên, xử lý chống thấm và khe co giãn tại mặt tiếp giáp.",
-            en: "<b>Directly to the steel beam below</b>, penetrating the slab: the load <b>bypasses the slab</b> and enters a member actually designed to carry it. This is the route for <b>heavy equipment</b> — vertical and horizontal vessels, items with significant horizontal reactions. The trade-off: it must be erected before the concrete pour, and it needs dedicated joint detailing — trimming bars around the penetration, plus waterproofing and movement provision at the interface."
+            vi: "<b>Trực tiếp vào dầm thép bên dưới</b>, xuyên qua sàn: tải <b>bỏ qua sàn</b> và đi thẳng vào cấu kiện vốn được thiết kế để chịu nó. Đây là hướng cho <b>thiết bị nặng</b> — bồn đứng, bồn ngang, thiết bị có tải ngang lớn. Đổi lại: phải lắp trước khi đổ bê tông, và cần chi tiết mối nối riêng — cốt thép gia cường quanh lỗ mở, xử lý chống thấm và khe co giãn tại mặt tiếp giáp.",
+            en: "<b>Directly to the steel beam below</b>, penetrating the slab: the load <b>bypasses the slab</b> and enters a member actually designed to carry it. This is the route for <b>heavy equipment</b> — vertical and horizontal vessels, items with significant horizontal reactions. The trade-off: it must be erected before the concrete pour, and it needs dedicated joint detailing — trimming bars around the opening, plus waterproofing and movement provision at the interface."
+          },
+          { type: "subhead", vi: "So sánh hai kiểu", en: "Comparison" },
+          {
+            type: "table",
+            head: [
+              { vi: "", en: "" },
+              { vi: "Có bệ RC", en: "With RC Pedestal" },
+              { vi: "Không bệ RC", en: "Without RC Pedestal" },
+              { vi: "Ghi chú", en: "Remark" }
+            ],
+            rows: [
+              [
+                { vi: "Đặc tính kết cấu", en: "Structural characteristic" },
+                { vi: "Gối tựa trên sàn", en: "Slab support" },
+                { vi: "Gối tựa kết cấu", en: "Structural support" },
+                { vi: "", en: "" }
+              ],
+              [
+                { vi: "Truyền tải", en: "Load transfer" },
+                { vi: "Hạn chế", en: "Limited" },
+                { vi: "Ít ràng buộc hơn", en: "Less restricted" },
+                { vi: "", en: "" }
+              ],
+              [
+                { vi: "Trình tự lắp dựng", en: "Erection sequence" },
+                { vi: "Sau khi rót vữa bệ", en: "After pedestal grouting" },
+                { vi: "Trước khi đổ sàn", en: "Before slab pour" },
+                { vi: "Cần chi tiết mối nối đặc biệt; không bệ RC thì không ràng buộc trình tự", en: "Special joint consideration; without pedestal, no sequence restriction" }
+              ]
+            ]
+          },
+          { type: "subhead", vi: "Phạm vi áp dụng", en: "Applicability" },
+          {
+            type: "table",
+            head: [
+              { vi: "", en: "" },
+              { vi: "Có bệ RC", en: "With RC Pedestal" },
+              { vi: "Không bệ RC", en: "Without RC Pedestal" },
+              { vi: "Ghi chú", en: "Remark" }
+            ],
+            rows: [
+              [
+                { vi: "Thiết bị đứng", en: "Vertical equipment" },
+                { vi: "✗", en: "✗" }, { vi: "✓", en: "✓" }, { vi: "", en: "" }
+              ],
+              [
+                { vi: "Thiết bị nằm ngang", en: "Horizontal equipment" },
+                { vi: "✗", en: "✗" }, { vi: "✓", en: "✓" }, { vi: "", en: "" }
+              ],
+              [
+                { vi: "Bơm & máy nén", en: "Pump & compressor" },
+                { vi: "✓", en: "✓" }, { vi: "✗", en: "✗" },
+                { vi: "Không áp dụng cho máy nén kiểu khung", en: "Frame-type compressor not applicable" }
+              ],
+              [
+                { vi: "Kết cấu thép", en: "Steel structure" },
+                { vi: "✓ với support nhỏ<br>✗ với support lớn", en: "✓ small supports<br>✗ large supports" },
+                { vi: "✓", en: "✓" },
+                { vi: "Xem như đặt trên nền", en: "Consider same as on-paving" }
+              ],
+              [
+                { vi: "Giá đỡ ống", en: "Pipe support" },
+                { vi: "✓ với support nhỏ<br>✗ với support lớn", en: "✓ small supports<br>✗ large supports" },
+                { vi: "–", en: "–" },
+                { vi: "Xem như đặt trên nền", en: "Consider same as on-paving" }
+              ]
+            ]
+          },
+          {
+            vi: "Hàng <i>Bơm & máy nén</i> thoạt nhìn có vẻ ngược với nguyên tắc “tải nặng thì đi thẳng vào dầm”. Lý do không nằm ở độ lớn tải mà ở <b>rung động</b>: bệ bê tông cung cấp khối lượng và cản để hấp thụ dao động từ máy quay, trong khi nối cứng trực tiếp vào dầm thép sẽ truyền rung vào hệ kết cấu.",
+            en: "The <i>pump &amp; compressor</i> row appears to contradict the “heavy loads go straight to the beam” principle. The reason is not load magnitude but <b>vibration</b>: a concrete pedestal provides mass and damping to absorb rotating-machine excitation, whereas a direct rigid connection would feed that vibration into the steel frame."
           }
-        ],
-        figure: {
-          src: "Resource/articles/01-deck-slab/fig3.png",
-          caption: { vi: "Chốt chịu cắt đầu mũ (trái) và khóa cơ học của gân dập trên tôn (phải) — hai cơ chế truyền lực cắt.", en: "Headed shear stud (left) and mechanical embossment interlock (right) — the two shear-transfer mechanisms." }
-        }
+        ]
       },
       {
         heading: { vi: "4. Giai đoạn thi công và giằng ngang tạm", en: "4. Construction stage and temporary bracing" },
         body: [
           {
-            vi: "Trước khi bê tông đạt cường độ, <b>diaphragm chưa tồn tại</b>. Đây là điều dễ bị bỏ sót nhất: liên kết dầm chịu cắt chỉ truyền phản lực thẳng đứng, không tạo được đường truyền lực ngang; các thanh chéo nhỏ tại liên kết chỉ ổn định cục bộ, không phải giằng mặt bằng. Lực gió thi công và lực lắp dựng phải đi qua <b>hệ giằng ngang tạm thời</b> thực sự, hoặc hệ giằng vĩnh viễn đã lắp xong và đủ khả năng.",
-            en: "Before the concrete gains strength, <b>the diaphragm does not yet exist</b>. This is the most commonly missed point: shear connections transfer vertical reactions only and create no lateral load path; the small diagonals at connections stabilise the connection locally and are not plan bracing. Construction wind and erection forces must pass through genuine <b>temporary plan bracing</b>, or through permanent bracing already installed and verified."
+            vi: "Trước khi bê tông đạt cường độ, <b>diaphragm chưa tồn tại</b>. Đây là điều dễ bị bỏ sót nhất, và nó lấy đi cùng lúc hai thứ:",
+            en: "Before the concrete gains strength, <b>the diaphragm does not yet exist</b>. This is the most commonly missed point, and it removes two things at once:"
           },
           {
-            vi: "Về tải trọng thi công: ACI 347 yêu cầu tối thiểu <b>2,4 kN/m²</b>, và <b>3,6 kN/m²</b> khi có xe rùa cơ giới, cộng với tải tập trung của thiết bị. Con số 150 kg/m² thường thấy trong các kiểm tra nhanh <b>thấp hơn cả ngưỡng tối thiểu</b> — không phản ánh được máy đầm, chân chống bơm bê tông hay vật liệu chất tạm. Và khi mô hình hoá giai đoạn này, đừng gán diaphragm sàn: hãy đưa vào hệ giằng tạm đang thực có trên công trường.",
-            en: "On construction loading: ACI 347 requires a minimum of <b>2.4 kN/m²</b>, rising to <b>3.6 kN/m²</b> where motorised buggies are used, plus concentrated equipment loads. The 150 kg/m² figure often seen in quick checks sits <b>below even that minimum</b> — it captures neither vibrators, nor concrete-pump outrigger loads, nor stockpiled materials. And when modelling this stage, do not assign a slab diaphragm: model the temporary bracing that actually exists on site."
+            type: "list",
+            items: [
+              { vi: "<b>Đường truyền lực ngang:</b> sàn chưa có độ cứng trong mặt phẳng để phân phối tải ngang về hệ chịu lực chính.", en: "<b>The lateral load path:</b> the slab has no in-plane stiffness to distribute lateral load back to the primary system." },
+              { vi: "<b>Giằng chống oằn ngang cho dầm:</b> cánh nén của dầm thép mất điểm tựa ngang, khả năng chịu uốn bị chi phối bởi mất ổn định ngang.", en: "<b>Lateral restraint to the beams:</b> the compression flange loses its bracing, and beam capacity becomes governed by lateral-torsional buckling rather than the plastic moment." }
+            ]
+          },
+          {
+            vi: "Kỹ sư thiết kế cần kể đến sự không làm việc của tấm sàn trong giai đoạn này. Thiết kế một <b>hệ giằng ngang tạm thời</b> hoặc hệ giằng vĩnh viễn là cần thiết.",
+            en: "Engineers need to take into account the non-working state of the slab during this phase. Designing a <b>temporary or permanent horizontal bracing system</b> is necessary."
           }
         ],
-        figure: {
-          src: "Resource/articles/01-deck-slab/fig4.png",
-          caption: { vi: "Giai đoạn thi công: giằng ngang tạm, hệ chống đỡ và mép đổ bê tông.", en: "Construction stage: temporary transverse bracing, propping system and concrete pouring edge." }
-        }
+        figures: [
+          {
+            src: "Resource/articles/01-deck-slab/fig4.png",
+            caption: { vi: "Giai đoạn thi công: giằng ngang tạm, hệ chống đỡ và mép đổ bê tông.", en: "Construction stage: temporary transverse bracing, propping system and concrete pouring edge." }
+          }
+        ]
       },
       {
         heading: { vi: "Kết", en: "Closing" },
@@ -128,15 +262,13 @@ window.ARTICLES = [
             en: "Deck slabs look simple, but most errors do not lie in thickness or concrete grade — they lie in <b>modelling assumptions</b> and in the <b>load path</b>. All four points above stem from a single question: <i>where does this force actually go?</i>"
           }
         ],
-        figure: {
-          src: "Resource/articles/01-deck-slab/fig5.png",
-          caption: { vi: "Hiện trường: sàn deck đã lắp lưới thép, chờ đổ bê tông — giai đoạn chưa có diaphragm.", en: "On site: deck with mesh in place awaiting the pour — the stage where no diaphragm yet exists." }
-        }
+        figures: [
+          {
+            src: "Resource/articles/01-deck-slab/fig5.png",
+            caption: { vi: "Hiện trường: sàn deck đã lắp lưới thép, chờ đổ bê tông — giai đoạn chưa có diaphragm.", en: "On site: deck with mesh in place awaiting the pour — the stage where no diaphragm yet exists." }
+          }
+        ]
       }
-    ],
-    footnote: {
-      vi: "Bài tiếp theo trong series sẽ đi vào lỗ mở trên sàn deck và cách gia cường quanh lỗ.",
-      en: "The next article in this series looks at openings in deck slabs and trimming around them."
-    }
+    ]
   }
 ];

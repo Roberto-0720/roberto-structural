@@ -270,6 +270,23 @@ footer a:hover{color:var(--accent)}
 .prose p{margin-bottom:1.15rem;font-size:1.02rem;line-height:1.85;color:#3a4046}
 .prose p b{color:var(--charcoal);font-weight:700}
 .prose p i{color:var(--charcoal)}
+.prose-sub{font-size:1.08rem;margin:2rem 0 .9rem;color:var(--charcoal);text-transform:uppercase;letter-spacing:.06em;font-size:.95rem}
+.prose-sub::before{content:"";display:inline-block;width:18px;height:2px;background:var(--accent);vertical-align:middle;margin-right:.6rem}
+.prose-list{list-style:none;margin:0 0 1.3rem;display:flex;flex-direction:column;gap:.7rem}
+.prose-list li{position:relative;padding-left:1.3rem;font-size:1.02rem;line-height:1.75;color:#3a4046}
+.prose-list li::before{content:"";position:absolute;left:0;top:.62rem;width:7px;height:7px;border-radius:2px;background:var(--accent)}
+.prose-list li b{color:var(--charcoal);font-weight:700}
+.table-wrap{overflow-x:auto;margin:1.2rem 0 2rem;-webkit-overflow-scrolling:touch}
+.prose-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:520px}
+.prose-table th{background:var(--charcoal);color:#fff;font-family:var(--ff-head);font-size:.8rem;font-weight:600;text-align:left;padding:.75rem .9rem;letter-spacing:.03em;border-right:1px solid rgba(255,255,255,.12)}
+.prose-table th:last-child{border-right:0}
+.prose-table td{padding:.75rem .9rem;border-bottom:1px solid var(--silver);border-right:1px solid var(--silver);color:#3a4046;vertical-align:top;line-height:1.5}
+.prose-table td:last-child{border-right:0}
+.prose-table tbody tr:nth-child(even){background:var(--paper)}
+.prose-table tbody tr:hover{background:var(--accent-soft)}
+.prose-table td:first-child{font-weight:600;color:var(--charcoal)}
+.prose-table td i{color:var(--steel);font-size:.85em}
+.prose-table th i{color:rgba(255,255,255,.7);font-weight:400}
 .art-fig{margin:1.8rem 0 2.2rem}
 .art-fig img{width:100%;border-radius:12px;border:1px solid var(--silver);display:block;cursor:zoom-in;transition:box-shadow .3s}
 .art-fig img:hover{box-shadow:0 16px 40px rgba(0,0,0,.14)}

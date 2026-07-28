@@ -74,6 +74,31 @@ function refreshDates(){
   });
 }
 
+/* ---------------- Content blocks ----------------
+   A section's "body" is an array of blocks:
+     { vi, en }                              → paragraph (default)
+     { type:"subhead", vi, en }              → sub-heading (h3)
+     { type:"list", items:[{vi,en}, ...] }   → bulleted list
+     { type:"table", head:[{vi,en}...],
+                     rows:[[{vi,en}...]] }   → comparison table
+   Text may contain <b> <i> <br> on purpose.
+------------------------------------------------- */
+function renderBlock(b){
+  if(b.type === 'subhead'){
+    return `<h3 class="prose-sub reveal" ${abi(b)}>${araw(b)}</h3>`;
+  }
+  if(b.type === 'list'){
+    return `<ul class="prose-list reveal">${b.items.map(it=>`<li ${abi(it)}>${araw(it)}</li>`).join('')}</ul>`;
+  }
+  if(b.type === 'table'){
+    return `<div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr>${b.head.map(h=>`<th ${abi(h)}>${araw(h)}</th>`).join('')}</tr></thead>
+      <tbody>${b.rows.map(r=>`<tr>${r.map(c=>`<td ${abi(c)}>${araw(c)}</td>`).join('')}</tr>`).join('')}</tbody>
+    </table></div>`;
+  }
+  return `<p class="reveal" ${abi(b)}>${araw(b)}</p>`;
+}
+
 /* ---------------- READER (article.html) ---------------- */
 function renderArticle(){
   const root = document.getElementById('article-root');
@@ -112,12 +137,12 @@ function renderArticle(){
     <article class="prose">
       ${a.sections.map(s=>`
         <h2 class="reveal" ${abi(s.heading)}>${aesc(s.heading.en)}</h2>
-        ${s.body.map(p=>`<p class="reveal" ${abi(p)}>${araw(p)}</p>`).join('')}
-        ${ s.figure ? `
+        ${s.body.map(b=>renderBlock(b)).join('')}
+        ${ (s.figures || (s.figure ? [s.figure] : [])).map(f=>`
         <figure class="art-fig reveal">
-          <img src="${aesc(s.figure.src)}" alt="${aesc(s.heading.en)}" loading="lazy" onclick="rsArtZoom('${aesc(s.figure.src)}')"/>
-          ${ s.figure.caption ? `<figcaption ${abi(s.figure.caption)}>${aesc(s.figure.caption.en)}</figcaption>` : '' }
-        </figure>` : '' }
+          <img src="${aesc(f.src)}" alt="${aesc(s.heading.en)}" loading="lazy" onclick="rsArtZoom('${aesc(f.src)}')"/>
+          ${ f.caption ? `<figcaption ${abi(f.caption)}>${aesc(f.caption.en)}</figcaption>` : '' }
+        </figure>`).join('') }
       `).join('')}
       ${ a.footnote ? `<p class="art-note reveal" ${abi(a.footnote)}>${aesc(a.footnote.en)}</p>` : '' }
 

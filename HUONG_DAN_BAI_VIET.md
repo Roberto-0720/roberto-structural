@@ -58,10 +58,45 @@ Mở `assets/js/articles-data.js`, copy một khối `{ ... }` và dán vào **�
 }
 ```
 
-### Định dạng chữ trong nội dung
+### Các kiểu nội dung trong `body`
+Mỗi phần tử trong mảng `body` là một **khối**. Có 4 kiểu:
+
+```js
+// 1. Đoạn văn (mặc định)
+{ vi: "…", en: "…" }
+
+// 2. Tiêu đề phụ (in hoa nhỏ, có gạch cam)
+{ type: "subhead", vi: "So sánh hai kiểu", en: "Comparison" }
+
+// 3. Danh sách gạch đầu dòng
+{ type: "list", items: [
+    { vi: "Ý 1 …", en: "Point 1 …" },
+    { vi: "Ý 2 …", en: "Point 2 …" }
+]}
+
+// 4. Bảng so sánh
+{ type: "table",
+  head: [ {vi:"",en:""}, {vi:"Cột A",en:"Col A"}, {vi:"Cột B",en:"Col B"} ],
+  rows: [
+    [ {vi:"Hàng 1",en:"Row 1"}, {vi:"✓",en:"✓"}, {vi:"✗",en:"✗"} ]
+  ]
+}
+```
+
+### Định dạng chữ
 - **In đậm**: `<b>chữ đậm</b>`
 - *In nghiêng*: `<i>chữ nghiêng</i>`
-- Mỗi phần tử trong `body` là **một đoạn văn** (tự xuống dòng, không cần thẻ `<p>`).
+- Xuống dòng trong ô bảng: `<br>`
+- Ký tự `<` `>` trong công thức phải viết `&lt;` `&gt;` (vd `t/L &lt; 1/10`)
+
+### Ảnh minh hoạ
+Dùng `figures` (mảng — một mục có thể có nhiều ảnh):
+```js
+figures: [
+  { src: "Resource/articles/<slug>/fig1.png",
+    caption: { vi: "Chú thích …", en: "Caption …" } }
+]
+```
 
 ### Danh mục hiện có (`window.ARTICLE_CATEGORIES`)
 | VI | EN |

@@ -34,7 +34,7 @@ bật GitHub Pages để có **link công khai** (miễn phí, tự động HTTP
 ## Bước 4 — Kiểm tra
 - Mở link đó trên điện thoại và máy tính.
 - Thử: đổi VI/EN, cuộn animation, mở trang **Software** và **Drawings**, bấm **Download** → nhập email.
-- Lần tải đầu, kiểm tra hộp thư `namtruong0720@gmail.com` xem Formspree gửi email xác nhận kích hoạt form chưa (bấm xác nhận 1 lần).
+- Lần tải đầu, kiểm tra hộp thư `robertostructural@gmail.com` xem Formspree gửi email xác nhận kích hoạt form chưa (bấm xác nhận 1 lần).
 
 ---
 
