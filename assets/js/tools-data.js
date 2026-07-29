@@ -12,6 +12,17 @@
    Units convention for all tools: SI (kN, m, mm).
    ============================================================ */
 
+/* ------------------------------------------------------------------
+   PRICING FIELDS (add to any tool)
+     priceVnd : 0  → free tool  (public download, email-gate only)
+                >0 → paid tool  (shows price + "Buy" button)
+     productCode : licence product code, e.g. "GRDS" — must match the
+                   Licence Generator. Only needed for paid tools.
+   Paid tools must NOT have a public "download" link — leave it "".
+   The purchase flow lives in purchase.html.
+------------------------------------------------------------------- */
+window.PRICE_CURRENCY = "VND";
+
 // Master category list — controls the filter buttons and their order.
 // Every tool's "category" below must match one of these (by the English name).
 window.TOOL_CATEGORIES = [
@@ -34,6 +45,8 @@ window.TOOLS = [
     size: "63 MB",
     updated: "2026-07",
     os: "Windows 10/11 (64-bit)",
+    priceVnd: 0,                 // 0 = free. Set e.g. 500000 to sell it.
+    productCode: "GRDS",
     price: { vi: "Miễn phí dùng thử", en: "Free trial" },
     thumb: "Resource/tools/grds/01.png",
     screenshots: [

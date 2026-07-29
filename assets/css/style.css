@@ -247,6 +247,48 @@ footer a:hover{color:var(--accent)}
 [data-stagger] .reveal{transition-delay:calc(var(--i,0)*80ms)}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{scroll-behavior:auto}}
 
+/* ===== Purchase page ===== */
+.badge-price{background:var(--charcoal);color:#fff;font-size:.78rem;font-weight:700;padding:.32rem .75rem;border-radius:999px;font-family:var(--ff-head);letter-spacing:.02em}
+.buy-grid{display:grid;gap:2.2rem;align-items:start}
+@media(min-width:960px){.buy-grid{grid-template-columns:1.55fr .95fr}}
+.steps{list-style:none;display:flex;flex-direction:column;gap:1.6rem;counter-reset:step}
+.step{display:flex;gap:1rem;align-items:flex-start}
+.step-no{flex:none;width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--ff-head);font-weight:700;font-size:1rem}
+.step-body{flex:1;min-width:0}
+.step-body h3{font-size:1.12rem;margin-bottom:.6rem}
+.step-body .muted{color:var(--steel);font-size:.92rem;margin-bottom:.9rem}
+.step-body .small{font-size:.82rem}
+.pay-summary{display:grid;gap:.5rem;background:var(--white);border:1px solid var(--silver);border-radius:10px;padding:1rem 1.1rem;margin-bottom:.8rem}
+.pay-summary>div{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.pay-summary span{color:var(--steel);font-size:.88rem}
+.pay-summary b{font-family:var(--ff-head);font-size:1.15rem;color:var(--charcoal)}
+.pay-summary b.ref{color:var(--accent);letter-spacing:.06em;font-family:ui-monospace,Consolas,monospace;font-size:1.05rem}
+.warn{background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:.7rem .9rem;font-size:.88rem;color:var(--charcoal);margin-bottom:1.1rem}
+.pay-methods{display:grid;gap:1rem}
+@media(min-width:620px){.pay-methods{grid-template-columns:1fr 1fr}}
+.pay-card{background:var(--white);border:1px solid var(--silver);border-radius:12px;padding:1.1rem}
+.pay-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.7rem}
+.pay-tag{background:var(--charcoal);color:#fff;font-size:.68rem;font-family:var(--ff-head);font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .6rem;border-radius:5px}
+.pay-tag.momo{background:#A50064}
+.pay-head b{font-size:.95rem}
+.pay-table{width:100%;border-collapse:collapse;font-size:.86rem}
+.pay-table td{padding:.35rem 0;vertical-align:top}
+.pay-table td:first-child{color:var(--steel);width:44%}
+.pay-table b{font-family:ui-monospace,Consolas,monospace;font-size:.95rem;color:var(--charcoal)}
+.copy-mini{background:none;border:1px solid var(--silver);border-radius:5px;cursor:pointer;padding:0 .35rem;color:var(--steel);font-size:.8rem;transition:all .2s}
+.copy-mini:hover{border-color:var(--accent);color:var(--accent)}
+.pay-qr{width:100%;max-width:190px;margin:.9rem auto 0;display:block;border-radius:8px;border:1px solid var(--silver)}
+.fld{display:flex;flex-direction:column;gap:.32rem;margin-bottom:.8rem}
+.fld label{font-size:.84rem;color:var(--steel);font-weight:600}
+.fld input{padding:.7rem .9rem;border:1px solid var(--silver);border-radius:8px;font-family:var(--ff-body);font-size:.95rem}
+.fld input:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
+.order-thanks{background:var(--accent-soft);border:1px solid var(--accent);border-radius:12px;padding:1.4rem;text-align:center}
+.order-thanks h3{color:var(--accent);margin-bottom:.5rem}
+.order-thumb{height:130px;border-radius:10px;background:var(--charcoal-2) center/cover;border:1px solid var(--silver)}
+.order-total{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding-top:1rem;border-top:2px solid var(--charcoal)}
+.order-total span{font-family:var(--ff-head);font-size:.88rem;color:var(--steel);text-transform:uppercase;letter-spacing:.06em}
+.order-total b{font-family:var(--ff-head);font-size:1.5rem;color:var(--accent)}
+
 /* ===== Insights: article cards ===== */
 .acard{background:#fff;border:1px solid var(--silver);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
 .acard:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,.1)}

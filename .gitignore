@@ -1,0 +1,15 @@
+# ============================================================
+# NEVER publish these — they contain license secrets & customer data
+# ============================================================
+_LicenseSystem/
+*.secret
+customers.csv
+
+# Source article/drawing working folders (previews already in Resource/)
+Article/*/*.md
+
+# OS / editor junk
+Thumbs.db
+desktop.ini
+.DS_Store
+*.tmp

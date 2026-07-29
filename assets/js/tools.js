@@ -9,6 +9,14 @@ function tt(obj){ return (obj && (obj[window.RS.lang] ?? obj.vi)) || ""; }
 function bi(obj){ return `data-vi="${(obj.vi||'').replace(/"/g,'&quot;')}" data-en="${(obj.en||'').replace(/"/g,'&quot;')}"`; }
 function esc(s){ return String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 function isReady(t){ return t.download && /^https?:/.test(t.download); }
+function isPaid(t){ return Number(t.priceVnd || 0) > 0; }
+function fmtVnd(n){ return Number(n).toLocaleString('vi-VN') + ' ₫'; }
+
+// Price label shown on cards and in the buy box.
+function priceLabel(t){
+  if(isPaid(t)) return fmtVnd(t.priceVnd);
+  return window.RS.lang === 'vi' ? 'Miễn phí' : 'Free';
+}
 
 /* ---------------- CATALOG (tools.html) ---------------- */
 function renderCatalog(){
@@ -44,9 +52,11 @@ function renderCatalog(){
             <span><b>Windows</b><span data-vi="Chạy ngay" data-en="Runs on">Runs on</span></span>
           </div>
           <div class="foot">
-            ${ isReady(t)
-                ? `<span class="badge-free" data-vi="Miễn phí dùng thử" data-en="Free trial">Free trial</span>`
-                : `<span class="badge-soon" data-vi="Sắp ra mắt" data-en="Coming soon">Coming soon</span>` }
+            ${ isPaid(t)
+                ? `<span class="badge-price">${fmtVnd(t.priceVnd)}</span>`
+                : ( isReady(t)
+                    ? `<span class="badge-free" data-vi="Miễn phí" data-en="Free">Free</span>`
+                    : `<span class="badge-soon" data-vi="Sắp ra mắt" data-en="Coming soon">Coming soon</span>` ) }
             <a class="btn btn-ghost" href="tool.html?id=${t.id}" style="padding:.5rem 1rem" data-vi="Chi tiết" data-en="Details">Details</a>
           </div>
         </div>
@@ -114,21 +124,29 @@ function renderDetail(){
 
       <aside>
         <div class="buybox">
-          <div class="price" ${bi(t.price)}>${esc(t.price.en)}</div>
+          <div class="price">${ isPaid(t)
+              ? `${fmtVnd(t.priceVnd)} <small data-vi="· bản quyền vĩnh viễn" data-en="· perpetual licence">· perpetual licence</small>`
+              : `<span data-vi="Miễn phí" data-en="Free">Free</span>` }</div>
           <table class="spec">
             <tr><td data-vi="Phiên bản" data-en="Version">Version</td><td>${esc(t.version)}</td></tr>
             <tr><td data-vi="Dung lượng" data-en="Size">Size</td><td>${esc(t.size)}</td></tr>
             <tr><td data-vi="Cập nhật" data-en="Updated">Updated</td><td>${esc(t.updated)}</td></tr>
             <tr><td data-vi="Hệ điều hành" data-en="OS">OS</td><td>${esc(t.os)}</td></tr>
           </table>
-          ${ ready
-            ? `<button class="btn btn-primary btn-block" style="margin-top:1.2rem" onclick='rsOpenGate("${t.id}")' data-vi="Tải dùng thử" data-en="Download trial">Download trial</button>`
-            : `<button class="btn btn-primary btn-block" style="margin-top:1.2rem;opacity:.55;cursor:not-allowed" disabled data-vi="Sắp ra mắt" data-en="Coming soon">Coming soon</button>` }
+
+          ${ isPaid(t)
+            ? `<a class="btn btn-primary btn-block" style="margin-top:1.2rem" href="purchase.html?id=${t.id}" data-vi="Mua bản quyền" data-en="Buy licence">Buy licence</a>`
+            : ( ready
+                ? `<button class="btn btn-primary btn-block" style="margin-top:1.2rem" onclick='rsOpenGate("${t.id}")' data-vi="Tải miễn phí" data-en="Download free">Download free</button>`
+                : `<button class="btn btn-primary btn-block" style="margin-top:1.2rem;opacity:.55;cursor:not-allowed" disabled data-vi="Sắp ra mắt" data-en="Coming soon">Coming soon</button>` ) }
+
           <div class="trust">
             <span class="chip" data-vi="Chạy ngay, không cần cài đặt" data-en="Runs instantly, no install">Runs instantly, no install</span>
-            ${ t.virustotal ? `<a class="chip" href="${esc(t.virustotal)}" target="_blank" rel="noopener">VirusTotal ↗</a>` : `<span class="chip" data-vi="An toàn, đã kiểm tra" data-en="Safe, scanned">Safe, scanned</span>` }
+            ${ isPaid(t)
+              ? `<span class="chip" data-vi="Kích hoạt offline, không giới hạn máy" data-en="Offline activation, any PC">Offline activation, any PC</span>`
+              : ( t.virustotal ? `<a class="chip" href="${esc(t.virustotal)}" target="_blank" rel="noopener">VirusTotal ↗</a>` : `<span class="chip" data-vi="An toàn, đã kiểm tra" data-en="Safe, scanned">Safe, scanned</span>` ) }
           </div>
-          ${ t.checksum ? `<p style="margin-top:.9rem;font-size:.75rem;color:var(--steel)"><b>SHA-256</b></p><div class="checksum">${esc(t.checksum)}</div>` : `` }
+          ${ t.checksum && !isPaid(t) ? `<p style="margin-top:.9rem;font-size:.75rem;color:var(--steel)"><b>SHA-256</b></p><div class="checksum">${esc(t.checksum)}</div>` : `` }
         </div>
       </aside>
     </div>
