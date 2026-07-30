@@ -247,6 +247,27 @@ footer a:hover{color:var(--accent)}
 [data-stagger] .reveal{transition-delay:calc(var(--i,0)*80ms)}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{scroll-behavior:auto}}
 
+/* ===== Tool cover fallback (tools without screenshots) ===== */
+.thumb-blank{background:
+  radial-gradient(120% 100% at 15% 0%,rgba(217,123,52,.28),transparent 60%),
+  linear-gradient(140deg,var(--charcoal-2),var(--charcoal));
+  display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.thumb-blank::after{content:"";position:absolute;inset:0;opacity:.18;
+  background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);
+  background-size:26px 26px}
+.thumb-initials{position:relative;z-index:1;font-family:var(--ff-head);font-weight:700;font-size:2.4rem;
+  letter-spacing:.06em;color:rgba(255,255,255,.92);text-shadow:0 2px 12px rgba(0,0,0,.35)}
+.host-tag{position:absolute;top:.8rem;right:.8rem;background:rgba(255,255,255,.14);backdrop-filter:blur(4px);
+  color:#fff;font-size:.66rem;font-family:var(--ff-head);letter-spacing:.06em;padding:.28rem .6rem;border-radius:999px;
+  border:1px solid rgba(255,255,255,.22)}
+.tcard-soon .thumb{filter:grayscale(.45)}
+.tcard-soon{opacity:.92}
+.shot-none{border:1px dashed var(--silver);border-radius:14px;aspect-ratio:16/10;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:.9rem;background:
+  radial-gradient(120% 100% at 15% 0%,rgba(217,123,52,.10),transparent 60%),var(--paper)}
+.shot-none-initials{font-family:var(--ff-head);font-weight:700;font-size:3rem;color:var(--silver);letter-spacing:.06em}
+.shot-none p{color:var(--steel);font-size:.9rem}
+
 /* ===== Purchase page ===== */
 .badge-price{background:var(--charcoal);color:#fff;font-size:.78rem;font-weight:700;padding:.32rem .75rem;border-radius:999px;font-family:var(--ff-head);letter-spacing:.02em}
 .buy-grid{display:grid;gap:2.2rem;align-items:start}
