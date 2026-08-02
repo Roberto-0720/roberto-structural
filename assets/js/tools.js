@@ -20,6 +20,18 @@ function initialsOf(t){
   return (t.name.en || '').replace(/[^A-Za-z ]/g, '')
     .split(/\s+/).filter(Boolean).slice(0, 3).map(w => w[0].toUpperCase()).join('');
 }
+/* Catalog order: published first (free → cheapest → dearest), then the
+   in-development items (also cheapest → dearest). Alphabetical as tie-break. */
+function sortTools(list){
+  return list.slice().sort((a, b) => {
+    const sa = isPublished(a) ? 0 : 1, sb = isPublished(b) ? 0 : 1;
+    if (sa !== sb) return sa - sb;
+    const pa = Number(a.priceVnd || 0), pb = Number(b.priceVnd || 0);
+    if (pa !== pb) return pa - pb;
+    return (a.name.en || '').localeCompare(b.name.en || '');
+  });
+}
+
 function coverHtml(t, href){
   const inner = `<span class="cat" ${bi(t.category)}>${esc(t.category.en)}</span>` +
                 (t.host ? `<span class="host-tag">${esc(t.host)}</span>` : '');
@@ -50,7 +62,8 @@ function renderCatalog(){
     cats.map(c=>`<button class="filter-btn" data-cat="${esc(c.en)}" ${bi(c)}>${esc(c.en)}</button>`).join('');
 
   function draw(cat){
-    const list = cat==='all' ? window.TOOLS : window.TOOLS.filter(t=>t.category.en===cat);
+    const base = cat==='all' ? window.TOOLS : window.TOOLS.filter(t=>t.category.en===cat);
+    const list = sortTools(base);
     if(list.length===0){
       grid.innerHTML = `<p class="lead reveal" data-vi="Nhóm này sắp có sản phẩm — vui lòng quay lại sau." data-en="Products for this group are coming soon — please check back.">Coming soon.</p>`;
     } else {
@@ -107,6 +120,9 @@ function renderDetail(){
 
   document.title = t.name.en + " — Roberto Structural";
   const shots = (t.screenshots && t.screenshots.length) ? t.screenshots : (t.thumb ? [t.thumb] : []);
+  // Remember the gallery so the lightbox can open at the right image.
+  window.RS_SHOTS = shots;
+  window.RS_SHOT_INDEX = 0;
 
   root.innerHTML = `
   <section class="page-hero"><div class="container">
@@ -121,9 +137,10 @@ function renderDetail(){
       <div>
         ${ shots.length ? `
         <div class="gallery">
-          <img class="main-img" id="mainImg" src="${esc(shots[0])}" alt="${esc(t.name.en)}"/>
+          <img class="main-img" id="mainImg" src="${esc(shots[0])}" alt="${esc(t.name.en)}" onclick="rsOpenShot()" title="Bấm để phóng to | Click to zoom"/>
+          <span class="gallery-zoom">⤢</span>
           ${ shots.length > 1 ? `<div class="thumbs">
-            ${shots.map((s,i)=>`<img src="${esc(s)}" class="${i===0?'active':''}" onclick="rsSwapShot(this,'${esc(s)}')" alt="screenshot ${i+1}"/>`).join('')}
+            ${shots.map((s,i)=>`<img src="${esc(s)}" class="${i===0?'active':''}" onclick="rsSwapShot(this,${i})" alt="screenshot ${i+1}"/>`).join('')}
           </div>` : '' }
         </div>` : `
         <div class="shot-none">
@@ -179,10 +196,20 @@ function renderDetail(){
 }
 
 // Gallery thumbnail swap
-window.rsSwapShot = function(el, src){
-  const main = document.getElementById('mainImg'); if(main) main.src = src;
+window.rsSwapShot = function(el, index){
+  const shots = window.RS_SHOTS || [];
+  window.RS_SHOT_INDEX = Number(index) || 0;
+  const main = document.getElementById('mainImg');
+  if(main && shots[window.RS_SHOT_INDEX]) main.src = shots[window.RS_SHOT_INDEX];
   document.querySelectorAll('.thumbs img').forEach(i=>i.classList.remove('active'));
   el.classList.add('active');
+};
+
+// Open the shared zoomable lightbox at the image currently shown
+window.rsOpenShot = function(){
+  if(window.RSLightbox && (window.RS_SHOTS||[]).length){
+    window.RSLightbox.open(window.RS_SHOTS, window.RS_SHOT_INDEX || 0);
+  }
 };
 
 // Thin wrapper: open the shared email-gate for a tool id

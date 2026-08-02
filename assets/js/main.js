@@ -12,7 +12,7 @@
 const HEADER_HTML = `
 <div class="container nav">
   <a class="brand" href="index.html">
-    <img src="Logo/Roberto_1.png" alt="Roberto Structural logo" />
+    <img src="Logo/Roberto_1.webp" alt="Roberto Structural logo" />
     <b>Roberto<br>Structural</b>
   </a>
   <nav class="nav-links">

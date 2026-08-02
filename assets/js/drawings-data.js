@@ -37,12 +37,12 @@ window.DRAWINGS = [
     ],
     format: "DWG · PDF",
     count: { vi: "5×14,5m · 4 tầng", en: "5×14.5m · 4 floors" },
-    thumb: "Resource/drawings/townhouse-01/3d.png",
+    thumb: "Resource/drawings/townhouse-01/3d.webp",
     screenshots: [
-      "Resource/drawings/townhouse-01/3d.png",
-      "Resource/drawings/townhouse-01/elevation.png",
-      "Resource/drawings/townhouse-01/elevation-2.png",
-      "Resource/drawings/townhouse-01/plan.png"
+      "Resource/drawings/townhouse-01/3d.webp",
+      "Resource/drawings/townhouse-01/elevation.webp",
+      "Resource/drawings/townhouse-01/elevation-2.webp",
+      "Resource/drawings/townhouse-01/plan.webp"
     ],
     download: "https://github.com/Roberto-0720/20260723_Townhouse_01_5x14.5x4/releases/download/townhouse-01/Townhouse_01_5x14.5x4.zip"
   },
@@ -62,11 +62,11 @@ window.DRAWINGS = [
     ],
     format: "DWG · PDF",
     count: { vi: "12×20m · 2,5 tầng", en: "12×20m · 2.5 floors" },
-    thumb: "Resource/drawings/villa-01/elevation.png",
+    thumb: "Resource/drawings/villa-01/elevation.webp",
     screenshots: [
-      "Resource/drawings/villa-01/elevation.png",
-      "Resource/drawings/villa-01/plan.png",
-      "Resource/drawings/villa-01/plan-2.png"
+      "Resource/drawings/villa-01/elevation.webp",
+      "Resource/drawings/villa-01/plan.webp",
+      "Resource/drawings/villa-01/plan-2.webp"
     ],
     download: "https://github.com/Roberto-0720/20260723_Villa_01_12x20x2.5/releases/download/villa_01/Villa_01_12x20x2.5.zip"
   }

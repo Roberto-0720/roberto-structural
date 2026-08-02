@@ -69,50 +69,13 @@ window.rsOpenDrawing = function(id){
   if(d) window.rsGate(d);
 };
 
-/* ---------------- Lightbox gallery ---------------- */
-let RS_lbShots = [], RS_lbIndex = 0;
-
-function rsBuildLightbox(){
-  if(document.getElementById('lightbox')) return;
-  const el = document.createElement('div');
-  el.id = 'lightbox'; el.className = 'lb';
-  el.innerHTML = `
-    <button class="lb-close" onclick="rsCloseLb()" aria-label="Close">×</button>
-    <button class="lb-nav lb-prev" onclick="rsLbStep(-1)" aria-label="Previous">‹</button>
-    <img id="lbImg" class="lb-img" alt="drawing" />
-    <button class="lb-nav lb-next" onclick="rsLbStep(1)" aria-label="Next">›</button>
-    <div class="lb-counter" id="lbCounter"></div>`;
-  document.body.appendChild(el);
-  el.addEventListener('click', e=>{ if(e.target===el) rsCloseLb(); });
-}
-function rsLbUpdate(){
-  const img = document.getElementById('lbImg');
-  const ctr = document.getElementById('lbCounter');
-  if(img) img.src = RS_lbShots[RS_lbIndex] || '';
-  if(ctr) ctr.textContent = (RS_lbIndex+1) + ' / ' + RS_lbShots.length;
-}
+/* ---------------- Gallery (shared zoomable lightbox) ---------------- */
 window.rsOpenLightbox = function(id){
   const d = (window.DRAWINGS||[]).find(x=>x.id===id);
-  if(!d) return;
-  RS_lbShots = d.screenshots && d.screenshots.length ? d.screenshots : [d.thumb];
-  RS_lbIndex = 0;
-  rsBuildLightbox();
-  rsLbUpdate();
-  document.getElementById('lightbox').classList.add('open');
+  if(!d || !window.RSLightbox) return;
+  const shots = (d.screenshots && d.screenshots.length) ? d.screenshots : [d.thumb].filter(Boolean);
+  const name = (d.name && (d.name[window.RS.lang] || d.name.vi)) || '';
+  window.RSLightbox.open(shots, 0, shots.map(()=>name));
 };
-window.rsLbStep = function(delta){
-  if(!RS_lbShots.length) return;
-  RS_lbIndex = (RS_lbIndex + delta + RS_lbShots.length) % RS_lbShots.length;
-  rsLbUpdate();
-};
-window.rsCloseLb = function(){ const l=document.getElementById('lightbox'); if(l) l.classList.remove('open'); };
-
-document.addEventListener('keydown', e=>{
-  const lb = document.getElementById('lightbox');
-  if(!lb || !lb.classList.contains('open')) return;
-  if(e.key==='Escape') rsCloseLb();
-  else if(e.key==='ArrowLeft') rsLbStep(-1);
-  else if(e.key==='ArrowRight') rsLbStep(1);
-});
 
 document.addEventListener('DOMContentLoaded', renderDrawings);

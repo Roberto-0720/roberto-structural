@@ -75,8 +75,8 @@ window.TOOLS = [
     },
     version: "1.0", size: "~34 MB", updated: "2026-08", os: WIN, host: "SAP2000",
     priceVnd: 350000, productCode: "RCSAP", status: "ready",
-    thumb: PIC + "web_description_01/01.png",
-    screenshots: [PIC+"web_description_01/01.png", PIC+"web_description_01/02.png", PIC+"web_description_01/03.png", PIC+"web_description_01/04.png"],
+    thumb: PIC + "web_description_01/01.webp",
+    screenshots: [PIC+"web_description_01/01.webp", PIC+"web_description_01/02.webp", PIC+"web_description_01/03.webp", PIC+"web_description_01/04.webp"],
     features: [
       { vi: "Kết nối trực tiếp SAP2000 (COM API, v17 → v26+) — không cần xuất file .txt, không cần thiết lập đơn vị thủ công", en: "Live SAP2000 connection (COM API, v17 → v26+) — no .txt export, no manual unit setup" },
       { vi: "Kết quả thép: <b>số thanh × đường kính</b> (thép dọc) và <b>số nhánh × đường kính @ khoảng cách</b> (đai)", en: "Rebar output: <b>number of bars × diameter</b> (longitudinal) and <b>legs × diameter @ spacing</b> (stirrups)" },
@@ -103,8 +103,8 @@ window.TOOLS = [
     },
     version: "2.5", size: "~23 MB", updated: "2026-08", os: WIN, host: "SAP2000",
     priceVnd: 350000, productCode: "DEFLECT", status: "ready",
-    thumb: PIC + "web_description_03/01.png",
-    screenshots: [PIC+"web_description_03/01.png", PIC+"web_description_03/02.png"],
+    thumb: PIC + "web_description_03/01.webp",
+    screenshots: [PIC+"web_description_03/01.webp", PIC+"web_description_03/02.webp"],
     features: [
       { vi: "<b>Kiểm tra tương đối</b> L/δ theo phương pháp chord rotation 3D — tách chuyển vị thực khỏi chuyển động cứng của hai đầu dầm", en: "<b>Relative check</b> L/δ by the 3D chord-rotation method — separates true deformation from rigid-body motion of the two ends" },
       { vi: "<b>Kiểm tra tuyệt đối</b> theo U3 (mm) khi cần giới hạn võng theo trị số", en: "<b>Absolute check</b> on U3 (mm) when a fixed deflection limit is required" },
@@ -129,8 +129,8 @@ window.TOOLS = [
     },
     version: "1.0", size: "—", updated: "2026-08", os: WIN, host: "AutoCAD 2023",
     priceVnd: 350000, productCode: "STEELCAD", status: "ready",
-    thumb: PIC + "web_description_07/01.png",
-    screenshots: [PIC+"web_description_07/01.png", PIC+"web_description_07/02.png", PIC+"web_description_07/03.png", PIC+"web_description_07/04.png"],
+    thumb: PIC + "web_description_07/01.webp",
+    screenshots: [PIC+"web_description_07/01.webp", PIC+"web_description_07/02.webp", PIC+"web_description_07/03.webp", PIC+"web_description_07/04.webp"],
     features: [
       { vi: "<b>Cấu kiện thép tham số</b>: 7 grip kéo trực tiếp, đổi tiết diện/nhãn/cắt vát mà không vẽ lại", en: "<b>Parametric steel members</b>: 7 draggable grips; change section, label or cuts without redrawing" },
       { vi: "<b>4 kiểu hình chiếu</b> chuyển đổi tức thì: Mặt bằng, Mặt đứng, Mặt đứng nhìn sau (cánh nét khuất), Mặt cắt", en: "<b>4 view types</b> switched instantly: Plan, Elevation, Elevation-back (hidden flanges), Section" },
@@ -155,8 +155,8 @@ window.TOOLS = [
     },
     version: "1.2", size: "~45 MB", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 250000, productCode: "MONORAIL", status: "ready",
-    thumb: PIC + "web_description_08/01.png",
-    screenshots: [PIC+"web_description_08/01.png", PIC+"web_description_08/02.png", PIC+"web_description_08/03.png", PIC+"web_description_08/04.png"],
+    thumb: PIC + "web_description_08/01.webp",
+    screenshots: [PIC+"web_description_08/01.webp", PIC+"web_description_08/02.webp", PIC+"web_description_08/03.webp", PIC+"web_description_08/04.webp"],
     features: [
       { vi: "<b>Thư viện tiết diện đa dạng</b>: W, H (tổ hợp), I, UB/UC, HE/IPE — chọn theo 2 cấp", en: "<b>Multi-section support</b>: W, H (built-up), I, UB/UC, HE/IPE — two-level selection" },
       { vi: "Kiểm tra uốn trục X (AISC Chương F), uốn trục Y kèm <b>ứng suất vênh do xoắn</b>, và tỉ số ứng suất tổ hợp ≤ 1.0", en: "X-axis bending (AISC Chapter F), Y-axis bending including <b>warping stress</b>, and combined stress ratio ≤ 1.0" },
@@ -182,8 +182,8 @@ window.TOOLS = [
     },
     version: "2.0", size: "—", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 250000, productCode: "CRANEGIRDER", status: "ready",
-    thumb: PIC + "web_description_06/01.png",
-    screenshots: [PIC+"web_description_06/01.png", PIC+"web_description_06/03.png"],
+    thumb: PIC + "web_description_06/01.webp",
+    screenshots: [PIC+"web_description_06/01.webp", PIC+"web_description_06/03.webp"],
     features: [
       { vi: "Tổ hợp tải trọng cầu trục: tải đứng có hệ số xung, lực hãm ngang và lực dọc ray", en: "Crane load combinations: vertical loads with impact, lateral surge and longitudinal tractive forces" },
       { vi: "Kiểm tra uốn hai phương kèm ảnh hưởng xoắn của dầm ray", en: "Biaxial bending checks including runway-girder torsion effects" },
@@ -205,8 +205,8 @@ window.TOOLS = [
     },
     version: "1.2", size: "—", updated: "2026-08", os: WIN, host: "SAP2000",
     priceVnd: 250000, productCode: "PILECAP", status: "ready",
-    thumb: PIC + "web_description_04/01.png",
-    screenshots: [PIC+"web_description_04/01.png", PIC+"web_description_04/02.png", PIC+"web_description_04/03.png", PIC+"web_description_04/04.png", PIC+"web_description_04/05.png"],
+    thumb: PIC + "web_description_04/01.webp",
+    screenshots: [PIC+"web_description_04/01.webp", PIC+"web_description_04/02.webp", PIC+"web_description_04/03.webp", PIC+"web_description_04/04.webp", PIC+"web_description_04/05.webp"],
     features: [
       { vi: "<b>Nhập dữ liệu tự động</b>: chọn node cọc trong SAP2000 → tool tự trích tọa độ, phản lực, chuyển vị", en: "<b>Automatic data input</b>: select pile nodes in SAP2000 → the tool extracts coordinates, reactions and displacements" },
       { vi: "<b>Tự phân loại Load Type</b> (Thường xuyên / Gió / Động đất) từ Load Pattern khai báo trong SAP2000", en: "<b>Automatic load-type classification</b> (Long-term / Wind / Seismic) from the load patterns declared in SAP2000" },
@@ -230,8 +230,8 @@ window.TOOLS = [
     },
     version: "2.1", size: "—", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 250000, productCode: "WINDTANK", status: "ready",
-    thumb: PIC + "web_description_09/01.png",
-    screenshots: [PIC+"web_description_09/01.png", PIC+"web_description_09/02.png"],
+    thumb: PIC + "web_description_09/01.webp",
+    screenshots: [PIC+"web_description_09/01.webp", PIC+"web_description_09/02.webp"],
     features: [
       { vi: "Theo <b>ASCE 7-22 Chương 29</b> cho kết cấu dạng trụ đặt trên nền", en: "Per <b>ASCE 7-22 Chapter 29</b> for ground-supported cylindrical structures" },
       { vi: "Hỗ trợ mặt cắt <b>Tròn, Lục giác, Bát giác và Vuông</b>", en: "Supports <b>round, hexagonal, octagonal and square</b> shapes" },
@@ -255,8 +255,8 @@ window.TOOLS = [
     },
     version: "1.0", size: "—", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 250000, productCode: "EMBPLATE", status: "ready",
-    thumb: PIC + "web_description_11/01.png",
-    screenshots: [PIC+"web_description_11/01.png", PIC+"web_description_11/02.png", PIC+"web_description_11/03.jpg", PIC+"web_description_11/04.png"],
+    thumb: PIC + "web_description_11/01.webp",
+    screenshots: [PIC+"web_description_11/01.webp", PIC+"web_description_11/02.webp", PIC+"web_description_11/03.webp", PIC+"web_description_11/04.webp"],
     features: [
       { vi: "Bố trí chốt neo (stud) theo lưới tuỳ chọn, kiểm tra khoảng cách và khoảng cách mép", en: "Configurable stud layout with spacing and edge-distance checks" },
       { vi: "Kiểm tra chốt neo chịu <b>kéo, cắt và tổ hợp kéo–cắt</b>", en: "Stud checks in <b>tension, shear and tension–shear interaction</b>" },
@@ -279,8 +279,8 @@ window.TOOLS = [
     },
     version: "1.0", size: "—", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 250000, productCode: "RCCORBEL", status: "ready",
-    thumb: PIC + "web_description_12/01.png",
-    screenshots: [PIC+"web_description_12/01.png", PIC+"web_description_12/02.png"],
+    thumb: PIC + "web_description_12/01.webp",
+    screenshots: [PIC+"web_description_12/01.webp", PIC+"web_description_12/02.webp"],
     features: [
       { vi: "Thiết kế theo <b>mô hình giàn ảo (strut-and-tie)</b> cho vai cột chịu tải đứng và ngang", en: "Design by the <b>strut-and-tie model</b> for corbels under vertical and horizontal load" },
       { vi: "Tính cốt thép chính chịu kéo và <b>cốt đai ngang</b> phân bố theo chiều cao vai", en: "Primary tension reinforcement and <b>horizontal stirrups</b> distributed over the corbel depth" },
@@ -303,8 +303,8 @@ window.TOOLS = [
     },
     version: "2.3", size: "~23 MB", updated: "2026-08", os: WIN, host: "SAP2000 v26",
     priceVnd: 125000, productCode: "SIDESWAY", status: "ready",
-    thumb: PIC + "web_description_02/01.png",
-    screenshots: [PIC+"web_description_02/01.png", PIC+"web_description_02/02.png"],
+    thumb: PIC + "web_description_02/01.webp",
+    screenshots: [PIC+"web_description_02/01.webp", PIC+"web_description_02/02.webp"],
     features: [
       { vi: "<b>Tự gom nút theo trục cột</b> (cùng X, Y) rồi kiểm tra từng cặp nút dưới–trên: Δ = |U_trên − U_dưới| so với H/200 (đặt được)", en: "<b>Groups joints by column line</b> (same X, Y) then checks each lower–upper pair: Δ = |U_top − U_bot| against H/200 (configurable)" },
       { vi: "<b>Đọc tên trục lưới thật</b> từ SAP2000 (ví dụ A-1, C-2) thay vì chỉ hiện toạ độ", en: "<b>Reads real grid names</b> from SAP2000 (e.g. A-1, C-2) instead of showing bare coordinates" },
@@ -327,13 +327,13 @@ window.TOOLS = [
     },
     version: "1.1", size: "63 MB", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 0, productCode: "GRDS", status: "ready",
-    thumb: "Resource/tools/grds/01.png",
+    thumb: "Resource/tools/grds/01.webp",
     screenshots: [
-      "Resource/tools/grds/01.png",
-      "Resource/tools/grds/04.png",
-      "Resource/tools/grds/05.png",
-      "Resource/tools/grds/03.png",
-      "Resource/tools/grds/02.png"
+      "Resource/tools/grds/01.webp",
+      "Resource/tools/grds/04.webp",
+      "Resource/tools/grds/05.webp",
+      "Resource/tools/grds/03.webp",
+      "Resource/tools/grds/02.webp"
     ],
     features: [
       { vi: "3 trường hợp tải: tải tập trung/bánh xe, tải tường liên tục, tải phân bố đều", en: "3 load cases: concentrated/wheel, continuous wall, uniform load" },
@@ -360,8 +360,8 @@ window.TOOLS = [
     },
     version: "2.1", size: "—", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 0, productCode: "SEISTANK", status: "ready",
-    thumb: PIC + "web_description_10/01.png",
-    screenshots: [PIC+"web_description_10/01.png", PIC+"web_description_10/02.png"],
+    thumb: PIC + "web_description_10/01.webp",
+    screenshots: [PIC+"web_description_10/01.webp", PIC+"web_description_10/02.webp"],
     features: [
       { vi: "Theo <b>ASCE 7-22 Chương 15 §15.7.6</b> (kết cấu không phải nhà) và <b>API 650 Phụ lục E</b>", en: "Per <b>ASCE 7-22 Chapter 15 §15.7.6</b> (nonbuilding structures) and <b>API 650 Appendix E</b>" },
       { vi: "Tự tra hệ số nền Fa, Fv và tính phổ SMS, SM1, SDS, SD1 từ Ss, S1 và Site Class", en: "Site coefficients Fa, Fv and spectral values SMS, SM1, SDS, SD1 from Ss, S1 and site class" },
@@ -389,8 +389,8 @@ window.TOOLS = [
     },
     version: "2.2", size: "—", updated: "—", os: WIN, host: "SAP2000",
     priceVnd: 350000, productCode: "BASEPLATE", status: "soon",
-    thumb: PIC + "web_description_13/01.png",
-    screenshots: [PIC+"web_description_13/01.png", PIC+"web_description_13/02.png", PIC+"web_description_13/03.png"],
+    thumb: PIC + "web_description_13/01.webp",
+    screenshots: [PIC+"web_description_13/01.webp", PIC+"web_description_13/02.webp", PIC+"web_description_13/03.webp"],
     features: [], requirements: REQ_SAP, download: "", checksum: "", virustotal: ""
   },
   {

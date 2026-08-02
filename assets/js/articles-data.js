@@ -44,7 +44,7 @@ window.ARTICLES = [
       vi: "Sàn deck trông đơn giản, nhưng phần lớn sai sót không nằm ở chiều dày hay cấp bê tông — mà ở giả định mô hình và đường truyền lực.",
       en: "Deck slabs look simple, but most errors do not lie in thickness or concrete grade — they lie in modelling assumptions and in the load path."
     },
-    cover: "Resource/articles/01-deck-slab/fig1.png",
+    cover: "Resource/articles/01-deck-slab/fig1.webp",
     sections: [
       {
         heading: { vi: "1. Sàn Deck là gì?", en: "1. What is a deck slab?" },
@@ -74,11 +74,11 @@ window.ARTICLES = [
         ],
         figures: [
           {
-            src: "Resource/articles/01-deck-slab/fig1.png",
+            src: "Resource/articles/01-deck-slab/fig1.webp",
             caption: { vi: "Cấu tạo sàn deck: tôn định hình, chốt chịu cắt, lưới thép và dầm thép đỡ.", en: "Deck slab anatomy: profiled sheeting, shear studs, wire mesh and supporting steel beam." }
           },
           {
-            src: "Resource/articles/01-deck-slab/fig3.png",
+            src: "Resource/articles/01-deck-slab/fig3.webp",
             caption: { vi: "Hai cơ chế truyền lực cắt: chốt chịu cắt đầu mũ (trái) và khóa cơ học của gân dập trên tôn (phải).", en: "The two shear-transfer mechanisms: headed shear stud (left) and mechanical embossment interlock (right)." }
           }
         ]
@@ -135,7 +135,7 @@ window.ARTICLES = [
         ],
         figures: [
           {
-            src: "Resource/articles/01-deck-slab/fig2.png",
+            src: "Resource/articles/01-deck-slab/fig2.webp",
             caption: { vi: "Mô hình phần tử hữu hạn sàn deck liên hợp — tôn, bê tông và chốt chịu cắt khai báo riêng.", en: "Finite-element model of composite deck — sheeting, concrete and shear studs defined separately." }
           }
         ]
@@ -249,7 +249,7 @@ window.ARTICLES = [
         ],
         figures: [
           {
-            src: "Resource/articles/01-deck-slab/fig4.png",
+            src: "Resource/articles/01-deck-slab/fig4.webp",
             caption: { vi: "Giai đoạn thi công: giằng ngang tạm, hệ chống đỡ và mép đổ bê tông.", en: "Construction stage: temporary transverse bracing, propping system and concrete pouring edge." }
           }
         ]
@@ -264,7 +264,7 @@ window.ARTICLES = [
         ],
         figures: [
           {
-            src: "Resource/articles/01-deck-slab/fig5.png",
+            src: "Resource/articles/01-deck-slab/fig5.webp",
             caption: { vi: "Hiện trường: sàn deck đã lắp lưới thép, chờ đổ bê tông — giai đoạn chưa có diaphragm.", en: "On site: deck with mesh in place awaiting the pour — the stage where no diaphragm yet exists." }
           }
         ]

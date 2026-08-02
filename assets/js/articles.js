@@ -198,21 +198,19 @@ window.rsShare = function(where){
   return false;
 };
 
-/* Simple image zoom for article figures (reuses the .lb lightbox styles) */
+/* Article figures — open every figure of the article in the shared lightbox,
+   starting at the one that was clicked, so the reader can page through them. */
 window.rsArtZoom = function(src){
-  let el = document.getElementById('artZoom');
-  if(!el){
-    el = document.createElement('div');
-    el.id = 'artZoom'; el.className = 'lb';
-    el.innerHTML = `<button class="lb-close" onclick="rsArtZoomClose()" aria-label="Close">×</button><img id="artZoomImg" class="lb-img" alt="figure"/>`;
-    document.body.appendChild(el);
-    el.addEventListener('click', e=>{ if(e.target===el) rsArtZoomClose(); });
-  }
-  document.getElementById('artZoomImg').src = src;
-  el.classList.add('open');
+  if(!window.RSLightbox) return;
+  const figs = [...document.querySelectorAll('.art-fig img')];
+  const srcs = figs.map(f => f.getAttribute('src'));
+  const caps = figs.map(f => {
+    const c = f.parentElement.querySelector('figcaption');
+    return c ? c.textContent.trim() : '';
+  });
+  const i = Math.max(0, srcs.indexOf(src));
+  window.RSLightbox.open(srcs, i, caps);
 };
-window.rsArtZoomClose = function(){ const e=document.getElementById('artZoom'); if(e) e.classList.remove('open'); };
-document.addEventListener('keydown', e=>{ if(e.key==='Escape') window.rsArtZoomClose(); });
 
 // Keep dates localised when the language is switched
 document.addEventListener('click', e=>{ if(e.target.closest('.lang button')) setTimeout(refreshDates, 0); });
