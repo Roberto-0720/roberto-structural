@@ -35,7 +35,7 @@ function renderArticleIndex(){
     } else {
       grid.innerHTML = list.map((a,i)=>`
       <article class="acard reveal" style="--i:${i}">
-        <a class="acard-thumb" href="article.html?id=${a.id}" style="background-image:url('${aesc(a.cover)}')">
+        <a class="acard-thumb" href="${window.RS_URL.article(a.id)}" style="background-image:url('${aesc(a.cover)}')">
           <span class="acard-no">No. ${aesc(a.no)}</span>
         </a>
         <div class="acard-body">
@@ -46,9 +46,9 @@ function renderArticleIndex(){
             <span class="acard-dot">·</span>
             <span>${a.readmin} min</span>
           </div>
-          <h3><a href="article.html?id=${a.id}" ${abi(a.title)}>${aesc(a.title.en)}</a></h3>
+          <h3><a href="${window.RS_URL.article(a.id)}" ${abi(a.title)}>${aesc(a.title.en)}</a></h3>
           <p class="acard-ex" ${abi(a.excerpt)}>${aesc(a.excerpt.en)}</p>
-          <a class="acard-more" href="article.html?id=${a.id}" data-vi="Đọc bài →" data-en="Read article →">Read article →</a>
+          <a class="acard-more" href="${window.RS_URL.article(a.id)}" data-vi="Đọc bài →" data-en="Read article →">Read article →</a>
         </div>
       </article>`).join('');
     }
@@ -103,7 +103,9 @@ function renderBlock(b){
 function renderArticle(){
   const root = document.getElementById('article-root');
   if(!root) return;
-  const id = new URLSearchParams(location.search).get('id');
+  // Generated pages (article-<id>.html) declare RS_PAGE_ID; the legacy
+  // article.html?id= entry point still works for links shared earlier.
+  const id = window.RS_PAGE_ID || new URLSearchParams(location.search).get('id');
   const a = (window.ARTICLES||[]).find(x=>x.id===id);
 
   if(!a){
@@ -115,6 +117,7 @@ function renderArticle(){
   }
 
   document.title = a.title.en + " — Roberto Structural";
+  window.rsSetCanonical(window.RS_URL.article(a.id));
   const idx = window.ARTICLES.indexOf(a);
   const prev = window.ARTICLES[idx+1];   // older
   const next = window.ARTICLES[idx-1];   // newer
@@ -163,8 +166,8 @@ function renderArticle(){
     </article>
 
     <nav class="art-nav">
-      ${ prev ? `<a class="art-nav-item" href="article.html?id=${prev.id}"><span data-vi="← Bài trước" data-en="← Previous">← Previous</span><b ${abi(prev.title)}>${aesc(prev.title.en)}</b></a>` : `<span></span>` }
-      ${ next ? `<a class="art-nav-item art-nav-next" href="article.html?id=${next.id}"><span data-vi="Bài sau →" data-en="Next →">Next →</span><b ${abi(next.title)}>${aesc(next.title.en)}</b></a>` : `<span></span>` }
+      ${ prev ? `<a class="art-nav-item" href="${window.RS_URL.article(prev.id)}"><span data-vi="← Bài trước" data-en="← Previous">← Previous</span><b ${abi(prev.title)}>${aesc(prev.title.en)}</b></a>` : `<span></span>` }
+      ${ next ? `<a class="art-nav-item art-nav-next" href="${window.RS_URL.article(next.id)}"><span data-vi="Bài sau →" data-en="Next →">Next →</span><b ${abi(next.title)}>${aesc(next.title.en)}</b></a>` : `<span></span>` }
     </nav>
 
     <div style="text-align:center;margin-top:3rem">
@@ -223,7 +226,7 @@ function renderHomeArticles(){
   if(!list.length){ wrap.innerHTML=''; return; }
   wrap.innerHTML = list.map((a,i)=>`
     <article class="acard reveal" style="--i:${i}">
-      <a class="acard-thumb" href="article.html?id=${a.id}" style="background-image:url('${aesc(a.cover)}')">
+      <a class="acard-thumb" href="${window.RS_URL.article(a.id)}" style="background-image:url('${aesc(a.cover)}')">
         <span class="acard-no">No. ${aesc(a.no)}</span>
       </a>
       <div class="acard-body">
@@ -232,9 +235,9 @@ function renderHomeArticles(){
           <span class="acard-dot">·</span>
           <span data-date="${a.date}">${afmtDate(a.date, window.RS.lang)}</span>
         </div>
-        <h3><a href="article.html?id=${a.id}" ${abi(a.title)}>${aesc(a.title.en)}</a></h3>
+        <h3><a href="${window.RS_URL.article(a.id)}" ${abi(a.title)}>${aesc(a.title.en)}</a></h3>
         <p class="acard-ex" ${abi(a.excerpt)}>${aesc(a.excerpt.en)}</p>
-        <a class="acard-more" href="article.html?id=${a.id}" data-vi="Đọc bài →" data-en="Read article →">Read article →</a>
+        <a class="acard-more" href="${window.RS_URL.article(a.id)}" data-vi="Đọc bài →" data-en="Read article →">Read article →</a>
       </div>
     </article>`).join('');
   window.RS.observeReveal();

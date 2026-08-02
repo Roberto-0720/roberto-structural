@@ -305,6 +305,10 @@ footer a:hover{color:var(--accent)}
 .fld input:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
 .order-thanks{background:var(--accent-soft);border:1px solid var(--accent);border-radius:12px;padding:1.4rem;text-align:center}
 .order-thanks h3{color:var(--accent);margin-bottom:.5rem}
+/* Order could not be delivered — must read as a warning, never as success. */
+.order-error{background:#FDF3F0;border:1px solid #C0392B;border-left:4px solid #C0392B;border-radius:12px;padding:1.4rem;margin-top:1rem}
+.order-error h3{color:#C0392B;margin-bottom:.5rem;font-size:1.05rem}
+.order-error p{font-size:.92rem;margin-bottom:1rem}
 .order-thumb{height:130px;border-radius:10px;background:var(--charcoal-2) center/cover;border:1px solid var(--silver)}
 .order-total{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding-top:1rem;border-top:2px solid var(--charcoal)}
 .order-total span{font-family:var(--ff-head);font-size:.88rem;color:var(--steel);text-transform:uppercase;letter-spacing:.06em}

@@ -77,6 +77,27 @@ const FOOTER_HTML = `
   <div class="foot-bottom">© <span id="yr"></span> Roberto Structural · <span data-vi="Đã đăng ký bản quyền" data-en="All rights reserved">Đã đăng ký bản quyền</span></div>
 </div>`;
 
+/* Canonical URL of a detail page — ONE definition for the whole site.
+   Every tool / article has a generated static file (tool-<id>.html) so that link
+   previews and crawlers receive a real <head>; see scripts/build-pages.mjs.
+   The old tool.html?id= / article.html?id= entry points still render normally
+   for links shared before this change — they just declare these as canonical. */
+window.RS_URL = {
+  tool:    id => 'tool-' + id + '.html',
+  article: id => 'article-' + id + '.html'
+};
+
+/* Point crawlers at the generated page even when the visitor arrived through a
+   legacy ?id= URL, so two addresses serving identical content do not split
+   ranking. Generated pages already ship a canonical, where this is a no-op. */
+window.rsSetCanonical = function(relUrl){
+  if(document.querySelector('link[rel="canonical"]')) return;
+  const l = document.createElement('link');
+  l.rel = 'canonical';
+  l.href = new URL(relUrl, location.href).href;
+  document.head.appendChild(l);
+};
+
 const RS = {
   lang: localStorage.getItem('rs-lang') || 'en',   // default language = English
 
@@ -132,6 +153,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
    Call: window.rsGate({ id, name:{vi,en}, download:"https://..." })
    Set RS_FORM_ENDPOINT to a Formspree URL to actually capture emails.
    ============================================================ */
+// Endpoint that collects DOWNLOAD leads (free tools & drawing sets).
+//
+// ⚠️ Keep this a DIFFERENT Formspree form from PAYMENT.orderEndpoint in purchase.js.
+//    This gate is unauthenticated and fires on every download, so it will always be
+//    the first to exhaust a monthly quota. If orders share the form, a burst of free
+//    downloads takes the order channel down with it — and orders are paid money.
+//    Losing a download lead is an annoyance; losing an order is lost revenue.
 window.RS_FORM_ENDPOINT = "https://formspree.io/f/xbdnzejn";
 let RS_gateItem = null;
 
@@ -178,7 +206,7 @@ window.rsSubmitGate = async function(){
     const kind = it && it.screenshots && it.version ? 'Software' : (it ? 'Drawing set' : '');
     const when = new Date().toLocaleString('en-GB', { timeZone:'Asia/Ho_Chi_Minh', hour12:false });
     try{
-      await fetch(window.RS_FORM_ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+      const res = await fetch(window.RS_FORM_ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
         body: JSON.stringify({
           email,
           product: itemName,
@@ -187,7 +215,11 @@ window.rsSubmitGate = async function(){
           downloaded_at: when + ' (GMT+7)',
           page: location.href
         }) });
-    }catch(err){ /* ignore network errors */ }
+      // A spent quota answers 4xx without rejecting, so the status must be read.
+      // Unlike an order, a lost download lead must NOT block the customer — they
+      // still get their file; we only surface the failure in the console.
+      if(!res.ok) console.warn('[RS] Download lead not captured:', res.status, res.statusText);
+    }catch(err){ console.warn('[RS] Download lead not captured:', err); }
   }
   document.getElementById('gateForm').classList.add('hidden');
   document.getElementById('gateThanks').classList.remove('hidden');

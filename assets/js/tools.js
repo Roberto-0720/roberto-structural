@@ -69,9 +69,9 @@ function renderCatalog(){
     } else {
       grid.innerHTML = list.map((t,i)=>`
       <article class="tcard reveal${isPublished(t) ? '' : ' tcard-soon'}" style="--i:${i}">
-        ${coverHtml(t, 'tool.html?id=' + t.id)}
+        ${coverHtml(t, window.RS_URL.tool(t.id))}
         <div class="b">
-          <h3><a href="tool.html?id=${t.id}" ${bi(t.name)}>${esc(t.name.en)}</a></h3>
+          <h3><a href="${window.RS_URL.tool(t.id)}" ${bi(t.name)}>${esc(t.name.en)}</a></h3>
           <p class="desc" ${bi(t.tagline)}>${esc(t.tagline.en)}</p>
           <div class="meta">
             <span><b>v${esc(t.version)}</b><span data-vi="Phiên bản" data-en="Version">Version</span></span>
@@ -83,7 +83,7 @@ function renderCatalog(){
                 : ( isPaid(t)
                     ? `<span class="badge-price">${fmtVnd(t.priceVnd)}</span>`
                     : `<span class="badge-free" data-vi="Miễn phí" data-en="Free">Free</span>` ) }
-            <a class="btn btn-ghost" href="tool.html?id=${t.id}" style="padding:.5rem 1rem" data-vi="Chi tiết" data-en="Details">Details</a>
+            <a class="btn btn-ghost" href="${window.RS_URL.tool(t.id)}" style="padding:.5rem 1rem" data-vi="Chi tiết" data-en="Details">Details</a>
           </div>
         </div>
       </article>`).join('');
@@ -106,7 +106,9 @@ function renderCatalog(){
 function renderDetail(){
   const root = document.getElementById('tool-detail');
   if(!root) return;
-  const id = new URLSearchParams(location.search).get('id');
+  // Generated pages (tool-<id>.html) declare RS_PAGE_ID; the legacy
+  // tool.html?id= entry point still works for links shared earlier.
+  const id = window.RS_PAGE_ID || new URLSearchParams(location.search).get('id');
   const t = (window.TOOLS||[]).find(x=>x.id===id);
 
   if(!t){
@@ -119,6 +121,7 @@ function renderDetail(){
   }
 
   document.title = t.name.en + " — Roberto Structural";
+  rsSetCanonical(window.RS_URL.tool(t.id));
   const shots = (t.screenshots && t.screenshots.length) ? t.screenshots : (t.thumb ? [t.thumb] : []);
   // Remember the gallery so the lightbox can open at the right image.
   window.RS_SHOTS = shots;

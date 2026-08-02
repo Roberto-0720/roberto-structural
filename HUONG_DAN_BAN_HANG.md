@@ -8,8 +8,14 @@ Toàn bộ hệ thống bán hàng gồm 3 phần:
 | **Licence Generator** | `_LicenseSystem/RobertoLicenseGenerator/` | Bạn sinh mã bản quyền, lưu khách hàng |
 | **Module trong tool** | `_LicenseSystem/integration/` | Phần mềm kiểm tra mã, in tên khách lên báo cáo |
 
-> ⚠️ Thư mục `_LicenseSystem/` đã được `.gitignore` chặn — **không bao giờ** đẩy lên GitHub công khai.
-> **Nên di chuyển** thư mục này ra ngoài website (vd `F:\06 Github\_LicenseSystem\`) cho an toàn tuyệt đối.
+> ⚠️ **Vị trí Licence Generator:** đặt **ngang hàng** với repo, không nằm trong:
+> ```
+> 20260623_WebsiteRobertoStructural\
+> ├── WebsiteRobertoStructural\   ← repo Git (website)
+> └── _LicenseSystem\             ← ★ ở đây
+> ```
+> Nằm ngoài gốc repo nên Git không thể commit — an toàn tuyệt đối, không phụ thuộc `.gitignore`.
+> **Không bao giờ** copy thư mục này vào trong `WebsiteRobertoStructural\`.
 
 ---
 

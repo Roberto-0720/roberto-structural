@@ -26,8 +26,14 @@ const PAYMENT = {
     holder: "TRUONG VAN NAM",
     qr: "Resource/payment/momo-qr.png"     // <-- ảnh QR Momo (tuỳ chọn)
   },
-  // Formspree endpoint that receives the order (same account as downloads).
-  orderEndpoint: "https://formspree.io/f/xbdnzejn",
+  // Formspree endpoint that receives the ORDER — form "Orders".
+  //
+  // ⚠️ MUST STAY A DIFFERENT FORM FROM `RS_FORM_ENDPOINT` IN main.js.
+  //    The download e-mail gate is unauthenticated and fires far more often than
+  //    orders do. Sharing one form would let free downloads eat the monthly quota
+  //    that paid orders depend on — and an order that cannot be delivered is lost
+  //    money. Never point these two at the same endpoint again.
+  orderEndpoint: "https://formspree.io/f/xjgnqlqd",
   supportEmail: "robertostructural@gmail.com"
 };
 
@@ -67,7 +73,7 @@ function renderPurchase() {
 
   root.innerHTML = `
   <section class="page-hero"><div class="container">
-    <p class="breadcrumb"><a href="index.html" data-vi="Trang chủ" data-en="Home">Home</a> / <a href="tools.html" data-vi="Phần mềm" data-en="Software">Software</a> / <a href="tool.html?id=${pesc(t.id)}" ${pbi(t.name)}>${pesc(t.name.en)}</a> / <span data-vi="Thanh toán" data-en="Purchase">Purchase</span></p>
+    <p class="breadcrumb"><a href="index.html" data-vi="Trang chủ" data-en="Home">Home</a> / <a href="tools.html" data-vi="Phần mềm" data-en="Software">Software</a> / <a href="${window.RS_URL.tool(t.id)}" ${pbi(t.name)}>${pesc(t.name.en)}</a> / <span data-vi="Thanh toán" data-en="Purchase">Purchase</span></p>
     <p class="eyebrow" data-vi="Mua bản quyền" data-en="Buy licence">Buy licence</p>
     <h1 ${pbi(t.name)}>${pesc(t.name.en)}</h1>
     <p data-vi="Chuyển khoản nội địa, nhận mã bản quyền qua email trong vòng vài giờ làm việc." data-en="Domestic bank transfer — your licence key is e-mailed within a few working hours.">Domestic bank transfer — your licence key is e-mailed within a few working hours.</p>
@@ -136,6 +142,15 @@ function renderPurchase() {
                 <p data-vi="Cảm ơn bạn. Chúng tôi sẽ kiểm tra giao dịch và gửi mã bản quyền qua email trong vòng vài giờ làm việc." data-en="Thank you. We will verify the transfer and e-mail your licence key within a few working hours.">Thank you.</p>
                 <p class="muted small">${pesc(PAYMENT.supportEmail)}</p>
               </div>
+              <!-- Shown ONLY when the order could not be delivered. Never claim success here. -->
+              <div id="orderError" class="hidden order-error" role="alert" aria-live="assertive">
+                <h3 data-vi="⚠ Chưa gửi được đơn hàng" data-en="⚠ We could not submit your order">⚠ We could not submit your order</h3>
+                <p data-vi="Đơn của bạn <b>chưa</b> tới chúng tôi. Nếu bạn đã chuyển khoản, tiền vẫn an toàn — chỉ cần gửi thông tin đơn cho chúng tôi bằng một trong hai cách dưới đây, mã bản quyền sẽ được cấp bình thường." data-en="Your order has <b>not</b> reached us. If you already transferred, your money is safe — just send us the order details one of the two ways below and your licence will be issued as normal.">Your order has not reached us.</p>
+                <a id="oMailto" class="btn btn-primary btn-block" href="#" data-vi="Gửi đơn qua email (đã điền sẵn)" data-en="Send the order by e-mail (pre-filled)">Send the order by e-mail (pre-filled)</a>
+                <button class="btn btn-ghost btn-block" style="margin-top:.5rem" onclick="rsCopyOrder()" data-vi="Sao chép thông tin đơn" data-en="Copy the order details">Copy the order details</button>
+                <button class="btn btn-ghost btn-block" style="margin-top:.5rem" onclick="rsRetryOrder('${pesc(t.id)}')" data-vi="Thử gửi lại" data-en="Try again">Try again</button>
+                <p class="muted small" style="margin-top:.75rem" data-vi="Hoặc nhắn tin trang Facebook Roberto Structural kèm mã đơn." data-en="Or message the Roberto Structural Facebook page with your order reference.">Or message us on Facebook with your order reference.</p>
+              </div>
             </div>
           </li>
 
@@ -193,6 +208,62 @@ window.rsCopy = function (text) {
   }
 };
 
+/* ------------------------------------------------------------------
+   Order submission.
+
+   ⚠️ MONEY PATH — read before changing.
+   The customer has usually ALREADY transferred by the time this runs, so a
+   failure we hide is a paid order that silently never reaches Roberto.
+   Two failure modes must both be caught:
+     · network down          → fetch() rejects  → catch
+     · quota exceeded / 4xx  → fetch() RESOLVES → must inspect res.ok
+   The second one is the dangerous one: Formspree answers HTTP 4xx when the
+   monthly quota is spent, and `await fetch()` treats that as a normal result.
+   Never show the thank-you panel unless the POST truly succeeded.
+   ------------------------------------------------------------------ */
+
+// Keeps the last attempt so the fallback panel can re-send / copy / mailto it.
+let RS_lastOrder = null;
+
+function rsOrderText(o) {
+  return [
+    'ĐƠN HÀNG / ORDER',
+    'Mã đơn / Order ref : ' + o.order_ref,
+    'Sản phẩm / Product : ' + o.product + ' (' + o.product_code + ')',
+    'Số tiền / Amount   : ' + o.amount_vnd,
+    'Họ tên / Name      : ' + o.customer_name,
+    'Email              : ' + o.email,
+    'Ghi chú / Note     : ' + (o.note || '-'),
+    'Thời điểm / Time   : ' + o.ordered_at
+  ].join('\n');
+}
+
+function rsShowOrderFallback(o) {
+  RS_lastOrder = o;
+  const box = document.getElementById('orderError');
+  const mail = document.getElementById('oMailto');
+  if (mail) {
+    mail.href = 'mailto:' + PAYMENT.supportEmail
+      + '?subject=' + encodeURIComponent('ĐƠN HÀNG ' + o.order_ref + ' — ' + o.product)
+      + '&body=' + encodeURIComponent(rsOrderText(o));
+  }
+  if (box) {
+    box.classList.remove('hidden');
+    // The panel renders below the submit button, so on a small screen it can
+    // appear off-view — the customer would read "nothing happened" and keep
+    // clicking, burning a quota slot per click. Bring it to them.
+    if (box.scrollIntoView) box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  window.RS.setLang(window.RS.lang);
+}
+
+window.rsCopyOrder = function () { if (RS_lastOrder) window.rsCopy(rsOrderText(RS_lastOrder)); };
+window.rsRetryOrder = function (toolId) {
+  const box = document.getElementById('orderError');
+  if (box) box.classList.add('hidden');
+  window.rsSubmitOrder(toolId);
+};
+
 window.rsSubmitOrder = async function (toolId) {
   const name = (document.getElementById('oName').value || '').trim();
   const email = (document.getElementById('oEmail').value || '').trim();
@@ -206,28 +277,45 @@ window.rsSubmitOrder = async function (toolId) {
   const t = (window.TOOLS || []).find(x => x.id === toolId) || {};
   const when = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Ho_Chi_Minh', hour12: false });
 
+  const payload = {
+    _subject: `ĐƠN HÀNG ${ref} — ${t.name ? t.name.en : toolId}`,
+    type: 'ORDER',
+    customer_name: name,
+    email,
+    product: t.name ? t.name.en : toolId,
+    product_code: t.productCode || '',
+    amount_vnd: t.priceVnd || '',
+    order_ref: ref,
+    note,
+    ordered_at: when + ' (GMT+7)',
+    page: location.href
+  };
+
+  // Block double submits — every retry burns a slot of the monthly quota.
+  const btn = document.querySelector('#orderForm .btn-primary');
+  const btnHtml = btn ? btn.innerHTML : '';
+  if (btn) { btn.disabled = true; btn.innerHTML = vi ? 'Đang gửi…' : 'Sending…'; }
+
+  let delivered = false;
   if (PAYMENT.orderEndpoint) {
     try {
-      await fetch(PAYMENT.orderEndpoint, {
+      const res = await fetch(PAYMENT.orderEndpoint, {
         method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          _subject: `ĐƠN HÀNG ${ref} — ${t.name ? t.name.en : toolId}`,
-          type: 'ORDER',
-          customer_name: name,
-          email,
-          product: t.name ? t.name.en : toolId,
-          product_code: t.productCode || '',
-          amount_vnd: t.priceVnd || '',
-          order_ref: ref,
-          note,
-          ordered_at: when + ' (GMT+7)',
-          page: location.href
-        })
+        body: JSON.stringify(payload)
       });
-    } catch (err) { /* still show thanks so the customer is not blocked */ }
+      delivered = res.ok;               // 4xx (quota spent, form disabled) is NOT success
+      if (!res.ok) console.warn('[RS] Order POST rejected:', res.status, res.statusText);
+    } catch (err) {
+      console.warn('[RS] Order POST failed:', err);
+    }
   }
 
+  if (btn) { btn.disabled = false; btn.innerHTML = btnHtml; }
+
+  if (!delivered) { rsShowOrderFallback(payload); return; }
+
   document.getElementById('orderForm').classList.add('hidden');
+  document.getElementById('orderError').classList.add('hidden');
   document.getElementById('orderThanks').classList.remove('hidden');
   window.RS.setLang(window.RS.lang);
 };

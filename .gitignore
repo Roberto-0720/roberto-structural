@@ -1,15 +1,53 @@
 # ============================================================
-# NEVER publish these — they contain license secrets & customer data
+#  Roberto Structural — .gitignore
+#  Nguyên tắc: GIỮ mọi thứ trên máy, chỉ KHÔNG đẩy lên GitHub
+#  những gì website không cần hoặc không được để lộ.
 # ============================================================
+
+# ---------- BÍ MẬT — tuyệt đối không đẩy lên ----------
+# Licence Generator ĐÃ được đặt NGANG HÀNG với repo (../\_LicenseSystem\)
+# nên Git không nhìn thấy nó. Dòng dưới chỉ là lưới an toàn phòng khi
+# ai đó lỡ copy ngược vào trong repo — ĐỪNG làm vậy, xem CLAUDE.md mục 6.
 _LicenseSystem/
 *.secret
 customers.csv
 
-# Source article/drawing working folders (previews already in Resource/)
-Article/*/*.md
+# Bảng danh mục nội bộ: chứa GIÁ và LINK TẢI BẢN TRẢ PHÍ
+Resource/software_list/
 
-# OS / editor junk
+# ---------- ẢNH GỐC ----------
+# Website chỉ dùng bản .webp (nhẹ hơn ~80%). Ảnh gốc .png/.jpg
+# vẫn nằm nguyên trên máy để bạn kiểm soát và chỉnh sửa,
+# nhưng KHÔNG đẩy lên GitHub cho nhẹ repo.
+#
+# ⚠️ KHÔNG bao giờ xoá ảnh gốc trên máy — chúng là bản dựng lại
+#    duy nhất nếu cần nén lại hoặc đổi định dạng sau này.
+Resource/**/*.png
+Resource/**/*.jpg
+Resource/**/*.jpeg
+Logo/*.png
+Logo/*.jpg
+
+# NGOẠI LỆ — 4 ảnh này PHẢI có trên web (dùng làm ảnh preview
+# khi chia sẻ link lên Facebook/Zalo — og:image cần PNG/JPG).
+!Resource/01.png
+!Resource/tools/grds/01.png
+!Resource/drawings/townhouse-01/3d.png
+!Resource/articles/01-deck-slab/fig1.png
+
+# ---------- THƯ MỤC NGUỒN / LÀM VIỆC ----------
+# Bản gốc bài viết và bản vẽ — chỉ dùng để soạn, web không đọc tới
+Article/
+Resource/tools/01 GRDS V1.0/
+Resource/drawings/101 Villa_01/
+Resource/drawings/201 Townhouse_01/
+
+# ---------- RÁC HỆ ĐIỀU HÀNH / IDE ----------
 Thumbs.db
 desktop.ini
 .DS_Store
 *.tmp
+__pycache__/
+*.pyc
+.vscode/
+.idea/
