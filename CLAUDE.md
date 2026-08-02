@@ -21,8 +21,10 @@ công nghiệp (lọc hoá dầu, nhiệt điện, điện khí, điện rác). 
 | **Drawings** | `drawings.html` | Thư viện bản vẽ CAD |
 | **Insights** | `insights.html`, `article.html` | Bài viết kỹ thuật, xây uy tín chuyên môn |
 
-- **Live:** https://roberto-0720.github.io/roberto-structural/
+- **Live:** https://robertostructural.com (tên miền riêng từ 2026-08-02)
 - **Repo:** `Roberto-0720/roberto-structural` (GitHub Pages, nhánh `main`, thư mục gốc)
+- Địa chỉ cũ `roberto-0720.github.io/roberto-structural/` **vẫn chạy** — GitHub Pages
+  tự chuyển hướng 301 sang tên miền mới, giữ nguyên đường dẫn.
 - **Slogan:** *Engineering Strength Into Every Structure*
 
 ---
@@ -315,6 +317,31 @@ thay đổi được Git lưu vĩnh viễn).
 [main.js](assets/js/main.js) `RS_FORM_ENDPOINT` (tải file) và
 [purchase.js](assets/js/purchase.js) `PAYMENT.orderEndpoint` (đơn hàng).
 ⚠️ Không bao giờ gộp lại làm một — đọc mục 11.C trước khi đụng vào.
+
+---
+
+## 9b. Tên miền, DNS & Search Console
+
+Tên miền `robertostructural.com` mua tại **iNET**, hết hạn **02/08/2027** — nhớ gia hạn.
+DNS trỏ thẳng tới GitHub Pages: 4 bản ghi `A` (`185.199.108–111.153`) cho `@`,
+1 `CNAME` `www` → `roberto-0720.github.io`. Chứng chỉ HTTPS do GitHub cấp tự động.
+
+**Đổi tên miền sau này:** sửa hằng số `SITE` trong `scripts/build-pages.mjs`, chạy lại
+generator (20 trang + sitemap tự đổi), rồi sửa tay URL tuyệt đối trong `index.html`,
+`tools.html`, `drawings.html`, `insights.html`, `robots.txt`.
+
+⚠️ **Ba thứ không được xoá / không được bật:**
+
+| Thứ | Ở đâu | Xoá/bật sai thì sao |
+|---|---|---|
+| File `CNAME` | gốc repo | Mất tên miền, site về lại địa chỉ github.io |
+| Bản ghi `TXT` `google-site-verification=…` | DNS iNET | Search Console huỷ xác minh, mất quyền xem dữ liệu |
+| Công tắc **"Bảo vệ" (OneShield)** của iNET | từng bản ghi A/CNAME | **PHẢI TẮT.** Bật lên là traffic vòng qua proxy iNET, GitHub không cấp được chứng chỉ → HTTPS chết. iNET mặc định BẬT mỗi khi thêm bản ghi mới. |
+
+Search Console dùng **Domain property** (`sc-domain:robertostructural.com`), xác minh
+bằng bản ghi TXT — gộp cả `www`/không-`www`, `http`/`https`.
+⚠️ Với Domain property, ô nộp sitemap phải nhập **URL đầy đủ**
+(`https://robertostructural.com/sitemap.xml`), gõ mỗi `sitemap.xml` sẽ báo *Invalid*.
 
 ---
 
