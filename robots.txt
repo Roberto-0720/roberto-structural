@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://roberto-0720.github.io/roberto-structural/sitemap.xml
+Sitemap: https://robertostructural.com/sitemap.xml

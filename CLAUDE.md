@@ -168,10 +168,16 @@ Luôn so sánh dung lượng: nếu `.webp` ≥ ảnh gốc thì đổi sang los
 ⚠️ **Bài học xương máu:** file `.webp` nằm **cùng thư mục** với ảnh gốc.
 Đừng xoá cả thư mục ảnh — sẽ mất luôn bản `.webp` mà website đang dùng.
 
-⚠️ 4 file PNG sau **phải giữ và phải push** (dùng cho `og:image` — ảnh preview khi
-share Facebook, nền tảng cũ chưa chắc đọc được WebP):
+⚠️ 4 file PNG sau **phải giữ và phải push** (dùng làm `og:image` dự phòng):
 `Resource/01.png`, `Resource/tools/grds/01.png`,
 `Resource/drawings/townhouse-01/3d.png`, `Resource/articles/01-deck-slab/fig1.png`
+
+✅ **Đã kiểm chứng 2026-08-02: Facebook đọc được `.webp` làm `og:image`.**
+Share thử `tool-deflection-check.html` (ảnh bìa `.webp`) → preview hiện đủ ảnh và tiêu đề.
+→ **Không cần** sinh thêm bản `.png` cho ảnh bìa tool/bài viết. Ảnh bìa cứ để `.webp`
+như mọi ảnh khác. 4 file PNG trên chỉ còn là lưới dự phòng cho `FALLBACK_IMG` trong
+`scripts/build-pages.mjs` và cho trang chủ.
+Zalo thì **chưa thử** — nếu sau này share lên Zalo mà mất ảnh, khi đó mới tính tới PNG.
 
 ---
 

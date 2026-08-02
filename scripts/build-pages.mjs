@@ -34,7 +34,12 @@ import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SITE = 'https://roberto-0720.github.io/roberto-structural/';
+/* Canonical origin of the live site. Changing this ONE line and re-running the
+   script moves every generated page and the sitemap to the new address — that is
+   the whole reason the absolute URLs are not hand-written into 20 files.
+   The old roberto-0720.github.io/roberto-structural/ address still works: GitHub
+   Pages redirects it here automatically once a custom domain is configured. */
+const SITE = 'https://robertostructural.com/';
 
 /* Fallback preview image — a PNG, because some older platforms still refuse
    WebP for og:image. Kept in the repo on purpose (see CLAUDE.md §5). */
