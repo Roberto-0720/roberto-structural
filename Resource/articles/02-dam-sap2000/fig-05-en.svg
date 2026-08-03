@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 58 900 398" width="900" height="398" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="m-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#14314F"/>
+    </marker>
+    <marker id="m-dim" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#C0392B"/>
+    </marker>
+  </defs>
+  <rect x="0" y="58" width="900" height="398" fill="#FFFFFF"/>
+
+  
+  
+
+  <rect x="28" y="74" width="404" height="300" rx="6" fill="#FFF5F4" stroke="#C0392B" stroke-width="1.5"/>
+  <text x="48" y="100" font-size="14" font-weight="bold" fill="#C0392B">WRONG — one element between nodes</text>
+
+  <line x1="120" y1="350" x2="120" y2="140" stroke="#6B7A88" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="70" y1="350" x2="340" y2="350" stroke="#14314F" stroke-width="2"/>
+  <line x1="120" y1="350" x2="176" y2="140" stroke="#C0392B" stroke-width="4.5"/>
+  <circle cx="120" cy="350" r="5" fill="#14314F"/>
+  <circle cx="176" cy="140" r="5" fill="#14314F"/>
+  <path d="M 120 350 Q 128 230 176 140" fill="none" stroke="#6B7A88" stroke-width="1.6" stroke-dasharray="4 4"/>
+  <text x="196" y="252" font-size="11.5" fill="#6B7A88">true shape (ignored)</text>
+  <line x1="176" y1="86" x2="176" y2="132" stroke="#14314F" stroke-width="2.4" marker-end="url(#m-ar)"/>
+  <text x="186" y="104" font-size="13" font-weight="bold" fill="#14314F">P</text>
+  <line x1="120" y1="124" x2="176" y2="124" stroke="#C0392B" stroke-width="1.3" marker-start="url(#m-dim)" marker-end="url(#m-dim)"/>
+  <text x="140" y="118" font-size="13" font-weight="bold" fill="#C0392B">Δ</text>
+
+  <text x="240" y="330" font-size="12.5" font-weight="bold" fill="#C0392B" text-anchor="middle">P-Δ only</text>
+  <text x="240" y="348" font-size="12" fill="#14314F" text-anchor="middle">P-δ completely lost</text>
+
+  <rect x="468" y="74" width="404" height="300" rx="6" fill="#F1F8F4" stroke="#1E8449" stroke-width="1.5"/>
+  <text x="488" y="100" font-size="14" font-weight="bold" fill="#1E8449">CORRECT — Auto Mesh, 2 segments minimum</text>
+
+  <line x1="560" y1="350" x2="560" y2="140" stroke="#6B7A88" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="510" y1="350" x2="790" y2="350" stroke="#14314F" stroke-width="2"/>
+  <line x1="560" y1="350" x2="616" y2="140" stroke="#6B7A88" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <path d="M 560 350 Q 568 230 616 140" fill="none" stroke="#1E8449" stroke-width="4.5"/>
+  <circle cx="560" cy="350" r="5" fill="#14314F"/>
+  <circle cx="616" cy="140" r="5" fill="#14314F"/>
+  <rect x="570" y="279" width="9" height="9" fill="#1E8449"/>
+  <rect x="583" y="211" width="9" height="9" fill="#1E8449"/>
+  <text x="602" y="292" font-size="11" fill="#1E8449">internal mesh nodes</text>
+  <line x1="616" y1="86" x2="616" y2="132" stroke="#14314F" stroke-width="2.4" marker-end="url(#m-ar)"/>
+  <text x="626" y="104" font-size="13" font-weight="bold" fill="#14314F">P</text>
+  <line x1="560" y1="124" x2="616" y2="124" stroke="#C0392B" stroke-width="1.3" marker-start="url(#m-dim)" marker-end="url(#m-dim)"/>
+  <text x="580" y="118" font-size="13" font-weight="bold" fill="#C0392B">Δ</text>
+  <line x1="576" y1="238" x2="592" y2="238" stroke="#C0392B" stroke-width="1.3" marker-start="url(#m-dim)" marker-end="url(#m-dim)"/>
+  <text x="600" y="242" font-size="13" font-weight="bold" fill="#C0392B">δ</text>
+
+  <text x="700" y="330" font-size="12.5" font-weight="bold" fill="#1E8449" text-anchor="middle">Both P-Δ and P-δ captured</text>
+  <text x="700" y="348" font-size="12" fill="#14314F" text-anchor="middle">2–4 segments recommended</text>
+
+  <rect x="28" y="386" width="844" height="54" rx="4" fill="#FDF2E6" stroke="#E8842A" stroke-width="1.4"/>
+  <text x="44" y="406" font-size="12" fill="#14314F"><tspan font-weight="bold" fill="#B35C00">Assign &gt; Frame &gt; Automatic Frame Mesh</tspan>  —  Auto Mesh Frame ☑ at Intermediate Joints ☑ Minimum Number of Segments = 2</text>
+  <text x="44" y="426" font-size="12" fill="#C0392B" font-weight="bold">Never use Edit &gt; Divide Frames: <tspan font-weight="normal" fill="#14314F">it breaks up the design object and corrupts unbraced lengths on the unconservative side.</tspan></text>
+</svg>

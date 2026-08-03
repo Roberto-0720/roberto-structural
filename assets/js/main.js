@@ -109,6 +109,12 @@ const RS = {
       const val = el.getAttribute('data-' + lang);
       if(val !== null) el.innerHTML = val;
     });
+    // Artwork with text baked in (labelled diagrams) ships as one file per
+    // language; swap the image alongside the copy.
+    document.querySelectorAll('[data-src-vi]').forEach(el=>{
+      const src = el.getAttribute('data-src-' + lang);
+      if(src && el.getAttribute('src') !== src) el.setAttribute('src', src);
+    });
     document.querySelectorAll('.lang button').forEach(b=>{
       b.classList.toggle('active', b.dataset.lang === lang);
     });

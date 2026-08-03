@@ -8,6 +8,25 @@ function abi(o){ return `data-vi="${(o.vi||'').replace(/"/g,'&quot;')}" data-en=
 function aesc(s){ return String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 // Body text may contain <b>/<i> on purpose → insert as-is.
 function araw(o){ return (o && (o[window.RS.lang] ?? o.vi)) || ""; }
+
+/* A figure's "src" is either one path (photo — same in both languages) or
+   { vi, en } when the artwork itself carries text, e.g. a labelled diagram.
+   In the second case emit data-src-vi/en and let RS.setLang swap the image
+   together with the rest of the page. */
+function afigSrc(f){
+  const s = f.src;
+  if(s && typeof s === 'object'){
+    const cur = s[window.RS.lang] || s.vi || s.en;
+    return `src="${aesc(cur)}" data-src-vi="${aesc(s.vi || s.en)}" data-src-en="${aesc(s.en || s.vi)}"`;
+  }
+  return `src="${aesc(s)}"`;
+}
+// Prefer the caption for alt text — it describes the figure; the section
+// heading only says where it sits. `s` is absent for mid-section figure blocks.
+function afigAlt(f, s){
+  return ((f.caption && (f.caption.en || f.caption.vi)) || (s && s.heading.en) || '')
+    .replace(/<[^>]+>/g, '');
+}
 function afmtDate(iso, lang){
   const d = new Date(iso + 'T00:00:00');
   if(isNaN(d)) return iso;
@@ -96,6 +115,30 @@ function renderBlock(b){
       <tbody>${b.rows.map(r=>`<tr>${r.map(c=>`<td ${abi(c)}>${araw(c)}</td>`).join('')}</tr>`).join('')}</tbody>
     </table></div>`;
   }
+  // Verbatim block: software menu paths, command sequences. Whitespace matters,
+  // so it goes in <pre>. Like every other block the text is inserted as HTML on
+  // language switch, so a literal "<" must be written &lt; in the data file.
+  if(b.type === 'code'){
+    return `<pre class="prose-code reveal"><code ${abi(b)}>${araw(b)}</code></pre>`;
+  }
+  // Highlighted aside — the "Tip N" boxes and key-point callouts.
+  if(b.type === 'tip'){
+    return `<aside class="prose-tip reveal" ${abi(b)}>${araw(b)}</aside>`;
+  }
+  // Pre-issue checklist. Rendered as static ticked boxes, not real inputs:
+  // it is something to read down, not a form to fill in.
+  if(b.type === 'checklist'){
+    return `<ul class="prose-check reveal">${b.items.map(it=>`<li ${abi(it)}>${araw(it)}</li>`).join('')}</ul>`;
+  }
+  // Figure placed mid-section. The section-level "figures" array still works
+  // and always renders at the end; use this when a section has several figures
+  // that each belong next to their own paragraph.
+  if(b.type === 'figure'){
+    return `<figure class="art-fig reveal">
+      <img ${afigSrc(b)} alt="${aesc(afigAlt(b))}" loading="lazy" onclick="rsArtZoom(this.src)"/>
+      ${ b.caption ? `<figcaption ${abi(b.caption)}>${araw(b.caption)}</figcaption>` : '' }
+    </figure>`;
+  }
   return `<p class="reveal" ${abi(b)}>${araw(b)}</p>`;
 }
 
@@ -143,7 +186,7 @@ function renderArticle(){
         ${s.body.map(b=>renderBlock(b)).join('')}
         ${ (s.figures || (s.figure ? [s.figure] : [])).map(f=>`
         <figure class="art-fig reveal">
-          <img src="${aesc(f.src)}" alt="${aesc(s.heading.en)}" loading="lazy" onclick="rsArtZoom('${aesc(f.src)}')"/>
+          <img ${afigSrc(f)} alt="${aesc(afigAlt(f, s))}" loading="lazy" onclick="rsArtZoom(this.src)"/>
           ${ f.caption ? `<figcaption ${abi(f.caption)}>${aesc(f.caption.en)}</figcaption>` : '' }
         </figure>`).join('') }
       `).join('')}

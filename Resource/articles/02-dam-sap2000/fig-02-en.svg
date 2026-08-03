@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 63 900 434" width="900" height="434" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="n-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#14314F"/>
+    </marker>
+    <marker id="n-aro" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#E8842A"/>
+    </marker>
+    <marker id="n-dim" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#C0392B"/>
+    </marker>
+  </defs>
+  <rect x="0" y="63" width="900" height="434" fill="#FFFFFF"/>
+
+  
+  
+
+  <text x="60" y="92" font-size="13" font-weight="bold" fill="#14314F">REALITY: frame erected out of plumb</text>
+
+  <line x1="70" y1="340" x2="370" y2="340" stroke="#14314F" stroke-width="2.2"/>
+  <g stroke="#6B7A88" stroke-width="1">
+    <line x1="80" y1="340" x2="70" y2="352"/><line x1="105" y1="340" x2="95" y2="352"/>
+    <line x1="130" y1="340" x2="120" y2="352"/><line x1="155" y1="340" x2="145" y2="352"/>
+    <line x1="180" y1="340" x2="170" y2="352"/><line x1="205" y1="340" x2="195" y2="352"/>
+    <line x1="230" y1="340" x2="220" y2="352"/><line x1="255" y1="340" x2="245" y2="352"/>
+    <line x1="280" y1="340" x2="270" y2="352"/><line x1="305" y1="340" x2="295" y2="352"/>
+    <line x1="330" y1="340" x2="320" y2="352"/><line x1="355" y1="340" x2="345" y2="352"/>
+  </g>
+  <line x1="120" y1="340" x2="120" y2="140" stroke="#6B7A88" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="300" y1="340" x2="300" y2="140" stroke="#6B7A88" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="120" y1="340" x2="146" y2="150" stroke="#14314F" stroke-width="5"/>
+  <line x1="300" y1="340" x2="326" y2="150" stroke="#14314F" stroke-width="5"/>
+  <line x1="146" y1="150" x2="326" y2="150" stroke="#14314F" stroke-width="5"/>
+  <line x1="120" y1="132" x2="146" y2="132" stroke="#C0392B" stroke-width="1.3" marker-start="url(#n-dim)" marker-end="url(#n-dim)"/>
+  <text x="152" y="128" font-size="13" font-weight="bold" fill="#C0392B">Δo = H / 500</text>
+  <line x1="236" y1="82" x2="236" y2="142" stroke="#14314F" stroke-width="2.4" marker-end="url(#n-ar)"/>
+  <text x="246" y="106" font-size="13.5" font-weight="bold" fill="#14314F">Yi</text>
+  <text x="246" y="124" font-size="11.5" fill="#6B7A88">gravity load at that level</text>
+  <line x1="392" y1="150" x2="392" y2="340" stroke="#6B7A88" stroke-width="1.1" marker-start="url(#n-dim)" marker-end="url(#n-dim)"/>
+  <text x="398" y="250" font-size="12.5" fill="#6B7A88">H</text>
+
+  <text x="430" y="252" font-size="34" fill="#E8842A" text-anchor="middle">≡</text>
+
+  <text x="500" y="92" font-size="13" font-weight="bold" fill="#14314F">MODEL: plumb frame + fictitious lateral force</text>
+
+  <line x1="480" y1="340" x2="810" y2="340" stroke="#14314F" stroke-width="2.2"/>
+  <g stroke="#6B7A88" stroke-width="1">
+    <line x1="492" y1="340" x2="482" y2="352"/><line x1="517" y1="340" x2="507" y2="352"/>
+    <line x1="542" y1="340" x2="532" y2="352"/><line x1="567" y1="340" x2="557" y2="352"/>
+    <line x1="592" y1="340" x2="582" y2="352"/><line x1="617" y1="340" x2="607" y2="352"/>
+    <line x1="642" y1="340" x2="632" y2="352"/><line x1="667" y1="340" x2="657" y2="352"/>
+    <line x1="692" y1="340" x2="682" y2="352"/><line x1="717" y1="340" x2="707" y2="352"/>
+    <line x1="742" y1="340" x2="732" y2="352"/><line x1="767" y1="340" x2="757" y2="352"/>
+    <line x1="792" y1="340" x2="782" y2="352"/>
+  </g>
+  <line x1="560" y1="340" x2="560" y2="150" stroke="#14314F" stroke-width="5"/>
+  <line x1="740" y1="340" x2="740" y2="150" stroke="#14314F" stroke-width="5"/>
+  <line x1="560" y1="150" x2="740" y2="150" stroke="#14314F" stroke-width="5"/>
+  <line x1="650" y1="82" x2="650" y2="142" stroke="#14314F" stroke-width="2.4" marker-end="url(#n-ar)"/>
+  <text x="660" y="112" font-size="13.5" font-weight="bold" fill="#14314F">Yi</text>
+  <line x1="470" y1="150" x2="552" y2="150" stroke="#E8842A" stroke-width="3" marker-end="url(#n-aro)"/>
+  <text x="470" y="140" font-size="14" font-weight="bold" fill="#B35C00">Ni</text>
+
+  <rect x="470" y="372" width="402" height="68" rx="5" fill="#FDF2E6" stroke="#E8842A" stroke-width="1.4"/>
+  <text x="490" y="398" font-size="16" font-weight="bold" fill="#B35C00">Ni = 0.002 · α · Yi</text>
+  <text x="490" y="424" font-size="12" fill="#14314F">α = 1.0 (LRFD) ; α = 1.6 (ASD) — the 0.002 factor is 1/500</text>
+
+  <rect x="28" y="372" width="402" height="68" rx="5" fill="#F2F6FA" stroke="#1F6FB2" stroke-width="1.2"/>
+  <text x="46" y="394" font-size="12" fill="#14314F">1/500 is the permitted erection tolerance (AISC Code</text>
+  <text x="46" y="414" font-size="12" fill="#14314F">of Standard Practice) — the leaning geometry is not</text>
+  <text x="46" y="431" font-size="12" fill="#14314F">modelled; it is replaced by a lateral force.</text>
+
+  
+  <text x="28" y="479" font-size="11.5" fill="#6B7A88">it must cover EVERY gravity load pattern — BL, DL, EE, EOL, ETL, LL, LLM…</text>
+</svg>

@@ -343,6 +343,27 @@ footer a:hover{color:var(--accent)}
 .prose-list li{position:relative;padding-left:1.3rem;font-size:1.02rem;line-height:1.75;color:#3a4046}
 .prose-list li::before{content:"";position:absolute;left:0;top:.62rem;width:7px;height:7px;border-radius:2px;background:var(--accent)}
 .prose-list li b{color:var(--charcoal);font-weight:700}
+/* Verbatim block — software menu paths and command sequences.
+   Scrolls inside itself so a long line never widens the page on mobile. */
+.prose-code{background:var(--charcoal);border-radius:10px;padding:1.1rem 1.2rem;margin:1.2rem 0 1.8rem;overflow-x:auto;-webkit-overflow-scrolling:touch;border-left:3px solid var(--accent)}
+.prose-code code{font-family:ui-monospace,"Cascadia Mono","Consolas","Courier New",monospace;font-size:.86rem;line-height:1.7;color:#E6E9EC;white-space:pre;display:block}
+.prose-code code b{color:var(--accent);font-weight:600}
+
+/* Aside: "Tip" boxes and key-point callouts. */
+.prose-tip{background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:1rem 1.2rem;margin:1.3rem 0 1.8rem;font-size:.97rem;line-height:1.75;color:#3a4046}
+.prose-tip b{color:var(--charcoal);font-weight:700}
+.prose-tip code{font-family:ui-monospace,"Consolas",monospace;font-size:.88em;background:rgba(0,0,0,.06);padding:.1rem .35rem;border-radius:4px}
+
+/* Pre-issue checklist — read down it, not a form to fill in. */
+.prose-check{list-style:none;margin:1rem 0 1.8rem;display:flex;flex-direction:column;gap:.6rem}
+.prose-check li{position:relative;padding-left:1.9rem;font-size:.99rem;line-height:1.7;color:#3a4046}
+.prose-check li::before{content:"";position:absolute;left:0;top:.28rem;width:15px;height:15px;border:1.5px solid var(--accent);border-radius:4px;background:#fff}
+.prose-check li::after{content:"";position:absolute;left:5px;top:.5rem;width:4px;height:8px;border:solid var(--accent);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.prose-check li b{color:var(--charcoal);font-weight:700}
+
+/* Inline code inside ordinary paragraphs, lists and tables. */
+.prose p code,.prose-list code,.prose-table code{font-family:ui-monospace,"Consolas",monospace;font-size:.88em;background:var(--paper);border:1px solid var(--silver);padding:.08rem .35rem;border-radius:4px;color:var(--charcoal)}
+
 .table-wrap{overflow-x:auto;margin:1.2rem 0 2rem;-webkit-overflow-scrolling:touch}
 .prose-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:520px}
 .prose-table th{background:var(--charcoal);color:#fff;font-family:var(--ff-head);font-size:.8rem;font-weight:600;text-align:left;padding:.75rem .9rem;letter-spacing:.03em;border-right:1px solid rgba(255,255,255,.12)}

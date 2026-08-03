@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 60 900 488" width="900" height="488" font-family="Arial, Helvetica, sans-serif">
+  <rect x="0" y="60" width="900" height="488" fill="#FFFFFF"/>
+
+  
+  
+
+  <rect x="28" y="76" width="844" height="46" fill="#14314F"/>
+  <g font-size="12.5" font-weight="bold" fill="#FFFFFF">
+    <text x="52" y="105">MEMBER / PROPERTY</text>
+    <text x="292" y="97">STRENGTH ANALYSIS</text>
+    <text x="292" y="114" font-size="11" font-weight="normal" fill="#BFD3E6">factored load combinations</text>
+    <text x="482" y="97">SERVICEABILITY</text>
+    <text x="482" y="114" font-size="11" font-weight="normal" fill="#BFD3E6">deflection, drift, period T</text>
+    <text x="672" y="105">CODE BASIS</text>
+  </g>
+
+  <g stroke="#D3DCE4" stroke-width="1">
+    <rect x="28" y="122" width="844" height="38" fill="#F2F6FA"/>
+    <rect x="28" y="160" width="844" height="38" fill="#FFFFFF"/>
+    <rect x="28" y="198" width="844" height="38" fill="#F2F6FA"/>
+    <rect x="28" y="236" width="844" height="38" fill="#FDF2E6"/>
+    <rect x="28" y="274" width="844" height="38" fill="#FFFFFF"/>
+    <rect x="28" y="312" width="844" height="38" fill="#FDF2E6"/>
+    <rect x="28" y="350" width="844" height="38" fill="#FFFFFF"/>
+  </g>
+  <rect x="28" y="122" width="7" height="114" fill="#1F6FB2"/>
+  <rect x="28" y="236" width="7" height="152" fill="#E8842A"/>
+  <g stroke="#D3DCE4" stroke-width="1">
+    <line x1="278" y1="122" x2="278" y2="388"/>
+    <line x1="468" y1="122" x2="468" y2="388"/>
+    <line x1="658" y1="122" x2="658" y2="388"/>
+  </g>
+  <rect x="28" y="122" width="844" height="266" fill="none" stroke="#14314F" stroke-width="1.4"/>
+
+  <g font-size="12.5" fill="#14314F">
+    <text x="52" y="146" font-weight="bold">STEEL — axial area (EA)</text>
+    <text x="292" y="146" font-weight="bold" fill="#12558F">0.8</text>
+    <text x="482" y="146">1.0 (nominal)</text>
+    <text x="672" y="146" font-size="11.5">AISC 360-10 §C2.3(2)</text>
+
+    <text x="52" y="184" font-weight="bold">STEEL — moment of inertia (EI)</text>
+    <text x="292" y="184" font-weight="bold" fill="#12558F">0.8 · τb</text>
+    <text x="482" y="184">1.0 (nominal)</text>
+    <text x="672" y="184" font-size="11.5">AISC 360-10 §C2.3(3)</text>
+
+    <text x="52" y="222">STEEL — torsion J, shear area</text>
+    <text x="292" y="222">1.0</text>
+    <text x="482" y="222">1.0</text>
+    <text x="672" y="222" font-size="11.5">No reduction required</text>
+
+    <text x="52" y="260" font-weight="bold">RC — piers / columns</text>
+    <text x="292" y="260" font-weight="bold" fill="#B35C00">0.70 Ig</text>
+    <text x="482" y="260">1.4 × 0.70 ≈ 1.0 Ig</text>
+    <text x="672" y="260" font-size="11.5">ACI 318 T.6.6.3.1.1(a)</text>
+
+    <text x="52" y="298" font-weight="bold">RC — tie beams</text>
+    <text x="292" y="298" font-weight="bold" fill="#B35C00">0.35 Ig</text>
+    <text x="482" y="298">1.4 × 0.35 ≈ 0.5 Ig</text>
+    <text x="672" y="298" font-size="11.5">ACI 318 §6.6.3.2.2</text>
+
+    <text x="52" y="336">RC — walls (uncracked / cracked)</text>
+    <text x="292" y="336">0.70 / 0.35 Ig</text>
+    <text x="482" y="336">1.0 / 0.5 Ig</text>
+    <text x="672" y="336" font-size="11.5">ACI 318 T.6.6.3.1.1(a)</text>
+
+    <text x="52" y="374">RC — cross-sectional area</text>
+    <text x="292" y="374">1.0 Ag</text>
+    <text x="482" y="374">1.0 Ag</text>
+    <text x="672" y="374" font-size="11.5">ACI 318 T.6.6.3.1.1(a)</text>
+  </g>
+
+  <rect x="28" y="404" width="410" height="76" rx="5" fill="#F2F6FA" stroke="#1F6FB2" stroke-width="1.4"/>
+  <text x="46" y="426" font-size="13" font-weight="bold" fill="#12558F">The τb factor (AISC 360-10 §C2.3)</text>
+  <text x="46" y="448" font-size="12" fill="#14314F">τb = 1.0                                when α Pr / Py ≤ 0.5</text>
+  <text x="46" y="468" font-size="12" fill="#14314F">τb = 4 (α Pr/Py) [1 − α Pr/Py]   when α Pr / Py &gt; 0.5</text>
+
+  <rect x="452" y="404" width="420" height="76" rx="5" fill="#FFF5F4" stroke="#C0392B" stroke-width="1.4"/>
+  <text x="470" y="426" font-size="13" font-weight="bold" fill="#C0392B">Do NOT compound: 0.8 × 0.70 = 0.56</text>
+  <text x="470" y="448" font-size="12" fill="#14314F">§C2.3(4) requires the GREATER reduction to be applied</text>
+  <text x="470" y="466" font-size="12" fill="#14314F">to non-steel components, not the product of both.</text>
+
+  <rect x="28" y="490" width="844" height="42" rx="5" fill="#FDF2E6" stroke="#E8842A" stroke-width="1.4"/>
+  <text x="46" y="508" font-size="12" fill="#14314F"><tspan font-weight="bold" fill="#B35C00">Period and seismic forces: </tspan>compute with NOMINAL, unreduced stiffness (AISC Design Guide 28 §5.1) — using the 0.8 modifiers</text>
+  <text x="46" y="525" font-size="12" fill="#14314F">to obtain T artificially lengthens the period and underestimates seismic demand. Keep a separate unmodified run to extract T.</text>
+
+  
+</svg>
