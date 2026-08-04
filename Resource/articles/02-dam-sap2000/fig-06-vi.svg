@@ -88,9 +88,11 @@
   <text x="470" y="466" font-size="12" fill="#14314F">liệu khác thép, không phải cộng dồn hai mức giảm.</text>
 
   <!-- bottom note -->
-  <rect x="28" y="490" width="844" height="42" rx="5" fill="#FDF2E6" stroke="#E8842A" stroke-width="1.4"/>
-  <text x="46" y="508" font-size="12" fill="#14314F"><tspan font-weight="bold" fill="#B35C00">Chu kỳ dao động và lực động đất: </tspan>tính với độ cứng DANH NGHĨA, không suy giảm (AISC Design Guide 28 §5.1) — nếu dùng modifier 0.8</text>
-  <text x="46" y="525" font-size="12" fill="#14314F">để tính T, chu kỳ dài ra giả tạo và lực địa chấn bị đánh giá thấp. Giữ một lượt chạy riêng không có modifier để trích xuất T.</text>
+  <rect x="28" y="490" width="844" height="59" rx="5" fill="#FDF2E6" stroke="#E8842A" stroke-width="1.4"/>
+  <text x="46" y="508" font-size="12" fill="#14314F"><tspan font-weight="bold" fill="#B35C00">Chu kỳ dao động và lực động đất: </tspan>tính với độ cứng DANH NGHĨA, không suy giảm (AISC Design Guide 28 §5.1)</text>
+      <text x="46" y="525" font-size="12" fill="#14314F"></text>
+  <text x="46" y="525" font-size="12" fill="#14314F">— nếu dùng modifier 0.8 để tính T, chu kỳ dài ra giả tạo và lực địa chấn bị đánh giá thấp.</text>
+      <text x="46" y="542" font-size="12" fill="#14314F">Giữ một lượt chạy riêng không có modifier để trích xuất T.</text>
 
   
 </svg>

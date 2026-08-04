@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 636" width="900" height="636">
+  <style>
+    text { font-family: 'Segoe UI','DejaVu Sans',Arial,sans-serif; }
+    .h1 { font-size:19px; font-weight:bold; fill:#1B3A5C; }
+    .sub { font-size:12.5px; fill:#5A6B7C; }
+    .ph { font-size:14px; font-weight:bold; fill:#FFFFFF; }
+    .lbl { font-size:12.5px; fill:#4A5C6B; }
+    .em { font-size:13px; font-weight:bold; fill:#C0392B; }
+    .emb { font-size:13px; font-weight:bold; fill:#2E6DA4; }
+    .bd { font-size:12.5px; fill:#4A5C6B; }
+    .ttl { font-size:13.5px; font-weight:bold; fill:#C0392B; }
+    .ttb { font-size:13.5px; font-weight:bold; fill:#1B3A5C; }
+  </style>
+  <defs>
+    <marker id="b1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 z" fill="#1B3A5C"/>
+    </marker>
+    <marker id="b3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 z" fill="#C0392B"/>
+    </marker>
+    <marker id="b4" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 z" fill="#2E6DA4"/>
+    </marker>
+    <marker id="b2" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto">
+      <path d="M0,0 L6.5,3 L0,6 z" fill="#D97D0D"/>
+    </marker>
+    <marker id="b2s" markerWidth="8" markerHeight="8" refX="0.5" refY="3" orient="auto">
+      <path d="M6.5,0 L0,3 L6.5,6 z" fill="#D97D0D"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="636" fill="#FFFFFF"/>
+  <text class="h1" x="450" y="34" text-anchor="middle">P-Δ VÀ P-δ — VÌ SAO CỘT PHẢI ĐƯỢC CHIA PHÂN ĐOẠN</text>
+  <text class="sub" x="450" y="57" text-anchor="middle">SAP2000 chỉ tính hiệu ứng P-Delta tại NÚT · ACI 318-14 §6.7.1.2 yêu cầu xét cả độ cong cấu kiện</text>
+
+  <!-- LEFT PANEL -->
+  <rect x="40" y="76" width="390" height="368" rx="6" fill="#FDFAFA" stroke="#EDB3AB"/>
+  <rect x="40" y="76" width="390" height="30" rx="6" fill="#C0392B"/>
+  <rect x="40" y="96" width="390" height="10" fill="#C0392B"/>
+  <text class="ph" x="235" y="97" text-anchor="middle">Cột 1 phần tử — CHỈ bắt được P-Δ</text>
+
+  <line x1="175" y1="380" x2="175" y2="140" stroke="#8FA3B5" stroke-width="1" stroke-dasharray="5 4"/>
+  <line x1="120" y1="380" x2="330" y2="380" stroke="#5A6B7C" stroke-width="3"/>
+  <line x1="175" y1="380" x2="235" y2="140" stroke="#1B3A5C" stroke-width="3.5"/>
+  <circle cx="175" cy="380" r="6" fill="#1B3A5C"/>
+  <circle cx="235" cy="140" r="6" fill="#1B3A5C"/>
+  <line x1="235" y1="108" x2="235" y2="130" stroke="#1B3A5C" stroke-width="2.4" marker-end="url(#b1)"/>
+  <text class="lbl" x="248" y="124">P</text>
+  <line x1="175" y1="126" x2="229" y2="126" stroke="#C0392B" stroke-width="1.6" marker-end="url(#b3)"/>
+  <text class="em" x="202" y="118" text-anchor="middle">Δ</text>
+  <text class="lbl" x="235" y="410" text-anchor="middle">chỉ có 2 nút: chân và đỉnh cột</text>
+  <text class="em" x="235" y="432" text-anchor="middle">→ mất hoàn toàn P-δ</text>
+
+  <!-- RIGHT PANEL -->
+  <rect x="470" y="76" width="390" height="368" rx="6" fill="#FAFCFE" stroke="#B9D0E5"/>
+  <rect x="470" y="76" width="390" height="30" rx="6" fill="#1B3A5C"/>
+  <rect x="470" y="96" width="390" height="10" fill="#1B3A5C"/>
+  <text class="ph" x="665" y="97" text-anchor="middle">Cột chia ≥ 2 phân đoạn — có cả P-Δ và P-δ</text>
+
+  <line x1="605" y1="380" x2="605" y2="140" stroke="#8FA3B5" stroke-width="1" stroke-dasharray="5 4"/>
+  <line x1="550" y1="380" x2="760" y2="380" stroke="#5A6B7C" stroke-width="3"/>
+  <line x1="605" y1="380" x2="665" y2="140" stroke="#8FA3B5" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <path d="M605,380 C662,338 690,246 665,140" fill="none" stroke="#1B3A5C" stroke-width="3.5"/>
+  <circle cx="605" cy="380" r="6" fill="#1B3A5C"/>
+  <circle cx="665" cy="140" r="6" fill="#1B3A5C"/>
+  <circle cx="676" cy="262" r="6.5" fill="#D97D0D"/>
+  <line x1="665" y1="108" x2="665" y2="130" stroke="#1B3A5C" stroke-width="2.4" marker-end="url(#b1)"/>
+  <text class="lbl" x="678" y="124">P</text>
+  <line x1="605" y1="126" x2="659" y2="126" stroke="#2E6DA4" stroke-width="1.6" marker-end="url(#b4)"/>
+  <text class="emb" x="632" y="118" text-anchor="middle">Δ</text>
+  <line x1="636" y1="262" x2="670" y2="262" stroke="#D97D0D" stroke-width="1.6" marker-end="url(#b2)" marker-start="url(#b2s)"/>
+  <text class="lbl" x="628" y="258" text-anchor="end" style="fill:#D97D0D; font-weight:bold; font-size:13px;">δ</text>
+  <text class="lbl" x="700" y="266">nút trung gian do Auto Mesh</text>
+  <line x1="558" y1="296" x2="620" y2="304" stroke="#8FA3B5" stroke-width="1"/>
+  <text class="lbl" x="554" y="300" text-anchor="end">dây cung</text>
+  <text class="lbl" x="665" y="410" text-anchor="middle">2 đoạn cho cột thường · 3–4 đoạn cho cột mảnh</text>
+  <text class="emb" x="665" y="432" text-anchor="middle">→ thoả mãn §6.7.1.2</text>
+
+  <!-- BLUE NOTE -->
+  <rect x="40" y="464" width="820" height="72" rx="6" fill="#EAF1F8" stroke="#B9D0E5"/>
+  <text class="ttb" x="58" y="488">Cách làm đúng</text>
+  <text class="bd" x="58" y="510">Assign &gt; Frame &gt; Automatic Frame Mesh… → Auto Mesh Frame + at Intermediate Joints + Minimum Number of Segments = 2</text>
+  <text class="bd" x="58" y="528">Auto Mesh chỉ chia phần tử PHÂN TÍCH; đối tượng thiết kế vẫn giữ nguyên là một cấu kiện hoàn chỉnh.</text>
+
+  <!-- RED TRAP -->
+  <rect x="40" y="548" width="820" height="72" rx="6" fill="#FBEAE7" stroke="#EDB3AB"/>
+  <text class="ttl" x="58" y="572">Cạm bẫy — tuyệt đối KHÔNG dùng Edit &gt; Divide Frames</text>
+  <text class="bd" x="58" y="594">Divide Frames cắt luôn ĐỐI TƯỢNG thiết kế thành nhiều cấu kiện ngắn → chiều dài không giằng sai, và vùng đọc</text>
+  <text class="bd" x="58" y="612">thép dầm L/4 – L/2 – L/4 bị chia lại theo từng đoạn ngắn, không còn tương ứng với cấu kiện thật trên bản vẽ.</text>
+</svg>

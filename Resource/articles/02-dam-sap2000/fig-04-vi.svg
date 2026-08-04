@@ -84,7 +84,8 @@
   <text x="82" y="782" font-size="14" font-weight="bold" fill="#B35C00">LỐI TẮT KHUYẾN NGHỊ (AISC 360-10 §C2.3(3)) — chỉ chạy MỘT vòng</text>
   <g font-size="12.5" fill="#14314F">
     <text x="82" y="804">Ratio notional = 0.003 (thay 0.002)  +  Tau-b Fixed = 1.0  →  EA = EI = 0.8 cố định cho mọi cấu kiện thép</text>
-    <text x="82" y="824" fill="#6B7A88">Xoá bỏ vòng lặp τb, giảm một nửa số lần chạy, hồ sơ tính đơn giản hơn — chi phí thép tăng không đáng kể</text>
+    <text x="82" y="824" fill="#6B7A88">Xoá bỏ vòng lặp τb, giảm một nửa số lần chạy, hồ sơ tính đơn giản hơn</text>
+      <text x="82" y="842" fill="#6B7A88">— chi phí thép tăng không đáng kể</text>
   </g>
 
   

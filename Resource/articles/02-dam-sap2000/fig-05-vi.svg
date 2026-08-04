@@ -63,6 +63,7 @@
   <text x="700" y="330" font-size="12.5" font-weight="bold" fill="#1E8449" text-anchor="middle">Nắm cả P-Δ và P-δ</text>
   <text x="700" y="348" font-size="12" fill="#14314F" text-anchor="middle">Khuyến nghị 2–4 đoạn</text>
 
-  <rect x="28" y="386" width="844" height="36" rx="4" fill="#FDF2E6" stroke="#E8842A" stroke-width="1.4"/>
-  <text x="44" y="409" font-size="12" fill="#14314F"><tspan font-weight="bold" fill="#B35C00">Assign &gt; Frame &gt; Automatic Frame Mesh</tspan>  (Auto Mesh Frame ☑ at Intermediate Joints ☑ Minimum Number of Segments = 2)  —  TUYỆT ĐỐI không dùng Edit &gt; Divide Frames: sẽ băm nhỏ đối tượng thiết kế và làm sai chiều dài không giằng.</text>
+  <rect x="28" y="386" width="844" height="54" rx="4" fill="#FDF2E6" stroke="#E8842A" stroke-width="1.4"/>
+  <text x="44" y="409" font-size="12" fill="#14314F"><tspan font-weight="bold" fill="#B35C00">Assign &gt; Frame &gt; Automatic Frame Mesh</tspan>  (Auto Mesh Frame ☑ at Intermediate Joints ☑ Minimum Number of Segments = 2)</text>
+      <text x="44" y="426" font-size="12" fill="#C0392B" font-weight="bold">TUYỆT ĐỐI không dùng Edit &gt; Divide Frames: sẽ băm nhỏ đối tượng thiết kế và làm sai chiều dài không giằng.</text>
 </svg>
