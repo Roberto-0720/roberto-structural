@@ -54,5 +54,4 @@
 
   <rect x="28" y="386" width="844" height="54" rx="4" fill="#FDF2E6" stroke="#E8842A" stroke-width="1.4"/>
   <text x="44" y="406" font-size="12" fill="#14314F"><tspan font-weight="bold" fill="#B35C00">Assign &gt; Frame &gt; Automatic Frame Mesh</tspan>  —  Auto Mesh Frame ☑ at Intermediate Joints ☑ Minimum Number of Segments = 2</text>
-  <text x="44" y="426" font-size="12" fill="#C0392B" font-weight="bold">Never use Edit &gt; Divide Frames: <tspan font-weight="normal" fill="#14314F">it breaks up the design object and corrupts unbraced lengths on the unconservative side.</tspan></text>
 </svg>

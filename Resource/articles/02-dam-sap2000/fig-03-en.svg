@@ -53,5 +53,4 @@
 
   <rect x="28" y="378" width="844" height="40" rx="4" fill="#FFFFFF" stroke="#C0392B" stroke-width="1.3"/>
   <text x="44" y="395" font-size="12" fill="#14314F"><tspan font-weight="bold" fill="#C0392B">Keep the ratios AND the signs of the combination: </tspan>1.6(Wx + 0.5Wy) → +1.6(Nx + 0.5Ny)   •   1.0(Vx − 0.3Vy) → +1.0(Nx − 0.3Ny)</text>
-  <text x="44" y="411" font-size="12" fill="#14314F"><tspan font-weight="bold">Shortcut in §C2.2b(4): </tspan>if 2nd-order drift / 1st-order drift ≤ 1.7 in all stories, apply Ni in gravity-only combinations (Panel A) and drop Panel B.</text>
 </svg>

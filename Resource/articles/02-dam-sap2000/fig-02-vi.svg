@@ -77,7 +77,5 @@
   <rect x="28" y="372" width="402" height="68" rx="5" fill="#F2F6FA" stroke="#1F6FB2" stroke-width="1.2"/>
   <text x="46" y="394" font-size="12" fill="#14314F">Cột nghiêng 1/500 là dung sai dựng lắp cho phép</text>
   <text x="46" y="414" font-size="12" fill="#14314F">(AISC Code of Standard Practice) — không mô hình</text>
-  <text x="46" y="431" font-size="12" fill="#14314F">hoá hình học nghiêng, mà thay bằng lực ngang.</text>
-
-  
+  <text x="46" y="431" font-size="12" fill="#14314F">hoá hình học nghiêng, mà thay bằng lực ngang.</text>  
 </svg>
