@@ -29,15 +29,15 @@ window.PRICE_CURRENCY = "VND";
 
 window.TOOL_CATEGORIES = [
   { vi: "Nền móng & Công trình ngầm", en: "Foundation & Underground" },
-  { vi: "Kết cấu thép",               en: "Steel Structural Design" },
-  { vi: "Kết cấu BTCT",               en: "RC Structural Design" },
-  { vi: "Tính tải trọng",             en: "Loading Calculation" }
+  { vi: "Kết cấu thép", en: "Steel Structural Design" },
+  { vi: "Kết cấu BTCT", en: "RC Structural Design" },
+  { vi: "Tính tải trọng", en: "Loading Calculation" }
 ];
 
-const CAT_FDN   = { vi: "Nền móng & Công trình ngầm", en: "Foundation & Underground" };
-const CAT_STEEL = { vi: "Kết cấu thép",               en: "Steel Structural Design" };
-const CAT_RC    = { vi: "Kết cấu BTCT",               en: "RC Structural Design" };
-const CAT_LOAD  = { vi: "Tính tải trọng",             en: "Loading Calculation" };
+const CAT_FDN = { vi: "Nền móng & Công trình ngầm", en: "Foundation & Underground" };
+const CAT_STEEL = { vi: "Kết cấu thép", en: "Steel Structural Design" };
+const CAT_RC = { vi: "Kết cấu BTCT", en: "RC Structural Design" };
+const CAT_LOAD = { vi: "Tính tải trọng", en: "Loading Calculation" };
 
 const WIN = "Windows 10/11 (64-bit)";
 const PIC = "Resource/tools/Picture/";   // screenshot root
@@ -70,22 +70,18 @@ window.TOOLS = [
     category: CAT_RC,
     name: { vi: "Thiết kế BTCT từ kết quả SAP2000", en: "RC Design Output — SAP2000" },
     tagline: {
-      vi: "Kết nối trực tiếp SAP2000 đang mở qua COM API, đọc kết quả thiết kế bê tông (ACI 318-14) và chuyển thành bảng thống kê thép hoàn chỉnh cho từng nhóm cấu kiện — kèm kiểm tra OK/NG trực tiếp và báo cáo Excel.",
-      en: "Connects live to a running SAP2000 model via COM API, pulls concrete frame design results (ACI 318-14) and turns them into a complete rebar schedule per member group — with live OK/NG checking and a polished Excel report."
+      vi: "Kết nối trực tiếp SAP2000 đang mở, đọc kết quả thiết kế bê tông và chuyển thành bảng thống kê thép hoàn chỉnh cho từng nhóm cấu kiện — kèm kiểm tra OK/NG trực tiếp và báo cáo Excel.",
+      en: "Connects live to a running SAP2000 model, pulls concrete frame design results and turns them into a complete rebar schedule per member group — with live OK/NG checking and a polished Excel report."
     },
     version: "1.0", size: "~34 MB", updated: "2026-08", os: WIN, host: "SAP2000",
     priceVnd: 350000, productCode: "RCSAP", status: "ready",
     thumb: PIC + "web_description_01/01.webp",
-    screenshots: [PIC+"web_description_01/01.webp", PIC+"web_description_01/02.webp", PIC+"web_description_01/03.webp", PIC+"web_description_01/04.webp"],
+    screenshots: [PIC + "web_description_01/01.webp", PIC + "web_description_01/02.webp", PIC + "web_description_01/03.webp", PIC + "web_description_01/04.webp"],
     features: [
-      { vi: "Kết nối trực tiếp SAP2000 (COM API, v17 → v26+) — không cần xuất file .txt, không cần thiết lập đơn vị thủ công", en: "Live SAP2000 connection (COM API, v17 → v26+) — no .txt export, no manual unit setup" },
-      { vi: "Kết quả thép: <b>số thanh × đường kính</b> (thép dọc) và <b>số nhánh × đường kính @ khoảng cách</b> (đai)", en: "Rebar output: <b>number of bars × diameter</b> (longitudinal) and <b>legs × diameter @ spacing</b> (stirrups)" },
-      { vi: "Bao nội lực theo <b>nhóm cấu kiện</b> (mark C2, RGX1…) — cột (PMM, Av/sv) và dầm (As trên/dưới, cắt, xoắn)", en: "Envelopes results <b>per member group</b> (marks C2, RGX1…) — columns (PMM, Av/sv) and beams (top/bottom As, shear, torsion)" },
-      { vi: "Tự đọc tiết diện, f'c, fy, fyt, lớp bảo vệ, cỡ đai <b>từ mô hình</b> — ít nhập tay, ít sai sót", en: "Section size, f'c, fy, fyt, cover and tie size read <b>from the model</b> — fewer manual inputs, fewer mistakes" },
-      { vi: "Chế độ <b>kháng chấn</b>: nhu cầu đai vùng tới hạn Ash/s theo ACI 318-14 §18.7.5.4 (tách riêng đai vùng confine / non-confine)", en: "<b>Seismic mode</b>: confine-zone hoop demand Ash/s per ACI 318-14 §18.7.5.4 (confine / non-confine stirrups picked separately)" },
-      { vi: "Dầm chia vùng Đầu/Giữa, đai = Av/sv + 2At/st, thép bụng chịu xoắn có kể phần dư uốn", en: "Beam End/Center zones, stirrup demand = Av/sv + 2At/st, torsional web bars with flexural-surplus credit" },
+      { vi: "Kết nối trực tiếp SAP2000", en: "Live SAP2000 connection" },
+      { vi: "Tự đọc tiết diện, f'c, fy, fyt, lớp bảo vệ...", en: "Section size, f'c, fy, fyt, cover..." },
       { vi: "Kiểm tra nút khung: lực cắt nút và tỉ số khả năng dầm/cột (6/5) cho khung kháng chấn", en: "Joint check: joint shear and (6/5) beam/column capacity ratios for seismic frames" },
-      { vi: "<b>Tự đề xuất thép</b> ngay khi có dữ liệu — mọi giá trị vẫn sửa được, kiểm tra cập nhật tức thì", en: "<b>Auto rebar suggestion</b> the moment data arrives — every value stays editable, checks update live" },
+      { vi: "<b>Tự đề xuất thép</b> ngay khi có dữ liệu", en: "<b>Auto rebar suggestion</b> the moment data arrives" },
       { vi: "Xuất Excel (.xlsx) theo đúng bố cục bảng tính quen thuộc, kèm dữ liệu thô từng station", en: "Excel export (.xlsx) mirroring the familiar legacy sheet layout, including raw station data" },
       { vi: "Lưu/mở dự án (.rcdproj) — chỉnh thép và xuất lại sau mà <b>không cần mở SAP2000</b>", en: "Save/open project (.rcdproj) — tweak rebar and re-export later <b>without SAP2000 running</b>" }
     ],
@@ -104,7 +100,7 @@ window.TOOLS = [
     version: "2.5", size: "~23 MB", updated: "2026-08", os: WIN, host: "SAP2000",
     priceVnd: 350000, productCode: "DEFLECT", status: "ready",
     thumb: PIC + "web_description_03/01.webp",
-    screenshots: [PIC+"web_description_03/01.webp", PIC+"web_description_03/02.webp"],
+    screenshots: [PIC + "web_description_03/01.webp", PIC + "web_description_03/02.webp"],
     features: [
       { vi: "<b>Kiểm tra tương đối</b> L/δ theo phương pháp chord rotation 3D — tách chuyển vị thực khỏi chuyển động cứng của hai đầu dầm", en: "<b>Relative check</b> L/δ by the 3D chord-rotation method — separates true deformation from rigid-body motion of the two ends" },
       { vi: "<b>Kiểm tra tuyệt đối</b> theo U3 (mm) khi cần giới hạn võng theo trị số", en: "<b>Absolute check</b> on U3 (mm) when a fixed deflection limit is required" },
@@ -130,7 +126,7 @@ window.TOOLS = [
     version: "1.0", size: "—", updated: "2026-08", os: WIN, host: "AutoCAD 2023",
     priceVnd: 350000, productCode: "STEELCAD", status: "ready",
     thumb: PIC + "web_description_07/01.webp",
-    screenshots: [PIC+"web_description_07/01.webp", PIC+"web_description_07/02.webp", PIC+"web_description_07/03.webp", PIC+"web_description_07/04.webp"],
+    screenshots: [PIC + "web_description_07/01.webp", PIC + "web_description_07/02.webp", PIC + "web_description_07/03.webp", PIC + "web_description_07/04.webp"],
     features: [
       { vi: "<b>Cấu kiện thép tham số</b>: 7 grip kéo trực tiếp, đổi tiết diện/nhãn/cắt vát mà không vẽ lại", en: "<b>Parametric steel members</b>: 7 draggable grips; change section, label or cuts without redrawing" },
       { vi: "<b>4 kiểu hình chiếu</b> chuyển đổi tức thì: Mặt bằng, Mặt đứng, Mặt đứng nhìn sau (cánh nét khuất), Mặt cắt", en: "<b>4 view types</b> switched instantly: Plan, Elevation, Elevation-back (hidden flanges), Section" },
@@ -150,23 +146,21 @@ window.TOOLS = [
     category: CAT_STEEL,
     name: { vi: "Thiết kế dầm monorail", en: "Monorail Beam Design" },
     tagline: {
-      vi: "Phân tích và thiết kế dầm monorail treo (underhung) theo AISC 9th Edition ASD và CMAA No. 74 (2004): uốn hai phương, xoắn – vênh, ứng suất cánh dưới, console và độ võng. Đơn vị SI, có sơ đồ dầm tự sinh.",
-      en: "Analysis and design of underhung monorail beams per AISC 9th Edition ASD and CMAA Specification No. 74 (2004): biaxial bending, torsion–warping, bottom-flange stresses, overhang and deflection. SI units with an auto-generated beam diagram."
+      vi: "Phân tích và thiết kế dầm monorail treo (underhung) theo AISC 9th Edition ASD và CMAA No. 74 (2004).",
+      en: "Analysis and design of underhung monorail beams per AISC 9th Edition ASD and CMAA Specification No. 74 (2004)."
     },
     version: "1.2", size: "~45 MB", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 250000, productCode: "MONORAIL", status: "ready",
     thumb: PIC + "web_description_08/01.webp",
-    screenshots: [PIC+"web_description_08/01.webp", PIC+"web_description_08/02.webp", PIC+"web_description_08/03.webp", PIC+"web_description_08/04.webp"],
+    screenshots: [PIC + "web_description_08/01.webp", PIC + "web_description_08/02.webp", PIC + "web_description_08/03.webp", PIC + "web_description_08/04.webp"],
     features: [
-      { vi: "<b>Thư viện tiết diện đa dạng</b>: W, H (tổ hợp), I, UB/UC, HE/IPE — chọn theo 2 cấp", en: "<b>Multi-section support</b>: W, H (built-up), I, UB/UC, HE/IPE — two-level selection" },
-      { vi: "Kiểm tra uốn trục X (AISC Chương F), uốn trục Y kèm <b>ứng suất vênh do xoắn</b>, và tỉ số ứng suất tổ hợp ≤ 1.0", en: "X-axis bending (AISC Chapter F), Y-axis bending including <b>warping stress</b>, and combined stress ratio ≤ 1.0" },
-      { vi: "<b>Kiểm tra cánh dưới theo CMAA No. 74</b>: fto, ft1, ft2 ≤ 0.66·Fy — phần dễ bỏ sót nhất khi thiết kế monorail", en: "<b>Bottom-flange checks per CMAA No. 74</b>: fto, ft1, ft2 ≤ 0.66·Fy — the most commonly missed part of monorail design" },
-      { vi: "Tính riêng cho <b>đoạn console</b> (Lo, Lbo, Cbo) khi dầm có phần vươn", en: "Separate checks for the <b>overhang</b> (Lo, Lbo, Cbo) when the beam cantilevers" },
-      { vi: "Kể đến hệ số xung đứng và lực ngang của palăng, số bánh xe (2/4/8) và khoảng cách bánh", en: "Includes vertical impact and horizontal load factors, wheel count (2/4/8) and wheel spacing" },
-      { vi: "Kiểm tra độ võng Δmax ≤ L/450", en: "Deflection check Δmax ≤ L/450" },
-      { vi: "<b>Sơ đồ dầm tự sinh</b> kèm tải, gối và kích thước; hình mặt cắt tự co giãn theo khung", en: "<b>Auto-generated beam diagram</b> with loads, supports and dimensions; cross-section figures rescale with the panel" },
-      { vi: "Kết quả tô màu Đạt/Không đạt và chỉ rõ <b>trường hợp khống chế</b>", en: "Colour-coded pass/fail results identifying the <b>governing check</b>" },
-      { vi: "Lưu/mở dự án (.mbdproj) — mở lại là tự chạy lại phân tích, không bao giờ lưu số liệu cũ", en: "Save/open project (.mbdproj) — reopening re-runs the analysis, so a project can never hold stale numbers" }
+      { vi: "<b>Thư viện tiết diện đa dạng</b>: W, H (tổ hợp), I, UB/UC, HE/IPE", en: "<b>Multi-section support</b>: W, H (built-up), I, UB/UC, HE/IPE" },
+      { vi: "Kiểm tra uốn kèm <b>ứng suất vênh do xoắn</b>", en: "Bending including <b>warping stress</b>" },
+      { vi: "<b>Kiểm tra cánh dưới theo CMAA No. 74</b>", en: "<b>Bottom-flange checks per CMAA No. 74</b>" },
+      { vi: "Kể đến<b>phần console</b> (Lo, Lbo, Cbo)", en: "Includes the <b>overhang</b> (Lo, Lbo, Cbo)" },
+      { vi: "Kể đến hệ số xung đứng và lực ngang của palăng", en: "Includes vertical impact and horizontal load factors" },
+      { vi: "Kiểm tra độ võng Δmax", en: "Deflection check Δmax" },
+      { vi: "Lưu/mở dự án", en: "Save/open project" }
     ],
     requirements: REQ_STD, download: "", checksum: "", virustotal: ""
   },
@@ -183,7 +177,7 @@ window.TOOLS = [
     version: "2.0", size: "—", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 250000, productCode: "CRANEGIRDER", status: "ready",
     thumb: PIC + "web_description_06/01.webp",
-    screenshots: [PIC+"web_description_06/01.webp", PIC+"web_description_06/03.webp"],
+    screenshots: [PIC + "web_description_06/01.webp", PIC + "web_description_06/03.webp"],
     features: [
       { vi: "Tổ hợp tải trọng cầu trục: tải đứng có hệ số xung, lực hãm ngang và lực dọc ray", en: "Crane load combinations: vertical loads with impact, lateral surge and longitudinal tractive forces" },
       { vi: "Kiểm tra uốn hai phương kèm ảnh hưởng xoắn của dầm ray", en: "Biaxial bending checks including runway-girder torsion effects" },
@@ -206,7 +200,7 @@ window.TOOLS = [
     version: "1.2", size: "—", updated: "2026-08", os: WIN, host: "SAP2000",
     priceVnd: 250000, productCode: "PILECAP", status: "ready",
     thumb: PIC + "web_description_04/01.webp",
-    screenshots: [PIC+"web_description_04/01.webp", PIC+"web_description_04/02.webp", PIC+"web_description_04/03.webp", PIC+"web_description_04/04.webp", PIC+"web_description_04/05.webp"],
+    screenshots: [PIC + "web_description_04/01.webp", PIC + "web_description_04/02.webp", PIC + "web_description_04/03.webp", PIC + "web_description_04/04.webp", PIC + "web_description_04/05.webp"],
     features: [
       { vi: "<b>Nhập dữ liệu tự động</b>: chọn node cọc trong SAP2000 → tool tự trích tọa độ, phản lực, chuyển vị", en: "<b>Automatic data input</b>: select pile nodes in SAP2000 → the tool extracts coordinates, reactions and displacements" },
       { vi: "<b>Tự phân loại Load Type</b> (Thường xuyên / Gió / Động đất) từ Load Pattern khai báo trong SAP2000", en: "<b>Automatic load-type classification</b> (Long-term / Wind / Seismic) from the load patterns declared in SAP2000" },
@@ -231,7 +225,7 @@ window.TOOLS = [
     version: "2.1", size: "—", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 250000, productCode: "WINDTANK", status: "ready",
     thumb: PIC + "web_description_09/01.webp",
-    screenshots: [PIC+"web_description_09/01.webp", PIC+"web_description_09/02.webp"],
+    screenshots: [PIC + "web_description_09/01.webp", PIC + "web_description_09/02.webp"],
     features: [
       { vi: "Theo <b>ASCE 7-22 Chương 29</b> cho kết cấu dạng trụ đặt trên nền", en: "Per <b>ASCE 7-22 Chapter 29</b> for ground-supported cylindrical structures" },
       { vi: "Hỗ trợ mặt cắt <b>Tròn, Lục giác, Bát giác và Vuông</b>", en: "Supports <b>round, hexagonal, octagonal and square</b> shapes" },
@@ -248,19 +242,19 @@ window.TOOLS = [
   {
     id: "embedded-plate-design",
     category: CAT_RC,
-    name: { vi: "Thiết kế bản thép chờ (Embedded Plate)", en: "Embedded Plate Design" },
+    name: { vi: "Thiết kế Tấm chôn sẵn (Embedded Plate)", en: "Embedded Plate Design" },
     tagline: {
-      vi: "Thiết kế bản thép chôn sẵn trong bê tông: bố trí chốt neo, kiểm tra kéo – cắt – tổ hợp và các dạng phá hoại bê tông (kéo tuột, phá hoại nón, bung mép) theo ACI 318.",
-      en: "Design of plates cast into concrete: stud layout, tension–shear–interaction checks and concrete failure modes (pull-out, breakout, edge blow-out) per ACI 318."
+      vi: "Thiết kế bản thép chôn sẵn trong bê tông: bố trí chốt neo, kiểm tra kéo – cắt – tổ hợp và các dạng phá hoại bê tông theo ACI 318.",
+      en: "Design of plates cast into concrete: stud layout, tension–shear–interaction checks and concrete failure modes per ACI 318."
     },
     version: "1.0", size: "—", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 250000, productCode: "EMBPLATE", status: "ready",
     thumb: PIC + "web_description_11/01.webp",
-    screenshots: [PIC+"web_description_11/01.webp", PIC+"web_description_11/02.webp", PIC+"web_description_11/03.webp", PIC+"web_description_11/04.webp"],
+    screenshots: [PIC + "web_description_11/01.webp", PIC + "web_description_11/02.webp", PIC + "web_description_11/03.webp", PIC + "web_description_11/04.webp"],
     features: [
-      { vi: "Bố trí chốt neo (stud) theo lưới tuỳ chọn, kiểm tra khoảng cách và khoảng cách mép", en: "Configurable stud layout with spacing and edge-distance checks" },
+      { vi: "Bố trí chốt neo (stud) theo lưới, kiểm tra khoảng cách", en: "Configurable stud layout with spacing and distance checks" },
       { vi: "Kiểm tra chốt neo chịu <b>kéo, cắt và tổ hợp kéo–cắt</b>", en: "Stud checks in <b>tension, shear and tension–shear interaction</b>" },
-      { vi: "Các dạng phá hoại bê tông: <b>phá hoại nón (breakout), kéo tuột (pullout), bung mép (blow-out)</b>", en: "Concrete failure modes: <b>breakout, pullout and side-face blow-out</b>" },
+      { vi: "Các dạng phá hoại bê tông: <b> (breakout), (pullout), (blow-out)</b>", en: "Concrete failure modes: <b>breakout, pullout and side-face blow-out</b>" },
       { vi: "Kiểm tra bề dày bản thép chịu uốn cục bộ dưới tải trọng đặt", en: "Plate thickness check for local bending under the applied load" },
       { vi: "Xuất báo cáo tính toán", en: "Exports a calculation report" },
       { vi: "Đơn vị SI (kN, m, mm)", en: "SI units (kN, m, mm)" }
@@ -280,7 +274,7 @@ window.TOOLS = [
     version: "1.0", size: "—", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 250000, productCode: "RCCORBEL", status: "ready",
     thumb: PIC + "web_description_12/01.webp",
-    screenshots: [PIC+"web_description_12/01.webp", PIC+"web_description_12/02.webp"],
+    screenshots: [PIC + "web_description_12/01.webp", PIC + "web_description_12/02.webp"],
     features: [
       { vi: "Thiết kế theo <b>mô hình giàn ảo (strut-and-tie)</b> cho vai cột chịu tải đứng và ngang", en: "Design by the <b>strut-and-tie model</b> for corbels under vertical and horizontal load" },
       { vi: "Tính cốt thép chính chịu kéo và <b>cốt đai ngang</b> phân bố theo chiều cao vai", en: "Primary tension reinforcement and <b>horizontal stirrups</b> distributed over the corbel depth" },
@@ -298,20 +292,19 @@ window.TOOLS = [
     category: CAT_STEEL,
     name: { vi: "Kiểm tra chuyển vị ngang (Sidesway)", en: "Sidesway Check" },
     tagline: {
-      vi: "Kiểm tra chuyển vị ngang giữa các tầng cho kết cấu thép, kết nối trực tiếp SAP2000 qua COM API. Tự gom các nút theo trục cột và đọc được tên trục lưới từ mô hình.",
-      en: "Storey-drift check for steel structures, connected live to SAP2000 via COM API. Groups joints by column line automatically and reads real grid names from the model."
+      vi: "Kiểm tra chuyển vị ngang giữa các tầng cho kết cấu.",
+      en: "Storey-drift check for structures"
     },
     version: "2.3", size: "~23 MB", updated: "2026-08", os: WIN, host: "SAP2000 v26",
     priceVnd: 125000, productCode: "SIDESWAY", status: "ready",
     thumb: PIC + "web_description_02/01.webp",
-    screenshots: [PIC+"web_description_02/01.webp", PIC+"web_description_02/02.webp"],
+    screenshots: [PIC + "web_description_02/01.webp", PIC + "web_description_02/02.webp"],
     features: [
-      { vi: "<b>Tự gom nút theo trục cột</b> (cùng X, Y) rồi kiểm tra từng cặp nút dưới–trên: Δ = |U_trên − U_dưới| so với H/200 (đặt được)", en: "<b>Groups joints by column line</b> (same X, Y) then checks each lower–upper pair: Δ = |U_top − U_bot| against H/200 (configurable)" },
-      { vi: "<b>Đọc tên trục lưới thật</b> từ SAP2000 (ví dụ A-1, C-2) thay vì chỉ hiện toạ độ", en: "<b>Reads real grid names</b> from SAP2000 (e.g. A-1, C-2) instead of showing bare coordinates" },
-      { vi: "Lấy nút theo 3 cách: nút đang chọn trong SAP, toàn bộ nút, hoặc từ một Group", en: "Three ways to pick joints: current SAP selection, all joints, or from a group" },
-      { vi: "Kiểm tra cả Load Case và Load Combination; chọn nhanh nhiều LC bằng prefix", en: "Checks both load cases and combinations; quick prefix selection of many cases" },
+      { vi: "Tự gom nút theo trục cột", en: "Auto-group joints by column line" },
+      { vi: "Đọc tên trục lưới thật từ SAP2000", en: "Reads real grid names from SAP2000" },
+      { vi: "Kiểm tra cả Load Case và Load Combination", en: "Checks both load cases and combinations" },
       { vi: "Tự tìm tổ hợp gây chuyển vị lớn nhất theo phương X và Y cho từng trục cột", en: "Finds the governing combination for X and Y drift on each column line" },
-      { vi: "Xuất Excel 2 sheet (Tổng hợp + Chi tiết từng cặp nút) và file .DISP", en: "Exports a 2-sheet Excel workbook (Summary + Detailed) and a .DISP file" }
+      { vi: "Xuất Excel 2 sheet", en: "Exports a 2-sheet Excel workbook" }
     ],
     requirements: REQ_SAP, download: "", checksum: "", virustotal: ""
   },
@@ -322,8 +315,8 @@ window.TOOLS = [
     category: CAT_FDN,
     name: { vi: "Thiết kế sàn nền bê tông (Slab on Grade)", en: "Concrete Slab on Grade Design" },
     tagline: {
-      vi: "Kiểm tra, tính toán và thiết kế sàn nền bê tông theo Westergaard / PCA / ACI 360 / TM 5-809-12. Giao diện trực quan, đơn vị SI, xuất báo cáo Excel & HTML.",
-      en: "Analysis and design of concrete slabs on grade to Westergaard / PCA / ACI 360 / TM 5-809-12. Intuitive interface, SI units, Excel & HTML report export."
+      vi: "Kiểm tra, tính toán và thiết kế sàn nền bê tông theo Westergaard / PCA / ACI 360 / TM 5-809-12.",
+      en: "Analysis and design of concrete slabs on grade to Westergaard / PCA / ACI 360 / TM 5-809-12."
     },
     version: "1.1", size: "63 MB", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 0, productCode: "GRDS", status: "ready",
@@ -341,8 +334,7 @@ window.TOOLS = [
       { vi: "Cốt thép co ngót/nhiệt độ và kiểm tra bề rộng vết nứt", en: "Shrinkage/temperature reinforcement and crack-width check" },
       { vi: "Tự động tìm chiều dày sàn tối thiểu cho từng trường hợp tải", en: "Automatic minimum slab-thickness search for each load case" },
       { vi: "Tab tra cứu: k theo loại đất, tải xe nâng, chọn dowel, tính diện tích tiếp xúc Ac", en: "Reference tab: subgrade k by soil, lift-truck loads, dowel selection, contact-area calculator" },
-      { vi: "Xuất báo cáo Excel (.xlsx) hoặc HTML in được", en: "Export printable Excel (.xlsx) or HTML report" },
-      { vi: "Chạy trực tiếp trên Windows — chỉ cần mở file, không cần cài đặt gì thêm", en: "Runs directly on Windows — just open the file, no installation required" }
+      { vi: "Xuất báo cáo Excel (.xlsx) hoặc HTML", en: "Export printable Excel (.xlsx) or HTML report" },
     ],
     requirements: REQ_STD,
     download: "https://github.com/Roberto-0720/05_GroundFloorDesign/releases/latest/download/GRDS.zip",
@@ -355,20 +347,19 @@ window.TOOLS = [
     category: CAT_LOAD,
     name: { vi: "Tải trọng động đất lên bồn đứng", en: "Seismic Load on Vertical Tank" },
     tagline: {
-      vi: "Tính tải trọng động đất cho bồn đứng đặt trên nền (thép hoặc bê tông) theo ASCE 7-22 Chương 15 §15.7.6 và API 650 Phụ lục E — từ phổ thiết kế đến lực cắt và moment lật tại chân bồn.",
-      en: "Seismic design loads for ground-supported vertical tanks (steel or concrete) per ASCE 7-22 Chapter 15 §15.7.6 and API 650 Appendix E — from design spectra to base shear and overturning moment."
+      vi: "Tính tải trọng động đất cho bồn đứng theo ASCE 7-22 và API 650.",
+      en: "Seismic design loads for ground-supported vertical tanks per ASCE 7-22 and API 650."
     },
     version: "2.1", size: "—", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 0, productCode: "SEISTANK", status: "ready",
     thumb: PIC + "web_description_10/01.webp",
-    screenshots: [PIC+"web_description_10/01.webp", PIC+"web_description_10/02.webp"],
+    screenshots: [PIC + "web_description_10/01.webp", PIC + "web_description_10/02.webp"],
     features: [
-      { vi: "Theo <b>ASCE 7-22 Chương 15 §15.7.6</b> (kết cấu không phải nhà) và <b>API 650 Phụ lục E</b>", en: "Per <b>ASCE 7-22 Chapter 15 §15.7.6</b> (nonbuilding structures) and <b>API 650 Appendix E</b>" },
+      { vi: "Theo <b>ASCE 7-22 Chương 15 §15.7.6</b> và <b>API 650 Phụ lục E</b>", en: "Per <b>ASCE 7-22 Chapter 15 §15.7.6</b> and <b>API 650 Appendix E</b>" },
       { vi: "Tự tra hệ số nền Fa, Fv và tính phổ SMS, SM1, SDS, SD1 từ Ss, S1 và Site Class", en: "Site coefficients Fa, Fv and spectral values SMS, SM1, SDS, SD1 from Ss, S1 and site class" },
       { vi: "Xác định <b>Cấp thiết kế kháng chấn</b> theo Bảng 11.6-1 và 11.6-2", en: "Determines the <b>Seismic Design Category</b> per Tables 11.6-1 and 11.6-2" },
-      { vi: "Chu kỳ dao động cơ bản T và phân loại cứng/mềm; hệ số R, Ω₀, Cd theo 10 dạng kết cấu (T1–T10)", en: "Fundamental period T with rigid/flexible classification; R, Ω₀, Cd for 10 structural types (T1–T10)" },
-      { vi: "Lực cắt đáy V và moment lật Mo; nhập riêng trọng lượng mái, thân, đáy và chất chứa", en: "Base shear V and overturning moment Mo; separate roof, shell, bottom and contents weights" },
-      { vi: "Bảng tra ASCE 7-22 đóng gói sẵn trong phần mềm, có thể tự cập nhật", en: "ASCE 7-22 reference tables shipped with the tool and user-updatable" },
+      { vi: "Xác định Chu kỳ T, hệ số R, Ω₀, Cd theo 10 dạng kết cấu (T1–T10)", en: "Fundamental period T, R, Ω₀, Cd factors for 10 structural types (T1–T10)" },
+      { vi: "Lực cắt đáy V và moment lật Mo", en: "Base shear V and overturning moment Mo" },
       { vi: "Xuất Excel và lưu/mở dự án (.json)", en: "Excel export and save/open project (.json)" }
     ],
     requirements: REQ_STD,
@@ -390,7 +381,7 @@ window.TOOLS = [
     version: "2.2", size: "—", updated: "—", os: WIN, host: "SAP2000",
     priceVnd: 350000, productCode: "BASEPLATE", status: "soon",
     thumb: PIC + "web_description_13/01.webp",
-    screenshots: [PIC+"web_description_13/01.webp", PIC+"web_description_13/02.webp", PIC+"web_description_13/03.webp"],
+    screenshots: [PIC + "web_description_13/01.webp", PIC + "web_description_13/02.webp", PIC + "web_description_13/03.webp"],
     features: [], requirements: REQ_SAP, download: "", checksum: "", virustotal: ""
   },
   {

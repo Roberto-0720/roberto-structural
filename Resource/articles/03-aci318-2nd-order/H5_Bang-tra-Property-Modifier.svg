@@ -1,5 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 668" width="900" height="668">
-  <style>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 900 417.18008"
+   width="900"
+   height="417.18008"
+   version="1.1"
+   id="svg41"
+   sodipodi:docname="H5_Bang-tra-Property-Modifier.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs41" />
+  <sodipodi:namedview
+     id="namedview41"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="1.1721557"
+     inkscape:cx="449.59898"
+     inkscape:cy="334"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg41" />
+  <style
+     id="style1">
     text { font-family: 'Segoe UI','DejaVu Sans',Arial,sans-serif; }
     .h1 { font-size:19px; font-weight:bold; fill:#1B3A5C; }
     .sub { font-size:12.5px; fill:#5A6B7C; }
@@ -11,72 +44,260 @@
     .bd { font-size:12.5px; fill:#4A5C6B; }
     .ttl { font-size:13.5px; font-weight:bold; }
   </style>
-
-  <rect x="0" y="0" width="900" height="668" fill="#FFFFFF"/>
-  <text class="h1" x="450" y="34" text-anchor="middle">BẢNG TRA PROPERTY MODIFIER THEO ACI 318-14</text>
-  <text class="sub" x="450" y="57" text-anchor="middle">Bảng 6.6.3.1.1(a) và §6.6.3.2.2 · Giá trị nhập vào ô Moment of Inertia about 2 &amp; 3 axis trong SAP2000</text>
-
-  <rect x="40" y="78" width="820" height="44" fill="#1B3A5C"/>
-  <text class="th" x="60" y="106">Cấu kiện</text>
-  <text class="th" x="440" y="99" text-anchor="middle">Phân tích tải trọng TÍNH TOÁN</text>
-  <text class="ths" x="440" y="115" text-anchor="middle">§6.6.3.1.1 — thiết kế cường độ và drift động đất</text>
-  <text class="th" x="740" y="99" text-anchor="middle">Tải trọng SỬ DỤNG</text>
-  <text class="ths" x="740" y="115" text-anchor="middle">§6.6.3.2.2 — ×1.4, không vượt Ig</text>
-
-  <rect x="40" y="122" width="820" height="34" fill="#F5F8FB" stroke="#D5E2EE"/>
-  <text class="td" x="60" y="144">Cột</text>
-  <text class="tdb" x="440" y="144" text-anchor="middle">0.70</text>
-  <text class="td" x="740" y="144" text-anchor="middle">1.00</text>
-
-  <rect x="40" y="156" width="820" height="34" fill="#FFFFFF" stroke="#D5E2EE"/>
-  <text class="td" x="60" y="178">Vách — chưa nứt</text>
-  <text class="tdb" x="440" y="178" text-anchor="middle">0.70</text>
-  <text class="td" x="740" y="178" text-anchor="middle">1.00</text>
-
-  <rect x="40" y="190" width="820" height="34" fill="#F5F8FB" stroke="#D5E2EE"/>
-  <text class="td" x="60" y="212">Vách — đã nứt</text>
-  <text class="tdb" x="440" y="212" text-anchor="middle">0.35</text>
-  <text class="td" x="740" y="212" text-anchor="middle">0.49</text>
-
-  <rect x="40" y="224" width="820" height="34" fill="#FFFFFF" stroke="#D5E2EE"/>
-  <text class="td" x="60" y="246">Dầm chữ nhật</text>
-  <text class="tdb" x="440" y="246" text-anchor="middle">0.35</text>
-  <text class="td" x="740" y="246" text-anchor="middle">0.50</text>
-
-  <rect x="40" y="258" width="820" height="34" fill="#FDF1E0" stroke="#F0C58A"/>
-  <text class="td" x="60" y="280">Dầm chữ T — mô hình bằng tiết diện sườn</text>
-  <text class="tdo" x="440" y="280" text-anchor="middle">0.70</text>
-  <text class="td" x="740" y="280" text-anchor="middle">1.00</text>
-
-  <rect x="40" y="292" width="820" height="34" fill="#F5F8FB" stroke="#D5E2EE"/>
-  <text class="td" x="60" y="314">Sàn phẳng / sàn nấm</text>
-  <text class="tdb" x="440" y="314" text-anchor="middle">0.25</text>
-  <text class="td" x="740" y="314" text-anchor="middle">0.35</text>
-
-  <rect x="40" y="326" width="820" height="34" fill="#FFFFFF" stroke="#D5E2EE"/>
-  <text class="td" x="60" y="348">Diện tích tiết diện A</text>
-  <text class="tdb" x="440" y="348" text-anchor="middle">1.00 Ag</text>
-  <text class="td" x="740" y="348" text-anchor="middle">1.00 Ag</text>
-
-  <rect x="40" y="360" width="820" height="34" fill="#FDF1E0" stroke="#F0C58A"/>
-  <text class="td" x="60" y="382">Hằng số xoắn J — khi là xoắn tương thích</text>
-  <text class="tdo" x="440" y="382" text-anchor="middle">0.10 – 0.20</text>
-  <text class="tdo" x="740" y="382" text-anchor="middle">0.10 – 0.20</text>
-
-  <rect x="40" y="412" width="820" height="66" rx="6" fill="#FDF1E0" stroke="#F0C58A"/>
-  <text class="ttl" x="58" y="434" style="fill:#8A5000;">Vì sao dầm T là 0.70 mà không phải 0.35?</text>
-  <text class="bd" x="58" y="454">R6.6.3.1.1 cho phép lấy gần đúng Ig của dầm T bằng 2 lần Ig của phần sườn → 0.35 × 2 = 0.70.</text>
-  <text class="bd" x="58" y="472">Chỉ áp dụng khi khai tiết diện CHỮ NHẬT bằng phần sườn — đã khai tiết diện T thì không nhân đôi nữa.</text>
-
-  <rect x="40" y="488" width="820" height="66" rx="6" fill="#FBEAE7" stroke="#EDB3AB"/>
-  <text class="ttl" x="58" y="510" style="fill:#C0392B;">Cạm bẫy — modifier bị nhân hai lần</text>
-  <text class="bd" x="58" y="530">Modifier khai ở cấp TIẾT DIỆN và modifier gán ở cấp ĐỐI TƯỢNG sẽ NHÂN VỚI NHAU.</text>
-  <text class="bd" x="58" y="548">Khai 0.35 ở cả hai nơi → 0.1225, mô hình mềm gấp gần 3 lần. Ô Mass và Weight luôn giữ 1.0.</text>
-
-  <rect x="40" y="564" width="820" height="66" rx="6" fill="#EAF1F8" stroke="#B9D0E5"/>
-  <text class="ttl" x="58" y="586" style="fill:#1B3A5C;">Đừng dùng nhầm cột phải cho drift động đất</text>
-  <text class="bd" x="58" y="606">Hệ số 1.4 của §6.6.3.2.2 chỉ dành cho chuyển vị tức thời ở mức tải trọng sử dụng (chủ yếu là gió).</text>
-  <text class="bd" x="58" y="624">Drift động đất theo ASCE 7 §12.7.3(a) vẫn phải dùng tiết diện ĐÃ NỨT — tức cột trái, không phải cột phải.</text>
-
-  <text class="sub" x="450" y="654" text-anchor="middle">ACI 318-19 giữ nguyên bảng này và bổ sung Bảng 6.6.3.1.1(b) cho phép tính I chi tiết hơn theo mức lực dọc và moment</text>
+  <rect
+     x="0"
+     y="0"
+     width="900"
+     height="417.18008"
+     fill="#ffffff"
+     id="rect1"
+     style="stroke-width:0.999997" />
+  <text
+     class="h1"
+     x="450"
+     y="34"
+     text-anchor="middle"
+     id="text1">BẢNG TRA PROPERTY MODIFIER THEO ACI 318-14</text>
+  <text
+     class="sub"
+     x="450"
+     y="57"
+     text-anchor="middle"
+     id="text2">Bảng 6.6.3.1.1(a) và §6.6.3.2.2 · Giá trị nhập vào ô Moment of Inertia about 2 &amp; 3 axis trong SAP2000</text>
+  <rect
+     x="40"
+     y="78"
+     width="820"
+     height="44"
+     fill="#1b3a5c"
+     id="rect2" />
+  <text
+     class="th"
+     x="60"
+     y="106"
+     id="text3">Cấu kiện</text>
+  <text
+     class="th"
+     x="440"
+     y="99"
+     text-anchor="middle"
+     id="text4">Phân tích tải trọng TÍNH TOÁN</text>
+  <text
+     class="ths"
+     x="440"
+     y="115"
+     text-anchor="middle"
+     id="text5">§6.6.3.1.1 — thiết kế cường độ và drift động đất</text>
+  <text
+     class="th"
+     x="740"
+     y="99"
+     text-anchor="middle"
+     id="text6">Tải trọng SỬ DỤNG</text>
+  <text
+     class="ths"
+     x="740"
+     y="115"
+     text-anchor="middle"
+     id="text7">§6.6.3.2.2 — ×1.4, không vượt Ig</text>
+  <rect
+     x="40"
+     y="122"
+     width="820"
+     height="34"
+     fill="#f5f8fb"
+     stroke="#d5e2ee"
+     id="rect7" />
+  <text
+     class="td"
+     x="60"
+     y="144"
+     id="text8">Cột</text>
+  <text
+     class="tdb"
+     x="440"
+     y="144"
+     text-anchor="middle"
+     id="text9">0.70</text>
+  <text
+     class="td"
+     x="740"
+     y="144"
+     text-anchor="middle"
+     id="text10">1.00</text>
+  <rect
+     x="40"
+     y="156"
+     width="820"
+     height="34"
+     fill="#ffffff"
+     stroke="#d5e2ee"
+     id="rect10" />
+  <text
+     class="td"
+     x="60"
+     y="178"
+     id="text11">Vách — chưa nứt</text>
+  <text
+     class="tdb"
+     x="440"
+     y="178"
+     text-anchor="middle"
+     id="text12">0.70</text>
+  <text
+     class="td"
+     x="740"
+     y="178"
+     text-anchor="middle"
+     id="text13">1.00</text>
+  <rect
+     x="40"
+     y="190"
+     width="820"
+     height="34"
+     fill="#f5f8fb"
+     stroke="#d5e2ee"
+     id="rect13" />
+  <text
+     class="td"
+     x="60"
+     y="212"
+     id="text14">Vách — đã nứt</text>
+  <text
+     class="tdb"
+     x="440"
+     y="212"
+     text-anchor="middle"
+     id="text15">0.35</text>
+  <text
+     class="td"
+     x="740"
+     y="212"
+     text-anchor="middle"
+     id="text16">0.49</text>
+  <rect
+     x="40"
+     y="224"
+     width="820"
+     height="34"
+     fill="#ffffff"
+     stroke="#d5e2ee"
+     id="rect16" />
+  <text
+     class="td"
+     x="60"
+     y="246"
+     id="text17">Dầm chữ nhật</text>
+  <text
+     class="tdb"
+     x="440"
+     y="246"
+     text-anchor="middle"
+     id="text18">0.35</text>
+  <text
+     class="td"
+     x="740"
+     y="246"
+     text-anchor="middle"
+     id="text19">0.50</text>
+  <rect
+     x="40"
+     y="258"
+     width="820"
+     height="34"
+     fill="#fdf1e0"
+     stroke="#f0c58a"
+     id="rect19" />
+  <text
+     class="td"
+     x="60"
+     y="280"
+     id="text20">Dầm chữ T — mô hình bằng tiết diện sườn</text>
+  <text
+     class="tdo"
+     x="440"
+     y="280"
+     text-anchor="middle"
+     id="text21">0.70</text>
+  <text
+     class="td"
+     x="740"
+     y="280"
+     text-anchor="middle"
+     id="text22">1.00</text>
+  <rect
+     x="40"
+     y="292"
+     width="820"
+     height="34"
+     fill="#f5f8fb"
+     stroke="#d5e2ee"
+     id="rect22" />
+  <text
+     class="td"
+     x="60"
+     y="314"
+     id="text23">Sàn phẳng / sàn nấm</text>
+  <text
+     class="tdb"
+     x="440"
+     y="314"
+     text-anchor="middle"
+     id="text24">0.25</text>
+  <text
+     class="td"
+     x="740"
+     y="314"
+     text-anchor="middle"
+     id="text25">0.35</text>
+  <rect
+     x="40"
+     y="326"
+     width="820"
+     height="34"
+     fill="#ffffff"
+     stroke="#d5e2ee"
+     id="rect25" />
+  <text
+     class="td"
+     x="60"
+     y="348"
+     id="text26">Diện tích tiết diện A</text>
+  <text
+     class="tdb"
+     x="440"
+     y="348"
+     text-anchor="middle"
+     id="text27">1.00 Ag</text>
+  <text
+     class="td"
+     x="740"
+     y="348"
+     text-anchor="middle"
+     id="text28">1.00 Ag</text>
+  <rect
+     x="40"
+     y="360"
+     width="820"
+     height="34"
+     fill="#fdf1e0"
+     stroke="#f0c58a"
+     id="rect28" />
+  <text
+     class="td"
+     x="60"
+     y="382"
+     id="text29">Hằng số xoắn J — khi là xoắn tương thích</text>
+  <text
+     class="tdo"
+     x="440"
+     y="382"
+     text-anchor="middle"
+     id="text30">0.10 – 0.20</text>
+  <text
+     class="tdo"
+     x="740"
+     y="382"
+     text-anchor="middle"
+     id="text31">0.10 – 0.20</text>
 </svg>

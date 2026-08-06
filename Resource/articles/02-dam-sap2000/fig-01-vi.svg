@@ -1,69 +1,347 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 60 900 326" width="900" height="326" font-family="Arial, Helvetica, sans-serif">
-  <defs>
-    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#14314F"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 60 900 280.056"
+   width="900"
+   height="280.056"
+   font-family="Arial, Helvetica, sans-serif"
+   version="1.1"
+   id="svg30"
+   sodipodi:docname="fig-01-vi.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview30"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="1.3930004"
+     inkscape:cx="431.44281"
+     inkscape:cy="153.26629"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg30" />
+  <defs
+     id="defs3">
+    <marker
+       id="ar"
+       viewBox="0 0 10 10"
+       refX="9"
+       refY="5"
+       markerWidth="7"
+       markerHeight="7"
+       orient="auto-start-reverse">
+      <path
+         d="M 0,0 10,5 0,10 Z"
+         fill="#14314f"
+         id="path1" />
     </marker>
-    <marker id="aro" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#E8842A"/>
+    <marker
+       id="aro"
+       viewBox="0 0 10 10"
+       refX="9"
+       refY="5"
+       markerWidth="7"
+       markerHeight="7"
+       orient="auto-start-reverse">
+      <path
+         d="M 0,0 10,5 0,10 Z"
+         fill="#e8842a"
+         id="path2" />
     </marker>
-    <marker id="arb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1F6FB2"/>
+    <marker
+       id="arb"
+       viewBox="0 0 10 10"
+       refX="9"
+       refY="5"
+       markerWidth="7"
+       markerHeight="7"
+       orient="auto-start-reverse">
+      <path
+         d="M 0,0 10,5 0,10 Z"
+         fill="#1f6fb2"
+         id="path3" />
     </marker>
   </defs>
-
-  <rect x="0" y="60" width="900" height="326" fill="#FFFFFF"/>
-  
-  
-
-  <text x="28" y="88" font-size="12" font-weight="bold" fill="#6B7A88">BẢN CHẤT BÀI TOÁN</text>
-
-  <g stroke="#14314F" stroke-width="1.4" fill="#FFFFFF">
-    <rect x="26" y="100" width="212" height="58" rx="5"/>
-    <rect x="26" y="176" width="212" height="58" rx="5"/>
-    <rect x="26" y="252" width="212" height="70" rx="5"/>
+  <rect
+     x="0"
+     y="60"
+     width="900"
+     height="280.056"
+     fill="#ffffff"
+     id="rect3"
+     style="stroke-width:0.926858" />
+  <text
+     x="28"
+     y="82.974876"
+     font-size="12px"
+     font-weight="bold"
+     fill="#6b7a88"
+     id="text3">BẢN CHẤT BÀI TOÁN</text>
+  <g
+     stroke="#14314f"
+     stroke-width="1.4"
+     fill="#ffffff"
+     id="g6"
+     transform="translate(0,-5.0251236)">
+    <rect
+       x="26"
+       y="100"
+       width="212"
+       height="58"
+       rx="5"
+       id="rect4"
+       ry="5" />
+    <rect
+       x="26"
+       y="176"
+       width="212"
+       height="58"
+       rx="5"
+       id="rect5"
+       ry="5" />
+    <rect
+       x="26"
+       y="252"
+       width="212"
+       height="70"
+       rx="5"
+       id="rect6"
+       ry="5" />
   </g>
-  <g font-size="12.5" fill="#14314F">
-    <text x="40" y="122" font-weight="bold">1. Hiệu ứng bậc hai</text>
-    <text x="40" y="142">P-Δ (nút) và P-δ (trong cấu kiện)</text>
-    <text x="40" y="198" font-weight="bold">2. Sai lệch hình học ban đầu</text>
-    <text x="40" y="218">Cột nghiêng khi dựng lắp: 1/500</text>
-    <text x="40" y="274" font-weight="bold">3. Suy giảm độ cứng</text>
-    <text x="40" y="294">Chảy phân bố, ứng suất dư,</text>
-    <text x="40" y="311">phi tuyến vật liệu sớm</text>
+  <g
+     font-size="12.5px"
+     fill="#14314f"
+     id="g12"
+     transform="translate(0,-5.0251236)">
+    <text
+       x="40"
+       y="122"
+       font-weight="bold"
+       id="text6">1. Hiệu ứng bậc hai</text>
+    <text
+       x="40"
+       y="142"
+       id="text7">P-Δ (nút) và P-δ (trong cấu kiện)</text>
+    <text
+       x="40"
+       y="198"
+       font-weight="bold"
+       id="text8">2. Sai lệch hình học ban đầu</text>
+    <text
+       x="40"
+       y="218"
+       id="text9">Cột nghiêng khi dựng lắp: 1/500</text>
+    <text
+       x="40"
+       y="274"
+       font-weight="bold"
+       id="text10">3. Suy giảm độ cứng</text>
+    <text
+       x="40"
+       y="294"
+       id="text11">Chảy phân bố, ứng suất dư,</text>
+    <text
+       x="40"
+       y="311"
+       id="text12">phi tuyến vật liệu sớm</text>
   </g>
-
-  <path d="M 238 129 L 262 129 L 262 152 L 290 152" fill="none" stroke="#E8842A" stroke-width="1.6" marker-end="url(#aro)"/>
-  <path d="M 238 205 L 262 205" fill="none" stroke="#6B7A88" stroke-width="1.2"/>
-  <path d="M 262 129 L 262 300" fill="none" stroke="#6B7A88" stroke-width="1.2" stroke-dasharray="3 3"/>
-  <path d="M 262 300 L 290 300" fill="none" stroke="#1F6FB2" stroke-width="1.6" marker-end="url(#arb)"/>
-
-  <rect x="292" y="96" width="336" height="112" rx="6" fill="#FDF2E6" stroke="#E8842A" stroke-width="1.6"/>
-  <text x="308" y="120" font-size="14" font-weight="bold" fill="#B35C00">ELM — Effective Length Method</text>
-  <g font-size="12.5" fill="#14314F">
-    <text x="308" y="145">Dồn cả ba yếu tố vào một hệ số duy nhất: K</text>
-    <text x="308" y="166">Tra alignment chart với hàng loạt giả thiết</text>
-    <text x="308" y="187">Khung công nghiệp thực tế hầu như không thỏa</text>
+  <path
+     d="m 238,123.97488 h 24 v 23 h 28"
+     fill="none"
+     stroke="#e8842a"
+     stroke-width="1.6"
+     marker-end="url(#aro)"
+     id="path12" />
+  <path
+     d="m 238,199.97488 h 24"
+     fill="none"
+     stroke="#6b7a88"
+     stroke-width="1.2"
+     id="path13" />
+  <path
+     d="m 262,123.97488 v 171"
+     fill="none"
+     stroke="#6b7a88"
+     stroke-width="1.2"
+     stroke-dasharray="3, 3"
+     id="path14" />
+  <path
+     d="m 262,294.97488 h 28"
+     fill="none"
+     stroke="#1f6fb2"
+     stroke-width="1.6"
+     marker-end="url(#arb)"
+     id="path15" />
+  <rect
+     x="291.92822"
+     y="90.903084"
+     width="336.14359"
+     height="92.760956"
+     rx="6.002564"
+     fill="#fdf2e6"
+     stroke="#e8842a"
+     stroke-width="1.6"
+     id="rect15"
+     ry="6.002564" />
+  <text
+     x="308"
+     y="114.97488"
+     font-size="14px"
+     font-weight="bold"
+     fill="#b35c00"
+     id="text15">ELM — Effective Length Method</text>
+  <g
+     font-size="12.5px"
+     fill="#14314f"
+     id="g18"
+     transform="translate(0,-5.0251236)">
+    <text
+       x="308"
+       y="145"
+       id="text16">Dồn cả ba yếu tố vào một hệ số duy nhất: K</text>
+    <text
+       x="308"
+       y="166"
+       id="text17">Tra alignment chart với hàng loạt giả thiết</text>
   </g>
-  <path d="M 628 152 L 662 152" fill="none" stroke="#E8842A" stroke-width="1.8" marker-end="url(#aro)"/>
-  <rect x="664" y="96" width="210" height="112" rx="6" fill="#FFFFFF" stroke="#C0392B" stroke-width="1.6"/>
-  <text x="769" y="140" font-size="24" font-weight="bold" fill="#C0392B" text-anchor="middle">K ≠ 1.0</text>
-  <text x="769" y="166" font-size="12" fill="#14314F" text-anchor="middle">Con số không kiểm chứng được,</text>
-  <text x="769" y="184" font-size="12" fill="#14314F" text-anchor="middle">khó biện luận khi bị thẩm tra</text>
-
-  <rect x="292" y="238" width="336" height="132" rx="6" fill="#F2F6FA" stroke="#1F6FB2" stroke-width="1.6"/>
-  <text x="308" y="262" font-size="14" font-weight="bold" fill="#12558F">DAM — Direct Analysis Method</text>
-  <g font-size="12.5" fill="#14314F">
-    <text x="308" y="288">1  Phân tích bậc hai: Nonlinear + P-Delta</text>
-    <text x="308" y="311">2  Notional load: Ni = 0.002 · α · Yi</text>
-    <text x="308" y="334">3  Độ cứng giảm: EA* = 0.8EA ; EI* = 0.8 τb EI</text>
-    <text x="308" y="357" fill="#6B7A88">Mô hình gánh phần khó, không phải kỹ sư</text>
+  <path
+     d="m 628,146.97488 h 34"
+     fill="none"
+     stroke="#e8842a"
+     stroke-width="1.8"
+     marker-end="url(#aro)"
+     id="path18" />
+  <rect
+     x="663.92554"
+     y="90.900383"
+     width="210.14899"
+     height="92.048485"
+     rx="6.0042567"
+     fill="#ffffff"
+     stroke="#c0392b"
+     stroke-width="1.6"
+     id="rect18"
+     ry="6.0042567" />
+  <text
+     x="769"
+     y="118.97488"
+     font-size="24px"
+     font-weight="bold"
+     fill="#c0392b"
+     text-anchor="middle"
+     id="text19">K ≠ 1.0</text>
+  <text
+     x="769"
+     y="138.97488"
+     font-size="12px"
+     fill="#14314f"
+     text-anchor="middle"
+     id="text20">Con số không kiểm chứng được,</text>
+  <text
+     x="769"
+     y="158.97488"
+     font-size="12px"
+     fill="#14314f"
+     text-anchor="middle"
+     id="text21">khó biện luận khi bị thẩm tra</text>
+  <rect
+     x="291.97144"
+     y="194.94632"
+     width="336.0571"
+     height="122.72473"
+     rx="6.00102"
+     fill="#f2f6fa"
+     stroke="#1f6fb2"
+     stroke-width="1.54289"
+     id="rect21"
+     ry="6.00102" />
+  <text
+     x="308"
+     y="212.97488"
+     font-size="14px"
+     font-weight="bold"
+     fill="#12558f"
+     id="text22">DAM — Direct Analysis Method</text>
+  <g
+     font-size="12.5px"
+     fill="#14314f"
+     id="g26"
+     transform="matrix(1,0,0,1.0534218,0,-69.929987)">
+    <text
+       x="308"
+       y="288"
+       id="text23">1 Phân tích bậc hai: Nonlinear + P-Delta</text>
+    <text
+       x="308"
+       y="311"
+       id="text24">2 Notional load: Ni = 0.002 · α · Yi</text>
+    <text
+       x="308"
+       y="334"
+       id="text25">3 Độ cứng giảm: EA* = 0.8EA ; EI* = 0.8 τb EI</text>
+    <text
+       x="308"
+       y="357"
+       fill="#6b7a88"
+       id="text26">Mô hình gánh phần khó, không phải kỹ sư</text>
   </g>
-  <path d="M 628 304 L 662 304" fill="none" stroke="#1F6FB2" stroke-width="1.8" marker-end="url(#arb)"/>
-  <rect x="664" y="238" width="210" height="132" rx="6" fill="#FFFFFF" stroke="#1E8449" stroke-width="1.8"/>
-  <text x="769" y="288" font-size="26" font-weight="bold" fill="#1E8449" text-anchor="middle">K = 1.0</text>
-  <text x="769" y="314" font-size="12" fill="#14314F" text-anchor="middle">Kiểm tra cấu kiện với chiều</text>
-  <text x="769" y="332" font-size="12" fill="#14314F" text-anchor="middle">dài thực L — mọi giả thiết đều</text>
-  <text x="769" y="350" font-size="12" fill="#14314F" text-anchor="middle">nằm trong model, kiểm được</text>
-
-  
+  <path
+     d="m 628,258.97488 h 34"
+     fill="none"
+     stroke="#1f6fb2"
+     stroke-width="1.8"
+     marker-end="url(#arb)"
+     id="path26" />
+  <rect
+     x="663.96295"
+     y="192.93781"
+     width="210.07414"
+     height="121.30602"
+     rx="6.0021186"
+     fill="#ffffff"
+     stroke="#1e8449"
+     stroke-width="1.72585"
+     id="rect26"
+     ry="6.0021186" />
+  <text
+     x="753.35516"
+     y="224.29059"
+     font-size="24.5533px"
+     font-weight="bold"
+     fill="#1e8449"
+     text-anchor="middle"
+     id="text27"
+     transform="scale(1.0215313,0.97892253)"
+     style="stroke-width:0.944358">K = 1.0</text>
+  <text
+     x="769"
+     y="240.97488"
+     font-size="12px"
+     fill="#14314f"
+     text-anchor="middle"
+     id="text28">Kiểm tra cấu kiện với chiều</text>
+  <text
+     x="769"
+     y="260.97488"
+     font-size="12px"
+     fill="#14314f"
+     text-anchor="middle"
+     id="text29">dài thực L — mọi giả thiết đều</text>
+  <text
+     x="769"
+     y="282.97488"
+     font-size="12px"
+     fill="#14314f"
+     text-anchor="middle"
+     id="text30">nằm trong model, kiểm được</text>
 </svg>

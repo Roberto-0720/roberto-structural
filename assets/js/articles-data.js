@@ -22,11 +22,11 @@
    ============================================================ */
 
 window.ARTICLE_CATEGORIES = [
-  { vi: "Kết cấu thép",        en: "Steel Structures" },
-  { vi: "Kết cấu BTCT",        en: "Reinforced Concrete" },
+  { vi: "Kết cấu thép", en: "Steel Structures" },
+  { vi: "Kết cấu BTCT", en: "Reinforced Concrete" },
   { vi: "Mô hình & Phân tích", en: "Modelling & Analysis" },
-  { vi: "Thi công",            en: "Construction" },
-  { vi: "Móng thiết bị",       en: "Equipment Foundations" }
+  { vi: "Thi công", en: "Construction" },
+  { vi: "Móng thiết bị", en: "Equipment Foundations" }
 ];
 
 window.ARTICLES = [
@@ -49,29 +49,29 @@ window.ARTICLES = [
       {
         heading: { vi: "1. Vì sao chọn phân tích bậc hai thay vì hệ số khuếch đại moment?", en: "1. Why second-order analysis rather than moment magnification?" },
         body: [
-          { vi: "ACI 318-14 mở ba con đường để xử lý hiệu ứng bậc hai:", en: "ACI 318-14 opens three routes for handling second-order effects:" },
+          { vi: "ACI 318 mở ra ba con đường để xử lý hiệu ứng bậc hai:", en: "ACI 318-14 opens three routes for handling second-order effects:" },
           {
             type: "table",
-            head: [ { vi: "Đường", en: "Route" }, { vi: "Điều khoản", en: "Clause" }, { vi: "Cách làm", en: "Method" }, { vi: "Phù hợp với", en: "Suited to" } ],
+            head: [{ vi: "Đường", en: "Route" }, { vi: "Điều khoản", en: "Clause" }, { vi: "Cách làm", en: "Method" }, { vi: "Phù hợp với", en: "Suited to" }],
             rows: [
-              [ { vi: "1", en: "1" }, { vi: "§6.6.4", en: "§6.6.4" }, { vi: "Phân tích bậc nhất + khuếch đại moment δ<sub>ns</sub>, δ<sub>s</sub>", en: "First-order analysis + moment magnification δ<sub>ns</sub>, δ<sub>s</sub>" }, { vi: "Nhà khung đều tầng, hình học đơn giản", en: "Regular framed buildings, simple geometry" } ],
-              [ { vi: "2", en: "2" }, { vi: "§6.7", en: "§6.7" }, { vi: "Phân tích đàn hồi bậc hai", en: "Second-order elastic analysis" }, { vi: "Kết cấu công nghiệp, khung không đều tầng", en: "Industrial structures, irregular framing" } ],
-              [ { vi: "3", en: "3" }, { vi: "§6.8", en: "§6.8" }, { vi: "Phân tích phi tuyến vật liệu", en: "Material nonlinear analysis" }, { vi: "Đánh giá, cải tạo, nghiên cứu", en: "Assessment, retrofit, research" } ]
+              [{ vi: "1", en: "1" }, { vi: "§6.6.4", en: "§6.6.4" }, { vi: "Phân tích bậc nhất + khuếch đại moment δ<sub>ns</sub>, δ<sub>s</sub>", en: "First-order analysis + moment magnification δ<sub>ns</sub>, δ<sub>s</sub>" }, { vi: "Nhà khung đều tầng, hình học đơn giản", en: "Regular framed buildings, simple geometry" }],
+              [{ vi: "2", en: "2" }, { vi: "§6.7", en: "§6.7" }, { vi: "Phân tích đàn hồi bậc hai", en: "Second-order elastic analysis" }, { vi: "Kết cấu công nghiệp, khung không đều tầng", en: "Industrial structures, irregular framing" }],
+              [{ vi: "3", en: "3" }, { vi: "§6.8", en: "§6.8" }, { vi: "Phân tích phi tuyến vật liệu", en: "Material nonlinear analysis" }, { vi: "Đánh giá, cải tạo, nghiên cứu", en: "Assessment, retrofit, research" }]
             ]
           },
           {
-            vi: "Với kết cấu nhà máy — khung đỡ thiết bị, sàn thao tác cục bộ, cao trình lệch nhau, cột dài không có dầm giằng, chân cột trên đài cọc — <b>đường 1 bị loại bỏ ngay từ định nghĩa</b>. Chỉ số ổn định Q, tổng ΣP<sub>u</sub>, ΣP<sub>c</sub> và chiều dài l<sub>u</sub> trong §6.6.4.4.3 đều dựa trên khái niệm “một tầng” mà công trình đó hầu như không có.",
-            en: "For plant structures — equipment support frames, local access platforms, staggered levels, long columns with no tie beams, column bases on pile caps — <b>route 1 is ruled out by its own definition</b>. The stability index Q, the sums ΣP<sub>u</sub> and ΣP<sub>c</sub>, and the length l<sub>u</sub> in §6.6.4.4.3 all rest on a notion of “a storey” that such structures barely possess."
+            vi: "Với kết cấu nhà máy — khung đỡ thiết bị, sàn thao tác cục bộ, cao trình lệch nhau, cột dài không có dầm giằng, chân cột trên đài cọc — <b>Đường 1 bị loại bỏ ngay từ định nghĩa</b>. Chỉ số ổn định Q, tổng ΣP<sub>u</sub>, ΣP<sub>c</sub> và chiều dài l<sub>u</sub> trong §6.6.4.4.3 đều dựa trên khái niệm “một tầng” mà công trình đó hầu như không có.",
+            en: "For plant structures — equipment support frames, local access platforms, staggered levels, long columns with no tie beams, column bases on pile caps — <b>Route 1 is ruled out by its own definition</b>. The stability index Q, the sums ΣP<sub>u</sub> and ΣP<sub>c</sub>, and the length l<sub>u</sub> in §6.6.4.4.3 all rest on a notion of “a storey” that such structures barely possess."
           },
           {
-            vi: "Đường 2 chuyển gánh nặng sang mô hình. Đổi lại, kỹ sư phải tôn trọng một <b>hợp đồng bốn điều kiện</b>:",
-            en: "Route 2 shifts the burden onto the model. In return, the engineer must honour <b>four conditions</b>:"
+            vi: "Đường 2 chuyển gánh nặng sang mô hình. Đổi lại, kỹ sư phải tuân thủ <b>bốn điều kiện</b>:",
+            en: "Route 2 shifts the burden onto the model. In return, the engineer must comply with <b>four conditions</b>:"
           },
           {
             type: "list",
             items: [
               { vi: "Độ cứng tiết diện phải giảm theo §6.6.3.1.1 (được viện dẫn lại tại §6.7.2.1.1);", en: "Section stiffness must be reduced per §6.6.3.1.1 (referenced again in §6.7.2.1.1);" },
-              { vi: "Phân tích phải bắt được <b>cả P-Δ</b> (chuyển vị nút) <b>và P-δ</b> (độ cong trong lòng cấu kiện) — §6.7.1.2;", en: "The analysis must capture <b>both P-Δ</b> (joint displacement) <b>and P-δ</b> (curvature within the member) — §6.7.1.2;" },
+              { vi: "Phân tích bao gồm <b>cả P-Δ</b> (chuyển vị nút) <b>và P-δ</b> (độ cong trong lòng cấu kiện) — §6.7.1.2;", en: "The analysis must capture <b>both P-Δ</b> (joint displacement) <b>and P-δ</b> (curvature within the member) — §6.7.1.2;" },
               { vi: "Phần thiết kế phải đặt δ<sub>ns</sub> = δ<sub>s</sub> = 1.0, nếu không hiệu ứng bậc hai bị tính hai lần;", en: "The design side must set δ<sub>ns</sub> = δ<sub>s</sub> = 1.0, otherwise second-order effects are counted twice;" },
               { vi: "M<sub>bậc 2</sub> ≤ 1.4 × M<sub>bậc 1</sub> — §6.2.6.", en: "M<sub>2nd</sub> ≤ 1.4 × M<sub>1st</sub> — §6.2.6." }
             ]
@@ -126,10 +126,10 @@ window.ARTICLES = [
           { type: "code", vi: "Define &gt; Section Properties &gt; Frame Sections &gt; Concrete Reinforcement…", en: "Define &gt; Section Properties &gt; Frame Sections &gt; Concrete Reinforcement…" },
           {
             type: "table",
-            head: [ { vi: "Kiểu", en: "Type" }, { vi: "Ý nghĩa", en: "Meaning" }, { vi: "Dùng cho", en: "Use for" } ],
+            head: [{ vi: "Kiểu", en: "Type" }, { vi: "Ý nghĩa", en: "Meaning" }, { vi: "Dùng cho", en: "Use for" }],
             rows: [
-              [ { vi: "<code>Beam (M3 Design Only)</code>", en: "<code>Beam (M3 Design Only)</code>" }, { vi: "Chỉ thiết kế uốn quanh trục 3, <b>bỏ qua lực dọc</b>", en: "Flexure about axis 3 only, <b>axial force ignored</b>" }, { vi: "Dầm chịu uốn thuần", en: "Beams in pure flexure" } ],
-              [ { vi: "<code>Column (P-M2-M3 Design)</code>", en: "<code>Column (P-M2-M3 Design)</code>" }, { vi: "Thiết kế theo mặt tương tác P-M2-M3", en: "Design on the P-M2-M3 interaction surface" }, { vi: "Cột, cấu kiện có lực dọc đáng kể", en: "Columns and members with significant axial load" } ]
+              [{ vi: "<code>Beam (M3 Design Only)</code>", en: "<code>Beam (M3 Design Only)</code>" }, { vi: "Chỉ thiết kế uốn quanh trục 3, <b>bỏ qua lực dọc</b>", en: "Flexure about axis 3 only, <b>axial force ignored</b>" }, { vi: "Dầm chịu uốn thuần", en: "Beams in pure flexure" }],
+              [{ vi: "<code>Column (P-M2-M3 Design)</code>", en: "<code>Column (P-M2-M3 Design)</code>" }, { vi: "Thiết kế theo mặt tương tác P-M2-M3", en: "Design on the P-M2-M3 interaction surface" }, { vi: "Cột, cấu kiện có lực dọc đáng kể", en: "Columns and members with significant axial load" }]
             ]
           },
           { type: "subhead", vi: "Ba sai sót dễ mắc phải", en: "Three easy mistakes" },
@@ -156,14 +156,14 @@ window.ARTICLES = [
               { vi: "Phân tích tải trọng sử dụng (§6.6.3.2.2 — nhân 1.4, không vượt I<sub>g</sub>)", en: "Service-load analysis (§6.6.3.2.2 — ×1.4, not exceeding I<sub>g</sub>)" }
             ],
             rows: [
-              [ { vi: "Cột", en: "Column" }, { vi: "0.70 I<sub>g</sub>", en: "0.70 I<sub>g</sub>" }, { vi: "1.00 I<sub>g</sub>", en: "1.00 I<sub>g</sub>" } ],
-              [ { vi: "Vách chưa nứt", en: "Uncracked wall" }, { vi: "0.70 I<sub>g</sub>", en: "0.70 I<sub>g</sub>" }, { vi: "1.00 I<sub>g</sub>", en: "1.00 I<sub>g</sub>" } ],
-              [ { vi: "Vách đã nứt", en: "Cracked wall" }, { vi: "0.35 I<sub>g</sub>", en: "0.35 I<sub>g</sub>" }, { vi: "0.49 I<sub>g</sub>", en: "0.49 I<sub>g</sub>" } ],
-              [ { vi: "Dầm chữ nhật", en: "Rectangular beam" }, { vi: "0.35 I<sub>g</sub>", en: "0.35 I<sub>g</sub>" }, { vi: "0.49 ≈ 0.50 I<sub>g</sub>", en: "0.49 ≈ 0.50 I<sub>g</sub>" } ],
-              [ { vi: "<b>Dầm chữ T</b> (mô hình bằng tiết diện sườn)", en: "<b>T-beam</b> (modelled as the web section)" }, { vi: "<b>0.70</b> I<sub>g,sườn</sub>", en: "<b>0.70</b> I<sub>g,web</sub>" }, { vi: "1.00 I<sub>g,sườn</sub>", en: "1.00 I<sub>g,web</sub>" } ],
-              [ { vi: "Sàn phẳng / sàn nấm", en: "Flat plate / flat slab" }, { vi: "0.25 I<sub>g</sub>", en: "0.25 I<sub>g</sub>" }, { vi: "0.35 I<sub>g</sub>", en: "0.35 I<sub>g</sub>" } ],
-              [ { vi: "Diện tích tiết diện A", en: "Section area A" }, { vi: "1.0 A<sub>g</sub>", en: "1.0 A<sub>g</sub>" }, { vi: "1.0 A<sub>g</sub>", en: "1.0 A<sub>g</sub>" } ],
-              [ { vi: "Hằng số xoắn J", en: "Torsional constant J" }, { vi: "<i>xem lưu ý bên dưới</i>", en: "<i>see the note below</i>" }, { vi: "<i>xem lưu ý bên dưới</i>", en: "<i>see the note below</i>" } ]
+              [{ vi: "Cột", en: "Column" }, { vi: "0.70 I<sub>g</sub>", en: "0.70 I<sub>g</sub>" }, { vi: "1.00 I<sub>g</sub>", en: "1.00 I<sub>g</sub>" }],
+              [{ vi: "Vách chưa nứt", en: "Uncracked wall" }, { vi: "0.70 I<sub>g</sub>", en: "0.70 I<sub>g</sub>" }, { vi: "1.00 I<sub>g</sub>", en: "1.00 I<sub>g</sub>" }],
+              [{ vi: "Vách đã nứt", en: "Cracked wall" }, { vi: "0.35 I<sub>g</sub>", en: "0.35 I<sub>g</sub>" }, { vi: "0.49 I<sub>g</sub>", en: "0.49 I<sub>g</sub>" }],
+              [{ vi: "Dầm chữ nhật", en: "Rectangular beam" }, { vi: "0.35 I<sub>g</sub>", en: "0.35 I<sub>g</sub>" }, { vi: "0.49 ≈ 0.50 I<sub>g</sub>", en: "0.49 ≈ 0.50 I<sub>g</sub>" }],
+              [{ vi: "<b>Dầm chữ T</b> (mô hình bằng tiết diện sườn)", en: "<b>T-beam</b> (modelled as the web section)" }, { vi: "<b>0.70</b> I<sub>g,sườn</sub>", en: "<b>0.70</b> I<sub>g,web</sub>" }, { vi: "1.00 I<sub>g,sườn</sub>", en: "1.00 I<sub>g,web</sub>" }],
+              [{ vi: "Sàn phẳng / sàn nấm", en: "Flat plate / flat slab" }, { vi: "0.25 I<sub>g</sub>", en: "0.25 I<sub>g</sub>" }, { vi: "0.35 I<sub>g</sub>", en: "0.35 I<sub>g</sub>" }],
+              [{ vi: "Diện tích tiết diện A", en: "Section area A" }, { vi: "1.0 A<sub>g</sub>", en: "1.0 A<sub>g</sub>" }, { vi: "1.0 A<sub>g</sub>", en: "1.0 A<sub>g</sub>" }],
+              [{ vi: "Hằng số xoắn J", en: "Torsional constant J" }, { vi: "<i>xem lưu ý bên dưới</i>", en: "<i>see the note below</i>" }, { vi: "<i>xem lưu ý bên dưới</i>", en: "<i>see the note below</i>" }]
             ]
           },
           { type: "subhead", vi: "Vì sao dầm T lại là 0.70 mà không phải 0.35?", en: "Why is a T-beam 0.70 and not 0.35?" },
@@ -228,13 +228,13 @@ window.ARTICLES = [
           },
           {
             type: "table",
-            head: [ { vi: "Trường", en: "Field" }, { vi: "Giá trị đúng", en: "Correct value" } ],
+            head: [{ vi: "Trường", en: "Field" }, { vi: "Giá trị đúng", en: "Correct value" }],
             rows: [
-              [ { vi: "<code>Load Case Type</code> / <code>Analysis Type</code>", en: "<code>Load Case Type</code> / <code>Analysis Type</code>" }, { vi: "Static / <b>Nonlinear</b>", en: "Static / <b>Nonlinear</b>" } ],
-              [ { vi: "<code>Geometric Nonlinearity</code>", en: "<code>Geometric Nonlinearity</code>" }, { vi: "<b>P-Delta</b> — không chọn <i>P-Delta plus Large Displacements</i> (chậm, dễ phân kỳ, không cần cho khung nhà)", en: "<b>P-Delta</b> — not <i>P-Delta plus Large Displacements</i> (slow, prone to divergence, unnecessary for building frames)" } ],
-              [ { vi: "<code>Initial Conditions</code>", en: "<code>Initial Conditions</code>" }, { vi: "Zero Initial Conditions", en: "Zero Initial Conditions" } ],
-              [ { vi: "Load Pattern &amp; Scale Factor", en: "Load pattern &amp; scale factor" }, { vi: "đúng bằng hệ số tổ hợp", en: "exactly the combination factors" } ],
-              [ { vi: "<code>Results Saved</code>", en: "<code>Results Saved</code>" }, { vi: "Final State Only (giảm dung lượng file rất nhiều khi có hơn 100 case)", en: "Final State Only (a large file-size saving once there are more than 100 cases)" } ]
+              [{ vi: "<code>Load Case Type</code> / <code>Analysis Type</code>", en: "<code>Load Case Type</code> / <code>Analysis Type</code>" }, { vi: "Static / <b>Nonlinear</b>", en: "Static / <b>Nonlinear</b>" }],
+              [{ vi: "<code>Geometric Nonlinearity</code>", en: "<code>Geometric Nonlinearity</code>" }, { vi: "<b>P-Delta</b> — không chọn <i>P-Delta plus Large Displacements</i> (chậm, dễ phân kỳ, không cần cho khung nhà)", en: "<b>P-Delta</b> — not <i>P-Delta plus Large Displacements</i> (slow, prone to divergence, unnecessary for building frames)" }],
+              [{ vi: "<code>Initial Conditions</code>", en: "<code>Initial Conditions</code>" }, { vi: "Zero Initial Conditions", en: "Zero Initial Conditions" }],
+              [{ vi: "Load Pattern &amp; Scale Factor", en: "Load pattern &amp; scale factor" }, { vi: "đúng bằng hệ số tổ hợp", en: "exactly the combination factors" }],
+              [{ vi: "<code>Results Saved</code>", en: "<code>Results Saved</code>" }, { vi: "Final State Only (giảm dung lượng file rất nhiều khi có hơn 100 case)", en: "Final State Only (a large file-size saving once there are more than 100 cases)" }]
             ]
           },
           { type: "subhead", vi: "Chia nhỏ cấu kiện để bắt P-δ", en: "Subdivide members to capture P-δ" },
@@ -274,7 +274,7 @@ window.ARTICLES = [
             vi: "Chỉ khi nhìn thấy nhãn <code>Quake</code>, SAP2000 mới kích hoạt các quy định của ACI 318-14 Chương 18: lực cắt thiết kế theo M<sub>pr</sub>, kiểm tra cắt nút, tỷ số 6/5, giới hạn thép tối thiểu hai đầu dầm.",
             en: "Only when it sees the <code>Quake</code> label does SAP2000 activate the ACI 318-14 Chapter 18 provisions: design shear from M<sub>pr</sub>, joint shear check, the 6/5 ratio, and the minimum reinforcement limits at both beam ends."
           },
-          { type: "subhead", vi: "(b) Để SAP nhận diện tải trọng đứng — thủ thuật cặp Dead/Other", en: "(b) Letting SAP recognise the gravity load — the Dead/Other pair trick" },
+          { type: "subhead", vi: "(b) Để SAP nhận diện tải trọng đứng — thủ thuật cặp Dead/Balance", en: "(b) Letting SAP recognise the gravity load — the Dead/Balance pair trick" },
           { vi: "ACI 318-14 §18.6.5.1 quy định lực cắt thiết kế của dầm:", en: "ACI 318-14 §18.6.5.1 defines the design shear of a beam:" },
           { type: "code", vi: "Ve = (Mpr1 + Mpr2) / ln  ±  wu · ln / 2", en: "Ve = (Mpr1 + Mpr2) / ln  ±  wu · ln / 2" },
           { vi: "SAP2000 tính được phần M<sub>pr</sub>, nhưng cần biết w<sub>u</sub> là bao nhiêu. Cách làm:", en: "SAP2000 can compute the M<sub>pr</sub> part, but it needs to know w<sub>u</sub>. The method:" },
@@ -289,8 +289,8 @@ window.ARTICLES = [
           },
           {
             type: "figure",
-            src: "Resource/articles/03-aci318-2nd-order/H4_Cap-Dead-Other-Ve.svg",
-            caption: { vi: "<b>Hình 5.</b> Cặp gravity case Dead/Other với hệ số +1/−1 giúp SAP2000 nhận ra phần tải trọng đứng khi dựng V<sub>e</sub>.", en: "<b>Figure 5.</b> The Dead/Other gravity pair at +1/−1 lets SAP2000 identify the gravity share when building V<sub>e</sub>." }
+            src: "Resource/articles/03-aci318-2nd-order/H4_Cap-Dead-Balance-Ve.svg",
+            caption: { vi: "<b>Hình 5.</b> Cặp gravity case Dead/Balance với hệ số +1/−1 giúp SAP2000 nhận ra phần tải trọng đứng khi dựng V<sub>e</sub>.", en: "<b>Figure 5.</b> The Dead/Balance gravity pair at +1/−1 lets SAP2000 identify the gravity share when building V<sub>e</sub>." }
           },
           {
             vi: "<b>Logic của thủ thuật:</b> hai case triệt tiêu nhau về mặt số học, nội lực tổ hợp không đổi một chút nào. Nhưng SAP2000 đọc được case mang nhãn <code>Dead</code> và dùng nó làm V<sub>g</sub> khi dựng biểu đồ cắt theo M<sub>pr</sub>.",
@@ -312,16 +312,16 @@ window.ARTICLES = [
           { type: "code", vi: "Design &gt; Concrete Frame Design &gt; View/Revise Preferences…", en: "Design &gt; Concrete Frame Design &gt; View/Revise Preferences…" },
           {
             type: "table",
-            head: [ { vi: "Mục", en: "Item" }, { vi: "Giá trị", en: "Value" }, { vi: "Ghi chú", en: "Note" } ],
+            head: [{ vi: "Mục", en: "Item" }, { vi: "Giá trị", en: "Value" }, { vi: "Ghi chú", en: "Note" }],
             rows: [
-              [ { vi: "Design Code", en: "Design Code" }, { vi: "ACI 318-14 / ACI 318-19", en: "ACI 318-14 / ACI 318-19" }, { vi: "Xem mục 13 về khác biệt", en: "See section 13 on the differences" } ],
-              [ { vi: "Multi-Response Case Design", en: "Multi-Response Case Design" }, { vi: "Envelopes", en: "Envelopes" }, { vi: "", en: "" } ],
-              [ { vi: "Consider Minimum Eccentricity", en: "Consider Minimum Eccentricity" }, { vi: "<b>Yes</b>", en: "<b>Yes</b>" }, { vi: "Kích hoạt M<sub>2,min</sub> = P<sub>u</sub>(15 + 0.03h) mm, §6.6.4.5.4", en: "Activates M<sub>2,min</sub> = P<sub>u</sub>(15 + 0.03h) mm, §6.6.4.5.4" } ],
-              [ { vi: "Seismic Design Category", en: "Seismic Design Category" }, { vi: "Theo spec dự án", en: "Per project spec" }, { vi: "Lấy từ ASCE 7, không đoán", en: "Take it from ASCE 7; do not guess" } ],
-              [ { vi: "Design System Rho (ρ), Sds", en: "Design System Rho (ρ), Sds" }, { vi: "Theo spec", en: "Per spec" }, { vi: "Chỉ dùng khi để SAP tự sinh tổ hợp — ta <b>không</b> dùng", en: "Only used if SAP generates combinations itself — which we do <b>not</b> do" } ],
-              [ { vi: "Phi (Shear Seismic)", en: "Phi (Shear Seismic)" }, { vi: "0.60", en: "0.60" }, { vi: "§21.2.4.1", en: "§21.2.4.1" } ],
-              [ { vi: "Phi (Joint Shear)", en: "Phi (Joint Shear)" }, { vi: "0.85", en: "0.85" }, { vi: "§21.2.4.3", en: "§21.2.4.3" } ],
-              [ { vi: "Utilization Factor Limit", en: "Utilization Factor Limit" }, { vi: "0.95", en: "0.95" }, { vi: "Ngưỡng nội bộ, nên giữ ≤ 1.0", en: "An internal threshold; keep it ≤ 1.0" } ]
+              [{ vi: "Design Code", en: "Design Code" }, { vi: "ACI 318-14 / ACI 318-19", en: "ACI 318-14 / ACI 318-19" }, { vi: "Xem mục 13 về khác biệt", en: "See section 13 on the differences" }],
+              [{ vi: "Multi-Response Case Design", en: "Multi-Response Case Design" }, { vi: "Envelopes", en: "Envelopes" }, { vi: "", en: "" }],
+              [{ vi: "Consider Minimum Eccentricity", en: "Consider Minimum Eccentricity" }, { vi: "<b>Yes</b>", en: "<b>Yes</b>" }, { vi: "Kích hoạt M<sub>2,min</sub> = P<sub>u</sub>(15 + 0.03h) mm, §6.6.4.5.4", en: "Activates M<sub>2,min</sub> = P<sub>u</sub>(15 + 0.03h) mm, §6.6.4.5.4" }],
+              [{ vi: "Seismic Design Category", en: "Seismic Design Category" }, { vi: "Theo spec dự án", en: "Per project spec" }, { vi: "Lấy từ ASCE 7, không đoán", en: "Take it from ASCE 7; do not guess" }],
+              [{ vi: "Design System Rho (ρ), Sds", en: "Design System Rho (ρ), Sds" }, { vi: "Theo spec", en: "Per spec" }, { vi: "Chỉ dùng khi để SAP tự sinh tổ hợp — ta <b>không</b> dùng", en: "Only used if SAP generates combinations itself — which we do <b>not</b> do" }],
+              [{ vi: "Phi (Shear Seismic)", en: "Phi (Shear Seismic)" }, { vi: "0.60", en: "0.60" }, { vi: "§21.2.4.1", en: "§21.2.4.1" }],
+              [{ vi: "Phi (Joint Shear)", en: "Phi (Joint Shear)" }, { vi: "0.85", en: "0.85" }, { vi: "§21.2.4.3", en: "§21.2.4.3" }],
+              [{ vi: "Utilization Factor Limit", en: "Utilization Factor Limit" }, { vi: "0.95", en: "0.95" }, { vi: "Ngưỡng nội bộ, nên giữ ≤ 1.0", en: "An internal threshold; keep it ≤ 1.0" }]
             ]
           },
           { type: "subhead", vi: "(b) Design Combinations", en: "(b) Design combinations" },
@@ -335,12 +335,12 @@ window.ARTICLES = [
           { type: "subhead", vi: "(c) Overwrites", en: "(c) Overwrites" },
           {
             type: "table",
-            head: [ { vi: "Mục", en: "Item" }, { vi: "Giá trị", en: "Value" }, { vi: "Lý do", en: "Reason" } ],
+            head: [{ vi: "Mục", en: "Item" }, { vi: "Giá trị", en: "Value" }, { vi: "Lý do", en: "Reason" }],
             rows: [
-              [ { vi: "Framing Type", en: "Framing Type" }, { vi: "<code>Sway Special</code> cho kết cấu theo Chương 18; <code>Sway Ordinary</code> cho trường hợp còn lại", en: "<code>Sway Special</code> for Chapter 18 structures; <code>Sway Ordinary</code> otherwise" }, { vi: "Quyết định toàn bộ nhóm kiểm tra động đất", en: "Determines the whole set of seismic checks" } ],
-              [ { vi: "Effective Length Factor K", en: "Effective Length Factor K" }, { vi: "Program Determined", en: "Program Determined" }, { vi: "SAP lấy K = 1.0, đúng tinh thần phân tích bậc hai", en: "SAP takes K = 1.0, in keeping with second-order analysis" } ],
-              [ { vi: "<b>NonSway Moment Factor D<sub>ns</sub></b>", en: "<b>NonSway Moment Factor D<sub>ns</sub></b>" }, { vi: "<b>1.0</b>", en: "<b>1.0</b>" }, { vi: "P-δ đã có nhờ chia phân đoạn", en: "P-δ is already there through the segmentation" } ],
-              [ { vi: "<b>Sway Moment Factor D<sub>s</sub></b>", en: "<b>Sway Moment Factor D<sub>s</sub></b>" }, { vi: "<b>1.0</b>", en: "<b>1.0</b>" }, { vi: "P-Δ đã có nhờ nonlinear case", en: "P-Δ is already there through the nonlinear case" } ]
+              [{ vi: "Framing Type", en: "Framing Type" }, { vi: "<code>Sway Special</code> cho kết cấu theo Chương 18; <code>Sway Ordinary</code> cho trường hợp còn lại", en: "<code>Sway Special</code> for Chapter 18 structures; <code>Sway Ordinary</code> otherwise" }, { vi: "Quyết định toàn bộ nhóm kiểm tra động đất", en: "Determines the whole set of seismic checks" }],
+              [{ vi: "Effective Length Factor K", en: "Effective Length Factor K" }, { vi: "Program Determined", en: "Program Determined" }, { vi: "SAP lấy K = 1.0, đúng tinh thần phân tích bậc hai", en: "SAP takes K = 1.0, in keeping with second-order analysis" }],
+              [{ vi: "<b>NonSway Moment Factor D<sub>ns</sub></b>", en: "<b>NonSway Moment Factor D<sub>ns</sub></b>" }, { vi: "<b>1.0</b>", en: "<b>1.0</b>" }, { vi: "P-δ đã có nhờ chia phân đoạn", en: "P-δ is already there through the segmentation" }],
+              [{ vi: "<b>Sway Moment Factor D<sub>s</sub></b>", en: "<b>Sway Moment Factor D<sub>s</sub></b>" }, { vi: "<b>1.0</b>", en: "<b>1.0</b>" }, { vi: "P-Δ đã có nhờ nonlinear case", en: "P-Δ is already there through the nonlinear case" }]
             ]
           },
           {
@@ -385,11 +385,11 @@ window.ARTICLES = [
           { type: "code", vi: "Design &gt; Concrete Frame Design &gt; Display Design Info…", en: "Design &gt; Concrete Frame Design &gt; Display Design Info…" },
           {
             type: "table",
-            head: [ { vi: "Hiển thị", en: "Display" }, { vi: "Ý nghĩa", en: "Meaning" } ],
+            head: [{ vi: "Hiển thị", en: "Display" }, { vi: "Ý nghĩa", en: "Meaning" }],
             rows: [
-              [ { vi: "Longitudinal Reinforcing", en: "Longitudinal Reinforcing" }, { vi: "Dầm: A<sub>s</sub> trên/dưới cho ba đoạn 0–L/4, L/4–3L/4, 3L/4–L. Cột: A<sub>s</sub> cho cả cấu kiện", en: "Beams: top/bottom A<sub>s</sub> for the three zones 0–L/4, L/4–3L/4, 3L/4–L. Columns: A<sub>s</sub> for the whole member" } ],
-              [ { vi: "Rebar Percentage", en: "Rebar Percentage" }, { vi: "Hàm lượng thép dọc", en: "Longitudinal reinforcement ratio" } ],
-              [ { vi: "Shear Reinforcing", en: "Shear Reinforcing" }, { vi: "A<sub>v</sub>/s — diện tích đai trên đơn vị chiều dài", en: "A<sub>v</sub>/s — stirrup area per unit length" } ]
+              [{ vi: "Longitudinal Reinforcing", en: "Longitudinal Reinforcing" }, { vi: "Dầm: A<sub>s</sub> trên/dưới cho ba đoạn 0–L/4, L/4–3L/4, 3L/4–L. Cột: A<sub>s</sub> cho cả cấu kiện", en: "Beams: top/bottom A<sub>s</sub> for the three zones 0–L/4, L/4–3L/4, 3L/4–L. Columns: A<sub>s</sub> for the whole member" }],
+              [{ vi: "Rebar Percentage", en: "Rebar Percentage" }, { vi: "Hàm lượng thép dọc", en: "Longitudinal reinforcement ratio" }],
+              [{ vi: "Shear Reinforcing", en: "Shear Reinforcing" }, { vi: "A<sub>v</sub>/s — diện tích đai trên đơn vị chiều dài", en: "A<sub>v</sub>/s — stirrup area per unit length" }]
             ]
           },
           {
@@ -558,8 +558,8 @@ window.ARTICLES = [
         heading: { vi: "1. Tại sao phải là Direct Analysis Method (DAM)?", en: "1. Why the Direct Analysis Method (DAM)?" },
         body: [
           {
-            vi: "Sức bền của một cột thép trong hệ kết cấu thép không chỉ phụ thuộc vào tiết diện của nó, mà còn phụ thuộc vào <b>độ mềm dẻo của toàn hệ</b>. AISC 360-10 Chương C yêu cầu bài toán ổn định phải xét đồng thời ba yếu tố:",
-            en: "The strength of a steel column in a steel framing system does not depend on its section alone — it also depends on <b>the flexibility of the whole system</b>. AISC 360-10 Chapter C requires stability to account for three factors at once:"
+            vi: "Sức bền của một cột thép trong hệ kết cấu thép không chỉ phụ thuộc vào tiết diện của nó, mà còn phụ thuộc vào <b>độ mềm dẻo của toàn hệ</b>. AISC 360 yêu cầu bài toán ổn định phải xét đồng thời ba yếu tố:",
+            en: "The strength of a steel column in a steel framing system does not depend on its section alone — it also depends on <b>the flexibility of the whole system</b>. AISC 360 requires stability to account for three factors at once:"
           },
           {
             type: "list",
@@ -586,11 +586,11 @@ window.ARTICLES = [
             type: "figure",
             src: { vi: "Resource/articles/02-dam-sap2000/fig-01-vi.svg", en: "Resource/articles/02-dam-sap2000/fig-01-en.svg" },
             caption: {
-              vi: "<b>Hình 1.</b> Ba nguồn ảnh hưởng đến ổn định — Hai Phương pháp xử lý theo AISC 360-10 Chương C.",
-              en: "<b>Figure 1.</b> Three effects on stability — two methods of handling them under AISC 360-10 Chapter C."
+              vi: "<b>Hình 1.</b> Ba nguồn ảnh hưởng đến ổn định — Hai Phương pháp xử lý theo AISC 360.",
+              en: "<b>Figure 1.</b> Three effects on stability — two methods of handling them under AISC 360."
             }
           },
-          { type: "subhead", vi: "Ba điều kiện bắt buộc của DAM (AISC 360-10 §C2)", en: "The three mandatory DAM conditions (AISC 360-10 §C2)" },
+          { type: "subhead", vi: "Ba điều kiện bắt buộc của DAM", en: "The three mandatory DAM conditions" },
           {
             type: "table",
             head: [
@@ -600,10 +600,10 @@ window.ARTICLES = [
               { vi: "Nơi khai báo trong SAP2000", en: "Where to set it in SAP2000" }
             ],
             rows: [
-              [ { vi: "C2.1", en: "C2.1" }, { vi: "Phân tích bậc hai (P-Δ <b>và</b> P-δ)", en: "Second-order analysis (P-Δ <b>and</b> P-δ)" }, { vi: "—", en: "—" }, { vi: "Nonlinear Static + P-Delta; divide frame", en: "Nonlinear Static + P-Delta; divide frame" } ],
-              [ { vi: "C2.2b", en: "C2.2b" }, { vi: "Notional load ở mỗi cao trình", en: "Notional load at each level" }, { vi: "<i>N<sub>i</sub></i> = 0.002·α·<i>Y<sub>i</sub></i>, α = 1.0 (LRFD) / 1.6 (ASD)", en: "<i>N<sub>i</sub></i> = 0.002·α·<i>Y<sub>i</sub></i>, α = 1.0 (LRFD) / 1.6 (ASD)" }, { vi: "Load Pattern type <b>NOTIONAL</b>", en: "Load Pattern type <b>NOTIONAL</b>" } ],
-              [ { vi: "C2.3", en: "C2.3" }, { vi: "Giảm độ cứng", en: "Stiffness reduction" }, { vi: "<i>EA*</i> = 0.8<i>EA</i>; <i>EI*</i> = 0.8·τ<sub>b</sub>·<i>EI</i>", en: "<i>EA*</i> = 0.8<i>EA</i>; <i>EI*</i> = 0.8·τ<sub>b</sub>·<i>EI</i>" }, { vi: "Frame Property Modifiers", en: "Frame Property Modifiers" } ],
-              [ { vi: "C3", en: "C3" }, { vi: "Kiểm tra cấu kiện với <b>K = 1.0</b>", en: "Check members with <b>K = 1.0</b>" }, { vi: "<i>L<sub>c</sub></i> = <i>L</i>", en: "<i>L<sub>c</sub></i> = <i>L</i>" }, { vi: "Steel Frame Design Overwrites", en: "Steel Frame Design Overwrites" } ]
+              [{ vi: "C2.1", en: "C2.1" }, { vi: "Phân tích bậc hai (P-Δ <b>và</b> P-δ)", en: "Second-order analysis (P-Δ <b>and</b> P-δ)" }, { vi: "—", en: "—" }, { vi: "Nonlinear Static + P-Delta; divide frame", en: "Nonlinear Static + P-Delta; divide frame" }],
+              [{ vi: "C2.2b", en: "C2.2b" }, { vi: "Notional load ở mỗi cao trình", en: "Notional load at each level" }, { vi: "<i>N<sub>i</sub></i> = 0.002·α·<i>Y<sub>i</sub></i>, α = 1.0 (LRFD) / 1.6 (ASD)", en: "<i>N<sub>i</sub></i> = 0.002·α·<i>Y<sub>i</sub></i>, α = 1.0 (LRFD) / 1.6 (ASD)" }, { vi: "Load Pattern type <b>NOTIONAL</b>", en: "Load Pattern type <b>NOTIONAL</b>" }],
+              [{ vi: "C2.3", en: "C2.3" }, { vi: "Giảm độ cứng", en: "Stiffness reduction" }, { vi: "<i>EA*</i> = 0.8<i>EA</i>; <i>EI*</i> = 0.8·τ<sub>b</sub>·<i>EI</i>", en: "<i>EA*</i> = 0.8<i>EA</i>; <i>EI*</i> = 0.8·τ<sub>b</sub>·<i>EI</i>" }, { vi: "Frame Property Modifiers", en: "Frame Property Modifiers" }],
+              [{ vi: "C3", en: "C3" }, { vi: "Kiểm tra cấu kiện với <b>K = 1.0</b>", en: "Check members with <b>K = 1.0</b>" }, { vi: "<i>L<sub>c</sub></i> = <i>L</i>", en: "<i>L<sub>c</sub></i> = <i>L</i>" }, { vi: "Steel Frame Design Overwrites", en: "Steel Frame Design Overwrites" }]
             ]
           },
           {
@@ -672,11 +672,11 @@ window.ARTICLES = [
               { vi: "Nội dung Load Case", en: "Load case content" }
             ],
             rows: [
-              [ { vi: "D + Dsup + EE", en: "D + Dsup + EE" }, { vi: "<code>NOx</code>", en: "<code>NOx</code>" }, { vi: "xD + xDsup + xEE", en: "xD + xDsup + xEE" } ],
-              [ { vi: "D + Dsup + EE + EOL", en: "D + Dsup + EE + EOL" }, { vi: "<code>NOPx</code>", en: "<code>NOPx</code>" }, { vi: "xD + xDsup + xEE + xEOL", en: "xD + xDsup + xEE + xEOL" } ],
-              [ { vi: "L", en: "L" }, { vi: "<code>NLx</code>", en: "<code>NLx</code>" }, { vi: "xL", en: "xL" } ],
-              [ { vi: "L + Lmono", en: "L + Lmono" }, { vi: "<code>NLMx</code>", en: "<code>NLMx</code>" }, { vi: "xL + xLmono", en: "xL + xLmono" } ],
-              [ { vi: "L + 1.4·Lmono", en: "L + 1.4·Lmono" }, { vi: "<code>NLM2x</code>", en: "<code>NLM2x</code>" }, { vi: "xL + 1.4·xLmono", en: "xL + 1.4·xLmono" } ]
+              [{ vi: "D + Dsup + EE", en: "D + Dsup + EE" }, { vi: "<code>NOx</code>", en: "<code>NOx</code>" }, { vi: "xD + xDsup + xEE", en: "xD + xDsup + xEE" }],
+              [{ vi: "D + Dsup + EE + EOL", en: "D + Dsup + EE + EOL" }, { vi: "<code>NOPx</code>", en: "<code>NOPx</code>" }, { vi: "xD + xDsup + xEE + xEOL", en: "xD + xDsup + xEE + xEOL" }],
+              [{ vi: "L", en: "L" }, { vi: "<code>NLx</code>", en: "<code>NLx</code>" }, { vi: "xL", en: "xL" }],
+              [{ vi: "L + Lmono", en: "L + Lmono" }, { vi: "<code>NLMx</code>", en: "<code>NLMx</code>" }, { vi: "xL + xLmono", en: "xL + xLmono" }],
+              [{ vi: "L + 1.4·Lmono", en: "L + 1.4·Lmono" }, { vi: "<code>NLM2x</code>", en: "<code>NLM2x</code>" }, { vi: "xL + 1.4·xLmono", en: "xL + 1.4·xLmono" }]
             ]
           },
           {
@@ -706,11 +706,11 @@ window.ARTICLES = [
             head: [
               { vi: "Loại tổ hợp", en: "Combination type" },
               { vi: "Chiều notional", en: "Notional direction" },
-              { vi: "Số combo phái sinh", en: "Derived combinations" }
+              { vi: "Số combo phát sinh", en: "Derived combinations" }
             ],
             rows: [
-              [ { vi: "<b>Chỉ có tải đứng</b>", en: "<b>Gravity only</b>" }, { vi: "Cả 4 chiều: +X, −X, +Y, −Y (chưa biết chiều bất lợi)", en: "All four: +X, −X, +Y, −Y (the governing direction is unknown)" }, { vi: "<b>× 4</b>", en: "<b>× 4</b>" } ],
-              [ { vi: "<b>Có tải ngang</b> (W, E)", en: "<b>With lateral load</b> (W, E)" }, { vi: "Cùng chiều hợp lực ngang của combo đó", en: "Along the resultant lateral force of that combination" }, { vi: "<b>× 1</b>", en: "<b>× 1</b>" } ]
+              [{ vi: "<b>Chỉ có tải đứng</b>", en: "<b>Gravity only</b>" }, { vi: "Cả 4 chiều: +X, −X, +Y, −Y (chưa biết chiều bất lợi)", en: "All four: +X, −X, +Y, −Y (the governing direction is unknown)" }, { vi: "<b>× 4</b>", en: "<b>× 4</b>" }],
+              [{ vi: "<b>Có tải ngang</b> (W, E)", en: "<b>With lateral load</b> (W, E)" }, { vi: "Cùng chiều hợp lực ngang của combo đó", en: "Along the resultant lateral force of that combination" }, { vi: "<b>× 1</b>", en: "<b>× 1</b>" }]
             ]
           },
           {
@@ -748,14 +748,14 @@ window.ARTICLES = [
           },
           {
             type: "table",
-            head: [ { vi: "Trường", en: "Field" }, { vi: "Giá trị đúng", en: "Correct value" } ],
+            head: [{ vi: "Trường", en: "Field" }, { vi: "Giá trị đúng", en: "Correct value" }],
             rows: [
-              [ { vi: "Load Case Type / Analysis Type", en: "Load Case Type / Analysis Type" }, { vi: "Static / <b>Nonlinear</b>", en: "Static / <b>Nonlinear</b>" } ],
-              [ { vi: "Geometric Nonlinearity", en: "Geometric Nonlinearity" }, { vi: "<b>P-Delta</b>", en: "<b>P-Delta</b>" } ],
-              [ { vi: "Initial Conditions", en: "Initial Conditions" }, { vi: "Zero Initial Conditions", en: "Zero Initial Conditions" } ],
-              [ { vi: "Loads Applied", en: "Loads Applied" }, { vi: "toàn bộ pattern <b>kèm hệ số của combo</b> (0.9, 1.2, 1.6…)", en: "every pattern <b>with the combination factors</b> (0.9, 1.2, 1.6…)" } ],
-              [ { vi: "Load Application", en: "Load Application" }, { vi: "Full Load", en: "Full Load" } ],
-              [ { vi: "Results Saved", en: "Results Saved" }, { vi: "Final State Only", en: "Final State Only" } ]
+              [{ vi: "Load Case Type / Analysis Type", en: "Load Case Type / Analysis Type" }, { vi: "Static / <b>Nonlinear</b>", en: "Static / <b>Nonlinear</b>" }],
+              [{ vi: "Geometric Nonlinearity", en: "Geometric Nonlinearity" }, { vi: "<b>P-Delta</b>", en: "<b>P-Delta</b>" }],
+              [{ vi: "Initial Conditions", en: "Initial Conditions" }, { vi: "Zero Initial Conditions", en: "Zero Initial Conditions" }],
+              [{ vi: "Loads Applied", en: "Loads Applied" }, { vi: "toàn bộ pattern <b>kèm hệ số của combo</b> (0.9, 1.2, 1.6…)", en: "every pattern <b>with the combination factors</b> (0.9, 1.2, 1.6…)" }],
+              [{ vi: "Load Application", en: "Load Application" }, { vi: "Full Load", en: "Full Load" }],
+              [{ vi: "Results Saved", en: "Results Saved" }, { vi: "Final State Only", en: "Final State Only" }]
             ]
           },
           { type: "subhead", vi: "3.2 Lưu ý Mass Source (Erection vs. Operation)", en: "3.2 A note on mass source (erection vs. operation)" },
@@ -807,11 +807,11 @@ window.ARTICLES = [
           },
           {
             type: "table",
-            head: [ { vi: "Modifier", en: "Modifier" }, { vi: "Giá trị", en: "Value" }, { vi: "Ghi chú", en: "Note" } ],
+            head: [{ vi: "Modifier", en: "Modifier" }, { vi: "Giá trị", en: "Value" }, { vi: "Ghi chú", en: "Note" }],
             rows: [
-              [ { vi: "Cross-section (axial) Area", en: "Cross-section (axial) area" }, { vi: "<b>0.8</b>", en: "<b>0.8</b>" }, { vi: "Chủ yếu ảnh hưởng thanh giằng, thanh dàn", en: "Mainly affects braces and truss members" } ],
-              [ { vi: "Moment of Inertia about 2 &amp; 3 axis", en: "Moment of inertia about axes 2 &amp; 3" }, { vi: "<b>0.8 × τ<sub>b</sub></b>", en: "<b>0.8 × τ<sub>b</sub></b>" }, { vi: "τ<sub>b</sub> phụ thuộc <i>P<sub>u</sub></i> → cần lặp", en: "τ<sub>b</sub> depends on <i>P<sub>u</sub></i> → iteration required" } ],
-              [ { vi: "Torsional constant, Shear area", en: "Torsional constant, shear area" }, { vi: "1.0", en: "1.0" }, { vi: "AISC không yêu cầu giảm", en: "AISC requires no reduction" } ]
+              [{ vi: "Cross-section (axial) Area", en: "Cross-section (axial) area" }, { vi: "<b>0.8</b>", en: "<b>0.8</b>" }, { vi: "Chủ yếu ảnh hưởng thanh giằng, thanh dàn", en: "Mainly affects braces and truss members" }],
+              [{ vi: "Moment of Inertia about 2 &amp; 3 axis", en: "Moment of inertia about axes 2 &amp; 3" }, { vi: "<b>0.8 × τ<sub>b</sub></b>", en: "<b>0.8 × τ<sub>b</sub></b>" }, { vi: "τ<sub>b</sub> phụ thuộc <i>P<sub>u</sub></i> → cần lặp", en: "τ<sub>b</sub> depends on <i>P<sub>u</sub></i> → iteration required" }],
+              [{ vi: "Torsional constant, Shear area", en: "Torsional constant, shear area" }, { vi: "1.0", en: "1.0" }, { vi: "AISC không yêu cầu giảm", en: "AISC requires no reduction" }]
             ]
           },
           {
@@ -831,10 +831,10 @@ window.ARTICLES = [
               { vi: "Chuyển vị ngang tức thời — §6.6.3.2.2 (1.4·<i>I</i>, ≤ <i>I<sub>g</sub></i>)", en: "Immediate lateral deflection — §6.6.3.2.2 (1.4·<i>I</i>, ≤ <i>I<sub>g</sub></i>)" }
             ],
             rows: [
-              [ { vi: "Trụ / cột RC", en: "RC pedestal / column" }, { vi: "<b>0.70·<i>I<sub>g</sub></i></b>", en: "<b>0.70·<i>I<sub>g</sub></i></b>" }, { vi: "1.4 × 0.70 ≈ <b>1.0·<i>I<sub>g</sub></i></b>", en: "1.4 × 0.70 ≈ <b>1.0·<i>I<sub>g</sub></i></b>" } ],
-              [ { vi: "Dầm giằng RC", en: "RC tie beam" }, { vi: "<b>0.35·<i>I<sub>g</sub></i></b>", en: "<b>0.35·<i>I<sub>g</sub></i></b>" }, { vi: "1.4 × 0.35 ≈ <b>0.5·<i>I<sub>g</sub></i></b>", en: "1.4 × 0.35 ≈ <b>0.5·<i>I<sub>g</sub></i></b>" } ],
-              [ { vi: "Vách (nứt / không nứt)", en: "Wall (cracked / uncracked)" }, { vi: "0.35 / 0.70·<i>I<sub>g</sub></i>", en: "0.35 / 0.70·<i>I<sub>g</sub></i>" }, { vi: "tương tự", en: "as above" } ],
-              [ { vi: "Diện tích", en: "Area" }, { vi: "1.0·<i>A<sub>g</sub></i>", en: "1.0·<i>A<sub>g</sub></i>" }, { vi: "1.0·<i>A<sub>g</sub></i>", en: "1.0·<i>A<sub>g</sub></i>" } ]
+              [{ vi: "Trụ / cột RC", en: "RC pedestal / column" }, { vi: "<b>0.70·<i>I<sub>g</sub></i></b>", en: "<b>0.70·<i>I<sub>g</sub></i></b>" }, { vi: "1.4 × 0.70 ≈ <b>1.0·<i>I<sub>g</sub></i></b>", en: "1.4 × 0.70 ≈ <b>1.0·<i>I<sub>g</sub></i></b>" }],
+              [{ vi: "Dầm giằng RC", en: "RC tie beam" }, { vi: "<b>0.35·<i>I<sub>g</sub></i></b>", en: "<b>0.35·<i>I<sub>g</sub></i></b>" }, { vi: "1.4 × 0.35 ≈ <b>0.5·<i>I<sub>g</sub></i></b>", en: "1.4 × 0.35 ≈ <b>0.5·<i>I<sub>g</sub></i></b>" }],
+              [{ vi: "Vách (nứt / không nứt)", en: "Wall (cracked / uncracked)" }, { vi: "0.35 / 0.70·<i>I<sub>g</sub></i>", en: "0.35 / 0.70·<i>I<sub>g</sub></i>" }, { vi: "tương tự", en: "as above" }],
+              [{ vi: "Diện tích", en: "Area" }, { vi: "1.0·<i>A<sub>g</sub></i>", en: "1.0·<i>A<sub>g</sub></i>" }, { vi: "1.0·<i>A<sub>g</sub></i>", en: "1.0·<i>A<sub>g</sub></i>" }]
             ]
           },
           {
@@ -850,8 +850,8 @@ window.ARTICLES = [
             type: "figure",
             src: { vi: "Resource/articles/02-dam-sap2000/fig-06-vi.svg", en: "Resource/articles/02-dam-sap2000/fig-06-en.svg" },
             caption: {
-              vi: "<b>Hình 6.</b> Bảng tra nhanh modifier độ cứng: thép theo AISC 360-10 §C2.3, RC theo ACI 318.",
-              en: "<b>Figure 6.</b> Quick lookup for stiffness modifiers: steel per AISC 360-10 §C2.3, RC per ACI 318."
+              vi: "<b>Hình 4.</b> Bảng tra nhanh modifier độ cứng: thép theo AISC 360-10 §C2.3, RC theo ACI 318.",
+              en: "<b>Figure 4.</b> Quick lookup for stiffness modifiers: steel per AISC 360-10 §C2.3, RC per ACI 318."
             }
           }
         ]
@@ -881,8 +881,8 @@ window.ARTICLES = [
             type: "figure",
             src: { vi: "Resource/articles/02-dam-sap2000/fig-04-vi.svg", en: "Resource/articles/02-dam-sap2000/fig-04-en.svg" },
             caption: {
-              vi: "<b>Hình 4.</b> Toàn bộ quy trình 4 bước.",
-              en: "<b>Figure 4.</b> The whole four-step workflow."
+              vi: "<b>Hình 5.</b> Toàn bộ quy trình 4 bước.",
+              en: "<b>Figure 5.</b> The whole four-step workflow."
             }
           }
         ]
@@ -903,8 +903,8 @@ window.ARTICLES = [
             type: "figure",
             src: { vi: "Resource/articles/02-dam-sap2000/fig-05-vi.svg", en: "Resource/articles/02-dam-sap2000/fig-05-en.svg" },
             caption: {
-              vi: "<b>Hình 5.</b> P-Δ nắm được bằng chuyển vị nút; P-δ chỉ xuất hiện khi cấu kiện được divided.",
-              en: "<b>Figure 5.</b> P-Δ is captured by joint displacement; P-δ only appears once the member is subdivided."
+              vi: "<b>Hình 6.</b> P-Δ nắm được bằng chuyển vị nút; P-δ chỉ xuất hiện khi cấu kiện được divided.",
+              en: "<b>Figure 6.</b> P-Δ is captured by joint displacement; P-δ only appears once the member is subdivided."
             }
           },
           {
@@ -946,18 +946,18 @@ window.ARTICLES = [
           },
           {
             type: "table",
-            head: [ { vi: "Dòng trong output", en: "Line in the output" }, { vi: "Giá trị cần xuất hiện", en: "Value that must appear" } ],
+            head: [{ vi: "Dòng trong output", en: "Line in the output" }, { vi: "Giá trị cần xuất hiện", en: "Value that must appear" }],
             rows: [
-              [ { vi: "Design code", en: "Design code" }, { vi: "<code>AISC 360-10</code>", en: "<code>AISC 360-10</code>" } ],
-              [ { vi: "Provision", en: "Provision" }, { vi: "<code>LRFD</code>", en: "<code>LRFD</code>" } ],
-              [ { vi: "Analysis", en: "Analysis" }, { vi: "<b><code>Direct Analysis</code></b>", en: "<b><code>Direct Analysis</code></b>" } ],
-              [ { vi: "2nd Order", en: "2nd Order" }, { vi: "<b><code>General 2nd Order</code></b>", en: "<b><code>General 2nd Order</code></b>" } ],
-              [ { vi: "Reduction", en: "Reduction" }, { vi: "<code>Tau-b Variable</code> (hoặc <code>Tau-b Fixed</code>)", en: "<code>Tau-b Variable</code> (or <code>Tau-b Fixed</code>)" } ],
-              [ { vi: "<code>Tau_b</code>", en: "<code>Tau_b</code>" }, { vi: "1.0 nếu α<i>P<sub>r</sub></i>/<i>P<sub>y</sub></i> ≤ 0.5", en: "1.0 if α<i>P<sub>r</sub></i>/<i>P<sub>y</sub></i> ≤ 0.5" } ],
-              [ { vi: "<code>EA factor</code> / <code>EI factor</code>", en: "<code>EA factor</code> / <code>EI factor</code>" }, { vi: "<b>0.800 / 0.800·τ<sub>b</sub></b>", en: "<b>0.800 / 0.800·τ<sub>b</sub></b>" } ],
-              [ { vi: "<code>K1</code>, <code>K2</code> (Major &amp; Minor)", en: "<code>K1</code>, <code>K2</code> (major &amp; minor)" }, { vi: "<b>1.000</b>", en: "<b>1.000</b>" } ],
-              [ { vi: "<code>Kltb</code>", en: "<code>Kltb</code>" }, { vi: "<b>1.000</b>", en: "<b>1.000</b>" } ],
-              [ { vi: "<code>Length</code>, <code>Lltb</code>", en: "<code>Length</code>, <code>Lltb</code>" }, { vi: "đúng chiều dài không giằng thực tế", en: "the real unbraced length" } ]
+              [{ vi: "Design code", en: "Design code" }, { vi: "<code>AISC 360-10</code>", en: "<code>AISC 360-10</code>" }],
+              [{ vi: "Provision", en: "Provision" }, { vi: "<code>LRFD</code>", en: "<code>LRFD</code>" }],
+              [{ vi: "Analysis", en: "Analysis" }, { vi: "<b><code>Direct Analysis</code></b>", en: "<b><code>Direct Analysis</code></b>" }],
+              [{ vi: "2nd Order", en: "2nd Order" }, { vi: "<b><code>General 2nd Order</code></b>", en: "<b><code>General 2nd Order</code></b>" }],
+              [{ vi: "Reduction", en: "Reduction" }, { vi: "<code>Tau-b Variable</code> (hoặc <code>Tau-b Fixed</code>)", en: "<code>Tau-b Variable</code> (or <code>Tau-b Fixed</code>)" }],
+              [{ vi: "<code>Tau_b</code>", en: "<code>Tau_b</code>" }, { vi: "1.0 nếu α<i>P<sub>r</sub></i>/<i>P<sub>y</sub></i> ≤ 0.5", en: "1.0 if α<i>P<sub>r</sub></i>/<i>P<sub>y</sub></i> ≤ 0.5" }],
+              [{ vi: "<code>EA factor</code> / <code>EI factor</code>", en: "<code>EA factor</code> / <code>EI factor</code>" }, { vi: "<b>0.800 / 0.800·τ<sub>b</sub></b>", en: "<b>0.800 / 0.800·τ<sub>b</sub></b>" }],
+              [{ vi: "<code>K1</code>, <code>K2</code> (Major &amp; Minor)", en: "<code>K1</code>, <code>K2</code> (major &amp; minor)" }, { vi: "<b>1.000</b>", en: "<b>1.000</b>" }],
+              [{ vi: "<code>Kltb</code>", en: "<code>Kltb</code>" }, { vi: "<b>1.000</b>", en: "<b>1.000</b>" }],
+              [{ vi: "<code>Length</code>, <code>Lltb</code>", en: "<code>Length</code>, <code>Lltb</code>" }, { vi: "đúng chiều dài không giằng thực tế", en: "the real unbraced length" }]
             ]
           },
           { type: "subhead", vi: "Checklist trước khi Issue thiết kế", en: "Checklist before issuing the design" },
@@ -1034,14 +1034,14 @@ window.ARTICLES = [
         heading: { vi: "1. Sàn Deck là gì?", en: "1. What is a deck slab?" },
         body: [
           {
-            vi: "Sàn deck dùng tấm tôn định hình làm coffa lưu, bê tông đổ lên trên. Có hai loại khác nhau về bản chất:",
+            vi: "Sàn deck dùng tấm tôn định hình làm coffa, bê tông đổ lên trên. Có hai loại khác nhau về bản chất:",
             en: "A deck slab uses profiled steel sheeting as permanent formwork with concrete cast on top. Two families differ fundamentally:"
           },
           {
             type: "list",
             items: [
               { vi: "<b>Composite deck:</b> tôn có gân dập (embossment), khóa cơ học với bê tông, tôn <i>chính là</i> cốt chịu kéo.", en: "<b>Composite deck:</b> embossed sheeting mechanically interlocked with the concrete — the sheeting <i>is</i> the tensile reinforcement." },
-              { vi: "<b>Form deck:</b> tôn chỉ làm coffa, cốt thép bố trí riêng.", en: "<b>Form deck:</b> sheeting acts as formwork only; reinforcement is placed separately." }
+              { vi: "<b>Form deck:</b> tôn chỉ làm coffa, cốt thép tính toàn/bố trí riêng.", en: "<b>Form deck:</b> sheeting acts as formwork only; reinforcement is placed separately." }
             ]
           },
           {
@@ -1051,7 +1051,7 @@ window.ARTICLES = [
           {
             type: "list",
             items: [
-              { vi: "Giảm tối đa giàn giáo chống đỡ; tấm tôn trở thành mặt bằng thi công an toàn ngay khi lắp xong.", en: "Shoring eliminated or minimised; the sheeting becomes a safe working platform immediately after installation." },
+              { vi: "Giảm tối đa giàn giáo chống đỡ; tấm tôn trở thành mặt bằng thi công an toàn.", en: "Shoring eliminated or minimised; the sheeting becomes a safe working platform immediately after installation." },
               { vi: "Tốc độ thi công nhanh, đồng bộ với tiến độ lắp dựng kết cấu thép; sóng tôn rỗng làm giảm tải trọng bản thân so với sàn đặc cùng nhịp, và là không gian sẵn có để luồn ống, cáp điện.", en: "Erection speed matches the steel programme; hollow ribs reduce self-weight against a solid slab of equal span and provide ready-made routing for conduits and cables." }
             ]
           }
@@ -1059,7 +1059,7 @@ window.ARTICLES = [
         figures: [
           {
             src: "Resource/articles/01-deck-slab/fig1.webp",
-            caption: { vi: "Cấu tạo sàn deck: tôn định hình, chốt chịu cắt, lưới thép và dầm thép đỡ.", en: "Deck slab anatomy: profiled sheeting, shear studs, wire mesh and supporting steel beam." }
+            caption: { vi: "Cấu tạo sàn deck: tôn định hình, chốt chịu cắt, lưới thép và dầm thép.", en: "Deck slab anatomy: profiled sheeting, shear studs, wire mesh and supporting steel beam." }
           },
           {
             src: "Resource/articles/01-deck-slab/fig3.webp",
@@ -1083,7 +1083,7 @@ window.ARTICLES = [
             ]
           },
           {
-            vi: "Riêng với Shell và Plate, phần mềm phân tích còn phân biệt theo cách xử lý biến dạng cắt ngang:",
+            vi: "Riêng với Shell và Plate, phần mềm phân tích còn phân biệt theo cách ứng xử biến dạng cắt ngang:",
             en: "For Shell and Plate only, the software further distinguishes how transverse shear is treated:"
           },
           {
@@ -1109,7 +1109,7 @@ window.ARTICLES = [
             type: "list",
             items: [
               { vi: "<b>Rigid</b> là một <i>ràng buộc động học</i>, hoạt động độc lập với độ cứng của tấm. Rigid vẫn ảnh hưởng ngay cả khi Stiffness Modifiers = 0 hoặc Section Properties = None.", en: "<b>Rigid</b> is a <i>kinematic constraint</i> that works independently of shell stiffness. It remains effective even with Stiffness Modifiers = 0 or Section Properties = None." },
-              { vi: "<b>Semi-rigid</b> thì ngược lại — nó chỉ là một <i>nhãn</i>, và toàn bộ ứng xử dựa vào độ cứng membrane thực của tấm (f11, f22, f12). Semi-rigid chỉ có tác dụng khi Section Type = Shell hoặc Membrane với Stiffness Modifiers &gt; 0.", en: "<b>Semi-rigid</b> is the opposite — it is only a <i>label</i>, and behaviour relies entirely on the shell's real membrane stiffness (f11, f22, f12). It takes effect only where Section Type = Shell or Membrane with Stiffness Modifiers &gt; 0." }
+              { vi: "<b>Semi-rigid</b> thì ngược lại, toàn bộ ứng xử dựa vào độ cứng membrane thực của tấm (f11, f22, f12). Semi-rigid chỉ có tác dụng khi Section Type = Shell hoặc Membrane với Stiffness Modifiers &gt; 0.", en: "<b>Semi-rigid</b> is the opposite, behaviour relies entirely on the shell's real membrane stiffness (f11, f22, f12). It takes effect only where Section Type = Shell or Membrane with Stiffness Modifiers &gt; 0." }
             ]
           },
           {
@@ -1120,17 +1120,13 @@ window.ARTICLES = [
         figures: [
           {
             src: "Resource/articles/01-deck-slab/fig2.webp",
-            caption: { vi: "Mô hình phần tử hữu hạn sàn deck liên hợp — tôn, bê tông và chốt chịu cắt khai báo riêng.", en: "Finite-element model of composite deck — sheeting, concrete and shear studs defined separately." }
+            caption: { vi: "Mô hình phần tử hữu hạn sàn deck liên hợp — tôn, bê tông và chốt chịu cắt.", en: "Finite-element model of composite deck — sheeting, concrete and shear studs." }
           }
         ]
       },
       {
         heading: { vi: "3. Hai kiểu liên kết thiết bị", en: "3. Two ways to support equipment" },
         body: [
-          {
-            vi: "Câu hỏi quyết định không phải “chi tiết nào đẹp hơn” mà là <b>“tải trọng nên đi vào đâu”</b>.",
-            en: "The decisive question is not “which detail looks better” but <b>“where should the load go?”</b>"
-          },
           {
             vi: "<b>Qua bệ RC trên sàn</b> (anchor bolt hoặc embedded part đặt trong bệ): tải đi vào sàn. Sàn deck có chiều dày hữu hiệu mỏng và bị chi phối bởi chọc thủng, nên hướng này phù hợp với <b>support nhỏ và trung bình</b> — pipe support cho ống nhỏ, bệ máy bơm, bệ máy nén. Lắp đặt phải chờ bệ đủ cường độ, tức là bị ràng buộc trình tự.",
             en: "<b>Via an RC pedestal on the slab</b> (anchor bolts or embedded plate cast into the pedestal): the load enters the slab. Deck slabs have a thin effective depth and are punching-shear governed, so this route suits <b>small to medium supports</b> — pipe supports, pump and compressor bases. Installation must wait for the pedestal to gain strength, which constrains the erection sequence."
@@ -1196,19 +1192,19 @@ window.ARTICLES = [
                 { vi: "Kết cấu thép", en: "Steel structure" },
                 { vi: "✓ với support nhỏ<br>✗ với support lớn", en: "✓ small supports<br>✗ large supports" },
                 { vi: "✓", en: "✓" },
-                { vi: "Xem như đặt trên nền", en: "Consider same as on-paving" }
+                { vi: "", en: "" }
               ],
               [
                 { vi: "Giá đỡ ống", en: "Pipe support" },
                 { vi: "✓ với support nhỏ<br>✗ với support lớn", en: "✓ small supports<br>✗ large supports" },
                 { vi: "–", en: "–" },
-                { vi: "Xem như đặt trên nền", en: "Consider same as on-paving" }
+                { vi: "", en: "" }
               ]
             ]
           },
           {
-            vi: "Hàng <i>Bơm & máy nén</i> thoạt nhìn có vẻ ngược với nguyên tắc “tải nặng thì đi thẳng vào dầm”. Lý do không nằm ở độ lớn tải mà ở <b>rung động</b>: bệ bê tông cung cấp khối lượng và cản để hấp thụ dao động từ máy quay, trong khi nối cứng trực tiếp vào dầm thép sẽ truyền rung vào hệ kết cấu.",
-            en: "The <i>pump &amp; compressor</i> row appears to contradict the “heavy loads go straight to the beam” principle. The reason is not load magnitude but <b>vibration</b>: a concrete pedestal provides mass and damping to absorb rotating-machine excitation, whereas a direct rigid connection would feed that vibration into the steel frame."
+            vi: "<i>Bơm & máy nén</i> thoạt nhìn có vẻ ngược với nguyên tắc “tải nặng thì đi thẳng vào dầm”. Lý do không nằm ở độ lớn tải mà ở <b>rung động</b>: bệ bê tông cung cấp khối lượng và cản để hấp thụ dao động từ máy quay, trong khi nối cứng trực tiếp vào dầm thép sẽ truyền rung vào hệ kết cấu.",
+            en: "The <i>pump &amp; compressor</i> appears to contradict the “heavy loads go straight to the beam” principle. The reason is not load magnitude but <b>vibration</b>: a concrete pedestal provides mass and damping to absorb rotating-machine excitation, whereas a direct rigid connection would feed that vibration into the steel frame."
           }
         ]
       },
@@ -1234,7 +1230,7 @@ window.ARTICLES = [
         figures: [
           {
             src: "Resource/articles/01-deck-slab/fig4.webp",
-            caption: { vi: "Giai đoạn thi công: giằng ngang tạm, hệ chống đỡ và mép đổ bê tông.", en: "Construction stage: temporary transverse bracing, propping system and concrete pouring edge." }
+            caption: { vi: "Giai đoạn thi công: giằng ngang tạm, hệ chống đỡ và mép đổ bê tông.", en: "Construction stage: temporary horizontal bracing, propping system and concrete pouring edge." }
           }
         ]
       },

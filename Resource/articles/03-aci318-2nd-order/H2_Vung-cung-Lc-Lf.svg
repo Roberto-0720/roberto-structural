@@ -1,5 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 588" width="900" height="588">
-  <style>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 900 588"
+   width="900"
+   height="588"
+   version="1.1"
+   id="svg30"
+   sodipodi:docname="H2_Vung-cung-Lc-Lf.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview30"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="1.3316327"
+     inkscape:cx="449.82375"
+     inkscape:cy="354.07663"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg30" />
+  <style
+     id="style1">
     text { font-family: 'Segoe UI','DejaVu Sans',Arial,sans-serif; }
     .h1 { font-size:19px; font-weight:bold; fill:#1B3A5C; }
     .sub { font-size:12.5px; fill:#5A6B7C; }
@@ -9,73 +40,353 @@
     .ft { font-size:15px; font-weight:bold; fill:#1B3A5C; }
     .bd { font-size:12.5px; fill:#4A5C6B; }
   </style>
-  <defs>
-    <marker id="a2" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto">
-      <path d="M0,0 L6.5,3 L0,6 z" fill="#1B3A5C"/>
+  <defs
+     id="defs6">
+    <marker
+       id="a2"
+       markerWidth="8"
+       markerHeight="8"
+       refX="6.5"
+       refY="3"
+       orient="auto">
+      <path
+         d="M0,0 L6.5,3 L0,6 z"
+         fill="#1B3A5C"
+         id="path1" />
     </marker>
-    <marker id="a2s" markerWidth="8" markerHeight="8" refX="0.5" refY="3" orient="auto">
-      <path d="M6.5,0 L0,3 L6.5,6 z" fill="#1B3A5C"/>
+    <marker
+       id="a2s"
+       markerWidth="8"
+       markerHeight="8"
+       refX="0.5"
+       refY="3"
+       orient="auto">
+      <path
+         d="M6.5,0 L0,3 L6.5,6 z"
+         fill="#1B3A5C"
+         id="path2" />
     </marker>
-    <marker id="a4" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto">
-      <path d="M0,0 L6.5,3 L0,6 z" fill="#5A6B7C"/>
+    <marker
+       id="a4"
+       markerWidth="8"
+       markerHeight="8"
+       refX="6.5"
+       refY="3"
+       orient="auto">
+      <path
+         d="M0,0 L6.5,3 L0,6 z"
+         fill="#5A6B7C"
+         id="path3" />
     </marker>
-    <marker id="a4s" markerWidth="8" markerHeight="8" refX="0.5" refY="3" orient="auto">
-      <path d="M6.5,0 L0,3 L6.5,6 z" fill="#5A6B7C"/>
+    <marker
+       id="a4s"
+       markerWidth="8"
+       markerHeight="8"
+       refX="0.5"
+       refY="3"
+       orient="auto">
+      <path
+         d="M6.5,0 L0,3 L6.5,6 z"
+         fill="#5A6B7C"
+         id="path4" />
     </marker>
-    <marker id="a3" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto">
-      <path d="M0,0 L6.5,3 L0,6 z" fill="#D97D0D"/>
+    <marker
+       id="a3"
+       markerWidth="8"
+       markerHeight="8"
+       refX="6.5"
+       refY="3"
+       orient="auto">
+      <path
+         d="M0,0 L6.5,3 L0,6 z"
+         fill="#D97D0D"
+         id="path5" />
     </marker>
-    <marker id="a3s" markerWidth="8" markerHeight="8" refX="0.5" refY="3" orient="auto">
-      <path d="M6.5,0 L0,3 L6.5,6 z" fill="#D97D0D"/>
+    <marker
+       id="a3s"
+       markerWidth="8"
+       markerHeight="8"
+       refX="0.5"
+       refY="3"
+       orient="auto">
+      <path
+         d="M6.5,0 L0,3 L6.5,6 z"
+         fill="#D97D0D"
+         id="path6" />
     </marker>
   </defs>
-
-  <rect x="0" y="0" width="900" height="588" fill="#FFFFFF"/>
-  <text class="h1" x="450" y="34" text-anchor="middle">VÙNG CỨNG (END OFFSETS) — HAI CHIỀU DÀI, HAI VAI TRÒ KHÁC NHAU</text>
-  <text class="sub" x="450" y="57" text-anchor="middle">Minh hoạ với Rigid Zone Factor = 0.5</text>
-
-  <rect x="90" y="120" width="100" height="200" fill="#DDE3E8" stroke="#8FA3B5"/>
-  <rect x="660" y="120" width="100" height="200" fill="#DDE3E8" stroke="#8FA3B5"/>
-  <rect x="140" y="185" width="570" height="55" fill="#EFF3F6" stroke="#8FA3B5"/>
-  <rect x="140" y="185" width="25" height="55" fill="#1B3A5C"/>
-  <rect x="685" y="185" width="25" height="55" fill="#1B3A5C"/>
-
-  <line x1="140" y1="105" x2="140" y2="335" stroke="#C0392B" stroke-width="1" stroke-dasharray="10 4 2 4"/>
-  <line x1="710" y1="105" x2="710" y2="335" stroke="#C0392B" stroke-width="1" stroke-dasharray="10 4 2 4"/>
-  <line x1="190" y1="150" x2="190" y2="300" stroke="#5A6B7C" stroke-width="1" stroke-dasharray="4 3"/>
-  <line x1="660" y1="150" x2="660" y2="300" stroke="#5A6B7C" stroke-width="1" stroke-dasharray="4 3"/>
-  <text class="lbl" x="196" y="312">mép gối</text>
-  <text class="lbl" x="654" y="312" text-anchor="end">mép gối</text>
-
-  <line x1="140" y1="98" x2="710" y2="98" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#a2)" marker-start="url(#a2s)"/>
-  <text class="dim" x="425" y="90" text-anchor="middle">L — chiều dài trục tới trục</text>
-
-  <line x1="190" y1="132" x2="660" y2="132" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#a2)" marker-start="url(#a2s)"/>
-  <text class="dim" x="425" y="124" text-anchor="middle">Lc — chiều dài thông thuỷ</text>
-
-  <line x1="140" y1="262" x2="190" y2="262" stroke="#5A6B7C" stroke-width="1.1" marker-end="url(#a4)" marker-start="url(#a4s)"/>
-  <text class="lbl" x="165" y="278" text-anchor="middle">ioff</text>
-  <line x1="660" y1="262" x2="710" y2="262" stroke="#5A6B7C" stroke-width="1.1" marker-end="url(#a4)" marker-start="url(#a4s)"/>
-  <text class="lbl" x="685" y="278" text-anchor="middle">joff</text>
-
-  <line x1="165" y1="350" x2="685" y2="350" stroke="#D97D0D" stroke-width="1.3" marker-end="url(#a3)" marker-start="url(#a3s)"/>
-  <text class="dimo" x="425" y="368" text-anchor="middle">Lf — chiều dài biến dạng (Flexible Length)</text>
-
-  <rect x="45" y="378" width="16" height="14" fill="#1B3A5C"/>
-  <text class="lbl" x="70" y="390">= rigid × ioff — phần cứng tuyệt đối, không biến dạng</text>
-
-  <rect x="40" y="410" width="400" height="76" rx="6" fill="#EAF1F8" stroke="#B9D0E5"/>
-  <text class="ft" x="58" y="436">Lc = L − ( ioff + joff )</text>
-  <text class="bd" x="58" y="458">Quyết định VỊ TRÍ xuất nội lực thiết kế — đúng tiết</text>
-  <text class="bd" x="58" y="476">diện tới hạn tại mép gối, ACI 318-14 §9.4.2.1</text>
-
-  <rect x="460" y="410" width="400" height="76" rx="6" fill="#FDF1E0" stroke="#F0C58A"/>
-  <text class="ft" x="478" y="436">Lf = L − rigid × ( ioff + joff )</text>
-  <text class="bd" x="478" y="458">Quyết định ĐỘ CỨNG uốn và cắt — chỉ đoạn Lf mới</text>
-  <text class="bd" x="478" y="476">biến dạng, phần còn lại xem như cứng tuyệt đối</text>
-
-  <rect x="40" y="500" width="820" height="72" rx="6" fill="#FBEAE7" stroke="#EDB3AB"/>
-  <text class="bd" x="58" y="524" style="fill:#C0392B; font-weight:bold; font-size:13.5px;">Chọn Rigid Zone Factor thế nào?</text>
-  <text class="bd" x="58" y="546">rigid = 0 (mặc định của SAP2000): không được lợi gì về độ cứng · rigid = 0.5: khuyến nghị cho khung BTCT</text>
-  <text class="bd" x="58" y="564">rigid = 1.0: khung cứng giả tạo → đánh giá THẤP chuyển vị ngang và hiệu ứng P-Δ mà cả bài toán đang muốn bắt</text>
+  <rect
+     x="0"
+     y="0"
+     width="900"
+     height="588"
+     fill="#FFFFFF"
+     id="rect6" />
+  <text
+     class="h1"
+     x="450"
+     y="34"
+     text-anchor="middle"
+     id="text6">VÙNG CỨNG (END OFFSETS) — HAI CHIỀU DÀI, HAI VAI TRÒ KHÁC NHAU</text>
+  <text
+     class="sub"
+     x="450"
+     y="57"
+     text-anchor="middle"
+     id="text7">Minh hoạ với Rigid Zone Factor = 0.5</text>
+  <rect
+     x="90"
+     y="120"
+     width="100"
+     height="200"
+     fill="#DDE3E8"
+     stroke="#8FA3B5"
+     id="rect7" />
+  <rect
+     x="660"
+     y="120"
+     width="100"
+     height="200"
+     fill="#DDE3E8"
+     stroke="#8FA3B5"
+     id="rect8" />
+  <rect
+     x="140"
+     y="185"
+     width="570"
+     height="55"
+     fill="#EFF3F6"
+     stroke="#8FA3B5"
+     id="rect9" />
+  <rect
+     x="140"
+     y="185"
+     width="25"
+     height="55"
+     fill="#1B3A5C"
+     id="rect10" />
+  <rect
+     x="685"
+     y="185"
+     width="25"
+     height="55"
+     fill="#1B3A5C"
+     id="rect11" />
+  <line
+     x1="140"
+     y1="105"
+     x2="140"
+     y2="335"
+     stroke="#C0392B"
+     stroke-width="1"
+     stroke-dasharray="10 4 2 4"
+     id="line11" />
+  <line
+     x1="710"
+     y1="105"
+     x2="710"
+     y2="335"
+     stroke="#C0392B"
+     stroke-width="1"
+     stroke-dasharray="10 4 2 4"
+     id="line12" />
+  <line
+     x1="190"
+     y1="150"
+     x2="190"
+     y2="300"
+     stroke="#5A6B7C"
+     stroke-width="1"
+     stroke-dasharray="4 3"
+     id="line13" />
+  <line
+     x1="660"
+     y1="150"
+     x2="660"
+     y2="300"
+     stroke="#5A6B7C"
+     stroke-width="1"
+     stroke-dasharray="4 3"
+     id="line14" />
+  <text
+     class="lbl"
+     x="196"
+     y="312"
+     id="text14">mép gối</text>
+  <text
+     class="lbl"
+     x="654"
+     y="312"
+     text-anchor="end"
+     id="text15">mép gối</text>
+  <line
+     x1="140"
+     y1="98"
+     x2="710"
+     y2="98"
+     stroke="#1B3A5C"
+     stroke-width="1.3"
+     marker-end="url(#a2)"
+     marker-start="url(#a2s)"
+     id="line15" />
+  <text
+     class="dim"
+     x="425"
+     y="90"
+     text-anchor="middle"
+     id="text16">L — chiều dài trục tới trục</text>
+  <line
+     x1="190"
+     y1="132"
+     x2="660"
+     y2="132"
+     stroke="#1B3A5C"
+     stroke-width="1.3"
+     marker-end="url(#a2)"
+     marker-start="url(#a2s)"
+     id="line16" />
+  <text
+     class="dim"
+     x="425"
+     y="124"
+     text-anchor="middle"
+     id="text17">Lc — chiều dài thông thuỷ</text>
+  <line
+     x1="140"
+     y1="262"
+     x2="190"
+     y2="262"
+     stroke="#5A6B7C"
+     stroke-width="1.1"
+     marker-end="url(#a4)"
+     marker-start="url(#a4s)"
+     id="line17" />
+  <text
+     class="lbl"
+     x="165"
+     y="278"
+     text-anchor="middle"
+     id="text18">ioff</text>
+  <line
+     x1="660"
+     y1="262"
+     x2="710"
+     y2="262"
+     stroke="#5A6B7C"
+     stroke-width="1.1"
+     marker-end="url(#a4)"
+     marker-start="url(#a4s)"
+     id="line18" />
+  <text
+     class="lbl"
+     x="685"
+     y="278"
+     text-anchor="middle"
+     id="text19">joff</text>
+  <line
+     x1="165"
+     y1="350"
+     x2="685"
+     y2="350"
+     stroke="#D97D0D"
+     stroke-width="1.3"
+     marker-end="url(#a3)"
+     marker-start="url(#a3s)"
+     id="line19" />
+  <text
+     class="dimo"
+     x="425"
+     y="368"
+     text-anchor="middle"
+     id="text20">Lf — chiều dài biến dạng (Flexible Length)</text>
+  <rect
+     x="45"
+     y="378"
+     width="16"
+     height="14"
+     fill="#1B3A5C"
+     id="rect20" />
+  <text
+     class="lbl"
+     x="70"
+     y="390"
+     id="text21">= rigid × ioff — phần cứng tuyệt đối, không biến dạng</text>
+  <rect
+     x="40"
+     y="410"
+     width="400"
+     height="76"
+     rx="6"
+     fill="#EAF1F8"
+     stroke="#B9D0E5"
+     id="rect21" />
+  <text
+     class="ft"
+     x="58"
+     y="436"
+     id="text22">Lc = L − ( ioff + joff )</text>
+  <text
+     class="bd"
+     x="58"
+     y="458"
+     id="text23">Quyết định VỊ TRÍ xuất nội lực thiết kế — đúng tiết</text>
+  <text
+     class="bd"
+     x="58"
+     y="476"
+     id="text24">diện tới hạn tại mép gối, ACI 318-14 §9.4.2.1</text>
+  <rect
+     x="460"
+     y="410"
+     width="400"
+     height="76"
+     rx="6"
+     fill="#FDF1E0"
+     stroke="#F0C58A"
+     id="rect24" />
+  <text
+     class="ft"
+     x="478"
+     y="436"
+     id="text25">Lf = L − rigid × ( ioff + joff )</text>
+  <text
+     class="bd"
+     x="478"
+     y="458"
+     id="text26">Quyết định ĐỘ CỨNG uốn và cắt — chỉ đoạn Lf mới</text>
+  <text
+     class="bd"
+     x="478"
+     y="476"
+     id="text27">biến dạng, phần còn lại xem như cứng tuyệt đối</text>
+  <rect
+     x="40"
+     y="500"
+     width="820"
+     height="72"
+     rx="6"
+     fill="#FBEAE7"
+     stroke="#EDB3AB"
+     id="rect27" />
+  <text
+     class="bd"
+     x="58"
+     y="524"
+     style="fill:#C0392B; font-weight:bold; font-size:13.5px;"
+     id="text28">Chọn Rigid Zone Factor thế nào?</text>
+  <text
+     class="bd"
+     x="58"
+     y="546"
+     id="text29">rigid = 0 (mặc định của SAP2000): không được lợi gì về độ cứng · rigid = 0.5: khuyến nghị cho khung BTCT</text>
+  <text
+     class="bd"
+     x="58"
+     y="564"
+     id="text30"
+     style="white-space:pre;inline-size:693.13"
+     xml:space="preserve"><tspan
+       x="58"
+       y="564"
+       id="tspan1">rigid = 1.0: khung cứng giả tạo → đánh giá THẤP chuyển vị ngang và hiệu ứng P-Δ mà bài toán đang hướng đến </tspan></text>
 </svg>

@@ -1,98 +1,426 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 60 900 488" width="900" height="488" font-family="Arial, Helvetica, sans-serif">
-  <rect x="0" y="60" width="900" height="488" fill="#FFFFFF"/>
-
-  
-  
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 60 900 509.15359"
+   width="900"
+   height="509.15359"
+   font-family="Arial, Helvetica, sans-serif"
+   version="1.1"
+   id="svg54"
+   sodipodi:docname="fig-06-vi.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs54" />
+  <sodipodi:namedview
+     id="namedview54"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="1.1345586"
+     inkscape:cx="332.28781"
+     inkscape:cy="323.91451"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg54" />
+  <rect
+     x="0"
+     y="60"
+     width="900"
+     height="509.15359"
+     fill="#ffffff"
+     id="rect1"
+     style="stroke-width:1" />
   <!-- header -->
-  <rect x="28" y="76" width="844" height="46" fill="#14314F"/>
-  <g font-size="12.5" font-weight="bold" fill="#FFFFFF">
-    <text x="52" y="105">CẤU KIỆN / ĐẶC TRƯNG</text>
-    <text x="292" y="97">PHÂN TÍCH CƯỜNG ĐỘ</text>
-    <text x="292" y="114" font-size="11" font-weight="normal" fill="#BFD3E6">tổ hợp đã nhân hệ số</text>
-    <text x="482" y="97">KIỂM TRA PHỤC VỤ</text>
-    <text x="482" y="114" font-size="11" font-weight="normal" fill="#BFD3E6">độ võng, chuyển vị, chu kỳ T</text>
-    <text x="672" y="105">CƠ SỞ TIÊU CHUẨN</text>
+  <rect
+     x="28"
+     y="76"
+     width="844"
+     height="46"
+     fill="#14314f"
+     id="rect2" />
+  <g
+     font-size="12.5px"
+     font-weight="bold"
+     fill="#ffffff"
+     id="g7">
+    <text
+       x="52"
+       y="105"
+       id="text2">CẤU KIỆN / ĐẶC TRƯNG</text>
+    <text
+       x="292"
+       y="97"
+       id="text3">PHÂN TÍCH CƯỜNG ĐỘ</text>
+    <text
+       x="292"
+       y="114"
+       font-size="11px"
+       font-weight="normal"
+       fill="#bfd3e6"
+       id="text4">tổ hợp đã nhân hệ số</text>
+    <text
+       x="482"
+       y="97"
+       id="text5">KIỂM TRA PHỤC VỤ</text>
+    <text
+       x="482"
+       y="114"
+       font-size="11px"
+       font-weight="normal"
+       fill="#bfd3e6"
+       id="text6">độ võng, chuyển vị, chu kỳ T</text>
+    <text
+       x="672"
+       y="105"
+       id="text7">CƠ SỞ TIÊU CHUẨN</text>
   </g>
-
   <!-- rows -->
-  <g stroke="#D3DCE4" stroke-width="1">
-    <rect x="28" y="122" width="844" height="38" fill="#F2F6FA"/>
-    <rect x="28" y="160" width="844" height="38" fill="#FFFFFF"/>
-    <rect x="28" y="198" width="844" height="38" fill="#F2F6FA"/>
-    <rect x="28" y="236" width="844" height="38" fill="#FDF2E6"/>
-    <rect x="28" y="274" width="844" height="38" fill="#FFFFFF"/>
-    <rect x="28" y="312" width="844" height="38" fill="#FDF2E6"/>
-    <rect x="28" y="350" width="844" height="38" fill="#FFFFFF"/>
+  <g
+     stroke="#d3dce4"
+     stroke-width="1"
+     id="g13">
+    <rect
+       x="28"
+       y="122"
+       width="844"
+       height="38"
+       fill="#f2f6fa"
+       id="rect7" />
+    <rect
+       x="28"
+       y="160"
+       width="844"
+       height="38"
+       fill="#ffffff"
+       id="rect8" />
+    <rect
+       x="28"
+       y="198"
+       width="844"
+       height="38"
+       fill="#f2f6fa"
+       id="rect9" />
+    <rect
+       x="28"
+       y="236"
+       width="844"
+       height="38"
+       fill="#fdf2e6"
+       id="rect10" />
+    <rect
+       x="28"
+       y="274"
+       width="844"
+       height="38"
+       fill="#ffffff"
+       id="rect11" />
+    <rect
+       x="28"
+       y="312"
+       width="844"
+       height="38"
+       fill="#fdf2e6"
+       id="rect12" />
+    <rect
+       x="28"
+       y="350"
+       width="844"
+       height="38"
+       fill="#ffffff"
+       id="rect13" />
   </g>
   <!-- group strips -->
-  <rect x="28" y="122" width="7" height="114" fill="#1F6FB2"/>
-  <rect x="28" y="236" width="7" height="152" fill="#E8842A"/>
+  <rect
+     x="28"
+     y="122"
+     width="7"
+     height="114"
+     fill="#1f6fb2"
+     id="rect14" />
+  <rect
+     x="28"
+     y="236"
+     width="7"
+     height="152"
+     fill="#e8842a"
+     id="rect15" />
   <!-- column separators -->
-  <g stroke="#D3DCE4" stroke-width="1">
-    <line x1="278" y1="122" x2="278" y2="388"/>
-    <line x1="468" y1="122" x2="468" y2="388"/>
-    <line x1="658" y1="122" x2="658" y2="388"/>
+  <g
+     stroke="#d3dce4"
+     stroke-width="1"
+     id="g17">
+    <line
+       x1="278"
+       y1="122"
+       x2="278"
+       y2="388"
+       id="line15" />
+    <line
+       x1="468"
+       y1="122"
+       x2="468"
+       y2="388"
+       id="line16" />
+    <line
+       x1="658"
+       y1="122"
+       x2="658"
+       y2="388"
+       id="line17" />
   </g>
-  <rect x="28" y="122" width="844" height="266" fill="none" stroke="#14314F" stroke-width="1.4"/>
-
-  <g font-size="12.5" fill="#14314F">
+  <rect
+     x="28"
+     y="122"
+     width="844"
+     height="266"
+     fill="none"
+     stroke="#14314f"
+     stroke-width="1.4"
+     id="rect17" />
+  <g
+     font-size="12.5px"
+     fill="#14314f"
+     id="g44">
     <!-- steel -->
-    <text x="52" y="146" font-weight="bold">THÉP — diện tích trục (EA)</text>
-    <text x="292" y="146" font-weight="bold" fill="#12558F">0.8</text>
-    <text x="482" y="146">1.0 (danh nghĩa)</text>
-    <text x="672" y="146" font-size="11.5">AISC 360-10 §C2.3(2)</text>
-
-    <text x="52" y="184" font-weight="bold">THÉP — mômen quán tính (EI)</text>
-    <text x="292" y="184" font-weight="bold" fill="#12558F">0.8 · τb</text>
-    <text x="482" y="184">1.0 (danh nghĩa)</text>
-    <text x="672" y="184" font-size="11.5">AISC 360-10 §C2.3(3)</text>
-
-    <text x="52" y="222">THÉP — xoắn J, diện tích cắt</text>
-    <text x="292" y="222">1.0</text>
-    <text x="482" y="222">1.0</text>
-    <text x="672" y="222" font-size="11.5">Không yêu cầu giảm</text>
-
+    <text
+       x="52"
+       y="146"
+       font-weight="bold"
+       id="text17">THÉP — diện tích trục (EA)</text>
+    <text
+       x="292"
+       y="146"
+       font-weight="bold"
+       fill="#12558f"
+       id="text18">0.8</text>
+    <text
+       x="482"
+       y="146"
+       id="text19">1.0 (danh nghĩa)</text>
+    <text
+       x="672"
+       y="146"
+       font-size="11.5px"
+       id="text20">AISC 360-10 §C2.3(2)</text>
+    <text
+       x="52"
+       y="184"
+       font-weight="bold"
+       id="text21">THÉP — mômen quán tính (EI)</text>
+    <text
+       x="292"
+       y="184"
+       font-weight="bold"
+       fill="#12558f"
+       id="text22">0.8 · τb</text>
+    <text
+       x="482"
+       y="184"
+       id="text23">1.0 (danh nghĩa)</text>
+    <text
+       x="672"
+       y="184"
+       font-size="11.5px"
+       id="text24">AISC 360-10 §C2.3(3)</text>
+    <text
+       x="52"
+       y="222"
+       id="text25">THÉP — xoắn J, diện tích cắt</text>
+    <text
+       x="292"
+       y="222"
+       id="text26">1.0</text>
+    <text
+       x="482"
+       y="222"
+       id="text27">1.0</text>
+    <text
+       x="672"
+       y="222"
+       font-size="11.5px"
+       id="text28">Không yêu cầu giảm</text>
     <!-- RC -->
-    <text x="52" y="260" font-weight="bold">RC — trụ / cột</text>
-    <text x="292" y="260" font-weight="bold" fill="#B35C00">0.70 Ig</text>
-    <text x="482" y="260">1.4 × 0.70 ≈ 1.0 Ig</text>
-    <text x="672" y="260" font-size="11.5">ACI 318 B.6.6.3.1.1(a)</text>
-
-    <text x="52" y="298" font-weight="bold">RC — dầm giằng</text>
-    <text x="292" y="298" font-weight="bold" fill="#B35C00">0.35 Ig</text>
-    <text x="482" y="298">1.4 × 0.35 ≈ 0.5 Ig</text>
-    <text x="672" y="298" font-size="11.5">ACI 318 §6.6.3.2.2</text>
-
-    <text x="52" y="336">RC — vách (không nứt / nứt)</text>
-    <text x="292" y="336">0.70 / 0.35 Ig</text>
-    <text x="482" y="336">1.0 / 0.5 Ig</text>
-    <text x="672" y="336" font-size="11.5">ACI 318 B.6.6.3.1.1(a)</text>
-
-    <text x="52" y="374">RC — diện tích mặt cắt</text>
-    <text x="292" y="374">1.0 Ag</text>
-    <text x="482" y="374">1.0 Ag</text>
-    <text x="672" y="374" font-size="11.5">ACI 318 B.6.6.3.1.1(a)</text>
+    <text
+       x="52"
+       y="260"
+       font-weight="bold"
+       id="text29">RC — trụ / cột</text>
+    <text
+       x="292"
+       y="260"
+       font-weight="bold"
+       fill="#b35c00"
+       id="text30">0.70 Ig</text>
+    <text
+       x="482"
+       y="260"
+       id="text31">1.4 × 0.70 ≈ 1.0 Ig</text>
+    <text
+       x="672"
+       y="260"
+       font-size="11.5px"
+       id="text32">ACI 318 B.6.6.3.1.1(a)</text>
+    <text
+       x="52"
+       y="298"
+       font-weight="bold"
+       id="text33">RC — dầm giằng</text>
+    <text
+       x="292"
+       y="298"
+       font-weight="bold"
+       fill="#b35c00"
+       id="text34">0.35 Ig</text>
+    <text
+       x="482"
+       y="298"
+       id="text35">1.4 × 0.35 ≈ 0.5 Ig</text>
+    <text
+       x="672"
+       y="298"
+       font-size="11.5px"
+       id="text36">ACI 318 §6.6.3.2.2</text>
+    <text
+       x="52"
+       y="336"
+       id="text37">RC — vách (không nứt / nứt)</text>
+    <text
+       x="292"
+       y="336"
+       id="text38">0.70 / 0.35 Ig</text>
+    <text
+       x="482"
+       y="336"
+       id="text39">1.0 / 0.5 Ig</text>
+    <text
+       x="672"
+       y="336"
+       font-size="11.5px"
+       id="text40">ACI 318 B.6.6.3.1.1(a)</text>
+    <text
+       x="52"
+       y="374"
+       id="text41">RC — diện tích mặt cắt</text>
+    <text
+       x="292"
+       y="374"
+       id="text42">1.0 Ag</text>
+    <text
+       x="482"
+       y="374"
+       id="text43">1.0 Ag</text>
+    <text
+       x="672"
+       y="374"
+       font-size="11.5px"
+       id="text44">ACI 318 B.6.6.3.1.1(a)</text>
   </g>
-
   <!-- tau_b box -->
-  <rect x="28" y="404" width="410" height="76" rx="5" fill="#F2F6FA" stroke="#1F6FB2" stroke-width="1.4"/>
-  <text x="46" y="426" font-size="13" font-weight="bold" fill="#12558F">Hệ số τb (AISC 360-10 §C2.3)</text>
-  <text x="46" y="448" font-size="12" fill="#14314F">τb = 1.0                                khi α Pr / Py ≤ 0.5</text>
-  <text x="46" y="468" font-size="12" fill="#14314F">τb = 4 (α Pr/Py) [1 − α Pr/Py]   khi α Pr / Py &gt; 0.5</text>
-
+  <rect
+     x="28"
+     y="404"
+     width="410"
+     height="76"
+     rx="5"
+     fill="#f2f6fa"
+     stroke="#1f6fb2"
+     stroke-width="1.4"
+     id="rect44"
+     ry="5" />
+  <text
+     x="46"
+     y="426"
+     font-size="13px"
+     font-weight="bold"
+     fill="#12558f"
+     id="text45">Hệ số τb (AISC 360-10 §C2.3)</text>
+  <text
+     x="46"
+     y="448"
+     font-size="12px"
+     fill="#14314f"
+     id="text46">τb = 1.0 khi α Pr / Py ≤ 0.5</text>
+  <text
+     x="46"
+     y="468"
+     font-size="12px"
+     fill="#14314f"
+     id="text47">τb = 4 (α Pr/Py) [1 − α Pr/Py] khi α Pr / Py &gt; 0.5</text>
   <!-- warning box -->
-  <rect x="452" y="404" width="420" height="76" rx="5" fill="#FFF5F4" stroke="#C0392B" stroke-width="1.4"/>
-  <text x="470" y="426" font-size="13" font-weight="bold" fill="#C0392B">KHÔNG nhân chồng: 0.8 × 0.70 = 0.56</text>
-  <text x="470" y="448" font-size="12" fill="#14314F">§C2.3(4) yêu cầu áp dụng mức giảm LỚN HƠN cho vật</text>
-  <text x="470" y="466" font-size="12" fill="#14314F">liệu khác thép, không phải cộng dồn hai mức giảm.</text>
-
+  <rect
+     x="452"
+     y="404"
+     width="420"
+     height="76"
+     rx="5"
+     fill="#fff5f4"
+     stroke="#c0392b"
+     stroke-width="1.4"
+     id="rect47"
+     ry="5" />
+  <text
+     x="470"
+     y="426"
+     font-size="13px"
+     font-weight="bold"
+     fill="#c0392b"
+     id="text48">KHÔNG nhân chồng: 0.8 × 0.70 = 0.56</text>
+  <text
+     x="470"
+     y="448"
+     font-size="12px"
+     fill="#14314f"
+     id="text49">§C2.3(4) yêu cầu áp dụng mức giảm LỚN HƠN cho vật</text>
+  <text
+     x="470"
+     y="466"
+     font-size="12px"
+     fill="#14314f"
+     id="text50">liệu khác thép, không phải cộng dồn hai mức giảm.</text>
   <!-- bottom note -->
-  <rect x="28" y="490" width="844" height="59" rx="5" fill="#FDF2E6" stroke="#E8842A" stroke-width="1.4"/>
-  <text x="46" y="508" font-size="12" fill="#14314F"><tspan font-weight="bold" fill="#B35C00">Chu kỳ dao động và lực động đất: </tspan>tính với độ cứng DANH NGHĨA, không suy giảm (AISC Design Guide 28 §5.1)</text>
-      <text x="46" y="525" font-size="12" fill="#14314F"></text>
-  <text x="46" y="525" font-size="12" fill="#14314F">— nếu dùng modifier 0.8 để tính T, chu kỳ dài ra giả tạo và lực địa chấn bị đánh giá thấp.</text>
-      <text x="46" y="542" font-size="12" fill="#14314F">Giữ một lượt chạy riêng không có modifier để trích xuất T.</text>
-
-  
+  <rect
+     x="28"
+     y="490"
+     width="844"
+     height="59"
+     rx="5"
+     fill="#fdf2e6"
+     stroke="#e8842a"
+     stroke-width="1.4"
+     id="rect50"
+     ry="5" />
+  <text
+     x="46"
+     y="508"
+     font-size="12px"
+     fill="#14314f"
+     id="text51">Chu kỳ dao động và lực động đất: tính với độ cứng DANH NGHĨA, không ygiảm (AISC Design Guide 28 §5.1)</text>
+  <text
+     x="46"
+     y="525"
+     font-size="12px"
+     fill="#14314f"
+     id="text52" />
+  <text
+     x="46"
+     y="525"
+     font-size="12px"
+     fill="#14314f"
+     id="text53">— nếu dùng modifier 0.8 để tính T, chu kỳ dài ra giả tạo và lực địa chấn bị đánh giá thấp.</text>
+  <text
+     x="46"
+     y="542"
+     font-size="12px"
+     fill="#14314f"
+     id="text54">Giữ một lượt chạy riêng không có modifier để trích xuất T.</text>
 </svg>

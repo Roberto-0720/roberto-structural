@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 900 692"
+   width="900"
+   height="692"
+   version="1.1"
+   id="svg45"
+   sodipodi:docname="H4_Cap-Dead-Other-Ve.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview45"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="1.1315029"
+     inkscape:cx="449.84419"
+     inkscape:cy="346"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg45" />
+  <style
+     id="style1">
+    text { font-family: 'Segoe UI','DejaVu Sans',Arial,sans-serif; }
+    .h1 { font-size:19px; font-weight:bold; fill:#1B3A5C; }
+    .sub { font-size:12.5px; fill:#5A6B7C; }
+    .lbl { font-size:12.5px; fill:#4A5C6B; }
+    .mp { font-size:13px; font-weight:bold; fill:#1B3A5C; }
+    .fm { font-size:16px; font-weight:bold; fill:#1B3A5C; }
+    .fo { font-size:16px; font-weight:bold; fill:#D97D0D; }
+    .th { font-size:12.5px; font-weight:bold; fill:#FFFFFF; }
+    .td { font-size:12.5px; fill:#33475B; }
+    .tdb { font-size:12.5px; font-weight:bold; fill:#D97D0D; }
+    .ttl { font-size:13.5px; font-weight:bold; fill:#8A5000; }
+    .bd { font-size:12.5px; fill:#4A5C6B; }
+  </style>
+  <defs
+     id="defs4">
+    <marker
+       id="c1"
+       markerWidth="8"
+       markerHeight="8"
+       refX="6.5"
+       refY="3"
+       orient="auto">
+      <path
+         d="M0,0 L6.5,3 L0,6 z"
+         fill="#5A6B7C"
+         id="path1" />
+    </marker>
+    <marker
+       id="cr"
+       markerWidth="8"
+       markerHeight="8"
+       refX="6.5"
+       refY="3"
+       orient="auto">
+      <path
+         d="M0,0 L6.5,3 L0,6 z"
+         fill="#C0392B"
+         id="path2" />
+    </marker>
+    <marker
+       id="c2"
+       markerWidth="8"
+       markerHeight="8"
+       refX="6.5"
+       refY="3"
+       orient="auto">
+      <path
+         d="M0,0 L6.5,3 L0,6 z"
+         fill="#1B3A5C"
+         id="path3" />
+    </marker>
+    <marker
+       id="c2s"
+       markerWidth="8"
+       markerHeight="8"
+       refX="0.5"
+       refY="3"
+       orient="auto">
+      <path
+         d="M6.5,0 L0,3 L6.5,6 z"
+         fill="#1B3A5C"
+         id="path4" />
+    </marker>
+  </defs>
+  <rect
+     x="0"
+     y="0"
+     width="900"
+     height="692"
+     fill="#FFFFFF"
+     id="rect4" />
+  <text
+     class="h1"
+     x="450"
+     y="34"
+     text-anchor="middle"
+     id="text4">THỦ THUẬT CẶP LOAD CASE “DEAD / BALANCE” CHO LỰC CẮT THIẾT KẾ Vₑ</text>
+  <text
+     class="sub"
+     x="450"
+     y="57"
+     text-anchor="middle"
+     id="text5">ACI 318-14 §18.6.5.1 · Giúp SAP2000 nhận ra đâu là phần tải trọng đứng trong tổ hợp động đất</text>
+  <text
+     class="mp"
+     x="425"
+     y="86"
+     text-anchor="middle"
+     id="text6">wᵤ = 1.2D + 1.0L + 0.2S</text>
+  <line
+     x1="150"
+     y1="96"
+     x2="700"
+     y2="96"
+     stroke="#5A6B7C"
+     stroke-width="1.4"
+     id="line6" />
+  <g
+     stroke="#5A6B7C"
+     stroke-width="1.2"
+     id="g14">
+    <line
+       x1="172"
+       y1="96"
+       x2="172"
+       y2="132"
+       marker-end="url(#c1)"
+       id="line7" />
+    <line
+       x1="238"
+       y1="96"
+       x2="238"
+       y2="132"
+       marker-end="url(#c1)"
+       id="line8" />
+    <line
+       x1="304"
+       y1="96"
+       x2="304"
+       y2="132"
+       marker-end="url(#c1)"
+       id="line9" />
+    <line
+       x1="370"
+       y1="96"
+       x2="370"
+       y2="132"
+       marker-end="url(#c1)"
+       id="line10" />
+    <line
+       x1="436"
+       y1="96"
+       x2="436"
+       y2="132"
+       marker-end="url(#c1)"
+       id="line11" />
+    <line
+       x1="502"
+       y1="96"
+       x2="502"
+       y2="132"
+       marker-end="url(#c1)"
+       id="line12" />
+    <line
+       x1="568"
+       y1="96"
+       x2="568"
+       y2="132"
+       marker-end="url(#c1)"
+       id="line13" />
+    <line
+       x1="634"
+       y1="96"
+       x2="634"
+       y2="132"
+       marker-end="url(#c1)"
+       id="line14" />
+  </g>
+  <rect
+     x="120"
+     y="140"
+     width="30"
+     height="90"
+     fill="#DDE3E8"
+     stroke="#8FA3B5"
+     id="rect14" />
+  <rect
+     x="700"
+     y="140"
+     width="30"
+     height="90"
+     fill="#DDE3E8"
+     stroke="#8FA3B5"
+     id="rect15" />
+  <rect
+     x="150"
+     y="140"
+     width="550"
+     height="26"
+     fill="#EFF3F6"
+     stroke="#5A6B7C"
+     stroke-width="1.4"
+     id="rect16" />
+  <path
+     d="M152,192 A24,24 0 0 1 152,144"
+     fill="none"
+     stroke="#C0392B"
+     stroke-width="2.2"
+     marker-end="url(#cr)"
+     id="path16" />
+  <text
+     class="mp"
+     x="114"
+     y="200"
+     text-anchor="end"
+     style="fill:#C0392B;"
+     id="text16">Mpr1</text>
+  <path
+     d="M698,144 A24,24 0 0 1 698,192"
+     fill="none"
+     stroke="#C0392B"
+     stroke-width="2.2"
+     marker-end="url(#cr)"
+     id="path17" />
+  <text
+     class="mp"
+     x="736"
+     y="200"
+     style="fill:#C0392B;"
+     id="text17">Mpr2</text>
+  <line
+     x1="150"
+     y1="214"
+     x2="700"
+     y2="214"
+     stroke="#1B3A5C"
+     stroke-width="1.2"
+     marker-end="url(#c2)"
+     marker-start="url(#c2s)"
+     id="line17" />
+  <text
+     class="lbl"
+     x="425"
+     y="232"
+     text-anchor="middle"
+     id="text18">lₙ — nhịp thông thuỷ</text>
+  <text
+     class="lbl"
+     x="150"
+     y="258"
+     id="text19">Biểu đồ lực cắt thiết kế</text>
+  <line
+     x1="150"
+     y1="332"
+     x2="700"
+     y2="332"
+     stroke="#5A6B7C"
+     stroke-width="1.2"
+     id="line19" />
+  <polygon
+     points="150,332 150,268 700,308 700,332"
+     fill="#EAF1F8"
+     stroke="#2E6DA4"
+     stroke-width="1.6"
+     id="polygon19" />
+  <text
+     class="mp"
+     x="142"
+     y="274"
+     text-anchor="end"
+     style="fill:#2E6DA4;"
+     id="text20">Vₑ1</text>
+  <text
+     class="mp"
+     x="712"
+     y="312"
+     style="fill:#2E6DA4;"
+     id="text21">Vₑ2</text>
+  <rect
+     x="150"
+     y="350"
+     width="610"
+     height="48"
+     rx="6"
+     fill="#FDF1E0"
+     stroke="#F0C58A"
+     id="rect21" />
+  <text
+     class="fm"
+     x="176"
+     y="380"
+     id="text22">Vₑ  =  ( Mpr1 + Mpr2 ) / lₙ</text>
+  <text
+     class="fo"
+     x="440"
+     y="380"
+     id="text23">±  wᵤ · lₙ / 2</text>
+  <text
+     class="bd"
+     x="580"
+     y="380"
+     id="text24">← SAP2000 cần biết wᵤ</text>
+  <text
+     class="mp"
+     x="40"
+     y="432"
+     id="text25">Load Combination Data — tổ hợp động đất LC1019 sau khi thêm cặp gravity case</text>
+  <rect
+     x="40"
+     y="444"
+     width="820"
+     height="30"
+     fill="#1B3A5C"
+     id="rect25" />
+  <text
+     class="th"
+     x="56"
+     y="464"
+     id="text26">Load Case Name</text>
+  <text
+     class="th"
+     x="360"
+     y="464"
+     id="text27">Load Case Type</text>
+  <text
+     class="th"
+     x="560"
+     y="464"
+     id="text28">Design Load Type</text>
+  <text
+     class="th"
+     x="790"
+     y="464"
+     text-anchor="middle"
+     id="text29">Scale Factor</text>
+  <rect
+     x="40"
+     y="474"
+     width="820"
+     height="30"
+     fill="#F5F8FB"
+     stroke="#B9D0E5"
+     id="rect29" />
+  <text
+     class="td"
+     x="56"
+     y="494"
+     id="text30">LC1019-NL</text>
+  <text
+     class="td"
+     x="360"
+     y="494"
+     id="text31">Nonlinear Static</text>
+  <text
+     class="td"
+     x="560"
+     y="494"
+     id="text32">Quake</text>
+  <text
+     class="td"
+     x="790"
+     y="494"
+     text-anchor="middle"
+     id="text33">1.0</text>
+  <rect
+     x="40"
+     y="504"
+     width="820"
+     height="30"
+     fill="#FDF1E0"
+     stroke="#F0C58A"
+     id="rect33" />
+  <text
+     class="td"
+     x="56"
+     y="524"
+     id="text34">1.2(BL+DL)+1.0LL_dead</text>
+  <text
+     class="td"
+     x="360"
+     y="524"
+     id="text35">Linear Static</text>
+  <text
+     class="tdb"
+     x="560"
+     y="524"
+     id="text36">Dead</text>
+  <text
+     class="tdb"
+     x="790"
+     y="524"
+     text-anchor="middle"
+     id="text37">+1.0</text>
+  <rect
+     x="40"
+     y="534"
+     width="820"
+     height="30"
+     fill="#FDF1E0"
+     stroke="#F0C58A"
+     id="rect37" />
+  <text
+     class="td"
+     x="56"
+     y="554"
+     id="text38">1.2(BL+DL)+1.0LL_balance</text>
+  <text
+     class="td"
+     x="360"
+     y="554"
+     id="text39">Linear Static</text>
+  <text
+     class="tdb"
+     x="560"
+     y="554"
+     id="text40">Balance</text>
+  <text
+     class="tdb"
+     x="790"
+     y="554"
+     text-anchor="middle"
+     id="text41">−1.0</text>
+  <rect
+     x="40"
+     y="580"
+     width="820"
+     height="92"
+     rx="6"
+     fill="#FDF1E0"
+     stroke="#F0C58A"
+     id="rect41" />
+  <text
+     class="ttl"
+     x="58"
+     y="604"
+     id="text42">Logic của thủ thuật</text>
+  <text
+     class="bd"
+     x="58"
+     y="626"
+     id="text43">Hai case giống hệt nhau với hệ số +1 và −1 → triệt tiêu hoàn toàn, nội lực tổ hợp KHÔNG đổi một chút nào.</text>
+  <text
+     class="bd"
+     x="58"
+     y="644"
+     id="text44">Nhưng SAP2000 đọc case mang nhãn “Dead” để lấy Vg. Bỏ bước này, Vₑ chỉ còn phần từ Mpr — thiếu hẳn phần tải</text>
+  <text
+     class="bd"
+     x="58"
+     y="662"
+     id="text45">trọng đứng, thiên về KHÔNG an toàn đúng ở vị trí nguy hiểm nhất của dầm kháng chấn.</text>
+</svg>
