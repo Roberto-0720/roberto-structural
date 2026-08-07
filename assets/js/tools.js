@@ -185,12 +185,9 @@ function renderDetail(){
                     ? `<button class="btn btn-primary btn-block" style="margin-top:1.2rem" onclick='rsOpenGate("${t.id}")' data-vi="Tải miễn phí" data-en="Download free">Download free</button>`
                     : `<button class="btn btn-primary btn-block" style="margin-top:1.2rem;opacity:.55;cursor:not-allowed" disabled data-vi="Sắp ra mắt" data-en="Coming soon">Coming soon</button>` ) ) }
 
-          <div class="trust">
-            <span class="chip" data-vi="Chạy ngay, không cần cài đặt" data-en="Runs instantly, no install">Runs instantly, no install</span>
-            ${ isPaid(t)
-              ? `<span class="chip" data-vi="Kích hoạt offline, không giới hạn máy" data-en="Offline activation, any PC">Offline activation, any PC</span>`
-              : ( t.virustotal ? `<a class="chip" href="${esc(t.virustotal)}" target="_blank" rel="noopener">VirusTotal ↗</a>` : `<span class="chip" data-vi="An toàn, đã kiểm tra" data-en="Safe, scanned">Safe, scanned</span>` ) }
-          </div>
+          ${ !isPaid(t) ? `<div class="trust">
+            ${ t.virustotal ? `<a class="chip" href="${esc(t.virustotal)}" target="_blank" rel="noopener">VirusTotal ↗</a>` : `<span class="chip" data-vi="An toàn, đã kiểm tra" data-en="Safe, scanned">Safe, scanned</span>` }
+          </div>` : '' }
           ${ t.checksum && !isPaid(t) ? `<p style="margin-top:.9rem;font-size:.75rem;color:var(--steel)"><b>SHA-256</b></p><div class="checksum">${esc(t.checksum)}</div>` : `` }
         </div>
       </aside>

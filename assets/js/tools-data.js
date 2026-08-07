@@ -39,25 +39,13 @@ const CAT_STEEL = { vi: "Kết cấu thép", en: "Steel Structural Design" };
 const CAT_RC = { vi: "Kết cấu BTCT", en: "RC Structural Design" };
 const CAT_LOAD = { vi: "Tính tải trọng", en: "Loading Calculation" };
 
-const WIN = "Windows 10/11 (64-bit)";
+const WIN = "Windows";
 const PIC = "Resource/tools/Picture/";   // screenshot root
 
-const REQ_STD = {
-  vi: "Windows 10/11 64-bit · Không cần cài đặt phần mềm hỗ trợ · chạy trực tiếp file .exe.",
-  en: "Windows 10/11 64-bit · No extra software to install · runs the .exe directly."
-};
-const REQ_SAP = {
-  vi: "Windows 10/11 64-bit · Cần có SAP2000 đang mở và đã chạy phân tích · chạy trực tiếp file .exe.",
-  en: "Windows 10/11 64-bit · Requires SAP2000 open with the analysis run · runs the .exe directly."
-};
-const REQ_STAAD = {
-  vi: "Windows 10/11 64-bit · Cần có STAAD.Pro CONNECT · chạy trực tiếp file .exe.",
-  en: "Windows 10/11 64-bit · Requires STAAD.Pro CONNECT · runs the .exe directly."
-};
-const REQ_CAD = {
-  vi: "Windows 10/11 64-bit · Cần AutoCAD (hoặc ZWCAD) · nạp plugin (.dll) bằng lệnh NETLOAD.",
-  en: "Windows 10/11 64-bit · Requires AutoCAD (or ZWCAD) · load the plugin (.dll) with NETLOAD."
-};
+const REQ_STD = { vi: "Windows", en: "Windows" };
+const REQ_SAP = { vi: "Windows / SAP2000", en: "Windows / SAP2000" };
+const REQ_STAAD = { vi: "Windows / STAAD.Pro", en: "Windows / STAAD.Pro" };
+const REQ_CAD = { vi: "Windows / AutoCAD", en: "Windows / AutoCAD" };
 
 window.TOOLS = [
   /* ==========================================================
@@ -294,7 +282,7 @@ window.TOOLS = [
       vi: "Kiểm tra chuyển vị ngang giữa các tầng cho kết cấu.",
       en: "Storey-drift check for structures"
     },
-    version: "2.3", size: "~23 MB", updated: "2026-08", os: WIN, host: "SAP2000 v26",
+    version: "2.3", size: "~23 MB", updated: "2026-08", os: WIN, host: "SAP2000",
     priceVnd: 125000, productCode: "SIDESWAY", status: "ready",
     thumb: PIC + "web_description_02/01.webp",
     screenshots: [PIC + "web_description_02/01.webp", PIC + "web_description_02/02.webp"],
@@ -430,7 +418,7 @@ window.TOOLS = [
       vi: "Xác định chiều dài không giằng và hệ số chiều dài tính toán cho cấu kiện trong mô hình STAAD.Pro.",
       en: "Determines unbraced lengths and effective-length factors for members in a STAAD.Pro model."
     },
-    version: "2.1", size: "—", updated: "—", os: WIN, host: "STAAD.Pro CONNECT",
+    version: "2.1", size: "—", updated: "—", os: WIN, host: "STAAD.Pro",
     priceVnd: 150000, productCode: "STAADUL", status: "soon",
     thumb: "", screenshots: [], features: [], requirements: REQ_STAAD,
     download: "", checksum: "", virustotal: ""
@@ -456,7 +444,7 @@ window.TOOLS = [
       vi: "Gán tải trọng hàng loạt vào mô hình STAAD.Pro và sinh tổ hợp tải trọng tự động.",
       en: "Batch-assigns loads to a STAAD.Pro model and generates load combinations automatically."
     },
-    version: "1.0", size: "—", updated: "—", os: WIN, host: "STAAD.Pro CONNECT",
+    version: "1.0", size: "—", updated: "—", os: WIN, host: "STAAD.Pro",
     priceVnd: 250000, productCode: "STAADLOAD", status: "soon",
     thumb: "", screenshots: [], features: [], requirements: REQ_STAAD,
     download: "", checksum: "", virustotal: ""
