@@ -4,7 +4,7 @@ Professional bilingual (VI/EN) website for **Roberto Structural** — structural
 heavy-industry plants (petrochemical, thermal, gas and waste-to-energy), plus a catalog of
 design **software** and a **drawings library**.
 
-*Engineering Strength Into Every Structure.*
+*Engineering the Core of Heavy Industry.*
 
 ## Tech
 Static site — plain HTML/CSS/JS, no build step. Hosted on **GitHub Pages**.

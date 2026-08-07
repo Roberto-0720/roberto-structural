@@ -36,11 +36,10 @@ function headerHtml(lang){
     <b>Roberto<br>Structural</b>
   </a>
   <nav class="nav-links">
-    <a href="${P('index')}#industries" data-rs-page="index" data-rs-hash="#industries" data-vi="Lĩnh vực" data-en="Expertise">Lĩnh vực</a>
     <a href="${P('insights')}" data-nav="insights" data-rs-page="insights" data-vi="Bài viết" data-en="Insights">Bài viết</a>
     <a href="${P('tools')}" data-nav="tools" data-rs-page="tools" data-vi="Phần mềm" data-en="Software">Phần mềm</a>
     <a href="${P('drawings')}" data-nav="drawings" data-rs-page="drawings" data-vi="Bản vẽ" data-en="Drawings">Bản vẽ</a>
-    <a href="${P('index')}#projects" data-rs-page="index" data-rs-hash="#projects" data-vi="Dự án" data-en="Projects">Dự án</a>
+    <a href="${P('index')}#about" data-rs-page="index" data-rs-hash="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a>
     <a href="${P('index')}#contact" data-rs-page="index" data-rs-hash="#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a>
   </nav>
   <div class="nav-right">
@@ -48,7 +47,6 @@ function headerHtml(lang){
       <button data-lang="vi">VI</button>
       <button data-lang="en">EN</button>
     </div>
-    <a href="${P('index')}#contact" data-rs-page="index" data-rs-hash="#contact" class="btn btn-primary" style="padding:.6rem 1.1rem" data-vi="Tư vấn" data-en="Get a quote">Tư vấn</a>
     <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </div>`;
@@ -61,7 +59,7 @@ function footerHtml(lang){
   <div class="foot-grid">
     <div>
       <h4>Roberto Structural</h4>
-      <p style="color:var(--steel-light);font-size:.9rem;max-width:34ch">Engineering Strength Into Every Structure. <span data-vi="Kết cấu công nghiệp & nhà máy." data-en="Industrial & plant structures.">Kết cấu công nghiệp & nhà máy.</span></p>
+      <p style="color:var(--steel-light);font-size:.9rem;max-width:34ch"><span data-vi="Kiến tạo lõi kỹ thuật cho công nghiệp nặng." data-en="Engineering the Core of Heavy Industry.">Kiến tạo lõi kỹ thuật cho công nghiệp nặng.</span></p>
       <a href="mailto:robertostructural@gmail.com" style="display:inline-block;margin-top:.9rem;font-size:.9rem;color:var(--steel-light)">robertostructural@gmail.com</a>
       <div class="social">
         <a href="https://www.facebook.com/RobertoStructural" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
@@ -74,19 +72,17 @@ function footerHtml(lang){
     </div>
     <div>
       <h4 data-vi="Liên kết" data-en="Links">Liên kết</h4>
-      <a href="${P('index')}#industries" data-rs-page="index" data-rs-hash="#industries" data-vi="Lĩnh vực" data-en="Industries">Lĩnh vực</a>
       <a href="${P('index')}#about" data-rs-page="index" data-rs-hash="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a>
       <a href="${P('insights')}" data-rs-page="insights" data-vi="Bài viết" data-en="Insights">Bài viết</a>
       <a href="${P('tools')}" data-rs-page="tools" data-vi="Phần mềm" data-en="Software">Phần mềm</a>
       <a href="${P('drawings')}" data-rs-page="drawings" data-vi="Bản vẽ" data-en="Drawings">Bản vẽ</a>
-      <a href="${P('index')}#projects" data-rs-page="index" data-rs-hash="#projects" data-vi="Dự án" data-en="Projects">Dự án</a>
     </div>
     <div>
       <h4 data-vi="Lĩnh vực" data-en="Sectors">Lĩnh vực</h4>
-      <a href="${P('index')}#industries" data-rs-page="index" data-rs-hash="#industries" data-vi="Lọc hóa dầu" data-en="Petrochemical">Lọc hóa dầu</a>
-      <a href="${P('index')}#industries" data-rs-page="index" data-rs-hash="#industries" data-vi="Nhiệt điện" data-en="Thermal power">Nhiệt điện</a>
-      <a href="${P('index')}#industries" data-rs-page="index" data-rs-hash="#industries" data-vi="Điện khí" data-en="Gas power">Điện khí</a>
-      <a href="${P('index')}#industries" data-rs-page="index" data-rs-hash="#industries" data-vi="Điện rác" data-en="Waste-to-energy">Điện rác</a>
+      <a href="${P('index')}#about" data-rs-page="index" data-rs-hash="#about" data-vi="Lọc hóa dầu" data-en="Petrochemical">Lọc hóa dầu</a>
+      <a href="${P('index')}#about" data-rs-page="index" data-rs-hash="#about" data-vi="Nhiệt điện" data-en="Thermal power">Nhiệt điện</a>
+      <a href="${P('index')}#about" data-rs-page="index" data-rs-hash="#about" data-vi="Điện khí" data-en="Gas power">Điện khí</a>
+      <a href="${P('index')}#about" data-rs-page="index" data-rs-hash="#about" data-vi="Điện rác" data-en="Waste-to-energy">Điện rác</a>
     </div>
     <div>
       <h4 data-vi="Nhận bản tin" data-en="Newsletter">Nhận bản tin</h4>

@@ -25,7 +25,11 @@ công nghiệp (lọc hoá dầu, nhiệt điện, điện khí, điện rác). 
 - **Repo:** `Roberto-0720/roberto-structural` (GitHub Pages, nhánh `main`, thư mục gốc)
 - Địa chỉ cũ `roberto-0720.github.io/roberto-structural/` **vẫn chạy** — GitHub Pages
   tự chuyển hướng 301 sang tên miền mới, giữ nguyên đường dẫn.
-- **Slogan:** *Engineering Strength Into Every Structure*
+- **Slogan:** *Engineering the Core of Heavy Industry* / *Kiến tạo lõi kỹ thuật cho công nghiệp nặng* (song ngữ,
+  đổi từ 2026-08 — trước đó là "Engineering Strength Into Every Structure", cố định tiếng Anh)
+- **Định vị (2026-08):** Roberto là **một kỹ sư cá nhân** chia sẻ tri thức + công cụ, **không phải công ty tư
+  vấn thiết kế**. Site trước đây mang giọng "hire our firm" (mục Dự án/portfolio, nút "Tư vấn", câu chữ kiểu
+  EPC) — đã bỏ. Tránh viết lại bất cứ câu chữ nào gợi ý bán dịch vụ thiết kế/tư vấn.
 
 ---
 
