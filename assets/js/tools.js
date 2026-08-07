@@ -46,6 +46,32 @@ function coverHtml(t, href){
     : `<div class="thumb thumb-blank">${body}</div>`;
 }
 
+// The one tool-card template — used by the tools.html catalog AND the homepage
+// teaser, so both always show the real thumbnail/price/version and never drift
+// out of sync the way the old hand-written homepage cards did.
+function toolCardHtml(t, i){
+  return `
+  <article class="tcard reveal${isPublished(t) ? '' : ' tcard-soon'}" style="--i:${i}">
+    ${coverHtml(t, window.RS_URL.tool(t.id))}
+    <div class="b">
+      <h3><a href="${window.RS_URL.tool(t.id)}" ${bi(t.name)}>${esc(t.name.en)}</a></h3>
+      <p class="desc" ${bi(t.tagline)}>${esc(t.tagline.en)}</p>
+      <div class="meta">
+        <span><b>v${esc(t.version)}</b><span data-vi="Phiên bản" data-en="Version">Version</span></span>
+        <span><b>${esc(t.host || 'General')}</b><span data-vi="Yêu cầu" data-en="Requires">Requires</span></span>
+      </div>
+      <div class="foot">
+        ${ !isPublished(t)
+            ? `<span class="badge-soon" data-vi="Đang phát triển" data-en="In development">In development</span>`
+            : ( isPaid(t)
+                ? `<span class="badge-price">${fmtVnd(t.priceVnd)}</span>`
+                : `<span class="badge-free" data-vi="Miễn phí" data-en="Free">Free</span>` ) }
+        <a class="btn btn-ghost" href="${window.RS_URL.tool(t.id)}" style="padding:.5rem 1rem" data-vi="Chi tiết" data-en="Details">Details</a>
+      </div>
+    </div>
+  </article>`;
+}
+
 /* ---------------- CATALOG (tools.html) ---------------- */
 function renderCatalog(){
   const grid = document.getElementById('tools-grid');
@@ -67,26 +93,7 @@ function renderCatalog(){
     if(list.length===0){
       grid.innerHTML = `<p class="lead reveal" data-vi="Nhóm này sắp có sản phẩm — vui lòng quay lại sau." data-en="Products for this group are coming soon — please check back.">Coming soon.</p>`;
     } else {
-      grid.innerHTML = list.map((t,i)=>`
-      <article class="tcard reveal${isPublished(t) ? '' : ' tcard-soon'}" style="--i:${i}">
-        ${coverHtml(t, window.RS_URL.tool(t.id))}
-        <div class="b">
-          <h3><a href="${window.RS_URL.tool(t.id)}" ${bi(t.name)}>${esc(t.name.en)}</a></h3>
-          <p class="desc" ${bi(t.tagline)}>${esc(t.tagline.en)}</p>
-          <div class="meta">
-            <span><b>v${esc(t.version)}</b><span data-vi="Phiên bản" data-en="Version">Version</span></span>
-            <span><b>${esc(t.host || 'General')}</b><span data-vi="Yêu cầu" data-en="Requires">Requires</span></span>
-          </div>
-          <div class="foot">
-            ${ !isPublished(t)
-                ? `<span class="badge-soon" data-vi="Đang phát triển" data-en="In development">In development</span>`
-                : ( isPaid(t)
-                    ? `<span class="badge-price">${fmtVnd(t.priceVnd)}</span>`
-                    : `<span class="badge-free" data-vi="Miễn phí" data-en="Free">Free</span>` ) }
-            <a class="btn btn-ghost" href="${window.RS_URL.tool(t.id)}" style="padding:.5rem 1rem" data-vi="Chi tiết" data-en="Details">Details</a>
-          </div>
-        </div>
-      </article>`).join('');
+      grid.innerHTML = list.map(toolCardHtml).join('');
     }
     window.RS.observeReveal();
     window.RS.setLang(window.RS.lang);
@@ -221,4 +228,17 @@ window.rsOpenGate = function(id){
   if(t) window.rsGate(t);
 };
 
-document.addEventListener('DOMContentLoaded', ()=>{ renderCatalog(); renderDetail(); });
+/* ---------------- HOME TEASER (index.html) ---------------- */
+// Same 3-per-page order as the catalog (published free → cheapest → dearest),
+// so the homepage always features whatever is actually cheapest/newest to try —
+// no hand-picked list to go stale next to real prices.
+function renderHomeTools(){
+  const wrap = document.getElementById('home-tools');
+  if(!wrap) return;
+  const list = sortTools(window.TOOLS || []).slice(0, 3);
+  wrap.innerHTML = list.map(toolCardHtml).join('');
+  window.RS.observeReveal();
+  window.RS.setLang(window.RS.lang);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{ renderCatalog(); renderDetail(); renderHomeTools(); });
