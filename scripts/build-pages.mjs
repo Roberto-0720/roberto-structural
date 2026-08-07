@@ -10,12 +10,18 @@
    that was the single most expensive defect on the site.
 
    WHAT IT DOES
-   Emits one flat file per published tool / article at the repo root:
-       tool-<id>.html      article-<id>.html
-   Each carries its own <title>, description, og:*, twitter:* and canonical.
+   Emits one flat file per published tool / article, PER LANGUAGE, at the repo root:
+       tool-<id>.html      tool-<id>-vi.html
+       article-<id>.html   article-<id>-vi.html
+   Each carries its own <title>, description, og:*, twitter:*, canonical, hreflang
+   pair and a `window.RS_PAGE_LANG` that pins the page to its own language regardless
+   of a visitor's stored language preference (see assets/js/main.js — RS.lang reads
+   RS_PAGE_LANG first, precisely so a fresh visitor or a crawler always gets the
+   language the URL promises, not whatever the last visitor happened to toggle to).
    The BODY is still rendered by the same JS from the same *-data.js files —
    this generator never duplicates content, so the data files stay the single
-   source of truth. It also rewrites sitemap.xml from the same data.
+   source of truth. It also rewrites sitemap.xml from the same data, listing both
+   languages of every indexed page.
 
    WHY FLAT FILES AT THE ROOT, NOT tool/<id>.html
    Every path on this site is relative (assets/…, Resource/…, index.html#…) so
@@ -76,14 +82,27 @@ function clip(s, n = 155) {
 
 const abs = rel => SITE + String(rel || '').replace(/^\.?\//, '');
 
-function head({ title, desc, url, image, type, extra = '' }) {
+// Flat filename for one item in one language — the one place this naming rule
+// (id + optional "-vi" + .html) is spelled out; everything else calls this.
+const fileFor = (kind, id, lang) => `${kind}-${id}${lang === 'vi' ? '-vi' : ''}.html`;
+
+function head({ title, desc, url, altUrl, lang, image, type, extra = '' }) {
+  // Reciprocal hreflang pair: each language points at itself, at its sibling, and
+  // both agree on the same x-default (EN — the site's historical, indexed default).
+  const enUrl = lang === 'vi' ? altUrl : url;
+  const viUrl = lang === 'vi' ? url : altUrl;
+  const hreflang = `
+<link rel="alternate" hreflang="en" href="${attr(enUrl)}" />
+<link rel="alternate" hreflang="vi" href="${attr(viUrl)}" />
+<link rel="alternate" hreflang="x-default" href="${attr(enUrl)}" />`;
   return `<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>${attr(title)}</title>
 <meta name="description" content="${attr(desc)}" />
-<link rel="canonical" href="${attr(url)}" />
+<link rel="canonical" href="${attr(url)}" />${hreflang}
 <meta property="og:type" content="${type}" />
 <meta property="og:site_name" content="Roberto Structural" />
+<meta property="og:locale" content="${lang === 'vi' ? 'vi_VN' : 'en_US'}" />
 <meta property="og:title" content="${attr(title)}" />
 <meta property="og:description" content="${attr(desc)}" />
 <meta property="og:url" content="${attr(url)}" />
@@ -99,16 +118,16 @@ function head({ title, desc, url, image, type, extra = '' }) {
 <link rel="stylesheet" href="assets/css/style.css" />`;
 }
 
-function page({ id, page: pageName, mount, scripts, ...meta }) {
+function page({ id, lang, page: pageName, mount, scripts, ...meta }) {
   return `<!DOCTYPE html>
 <!-- ============================================================
      GENERATED FILE — DO NOT EDIT BY HAND.
      Produced by scripts/build-pages.mjs from assets/js/*-data.js.
      Edit the data file, then re-run:  node scripts/build-pages.mjs
      ============================================================ -->
-<html lang="en">
+<html lang="${lang}">
 <head>
-${head(meta)}
+${head({ lang, ...meta })}
 </head>
 <body data-page="${pageName}">
 
@@ -118,7 +137,7 @@ ${head(meta)}
 
 <footer id="site-footer"></footer>
 
-<script>window.RS_PAGE_ID = ${JSON.stringify(id)};</script>
+<script>window.RS_PAGE_ID = ${JSON.stringify(id)}; window.RS_PAGE_LANG = ${JSON.stringify(lang)};</script>
 ${scripts.map(s => `<script src="assets/js/${s}"></script>`).join('\n')}
 </body>
 </html>
@@ -142,40 +161,52 @@ const written = new Set();
 let out = [];
 
 for (const t of TOOLS) {
-  const file = `tool-${t.id}.html`;
   const published = (t.status || 'ready') === 'ready';
-  fs.writeFileSync(path.join(ROOT, file), page({
-    id: t.id,
-    page: 'tools',
-    mount: 'tool-detail',
-    scripts: ['main.js', 'lightbox.js', 'tools-data.js', 'tools.js'],
-    title: `${plain(t.name.en)} — Roberto Structural`,
-    desc: clip(t.tagline?.en),
-    url: abs(file),
-    image: abs(t.thumb || FALLBACK_IMG),
-    type: 'product',
-    extra: published ? '' : NOINDEX
-  }), 'utf8');
-  written.add(file);
-  if (published) out.push({ loc: abs(file), priority: '0.8' });
+  const urlEn = abs(fileFor('tool', t.id, 'en'));
+  const urlVi = abs(fileFor('tool', t.id, 'vi'));
+  for (const lang of ['en', 'vi']) {
+    const file = fileFor('tool', t.id, lang);
+    fs.writeFileSync(path.join(ROOT, file), page({
+      id: t.id,
+      lang,
+      page: 'tools',
+      mount: 'tool-detail',
+      scripts: ['main.js', 'lightbox.js', 'tools-data.js', 'tools.js'],
+      title: `${plain(t.name[lang])} — Roberto Structural`,
+      desc: clip(t.tagline?.[lang]),
+      url: lang === 'vi' ? urlVi : urlEn,
+      altUrl: lang === 'vi' ? urlEn : urlVi,
+      image: abs(t.thumb || FALLBACK_IMG),
+      type: 'product',
+      extra: published ? '' : NOINDEX
+    }), 'utf8');
+    written.add(file);
+    if (published) out.push({ loc: lang === 'vi' ? urlVi : urlEn, priority: '0.8' });
+  }
 }
 
 for (const a of ARTICLES) {
-  const file = `article-${a.id}.html`;
-  fs.writeFileSync(path.join(ROOT, file), page({
-    id: a.id,
-    page: 'insights',
-    mount: 'article-root',
-    scripts: ['main.js', 'lightbox.js', 'articles-data.js', 'articles.js'],
-    title: `${plain(a.title.en)} — Roberto Structural`,
-    desc: clip(a.excerpt?.en),
-    url: abs(file),
-    image: abs(a.cover || FALLBACK_IMG),
-    type: 'article',
-    extra: `\n<meta property="article:published_time" content="${attr(a.date)}" />`
-  }), 'utf8');
-  written.add(file);
-  out.push({ loc: abs(file), priority: '0.8' });
+  const urlEn = abs(fileFor('article', a.id, 'en'));
+  const urlVi = abs(fileFor('article', a.id, 'vi'));
+  for (const lang of ['en', 'vi']) {
+    const file = fileFor('article', a.id, lang);
+    fs.writeFileSync(path.join(ROOT, file), page({
+      id: a.id,
+      lang,
+      page: 'insights',
+      mount: 'article-root',
+      scripts: ['main.js', 'lightbox.js', 'articles-data.js', 'articles.js'],
+      title: `${plain(a.title[lang])} — Roberto Structural`,
+      desc: clip(a.excerpt?.[lang]),
+      url: lang === 'vi' ? urlVi : urlEn,
+      altUrl: lang === 'vi' ? urlEn : urlVi,
+      image: abs(a.cover || FALLBACK_IMG),
+      type: 'article',
+      extra: `\n<meta property="article:published_time" content="${attr(a.date)}" />`
+    }), 'utf8');
+    written.add(file);
+    out.push({ loc: lang === 'vi' ? urlVi : urlEn, priority: '0.8' });
+  }
 }
 
 // Drop pages for items that were removed or unpublished, so the site never
@@ -190,11 +221,19 @@ for (const f of fs.readdirSync(ROOT)) {
 
 /* ---------- sitemap ---------- */
 
+// The 4 catalog pages are hand-written (not generated by this script — see
+// index.html / tools.html / drawings.html / insights.html and their -vi.html
+// siblings), so their sitemap entries and hreflang are maintained by hand too.
+// Listed here in pairs so the EN/VI symmetry stays visible at a glance.
 const statics = [
   { loc: SITE, changefreq: 'monthly', priority: '1.0' },
+  { loc: abs('index-vi.html'), changefreq: 'monthly', priority: '1.0' },
   { loc: abs('tools.html'), changefreq: 'weekly', priority: '0.9' },
+  { loc: abs('tools-vi.html'), changefreq: 'weekly', priority: '0.9' },
   { loc: abs('drawings.html'), changefreq: 'monthly', priority: '0.9' },
-  { loc: abs('insights.html'), changefreq: 'weekly', priority: '0.9' }
+  { loc: abs('drawings-vi.html'), changefreq: 'monthly', priority: '0.9' },
+  { loc: abs('insights.html'), changefreq: 'weekly', priority: '0.9' },
+  { loc: abs('insights-vi.html'), changefreq: 'weekly', priority: '0.9' }
 ];
 
 const urls = [...statics, ...out].map(u =>
@@ -211,7 +250,8 @@ ${urls}
 </urlset>
 `, 'utf8');
 
-console.log(`✓ ${TOOLS.length} tool pages (${out.length - ARTICLES.length} indexed)`
-  + ` · ${ARTICLES.length} article pages`
+const readyTools = TOOLS.filter(t => (t.status || 'ready') === 'ready').length;
+console.log(`✓ ${TOOLS.length * 2} tool pages (${readyTools} × EN+VI indexed)`
+  + ` · ${ARTICLES.length * 2} article pages (EN+VI)`
   + (removed ? ` · ${removed} stale removed` : '')
   + `\n✓ sitemap.xml — ${statics.length + out.length} URLs`);

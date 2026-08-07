@@ -60,7 +60,7 @@ function renderPurchase() {
   if (!t) {
     root.innerHTML = `<section class="section"><div class="container" style="text-align:center">
       <h2 class="h2" data-vi="Không tìm thấy sản phẩm" data-en="Product not found">Product not found</h2>
-      <a class="btn btn-primary" href="tools.html" style="margin-top:1rem" data-vi="Về danh mục phần mềm" data-en="Back to software">Back to software</a>
+      <a class="btn btn-primary" href="${window.RS_URL.page('tools')}" style="margin-top:1rem" data-vi="Về danh mục phần mềm" data-en="Back to software">Back to software</a>
     </div></section>`;
     window.RS.setLang(window.RS.lang);
     return;
@@ -73,7 +73,7 @@ function renderPurchase() {
 
   root.innerHTML = `
   <section class="page-hero"><div class="container">
-    <p class="breadcrumb"><a href="index.html" data-vi="Trang chủ" data-en="Home">Home</a> / <a href="tools.html" data-vi="Phần mềm" data-en="Software">Software</a> / <a href="${window.RS_URL.tool(t.id)}" ${pbi(t.name)}>${pesc(t.name.en)}</a> / <span data-vi="Thanh toán" data-en="Purchase">Purchase</span></p>
+    <p class="breadcrumb"><a href="${window.RS_URL.page('index')}" data-vi="Trang chủ" data-en="Home">Home</a> / <a href="${window.RS_URL.page('tools')}" data-vi="Phần mềm" data-en="Software">Software</a> / <a href="${window.RS_URL.tool(t.id)}" ${pbi(t.name)}>${pesc(t.name.en)}</a> / <span data-vi="Thanh toán" data-en="Purchase">Purchase</span></p>
     <p class="eyebrow" data-vi="Mua bản quyền" data-en="Buy licence">Buy licence</p>
     <h1 ${pbi(t.name)}>${pesc(t.name.en)}</h1>
     <p data-vi="Chuyển khoản nội địa, nhận mã bản quyền qua email trong vòng vài giờ làm việc." data-en="Domestic bank transfer — your licence key is e-mailed within a few working hours.">Domestic bank transfer — your licence key is e-mailed within a few working hours.</p>

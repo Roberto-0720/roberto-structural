@@ -115,13 +115,16 @@ function renderDetail(){
     root.innerHTML = `<div class="container section" style="text-align:center">
       <h2 class="h2" data-vi="Không tìm thấy phần mềm" data-en="Software not found">Software not found</h2>
       <p class="lead" style="margin:1rem auto" data-vi="Mục bạn tìm không tồn tại." data-en="The item you requested does not exist.">The item you requested does not exist.</p>
-      <a class="btn btn-primary" href="tools.html" data-vi="Về danh mục" data-en="Back to catalog">Back to catalog</a></div>`;
+      <a class="btn btn-primary" href="${window.RS_URL.page('tools')}" data-vi="Về danh mục" data-en="Back to catalog">Back to catalog</a></div>`;
     window.RS.setLang(window.RS.lang);
     return;
   }
 
   document.title = t.name.en + " — Roberto Structural";
-  rsSetCanonical(window.RS_URL.tool(t.id));
+  // Generated pages (RS_PAGE_ID set) already carry the right language via RS_PAGE_LANG,
+  // so the canonical can just follow RS.lang. The legacy ?id= entry point declares no
+  // language — pin its canonical to 'en' so it doesn't drift with a visitor's localStorage.
+  rsSetCanonical(window.RS_URL.tool(t.id, window.RS_PAGE_ID ? undefined : 'en'));
   const shots = (t.screenshots && t.screenshots.length) ? t.screenshots : (t.thumb ? [t.thumb] : []);
   // Remember the gallery so the lightbox can open at the right image.
   window.RS_SHOTS = shots;
@@ -129,7 +132,7 @@ function renderDetail(){
 
   root.innerHTML = `
   <section class="page-hero"><div class="container">
-    <p class="breadcrumb"><a href="index.html" data-vi="Trang chủ" data-en="Home">Home</a> / <a href="tools.html" data-vi="Phần mềm" data-en="Software">Software</a> / <span>${esc(t.name.en)}</span></p>
+    <p class="breadcrumb"><a href="${window.RS_URL.page('index')}" data-vi="Trang chủ" data-en="Home">Home</a> / <a href="${window.RS_URL.page('tools')}" data-vi="Phần mềm" data-en="Software">Software</a> / <span>${esc(t.name.en)}</span></p>
     <p class="eyebrow" ${bi(t.category)}>${esc(t.category.en)}</p>
     <h1 ${bi(t.name)}>${esc(t.name.en)}</h1>
     <p ${bi(t.tagline)}>${esc(t.tagline.en)}</p>

@@ -8,32 +8,55 @@
    All UI notes/comments in English (per project convention).
    ============================================================ */
 
-// ---- Header markup. Nav links use index.html#anchor so they work from any page. ----
-const HEADER_HTML = `
+/* Canonical URL of any page — ONE definition for the whole site.
+   Every tool / article has a generated static file per language (tool-<id>.html /
+   tool-<id>-vi.html) so that search engines and link previews get a real <head> in
+   the right language; see scripts/build-pages.mjs. The 4 hand-written catalog pages
+   follow the same "-vi" suffix convention (tools.html / tools-vi.html...).
+   `lang` is optional everywhere: omit it and these read the CURRENT page's language
+   (window.RS.lang), so every existing call site that doesn't care about language
+   already gets the right link with no changes. Pass an explicit lang to pin a link
+   to one language regardless of the current page (used for the legacy ?id= entry
+   points' canonical tag — see tools.js / articles.js). */
+window.RS_URL = {
+  tool:    (id, lang) => 'tool-' + id + ((lang || window.RS.lang) === 'vi' ? '-vi' : '') + '.html',
+  article: (id, lang) => 'article-' + id + ((lang || window.RS.lang) === 'vi' ? '-vi' : '') + '.html',
+  page:    (name, lang) => name + ((lang || window.RS.lang) === 'vi' ? '-vi' : '') + '.html'
+};
+
+// ---- Header/footer markup, built per-language so nav links point at the sibling
+//      language's pages. Links to the 4 catalog pages carry data-rs-page (+ optional
+//      data-rs-hash) so RS.setLang() can re-point them after an in-place toggle. ----
+function headerHtml(lang){
+  const P = n => window.RS_URL.page(n, lang);
+  return `
 <div class="container nav">
-  <a class="brand" href="index.html">
+  <a class="brand" href="${P('index')}" data-rs-page="index">
     <img src="Logo/Roberto_1.webp" alt="Roberto Structural logo" />
     <b>Roberto<br>Structural</b>
   </a>
   <nav class="nav-links">
-    <a href="index.html#industries" data-vi="Lĩnh vực" data-en="Expertise">Lĩnh vực</a>
-    <a href="insights.html" data-nav="insights" data-vi="Bài viết" data-en="Insights">Bài viết</a>
-    <a href="tools.html" data-nav="tools" data-vi="Phần mềm" data-en="Software">Phần mềm</a>
-    <a href="drawings.html" data-nav="drawings" data-vi="Bản vẽ" data-en="Drawings">Bản vẽ</a>
-    <a href="index.html#projects" data-vi="Dự án" data-en="Projects">Dự án</a>
-    <a href="index.html#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a>
+    <a href="${P('index')}#industries" data-rs-page="index" data-rs-hash="#industries" data-vi="Lĩnh vực" data-en="Expertise">Lĩnh vực</a>
+    <a href="${P('insights')}" data-nav="insights" data-rs-page="insights" data-vi="Bài viết" data-en="Insights">Bài viết</a>
+    <a href="${P('tools')}" data-nav="tools" data-rs-page="tools" data-vi="Phần mềm" data-en="Software">Phần mềm</a>
+    <a href="${P('drawings')}" data-nav="drawings" data-rs-page="drawings" data-vi="Bản vẽ" data-en="Drawings">Bản vẽ</a>
+    <a href="${P('index')}#projects" data-rs-page="index" data-rs-hash="#projects" data-vi="Dự án" data-en="Projects">Dự án</a>
+    <a href="${P('index')}#contact" data-rs-page="index" data-rs-hash="#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a>
   </nav>
   <div class="nav-right">
     <div class="lang">
       <button data-lang="vi">VI</button>
       <button data-lang="en">EN</button>
     </div>
-    <a href="index.html#contact" class="btn btn-primary" style="padding:.6rem 1.1rem" data-vi="Tư vấn" data-en="Get a quote">Tư vấn</a>
+    <a href="${P('index')}#contact" data-rs-page="index" data-rs-hash="#contact" class="btn btn-primary" style="padding:.6rem 1.1rem" data-vi="Tư vấn" data-en="Get a quote">Tư vấn</a>
     <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </div>`;
+}
 
-const FOOTER_HTML = `
+function footerHtml(lang){
+  const P = n => window.RS_URL.page(n, lang);
+  return `
 <div class="container">
   <div class="foot-grid">
     <div>
@@ -51,19 +74,19 @@ const FOOTER_HTML = `
     </div>
     <div>
       <h4 data-vi="Liên kết" data-en="Links">Liên kết</h4>
-      <a href="index.html#industries" data-vi="Lĩnh vực" data-en="Industries">Lĩnh vực</a>
-      <a href="index.html#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a>
-      <a href="insights.html" data-vi="Bài viết" data-en="Insights">Bài viết</a>
-      <a href="tools.html" data-vi="Phần mềm" data-en="Software">Phần mềm</a>
-      <a href="drawings.html" data-vi="Bản vẽ" data-en="Drawings">Bản vẽ</a>
-      <a href="index.html#projects" data-vi="Dự án" data-en="Projects">Dự án</a>
+      <a href="${P('index')}#industries" data-rs-page="index" data-rs-hash="#industries" data-vi="Lĩnh vực" data-en="Industries">Lĩnh vực</a>
+      <a href="${P('index')}#about" data-rs-page="index" data-rs-hash="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a>
+      <a href="${P('insights')}" data-rs-page="insights" data-vi="Bài viết" data-en="Insights">Bài viết</a>
+      <a href="${P('tools')}" data-rs-page="tools" data-vi="Phần mềm" data-en="Software">Phần mềm</a>
+      <a href="${P('drawings')}" data-rs-page="drawings" data-vi="Bản vẽ" data-en="Drawings">Bản vẽ</a>
+      <a href="${P('index')}#projects" data-rs-page="index" data-rs-hash="#projects" data-vi="Dự án" data-en="Projects">Dự án</a>
     </div>
     <div>
       <h4 data-vi="Lĩnh vực" data-en="Sectors">Lĩnh vực</h4>
-      <a href="index.html#industries" data-vi="Lọc hóa dầu" data-en="Petrochemical">Lọc hóa dầu</a>
-      <a href="index.html#industries" data-vi="Nhiệt điện" data-en="Thermal power">Nhiệt điện</a>
-      <a href="index.html#industries" data-vi="Điện khí" data-en="Gas power">Điện khí</a>
-      <a href="index.html#industries" data-vi="Điện rác" data-en="Waste-to-energy">Điện rác</a>
+      <a href="${P('index')}#industries" data-rs-page="index" data-rs-hash="#industries" data-vi="Lọc hóa dầu" data-en="Petrochemical">Lọc hóa dầu</a>
+      <a href="${P('index')}#industries" data-rs-page="index" data-rs-hash="#industries" data-vi="Nhiệt điện" data-en="Thermal power">Nhiệt điện</a>
+      <a href="${P('index')}#industries" data-rs-page="index" data-rs-hash="#industries" data-vi="Điện khí" data-en="Gas power">Điện khí</a>
+      <a href="${P('index')}#industries" data-rs-page="index" data-rs-hash="#industries" data-vi="Điện rác" data-en="Waste-to-energy">Điện rác</a>
     </div>
     <div>
       <h4 data-vi="Nhận bản tin" data-en="Newsletter">Nhận bản tin</h4>
@@ -76,16 +99,7 @@ const FOOTER_HTML = `
   </div>
   <div class="foot-bottom">© <span id="yr"></span> Roberto Structural · <span data-vi="Đã đăng ký bản quyền" data-en="All rights reserved">Đã đăng ký bản quyền</span></div>
 </div>`;
-
-/* Canonical URL of a detail page — ONE definition for the whole site.
-   Every tool / article has a generated static file (tool-<id>.html) so that link
-   previews and crawlers receive a real <head>; see scripts/build-pages.mjs.
-   The old tool.html?id= / article.html?id= entry points still render normally
-   for links shared before this change — they just declare these as canonical. */
-window.RS_URL = {
-  tool:    id => 'tool-' + id + '.html',
-  article: id => 'article-' + id + '.html'
-};
+}
 
 /* Point crawlers at the generated page even when the visitor arrived through a
    legacy ?id= URL, so two addresses serving identical content do not split
@@ -99,7 +113,14 @@ window.rsSetCanonical = function(relUrl){
 };
 
 const RS = {
-  lang: localStorage.getItem('rs-lang') || 'en',   // default language = English
+  // A page declares its own language via window.RS_PAGE_LANG (set inline, before this
+  // script loads, by every generated/duplicated page — see scripts/build-pages.mjs and
+  // the *-vi.html catalog pages). That always wins: a visitor's past toggle click must
+  // never flip a freshly-loaded page into the other language, or every page goes back
+  // to serving one language regardless of URL — the exact problem this split fixes.
+  // localStorage is the fallback only for pages that don't declare a language (the
+  // legacy tool.html?id= / article.html?id= entry points, purchase.html, 404.html).
+  lang: window.RS_PAGE_LANG || localStorage.getItem('rs-lang') || 'en',
 
   setLang(lang){
     this.lang = lang;
@@ -114,6 +135,12 @@ const RS = {
     document.querySelectorAll('[data-src-vi]').forEach(el=>{
       const src = el.getAttribute('data-src-' + lang);
       if(src && el.getAttribute('src') !== src) el.setAttribute('src', src);
+    });
+    // Nav/footer links to the 4 catalog pages point at a specific language's file
+    // (built at header/footer injection time) — repoint them so an in-place toggle
+    // doesn't leave menu links pointing at the pre-toggle language's pages.
+    document.querySelectorAll('[data-rs-page]').forEach(el=>{
+      el.setAttribute('href', window.RS_URL.page(el.dataset.rsPage, lang) + (el.dataset.rsHash || ''));
     });
     document.querySelectorAll('.lang button').forEach(b=>{
       b.classList.toggle('active', b.dataset.lang === lang);
@@ -134,8 +161,8 @@ window.RS = RS;
 document.addEventListener('DOMContentLoaded', ()=>{
   const h = document.getElementById('site-header');
   const f = document.getElementById('site-footer');
-  if(h) h.innerHTML = HEADER_HTML;
-  if(f) f.innerHTML = FOOTER_HTML;
+  if(h) h.innerHTML = headerHtml(RS.lang);
+  if(f) f.innerHTML = footerHtml(RS.lang);
 
   const yr = document.getElementById('yr'); if(yr) yr.textContent = new Date().getFullYear();
 

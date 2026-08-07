@@ -154,20 +154,21 @@ function renderArticle(){
   if(!a){
     root.innerHTML = `<div class="container section" style="text-align:center">
       <h2 class="h2" data-vi="Không tìm thấy bài viết" data-en="Article not found">Article not found</h2>
-      <a class="btn btn-primary" href="insights.html" style="margin-top:1rem" data-vi="Về trang bài viết" data-en="Back to Insights">Back to Insights</a></div>`;
+      <a class="btn btn-primary" href="${window.RS_URL.page('insights')}" style="margin-top:1rem" data-vi="Về trang bài viết" data-en="Back to Insights">Back to Insights</a></div>`;
     window.RS.setLang(window.RS.lang);
     return;
   }
 
   document.title = a.title.en + " — Roberto Structural";
-  window.rsSetCanonical(window.RS_URL.article(a.id));
+  // See tools.js renderDetail for why the legacy ?id= entry point pins 'en'.
+  window.rsSetCanonical(window.RS_URL.article(a.id, window.RS_PAGE_ID ? undefined : 'en'));
   const idx = window.ARTICLES.indexOf(a);
   const prev = window.ARTICLES[idx+1];   // older
   const next = window.ARTICLES[idx-1];   // newer
 
   root.innerHTML = `
   <section class="page-hero"><div class="container">
-    <p class="breadcrumb"><a href="index.html" data-vi="Trang chủ" data-en="Home">Home</a> / <a href="insights.html" data-vi="Bài viết" data-en="Insights">Insights</a> / <span>No. ${aesc(a.no)}</span></p>
+    <p class="breadcrumb"><a href="${window.RS_URL.page('index')}" data-vi="Trang chủ" data-en="Home">Home</a> / <a href="${window.RS_URL.page('insights')}" data-vi="Bài viết" data-en="Insights">Insights</a> / <span>No. ${aesc(a.no)}</span></p>
     <p class="eyebrow" ${abi(a.category)}>${aesc(a.category.en)}</p>
     <h1 ${abi(a.title)}>${aesc(a.title.en)}</h1>
     <div class="art-meta">
@@ -214,7 +215,7 @@ function renderArticle(){
     </nav>
 
     <div style="text-align:center;margin-top:3rem">
-      <a class="btn btn-ghost" href="insights.html" data-vi="Xem tất cả bài viết" data-en="View all articles">View all articles</a>
+      <a class="btn btn-ghost" href="${window.RS_URL.page('insights')}" data-vi="Xem tất cả bài viết" data-en="View all articles">View all articles</a>
     </div>
   </div></section>`;
 

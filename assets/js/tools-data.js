@@ -55,8 +55,8 @@ const REQ_STAAD = {
   en: "Windows 10/11 64-bit · Requires STAAD.Pro CONNECT · runs the .exe directly."
 };
 const REQ_CAD = {
-  vi: "Windows 10/11 64-bit · Cần AutoCAD 2023 (hoặc ZWCAD) · nạp plugin (.dll) bằng lệnh NETLOAD.",
-  en: "Windows 10/11 64-bit · Requires AutoCAD 2023 (or ZWCAD) · load the plugin (.dll) with NETLOAD."
+  vi: "Windows 10/11 64-bit · Cần AutoCAD (hoặc ZWCAD) · nạp plugin (.dll) bằng lệnh NETLOAD.",
+  en: "Windows 10/11 64-bit · Requires AutoCAD (or ZWCAD) · load the plugin (.dll) with NETLOAD."
 };
 
 window.TOOLS = [
@@ -70,7 +70,7 @@ window.TOOLS = [
     category: CAT_RC,
     name: { vi: "Thiết kế BTCT từ kết quả SAP2000", en: "RC Design Output — SAP2000" },
     tagline: {
-      vi: "Kết nối trực tiếp SAP2000 đang mở, đọc kết quả thiết kế bê tông và chuyển thành bảng thống kê thép hoàn chỉnh cho từng nhóm cấu kiện — kèm kiểm tra OK/NG trực tiếp và báo cáo Excel.",
+      vi: "Kết nối Mô hình SAP2000, đọc kết quả thiết kế bê tông và chuyển thành bảng thống kê thép hoàn chỉnh cho từng nhóm cấu kiện — kèm kiểm tra OK/NG trực tiếp và báo cáo Excel.",
       en: "Connects live to a running SAP2000 model, pulls concrete frame design results and turns them into a complete rebar schedule per member group — with live OK/NG checking and a polished Excel report."
     },
     version: "1.0", size: "~34 MB", updated: "2026-08", os: WIN, host: "SAP2000",
@@ -94,21 +94,21 @@ window.TOOLS = [
     category: CAT_STEEL,
     name: { vi: "Kiểm tra độ võng dầm thép", en: "Deflection Check" },
     tagline: {
-      vi: "Kiểm tra độ võng dầm kết cấu thép bằng phương pháp chord rotation 3D, kết nối trực tiếp SAP2000 qua COM API. Tự nhận diện dầm console và tự gom Physical Member.",
-      en: "Steel beam deflection check using the 3D chord-rotation method, connected live to SAP2000 via COM API. Automatic cantilever detection and Physical-Member grouping."
+      vi: "Kiểm tra độ võng dầm kết cấu thép bằng phương pháp chord rotation 3D, kết nối trực tiếp SAP2000. Tự nhận diện dầm console và tự gom Physical Member.",
+      en: "Steel beam deflection check using the 3D chord-rotation method, connected live to SAP2000. Automatic cantilever detection and Physical-Member grouping."
     },
     version: "2.5", size: "~23 MB", updated: "2026-08", os: WIN, host: "SAP2000",
     priceVnd: 350000, productCode: "DEFLECT", status: "ready",
     thumb: PIC + "web_description_03/01.webp",
     screenshots: [PIC + "web_description_03/01.webp", PIC + "web_description_03/02.webp"],
     features: [
-      { vi: "<b>Kiểm tra tương đối</b> L/δ theo phương pháp chord rotation 3D — tách chuyển vị thực khỏi chuyển động cứng của hai đầu dầm", en: "<b>Relative check</b> L/δ by the 3D chord-rotation method — separates true deformation from rigid-body motion of the two ends" },
+      { vi: "<b>Kiểm tra tương đối</b> L/δ theo phương pháp chord rotation 3D", en: "<b>Relative check</b> L/δ by the 3D chord-rotation method" },
       { vi: "<b>Kiểm tra tuyệt đối</b> theo U3 (mm) khi cần giới hạn võng theo trị số", en: "<b>Absolute check</b> on U3 (mm) when a fixed deflection limit is required" },
-      { vi: "<b>Tự nhận diện dầm console</b> (degree = 1 → đầu tự do) và áp giới hạn L/180", en: "<b>Automatic cantilever detection</b> (node degree = 1 → free end) applying the L/180 limit" },
-      { vi: "<b>Auto Create Groups</b> từ nhận diện Physical Member — gom các phần tử thành cấu kiện thật, dừng đúng tại cột và khi đổi tiết diện", en: "<b>Auto Create Groups</b> from Physical-Member detection — chains elements into real members, stopping at columns and section changes" },
-      { vi: "Đọc cả node auto-mesh (~xxx) nên dầm đã chia nhỏ vẫn kiểm tra đúng", en: "Reads auto-mesh nodes (~xxx) so meshed beams are still checked correctly" },
-      { vi: "Chọn nhanh nhiều Load Case/Combo bằng prefix; click Group là SAP2000 tự highlight", en: "Quick prefix selection of many load cases/combos; clicking a group highlights it in SAP2000" },
-      { vi: "Lọc <b>Show NG only</b>, tô màu xanh/đỏ trực tiếp trên bảng kết quả", en: "<b>Show NG only</b> filter with green/red colour coding in the results table" },
+      { vi: "<b>Tự nhận diện dầm console</b>", en: "<b>Automatic cantilever detection</b>" },
+      { vi: "<b>Auto Create Groups</b> từ nhận diện Physical Member", en: "<b>Auto Create Groups</b> from Physical-Member detection" },
+      { vi: "Đọc cả node auto-mesh nên dầm đã chia nhỏ vẫn kiểm tra đúng", en: "Reads auto-mesh nodes so meshed beams are still checked correctly" },
+      { vi: "Chọn nhanh nhiều Load Case/Combo; click Group là SAP2000 tự highlight", en: "Quick selection of many load cases/combos; clicking a group highlights it in SAP2000" },
+      { vi: "Lọc <b>Show NG only</b>, tô màu trực tiếp trên bảng kết quả", en: "<b>Show NG only</b> filter with colour coding in the results table" },
       { vi: "Xuất Excel (.xlsx) và TXT vào thư mục mô hình SAP", en: "Exports Excel (.xlsx) and TXT into the SAP model folder" }
     ],
     requirements: REQ_SAP, download: "", checksum: "", virustotal: ""
@@ -123,19 +123,19 @@ window.TOOLS = [
       vi: "Plugin .NET cho AutoCAD giúp vẽ cấu kiện thép thông minh: mỗi dầm là một đối tượng có 7 grip, đổi được 4 kiểu hình chiếu và 6 dạng tiết diện — kèm module ghi chú bản vẽ, module BTCT và bulông neo.",
       en: "A .NET plugin for AutoCAD that draws parametric steel members: each beam is a smart object with 7 grips, 4 switchable view types and 6 section shapes — plus drawing-markup, RC detailing and anchor-bolt modules."
     },
-    version: "1.0", size: "—", updated: "2026-08", os: WIN, host: "AutoCAD 2023",
+    version: "1.0", size: "—", updated: "2026-08", os: WIN, host: "AutoCAD",
     priceVnd: 350000, productCode: "STEELCAD", status: "ready",
     thumb: PIC + "web_description_07/01.webp",
     screenshots: [PIC + "web_description_07/01.webp", PIC + "web_description_07/02.webp", PIC + "web_description_07/03.webp", PIC + "web_description_07/04.webp"],
     features: [
-      { vi: "<b>Cấu kiện thép tham số</b>: 7 grip kéo trực tiếp, đổi tiết diện/nhãn/cắt vát mà không vẽ lại", en: "<b>Parametric steel members</b>: 7 draggable grips; change section, label or cuts without redrawing" },
-      { vi: "<b>4 kiểu hình chiếu</b> chuyển đổi tức thì: Mặt bằng, Mặt đứng, Mặt đứng nhìn sau (cánh nét khuất), Mặt cắt", en: "<b>4 view types</b> switched instantly: Plan, Elevation, Elevation-back (hidden flanges), Section" },
-      { vi: "<b>6 dạng tiết diện</b>: H/W/I, Box, Pipe, T, C… đọc từ thư viện Section Data (12 sheet)", en: "<b>6 section shapes</b>: H/W/I, Box, Pipe, T, C… read from a 12-sheet section database" },
-      { vi: "Liên kết cứng (Moment Connection), đường tim làm việc (Working Line), nhãn tiết diện đầy đủ/rút gọn", en: "Moment connections, working-line control, full/short section labels" },
-      { vi: "<b>Module ghi chú bản vẽ</b>: liên kết, lưới trục, ghi chú, ký hiệu mặt cắt, khung tên chi tiết", en: "<b>Markup module</b>: connections, grids, notes, section symbols, detail/section titles" },
-      { vi: "<b>Module bê tông cốt thép</b>: cột, dầm, móng và mặt cắt đứng móng (RCCOLUMN, RCBEAM, RCFOUND)", en: "<b>RC drawing module</b>: columns, beams, foundations and foundation elevations (RCCOLUMN, RCBEAM, RCFOUND)" },
+      { vi: "<b>Cấu kiện thép tham số</b>: 7 grip, đổi tiết diện/nhãn/cắt vát", en: "<b>Parametric steel members</b>: 7 grips; change section/label/cuts" },
+      { vi: "<b>4 kiểu hình chiếu</b> chuyển đổi tức thì: Mặt bằng, Mặt đứng, Mặt cắt", en: "<b>4 view types</b> switched instantly: Plan, Elevation, Section" },
+      { vi: "<b>6 dạng tiết diện</b>: H/W/I, Box, Pipe, T, C…", en: "<b>6 section shapes</b>: H/W/I, Box, Pipe, T, C…" },
+      { vi: "Moment Connection, Working Line, nhãn tiết diện đầy đủ/rút gọn", en: "Moment connections, working-line control, full/short section labels" },
+      { vi: "<b>Module ghi chú bản vẽ</b>: liên kết, lưới trục, ghi chú, ký hiệu mặt cắt", en: "<b>Markup module</b>: connections, grids, notes, section symbols" },
+      { vi: "<b>Module bê tông cốt thép</b>: cột, dầm, móng và mặt cắt đứng móng", en: "<b>RC drawing module</b>: columns, beams, foundations and foundation elevations" },
       { vi: "<b>Bulông neo</b> (STEELBOLT) cho chi tiết chân cột", en: "<b>Anchor bolts</b> (STEELBOLT) for base-plate details" },
-      { vi: "<b>Bảng điều khiển neo được</b> (palette) — chọn tiết diện, tỉ lệ bản vẽ, chiều cao chữ, kiểu chữ RBTCAD", en: "<b>Dockable palette</b> — section browser, drawing scale, text height, RBTCAD text style" }
+      { vi: "<b>Bảng điều khiển</b> (palette) — chọn tiết diện, tỉ lệ bản vẽ, chiều cao chữ, kiểu chữ", en: "<b>Dockable palette</b> — section browser, drawing scale, text height, text style" }
     ],
     requirements: REQ_CAD, download: "", checksum: "", virustotal: ""
   },
@@ -155,7 +155,7 @@ window.TOOLS = [
     screenshots: [PIC + "web_description_08/01.webp", PIC + "web_description_08/02.webp", PIC + "web_description_08/03.webp", PIC + "web_description_08/04.webp"],
     features: [
       { vi: "<b>Thư viện tiết diện đa dạng</b>: W, H (tổ hợp), I, UB/UC, HE/IPE", en: "<b>Multi-section support</b>: W, H (built-up), I, UB/UC, HE/IPE" },
-      { vi: "Kiểm tra uốn kèm <b>ứng suất vênh do xoắn</b>", en: "Bending including <b>warping stress</b>" },
+      { vi: "Kiểm tra uốn kèm<b>ứng suất oằn do xoắn</b>", en: "Bending including <b>warping stress</b>" },
       { vi: "<b>Kiểm tra cánh dưới theo CMAA No. 74</b>", en: "<b>Bottom-flange checks per CMAA No. 74</b>" },
       { vi: "Kể đến<b>phần console</b> (Lo, Lbo, Cbo)", en: "Includes the <b>overhang</b> (Lo, Lbo, Cbo)" },
       { vi: "Kể đến hệ số xung đứng và lực ngang của palăng", en: "Includes vertical impact and horizontal load factors" },
@@ -194,21 +194,20 @@ window.TOOLS = [
     category: CAT_FDN,
     name: { vi: "Kiểm tra sức chịu tải cọc & lún lệch", en: "Pile Capacity & Settlement Check" },
     tagline: {
-      vi: "Kiểm tra khả năng chịu tải của cọc (nén, nhổ, cắt ngang) theo từng nhóm tổ hợp Thường xuyên / Gió / Động đất, kèm kiểm tra lún lệch vi sai giữa mọi cặp cọc. Lấy phản lực trực tiếp từ SAP2000.",
-      en: "Checks pile capacity (compression, uplift, lateral) against Long-term / Wind / Seismic combination groups, plus differential settlement between every pile pair. Reactions taken live from SAP2000."
+      vi: "Kiểm tra khả năng chịu tải của cọc theo từng nhóm tổ hợp Thường xuyên / Gió / Động đất. Kiểm tra lún lệch vi sai giữa các cọc. Lấy phản lực trực tiếp từ SAP2000.",
+      en: "Checks pile capacity against Long-term / Wind / Seismic combination groups, plus differential settlement between every pile pair. Reactions taken live from SAP2000."
     },
     version: "1.2", size: "—", updated: "2026-08", os: WIN, host: "SAP2000",
     priceVnd: 250000, productCode: "PILECAP", status: "ready",
     thumb: PIC + "web_description_04/01.webp",
     screenshots: [PIC + "web_description_04/01.webp", PIC + "web_description_04/02.webp", PIC + "web_description_04/03.webp", PIC + "web_description_04/04.webp", PIC + "web_description_04/05.webp"],
     features: [
-      { vi: "<b>Nhập dữ liệu tự động</b>: chọn node cọc trong SAP2000 → tool tự trích tọa độ, phản lực, chuyển vị", en: "<b>Automatic data input</b>: select pile nodes in SAP2000 → the tool extracts coordinates, reactions and displacements" },
-      { vi: "<b>Tự phân loại Load Type</b> (Thường xuyên / Gió / Động đất) từ Load Pattern khai báo trong SAP2000", en: "<b>Automatic load-type classification</b> (Long-term / Wind / Seismic) from the load patterns declared in SAP2000" },
-      { vi: "Khai báo nhiều loại cọc với sức chịu tải riêng cho từng nhóm tổ hợp; đổi đơn vị kN ↔ Ton tự quy đổi", en: "Multiple pile types with separate allowables per combination group; kN ↔ Ton switching converts values automatically" },
-      { vi: "<b>Sơ đồ mặt bằng cọc</b> tô màu theo loại cọc hoặc theo tỉ số chịu tải; click vào cọc xem chi tiết", en: "<b>Piling diagram</b> coloured by pile type or capacity ratio; click a pile for details" },
-      { vi: "<b>Kiểm tra lún lệch vi sai</b> — vector hoá numpy nên kiểm đủ 100% số cặp cọc (6,4 triệu cặp ~0,3 giây)", en: "<b>Differential settlement check</b> — numpy-vectorised, so 100% of pile pairs are checked (6.4 million pairs in ~0.3 s)" },
-      { vi: "Báo cáo Excel sức chịu tải (4 sheet) và báo cáo lún lệch (2 sheet) kèm thống kê toàn cục", en: "Excel capacity report (4 sheets) and settlement report (2 sheets) with global statistics" },
-      { vi: "<b>Một dự án = một file .json</b> — không sinh file CSV trung gian", en: "<b>One project = one .json file</b> — no intermediate CSV files" }
+      { vi: "<b>Nhập dữ liệu tự động</b>", en: "<b>Automatic data input</b>" },
+      { vi: "<b>Tự phân loại Load Type</b> (Thường xuyên / Gió / Động đất)", en: "<b>Automatic load-type classification</b> (Long-term / Wind / Seismic)" },
+      { vi: "Khai báo nhiều loại cọc; đổi đơn vị kN ↔ Ton tự quy đổi", en: "Multiple pile types; kN ↔ Ton switching converts values automatically" },
+      { vi: "<b>Sơ đồ mặt bằng cọc</b> tô màu theo loại cọc hoặc theo tỉ số chịu tải", en: "<b>Piling diagram</b> coloured by pile type or capacity ratio" },
+      { vi: "<b>Kiểm tra lún lệch</b>", en: "<b>Differential settlement check</b>" },
+      { vi: "Báo cáo Excel sức chịu tải (4 sheet) và báo cáo lún lệch (2 sheet)", en: "Excel capacity report (4 sheets) and settlement report (2 sheets)" },
     ],
     requirements: REQ_SAP, download: "", checksum: "", virustotal: ""
   },
@@ -219,21 +218,21 @@ window.TOOLS = [
     category: CAT_LOAD,
     name: { vi: "Tải trọng gió lên bồn đứng", en: "Wind Load on Vertical Tank" },
     tagline: {
-      vi: "Tính tải trọng gió thiết kế cho bồn, thiết bị đứng và ống khói đặt trên nền theo ASCE 7-22 Chương 29 — tự phân biệt kết cấu cứng/mềm, chọn hệ số lực Cf tự động và lập bảng tải theo từng cao độ.",
-      en: "Wind design loads for ground-supported vertical tanks, vessels and stacks per ASCE 7-22 Chapter 29 — automatic rigid/flexible classification, automatic force coefficient Cf, and an elevation-by-elevation load table."
+      vi: "Tính tải trọng gió thiết kế cho bồn, thiết bị đứng và ống khói đặt trên nền theo ASCE 7-22 Chương 29.",
+      en: "Wind design loads for ground-supported vertical tanks, vessels and stacks per ASCE 7-22 Chapter 29."
     },
     version: "2.1", size: "—", updated: "2026-08", os: WIN, host: "General",
-    priceVnd: 250000, productCode: "WINDTANK", status: "ready",
+    priceVnd: 250000, productCode: "WIND TANK", status: "ready",
     thumb: PIC + "web_description_09/01.webp",
     screenshots: [PIC + "web_description_09/01.webp", PIC + "web_description_09/02.webp"],
     features: [
-      { vi: "Theo <b>ASCE 7-22 Chương 29</b> cho kết cấu dạng trụ đặt trên nền", en: "Per <b>ASCE 7-22 Chapter 29</b> for ground-supported cylindrical structures" },
+      { vi: "Theo <b>ASCE 7-22 Chương 29</b> cho kết cấu dạng trụ", en: "Per <b>ASCE 7-22 Chapter 29</b> for cylindrical structures" },
       { vi: "Hỗ trợ mặt cắt <b>Tròn, Lục giác, Bát giác và Vuông</b>", en: "Supports <b>round, hexagonal, octagonal and square</b> shapes" },
       { vi: "<b>Tự phân biệt kết cấu cứng / mềm</b> theo tần số dao động riêng (ngưỡng 1 Hz)", en: "<b>Automatic rigid vs flexible classification</b> from the natural frequency (1 Hz threshold)" },
-      { vi: "Hệ số giật G: đơn giản hoá (0,85), chi tiết cho kết cấu cứng, và Gf cho kết cấu mềm", en: "Gust effect factor G: simplified (0.85), detailed rigid, and Gf for flexible structures" },
+      { vi: "Hệ số giật G: đơn giản hoá, chi tiết cho kết cấu cứng, và Gf cho kết cấu mềm", en: "Gust effect factor G: simplified, detailed rigid, and Gf for flexible structures" },
       { vi: "<b>Tự chọn hệ số lực Cf</b> theo hình dạng, độ nhám bề mặt và tích D×√qz", en: "<b>Automatic force coefficient Cf</b> based on shape, surface roughness and D×√qz" },
       { vi: "Lập bảng tải gió <b>theo từng cao độ</b> kèm lực cắt và moment tại chân", en: "<b>Elevation-by-elevation</b> wind load table with base shear and overturning moment" },
-      { vi: "Xuất Excel định dạng sẵn và lưu/mở dự án (.json)", en: "Formatted Excel export and save/open project (.json)" }
+      { vi: "Xuất Excel và lưu/mở dự án (.json)", en: "Excel export and save/open project (.json)" }
     ],
     requirements: REQ_STD, download: "", checksum: "", virustotal: ""
   },
@@ -375,8 +374,8 @@ window.TOOLS = [
     category: CAT_STEEL,
     name: { vi: "Thiết kế bản đế cột (liên kết khớp)", en: "Base Plate Design (Hinge Type)" },
     tagline: {
-      vi: "Thiết kế bản đế cột thép dạng liên kết khớp: kích thước bản đế, bulông neo và kiểm tra ép mặt bê tông.",
-      en: "Design of hinged steel column base plates: plate sizing, anchor bolts and concrete bearing checks."
+      vi: "Thiết kế bản đế cột thép dạng liên kết khớp: bản đế, bulông neo và ép mặt bê tông.",
+      en: "Design of hinged steel column base plates: plate sizing, anchor bolts and concrete bearing."
     },
     version: "2.2", size: "—", updated: "—", os: WIN, host: "SAP2000",
     priceVnd: 350000, productCode: "BASEPLATE", status: "soon",
@@ -389,7 +388,7 @@ window.TOOLS = [
     category: CAT_FDN,
     name: { vi: "Kiểm tra ổn định móng nông", en: "Shallow Foundation Stability" },
     tagline: {
-      vi: "Kiểm tra ổn định móng nông: sức chịu tải nền, chống lật, chống trượt và áp lực đáy móng.",
+      vi: "Kiểm tra ổn định móng nông: sức chịu tải nền, kiểm tra lật, trượt và áp lực đáy móng.",
       en: "Stability checks for shallow foundations: bearing capacity, overturning, sliding and base pressure."
     },
     version: "2.1", size: "—", updated: "—", os: WIN, host: "SAP2000",

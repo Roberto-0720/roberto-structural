@@ -115,7 +115,7 @@ window.ARTICLES = [
             items: [
               { vi: "Chọn <code>Automatic from Connectivity</code> để SAP tự tính ioff/joff theo tiết diện thật.", en: "Choose <code>Automatic from Connectivity</code> so SAP computes ioff/joff from the real sections." },
               { vi: "Đặt <b>rigid = 0.5</b> cho khung BTCT thông thường. Nút khung BTCT không tuyệt đối cứng: nó biến dạng cắt trong vùng joint.", en: "Use <b>rigid = 0.5</b> for ordinary RC frames. An RC joint is not perfectly rigid: it deforms in shear within the joint region." },
-              { vi: "Không dùng rigid = 1.0. Nó làm khung cứng giả tạo → đánh giá thấp chuyển vị ngang → <b>đánh giá thấp luôn hiệu ứng P-Δ</b> mà cả bài toán này đang muốn đối mặt.", en: "Do not use rigid = 1.0. It makes the frame artificially stiff → underestimates lateral drift → <b>and therefore underestimates the very P-Δ effect</b> this whole exercise sets out to capture." }
+              { vi: "Không dùng rigid = 1.0. Nó làm khung cứng giả tạo → đánh giá thấp chuyển vị ngang → <b>đánh giá thấp luôn hiệu ứng P-Δ</b>.", en: "Do not use rigid = 1.0. It makes the frame artificially stiff → underestimates lateral drift → <b>and therefore underestimates the very P-Δ effect</b>." }
             ]
           }
         ]
@@ -136,7 +136,7 @@ window.ARTICLES = [
           {
             type: "list",
             items: [
-              { vi: "<code>Concrete Cover</code> trong hộp thoại là <b>khoảng cách tới tâm cốt thép</b> (cốt đai cho cột và cốt dọc cho dầm), không phải lớp bê tông bảo vệ. Khai nhầm 40 mm thay vì ~70 mm là mất ngay 3–4% khả năng chịu uốn.", en: "<code>Concrete Cover</code> in the dialog is the <b>distance to the centroid of the reinforcement</b> (to the tie for columns, to the longitudinal bar for beams) — not the clear cover. Entering 40 mm instead of ~70 mm costs 3–4% of flexural capacity straight away." },
+              { vi: "<code>Concrete Cover</code> trong hộp thoại là <b>khoảng cách tới tâm cốt thép</b> (cốt đai cho cột và cốt dọc cho dầm), không phải lớp bê tông bảo vệ.", en: "<code>Concrete Cover</code> in the dialog is the <b>distance to the centroid of the reinforcement</b> (to the tie for columns, to the longitudinal bar for beams) — not the clear cover." },
               { vi: "Với cột, lần chạy đầu chọn <code>Reinforcement to be Designed</code> để SAP tính A<sub>s</sub> yêu cầu. Lần chạy sau chuyển sang <code>Reinforcement to be Checked</code> với bố trí thép thật (xem Bước 5).", en: "For columns, the first run uses <code>Reinforcement to be Designed</code> so SAP computes the required A<sub>s</sub>. The later run switches to <code>Reinforcement to be Checked</code> with the actual bar layout (see Step 5)." },
               { vi: "<b>Dầm collector, dầm giằng, dầm chuyển</b> trong hệ chịu động đất có lực dọc lớn. Để kiểu <code>Beam</code> là SAP bỏ qua toàn bộ P → sai an toàn. Khai kiểu <code>Column</code> hoặc kiểm tra lại bằng tay.", en: "<b>Collector beams, tie beams and transfer beams</b> in a seismic system carry large axial force. Leaving them as <code>Beam</code> makes SAP discard P entirely → unsafe. Declare them as <code>Column</code>, or check them by hand." }
             ]

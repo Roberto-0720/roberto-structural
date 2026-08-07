@@ -94,7 +94,9 @@ chi tiết thì sửa `assets/js/tools.js` (phần thân) hoặc `scripts/build-
 
 ## 4. Header & footer dùng chung
 
-`main.js` chèn header/footer vào mọi trang qua placeholder:
+`main.js` chèn header/footer vào mọi trang qua placeholder. `HEADER_HTML`/`FOOTER_HTML` là
+**hàm** `headerHtml(lang)`/`footerHtml(lang)` (không phải chuỗi tĩnh) — link nào trỏ tới 1
+trong 4 trang danh mục phải gắn `data-rs-page`, xem mục 11.B để biết vì sao.
 
 ```html
 <header id="site-header"></header>
@@ -395,18 +397,52 @@ repo cho mỗi tool/bài viết** — `tool-<id>.html`, `article-<id>.html` — 
 Quên thì tool mới không có trang riêng và sitemap sai. Link URL định nghĩa một chỗ duy nhất:
 `window.RS_URL` trong `main.js`.
 
-### B. ⚠️ Song ngữ vẫn chưa có URL riêng — việc còn lại
+### B. ✅ URL song ngữ — mỗi trang có 2 địa chỉ, tự đúng ngôn ngữ khi tải
 
-Một URL duy nhất cho cả VI lẫn EN; `localStorage` quyết định hiển thị. Không `hreflang`,
-không `/vi/` `/en/`, không `?lang=`.
+Trước đây một URL duy nhất cho cả VI/EN, `localStorage` quyết định hiển thị, mặc định EN
+nên `setLang('en')` luôn ghi đè HTML thô → Google chỉ index được bản EN, không URL nào cho
+Google gán vào bản VI dù đó chính là nhóm khách mua tool. Đã sửa toàn bộ.
 
-- Mặc định EN, nên khi tải trang `setLang('en')` **ghi đè** HTML thô (vốn viết tiếng Việt)
-  → Google render xong chỉ thấy **EN**.
-- Nội dung tiếng Việt nằm đủ trong `data-vi` nhưng **không URL nào trỏ tới được** → truy vấn
-  tiếng Việt gần như không có gì để khớp, dù đó chính là nhóm khách mua tool.
-- Đã sửa phần dễ: `<html lang>` giờ thống nhất `"en"` trên mọi trang.
-- **Chưa làm:** tách URL theo ngôn ngữ. Việc này nên gộp vào generator ở mục A — sinh thêm
-  `tool-<id>.vi.html` với `<head>` tiếng Việt + cặp `hreflang`, chứ đừng dựng cơ chế riêng.
+**Sơ đồ URL — hậu tố `-vi` trước `.html`, EN giữ nguyên URL cũ:**
+
+| | EN (không đổi) | VI (mới) |
+|---|---|---|
+| Trang chủ | `index.html` | `index-vi.html` |
+| Danh mục | `tools.html` / `drawings.html` / `insights.html` | `tools-vi.html` / … |
+| Chi tiết | `tool-<id>.html` / `article-<id>.html` | `tool-<id>-vi.html` / … |
+
+**Cơ chế — ngôn ngữ gắn với FILE, không gắn với trình duyệt:** mỗi trang tự khai
+`<script>window.RS_PAGE_LANG='vi';</script>` **trước** `main.js`. `RS.lang` trong `main.js`
+đọc theo thứ tự `window.RS_PAGE_LANG || localStorage.getItem('rs-lang') || 'en'` — file tự
+khai báo luôn thắng `localStorage`. Bắt buộc phải vậy: nếu không, một khách từng bấm "VI" ở
+trang khác sẽ làm trang EN fresh-load lật sang VI, tái diễn đúng lỗi đang sửa.
+
+- `window.RS_URL.tool(id, lang?)` / `.article(id, lang?)` / `.page(name, lang?)` trong
+  `main.js` là nơi **duy nhất** biết quy tắc đặt tên `-vi`. Bỏ trống `lang` thì tự đọc
+  `RS.lang` hiện tại — vì vậy hầu hết chỗ gọi cũ (card tool/bài viết, breadcrumb) **không
+  cần sửa gì**, tự động ra đúng link theo ngôn ngữ trang đang hiển thị.
+- `HEADER_HTML`/`FOOTER_HTML` (mục 4) giờ là **hàm** `headerHtml(lang)`/`footerHtml(lang)`,
+  không còn là chuỗi tĩnh. Link nào trỏ tới 1 trong 4 trang danh mục phải gắn
+  `data-rs-page="tools"` (kèm `data-rs-hash="#projects"` nếu có anchor) — `RS.setLang()` dựa
+  vào 2 thuộc tính này để viết lại `href` khi khách bấm nút VI/EN tại chỗ. **Thêm link mới
+  vào header/footer mà quên gắn `data-rs-page` thì link đó trơ, không đổi theo ngôn ngữ khi
+  toggle** — đã từng quên đúng 1 chỗ (logo) và bắt lỗi bằng cách giả lập click `RS.setLang`
+  trong Chrome headless rồi so `href` trước/sau.
+- `scripts/build-pages.mjs` sinh **cả hai file ngôn ngữ** cho mỗi tool/bài viết trong một
+  lượt, kèm cặp `hreflang` (`en`/`vi`/`x-default`, `x-default` luôn trỏ bản EN). Tool
+  `status:"soon"` vẫn có bản VI nhưng vẫn `noindex` + không vào sitemap, y hệt bản EN.
+- 4 trang danh mục là viết tay, không qua generator — bản VI được dựng **một lần** bằng
+  script Python (không còn giữ lại), không có cơ chế tự sinh lại. Sửa nội dung EN của 4
+  trang này thì **phải tự tay đồng bộ sang bản `-vi.html`** — dễ quên nhất trong toàn bộ
+  kiến trúc song ngữ này.
+- Trang legacy (`tool.html?id=`, `article.html?id=`, `purchase.html`, `404.html`) **không**
+  có bản `-vi` — cố tình, đây là entry point cũ/trang giao dịch, không cần SEO. Canonical
+  của `tool.html?id=`/`article.html?id=` **ghim cứng `'en'`** (không đọc theo `RS.lang`) để
+  ổn định, không "nhảy" bản tuỳ `localStorage` của người đang xem.
+- **Ngoài phạm vi, cố ý chưa làm:** nút toggle VI/EN chỉ đổi chữ + link menu tại chỗ, **không**
+  điều hướng sang URL khác, và **không** viết lại `href` của card tool/bài viết đã render sẵn
+  trên trang (chỉ menu được cập nhật). Ai bấm toggle rồi bấm vào card vẫn tới đúng nội dung,
+  chỉ là ở ngôn ngữ khác — không phải lỗi, chỉ là chưa tối ưu UX tới mức đó.
 
 ### C. ✅ Formspree — đơn hàng không còn mất im lặng
 
