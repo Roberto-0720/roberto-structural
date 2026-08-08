@@ -27,6 +27,12 @@ function afigAlt(f, s){
   return ((f.caption && (f.caption.en || f.caption.vi)) || (s && s.heading.en) || '')
     .replace(/<[^>]+>/g, '');
 }
+/* Newest first, by the "no" label rather than by position in the data file.
+   Keeps the catalogue right even when a new article is appended at the bottom
+   or an existing one is split into parts. */
+function asorted(list){
+  return (list || []).slice().sort((a, b) => Number(b.no) - Number(a.no));
+}
 function afmtDate(iso, lang){
   const d = new Date(iso + 'T00:00:00');
   if(isNaN(d)) return iso;
@@ -48,7 +54,8 @@ function renderArticleIndex(){
     used.map(c=>`<button class="filter-btn" data-cat="${aesc(c.en)}" ${abi(c)}>${aesc(c.en)}</button>`).join('');
 
   function draw(cat){
-    const list = cat==='all' ? window.ARTICLES : window.ARTICLES.filter(a=>a.category.en===cat);
+    const all = asorted(window.ARTICLES);
+    const list = cat==='all' ? all : all.filter(a=>a.category.en===cat);
     if(!list.length){
       grid.innerHTML = `<p class="lead reveal" data-vi="Chưa có bài trong mục này." data-en="No articles in this category yet.">No articles in this category yet.</p>`;
     } else {
@@ -266,7 +273,7 @@ document.addEventListener('click', e=>{ if(e.target.closest('.lang button')) set
 function renderHomeArticles(){
   const wrap = document.getElementById('home-articles');
   if(!wrap) return;
-  const list = (window.ARTICLES||[]).slice(0,3);
+  const list = asorted(window.ARTICLES).slice(0,3);
   if(!list.length){ wrap.innerHTML=''; return; }
   wrap.innerHTML = list.map((a,i)=>`
     <article class="acard reveal" style="--i:${i}">

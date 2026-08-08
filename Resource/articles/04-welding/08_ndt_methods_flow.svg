@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 400" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="aW" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ECF0F1"/>
+    </marker>
+    <filter id="sh">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="780" height="400" rx="12" fill="#1a1a2e"/>
+  <text x="390" y="32" text-anchor="middle" font-size="18" font-weight="bold" fill="#ECF0F1">NDT METHODS — Phương pháp kiểm tra không phá hủy</text>
+
+  <!-- ===== VT ===== -->
+  <g transform="translate(30,55)">
+    <rect width="140" height="155" rx="10" fill="#16213e" stroke="#27AE60" stroke-width="2.5" filter="url(#sh)"/>
+    <text x="70" y="30" text-anchor="middle" font-size="28">👁️</text>
+    <text x="70" y="55" text-anchor="middle" font-size="15" font-weight="bold" fill="#27AE60">VT</text>
+    <text x="70" y="72" text-anchor="middle" font-size="10" fill="#ECF0F1">Visual Inspection</text>
+    <line x1="15" y1="80" x2="125" y2="80" stroke="#27AE60" stroke-width="0.5" opacity="0.5"/>
+    <text x="70" y="97" text-anchor="middle" font-size="9" fill="#7F8C8D">Kiểm tra bằng mắt</text>
+    <text x="70" y="113" text-anchor="middle" font-size="9" fill="#7F8C8D">Khuyết tật bề mặt</text>
+    <rect x="15" y="125" width="110" height="20" rx="4" fill="#27AE60" opacity="0.2"/>
+    <text x="70" y="139" text-anchor="middle" font-size="10" fill="#27AE60" font-weight="bold">BẮT BUỘC 100%</text>
+  </g>
+
+  <!-- ===== UT ===== -->
+  <g transform="translate(185,55)">
+    <rect width="140" height="155" rx="10" fill="#16213e" stroke="#3498DB" stroke-width="2.5" filter="url(#sh)"/>
+    <text x="70" y="30" text-anchor="middle" font-size="28">🔊</text>
+    <text x="70" y="55" text-anchor="middle" font-size="15" font-weight="bold" fill="#3498DB">UT</text>
+    <text x="70" y="72" text-anchor="middle" font-size="10" fill="#ECF0F1">Ultrasonic Testing</text>
+    <line x1="15" y1="80" x2="125" y2="80" stroke="#3498DB" stroke-width="0.5" opacity="0.5"/>
+    <text x="70" y="97" text-anchor="middle" font-size="9" fill="#7F8C8D">Kiểm tra siêu âm</text>
+    <text x="70" y="113" text-anchor="middle" font-size="9" fill="#7F8C8D">Khuyết tật bên trong</text>
+    <rect x="15" y="125" width="110" height="20" rx="4" fill="#3498DB" opacity="0.2"/>
+    <text x="70" y="139" text-anchor="middle" font-size="10" fill="#3498DB" font-weight="bold">CJP, tấm dày</text>
+  </g>
+
+  <!-- ===== RT ===== -->
+  <g transform="translate(340,55)">
+    <rect width="140" height="155" rx="10" fill="#16213e" stroke="#9B59B6" stroke-width="2.5" filter="url(#sh)"/>
+    <text x="70" y="30" text-anchor="middle" font-size="28">📷</text>
+    <text x="70" y="55" text-anchor="middle" font-size="15" font-weight="bold" fill="#9B59B6">RT</text>
+    <text x="70" y="72" text-anchor="middle" font-size="10" fill="#ECF0F1">Radiographic Testing</text>
+    <line x1="15" y1="80" x2="125" y2="80" stroke="#9B59B6" stroke-width="0.5" opacity="0.5"/>
+    <text x="70" y="97" text-anchor="middle" font-size="9" fill="#7F8C8D">Kiểm tra X-quang</text>
+    <text x="70" y="113" text-anchor="middle" font-size="9" fill="#7F8C8D">Hình ảnh bên trong</text>
+    <rect x="15" y="125" width="110" height="20" rx="4" fill="#9B59B6" opacity="0.2"/>
+    <text x="70" y="139" text-anchor="middle" font-size="10" fill="#9B59B6" font-weight="bold">Hồ sơ vĩnh viễn</text>
+  </g>
+
+  <!-- ===== MT ===== -->
+  <g transform="translate(495,55)">
+    <rect width="140" height="155" rx="10" fill="#16213e" stroke="#E74C3C" stroke-width="2.5" filter="url(#sh)"/>
+    <text x="70" y="30" text-anchor="middle" font-size="28">🧲</text>
+    <text x="70" y="55" text-anchor="middle" font-size="15" font-weight="bold" fill="#E74C3C">MT</text>
+    <text x="70" y="72" text-anchor="middle" font-size="10" fill="#ECF0F1">Magnetic Particle</text>
+    <line x1="15" y1="80" x2="125" y2="80" stroke="#E74C3C" stroke-width="0.5" opacity="0.5"/>
+    <text x="70" y="97" text-anchor="middle" font-size="9" fill="#7F8C8D">Từ tính (bột từ)</text>
+    <text x="70" y="113" text-anchor="middle" font-size="9" fill="#7F8C8D">Bề mặt + gần bề mặt</text>
+    <rect x="15" y="125" width="110" height="20" rx="4" fill="#E74C3C" opacity="0.2"/>
+    <text x="70" y="139" text-anchor="middle" font-size="10" fill="#E74C3C" font-weight="bold">Thép carbon</text>
+  </g>
+
+  <!-- ===== PT ===== -->
+  <g transform="translate(650,55)">
+    <rect width="110" height="155" rx="10" fill="#16213e" stroke="#F39C12" stroke-width="2.5" filter="url(#sh)"/>
+    <text x="55" y="30" text-anchor="middle" font-size="28">💧</text>
+    <text x="55" y="55" text-anchor="middle" font-size="15" font-weight="bold" fill="#F39C12">PT</text>
+    <text x="55" y="72" text-anchor="middle" font-size="10" fill="#ECF0F1">Penetrant</text>
+    <line x1="10" y1="80" x2="100" y2="80" stroke="#F39C12" stroke-width="0.5" opacity="0.5"/>
+    <text x="55" y="97" text-anchor="middle" font-size="9" fill="#7F8C8D">Thẩm thấu</text>
+    <text x="55" y="113" text-anchor="middle" font-size="9" fill="#7F8C8D">Bề mặt mở</text>
+    <rect x="10" y="125" width="90" height="20" rx="4" fill="#F39C12" opacity="0.2"/>
+    <text x="55" y="139" text-anchor="middle" font-size="10" fill="#F39C12" font-weight="bold">Inox, nhôm</text>
+  </g>
+
+  <!-- Flow: VT first, then NDT -->
+  <rect x="30" y="230" width="730" height="60" rx="10" fill="#16213e" stroke="#ECF0F1" stroke-width="1.5"/>
+  <text x="390" y="252" text-anchor="middle" font-size="13" font-weight="bold" fill="#ECF0F1">Quy trình kiểm tra:</text>
+
+  <!-- Step 1 -->
+  <rect x="55" y="260" width="80" height="24" rx="6" fill="#27AE60"/>
+  <text x="95" y="277" text-anchor="middle" font-size="11" fill="white" font-weight="bold">① VT</text>
+  
+  <!-- Arrow -->
+  <line x1="140" y1="272" x2="170" y2="272" stroke="#ECF0F1" stroke-width="2" marker-end="url(#aW)"/>
+  
+  <!-- Decision -->
+  <rect x="185" y="260" width="80" height="24" rx="6" fill="#E74C3C" opacity="0.3" stroke="#E74C3C" stroke-width="1.5"/>
+  <text x="225" y="277" text-anchor="middle" font-size="10" fill="#E74C3C" font-weight="bold">Đạt VT?</text>
+
+  <!-- If No -->
+  <line x1="225" y1="284" x2="225" y2="290" stroke="#E74C3C" stroke-width="1"/>
+  <text x="225" y="298" text-anchor="middle" font-size="9" fill="#E74C3C">❌ Sửa lại</text>
+
+  <!-- If Yes -->
+  <line x1="270" y1="272" x2="300" y2="272" stroke="#ECF0F1" stroke-width="2" marker-end="url(#aW)"/>
+  <text x="285" y="265" font-size="8" fill="#27AE60">✓</text>
+
+  <!-- Step 2 -->
+  <rect x="315" y="260" width="100" height="24" rx="6" fill="#3498DB"/>
+  <text x="365" y="277" text-anchor="middle" font-size="11" fill="white" font-weight="bold">② UT / RT</text>
+
+  <!-- Arrow -->
+  <line x1="420" y1="272" x2="450" y2="272" stroke="#ECF0F1" stroke-width="2" marker-end="url(#aW)"/>
+
+  <!-- Step 3 -->
+  <rect x="465" y="260" width="100" height="24" rx="6" fill="#E74C3C"/>
+  <text x="515" y="277" text-anchor="middle" font-size="11" fill="white" font-weight="bold">③ MT / PT</text>
+
+  <!-- Arrow -->
+  <line x1="570" y1="272" x2="600" y2="272" stroke="#ECF0F1" stroke-width="2" marker-end="url(#aW)"/>
+
+  <!-- Result -->
+  <rect x="615" y="260" width="120" height="24" rx="6" fill="#27AE60"/>
+  <text x="675" y="277" text-anchor="middle" font-size="11" fill="white" font-weight="bold">✅ Nghiệm thu</text>
+
+  <!-- Bottom note -->
+  <rect x="30" y="310" width="730" height="65" rx="10" fill="#16213e" stroke="#F39C12" stroke-width="1.5"/>
+  <text x="60" y="335" font-size="12" fill="#F1C40F" font-weight="bold">⏱️ Thời điểm kiểm tra:</text>
+  <text x="60" y="355" font-size="11" fill="#ECF0F1">• Thép thông thường: Sau khi nguội đến nhiệt độ môi trường</text>
+  <text x="60" y="372" font-size="11" fill="#E74C3C" font-weight="bold">• Thép cường độ cao (A514): Chờ 48 giờ — phòng nứt trễ (delayed cracking)</text>
+
+  <text x="390" y="395" text-anchor="middle" font-size="11" fill="#7F8C8D">Hình 8 — Các phương pháp NDT và quy trình kiểm tra theo AWS D1.1</text>
+</svg>

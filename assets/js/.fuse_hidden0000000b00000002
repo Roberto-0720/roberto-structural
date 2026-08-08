@@ -513,8 +513,8 @@ window.ARTICLES = [
       }
     ],
     footnote: {
-      vi: "Bài viết thuộc series \"Hướng dẫn thiết kế kết cấu Công trình Công nghiệp\" — Roberto Structural. Nội dung mang tính hướng dẫn kỹ thuật; kỹ sư chịu trách nhiệm kiểm tra và hiệu chỉnh theo điều kiện cụ thể của từng dự án và yêu cầu của tiêu chuẩn áp dụng.",
-      en: "Part of the series \"Structural design for industrial facilities\" — Roberto Structural. The content is technical guidance; the engineer remains responsible for checking and adapting it to the conditions of each project and the requirements of the governing code."
+      vi: "Bài viết thuộc series "Hướng dẫn thiết kế kết cấu Công trình Công nghiệp" — Roberto Structural. Nội dung mang tính hướng dẫn kỹ thuật; kỹ sư chịu trách nhiệm kiểm tra và hiệu chỉnh theo điều kiện cụ thể của từng dự án và yêu cầu của tiêu chuẩn áp dụng.",
+      en: "Part of the series "Structural design for industrial facilities" — Roberto Structural. The content is technical guidance; the engineer remains responsible for checking and adapting it to the conditions of each project and the requirements of the governing code."
     }
   },
 

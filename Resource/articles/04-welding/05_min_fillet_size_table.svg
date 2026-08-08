@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 400" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="750" height="400" rx="12" fill="#1a1a2e"/>
+  <text x="375" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#ECF0F1">MINIMUM FILLET WELD SIZE — Bảng tra kích thước tối thiểu</text>
+  <text x="375" y="55" text-anchor="middle" font-size="12" fill="#7F8C8D">Theo AISC 360, Table J2.4</text>
+
+  <!-- Table header -->
+  <rect x="40" y="75" width="670" height="45" rx="8" fill="#2980B9"/>
+  <text x="230" y="102" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Chiều dày tấm mỏng hơn (t)</text>
+  <line x1="420" y1="80" x2="420" y2="115" stroke="white" stroke-width="1" opacity="0.5"/>
+  <text x="555" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Kích thước hàn góc</text>
+  <text x="555" y="112" text-anchor="middle" font-size="12" font-weight="bold" fill="white">tối thiểu (w_min)</text>
+
+  <!-- Row 1 -->
+  <rect x="40" y="125" width="670" height="50" rx="0" fill="#16213e" stroke="#2C3E50" stroke-width="1"/>
+  <text x="230" y="155" text-anchor="middle" font-size="15" fill="#ECF0F1">t  ≤  6 mm  <tspan font-size="12" fill="#7F8C8D">(1/4")</tspan></text>
+  <line x1="420" y1="125" x2="420" y2="175" stroke="#2C3E50" stroke-width="1"/>
+  <rect x="480" y="138" width="80" height="28" rx="6" fill="#27AE60" opacity="0.9"/>
+  <text x="520" y="158" text-anchor="middle" font-size="15" font-weight="bold" fill="white">3 mm</text>
+  <text x="600" y="155" font-size="12" fill="#7F8C8D">(1/8")</text>
+
+  <!-- Row 2 -->
+  <rect x="40" y="175" width="670" height="50" rx="0" fill="#1a1a2e" stroke="#2C3E50" stroke-width="1"/>
+  <text x="230" y="205" text-anchor="middle" font-size="15" fill="#ECF0F1">6  &lt;  t  ≤  13 mm  <tspan font-size="12" fill="#7F8C8D">(1/2")</tspan></text>
+  <line x1="420" y1="175" x2="420" y2="225" stroke="#2C3E50" stroke-width="1"/>
+  <rect x="480" y="188" width="80" height="28" rx="6" fill="#E67E22" opacity="0.9"/>
+  <text x="520" y="208" text-anchor="middle" font-size="15" font-weight="bold" fill="white">5 mm</text>
+  <text x="600" y="205" font-size="12" fill="#7F8C8D">(3/16")</text>
+
+  <!-- Row 3 -->
+  <rect x="40" y="225" width="670" height="50" rx="0" fill="#16213e" stroke="#2C3E50" stroke-width="1"/>
+  <text x="230" y="255" text-anchor="middle" font-size="15" fill="#ECF0F1">13  &lt;  t  ≤  19 mm  <tspan font-size="12" fill="#7F8C8D">(3/4")</tspan></text>
+  <line x1="420" y1="225" x2="420" y2="275" stroke="#2C3E50" stroke-width="1"/>
+  <rect x="480" y="238" width="80" height="28" rx="6" fill="#E74C3C" opacity="0.9"/>
+  <text x="520" y="258" text-anchor="middle" font-size="15" font-weight="bold" fill="white">6 mm</text>
+  <text x="600" y="255" font-size="12" fill="#7F8C8D">(1/4")</text>
+
+  <!-- Row 4 -->
+  <rect x="40" y="275" width="670" height="50" rx="0" fill="#1a1a2e" stroke="#2C3E50" stroke-width="1"/>
+  <text x="230" y="305" text-anchor="middle" font-size="15" fill="#ECF0F1">t  &gt;  19 mm  <tspan font-size="12" fill="#7F8C8D">(3/4")</tspan></text>
+  <line x1="420" y1="275" x2="420" y2="325" stroke="#2C3E50" stroke-width="1"/>
+  <rect x="480" y="288" width="80" height="28" rx="6" fill="#8E44AD" opacity="0.9"/>
+  <text x="520" y="308" text-anchor="middle" font-size="15" font-weight="bold" fill="white">8 mm</text>
+  <text x="600" y="305" font-size="12" fill="#7F8C8D">(5/16")</text>
+
+  <!-- Note -->
+  <rect x="40" y="340" width="670" height="40" rx="8" fill="#16213e" stroke="#F39C12" stroke-width="1.5"/>
+  <text x="60" y="360" font-size="12" fill="#F39C12">⚠️</text>
+  <text x="80" y="360" font-size="12" fill="#F1C40F" font-weight="bold"> Lưu ý:</text>
+  <text x="155" y="360" font-size="12" fill="#ECF0F1"> Kích thước tối thiểu KHÔNG CẦN vượt quá chiều dày tấm mỏng hơn.</text>
+  <text x="80" y="376" font-size="11" fill="#7F8C8D">Ví dụ: Tấm 5mm nối tấm 25mm → w_min = 3mm (theo t = 5mm), không phải 8mm.</text>
+
+  <text x="375" y="396" text-anchor="middle" font-size="11" fill="#7F8C8D">Hình 5 — Bảng tra kích thước tối thiểu đường hàn góc (AISC 360, Table J2.4)</text>
+</svg>

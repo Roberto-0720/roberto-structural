@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 520" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="arrR" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#E74C3C"/>
+    </marker>
+    <marker id="arrG" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27AE60"/>
+    </marker>
+    <marker id="arrB" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3498DB"/>
+    </marker>
+    <marker id="arrO" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#E67E22"/>
+    </marker>
+    <marker id="arrY" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#F1C40F"/>
+    </marker>
+  </defs>
+
+  <rect width="780" height="520" rx="12" fill="#1a1a2e"/>
+  <text x="390" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#ECF0F1">WELDING SYMBOL — Giải phẫu ký hiệu hàn theo AWS A2.4</text>
+
+  <!-- ===== Main Welding Symbol Diagram ===== -->
+
+  <!-- Tail -->
+  <line x1="100" y1="240" x2="150" y2="220" stroke="#9B59B6" stroke-width="2.5"/>
+  <line x1="100" y1="240" x2="150" y2="260" stroke="#9B59B6" stroke-width="2.5"/>
+  <text x="85" y="210" text-anchor="middle" font-size="10" fill="#9B59B6" font-weight="bold">SMAW</text>
+  <text x="85" y="225" text-anchor="middle" font-size="9" fill="#9B59B6">(WPS#)</text>
+
+  <!-- Reference Line -->
+  <line x1="150" y1="240" x2="530" y2="240" stroke="#ECF0F1" stroke-width="3"/>
+
+  <!-- Arrow (broken arrow to joint) -->
+  <line x1="530" y1="240" x2="600" y2="320" stroke="#ECF0F1" stroke-width="2.5" marker-end="url(#arrR)"/>
+  
+  <!-- Joint representation -->
+  <rect x="585" y="325" width="80" height="25" fill="#7F8C8D" stroke="#555" stroke-width="1.5" rx="2"/>
+  <rect x="585" y="355" width="80" height="25" fill="#95A5A6" stroke="#555" stroke-width="1.5" rx="2"/>
+  <text x="625" y="342" text-anchor="middle" font-size="9" fill="#2C3E50" font-weight="bold">Tấm trên</text>
+  <text x="625" y="372" text-anchor="middle" font-size="9" fill="#2C3E50" font-weight="bold">Tấm dưới</text>
+
+  <!-- Weld symbol (fillet) on ARROW SIDE (below reference line) -->
+  <polygon points="310,240 340,240 340,270" fill="none" stroke="#E67E22" stroke-width="2.5"/>
+  
+  <!-- Weld symbol (fillet) on OTHER SIDE (above reference line) -->
+  <polygon points="310,240 340,240 340,210" fill="none" stroke="#3498DB" stroke-width="2.5"/>
+
+  <!-- Size (left of symbol) -->
+  <text x="285" y="268" text-anchor="middle" font-size="14" fill="#E74C3C" font-weight="bold">8</text>
+  <text x="285" y="225" text-anchor="middle" font-size="14" fill="#E74C3C" font-weight="bold">6</text>
+
+  <!-- Length (right of symbol) -->
+  <text x="365" y="268" text-anchor="middle" font-size="14" fill="#F39C12" font-weight="bold">150</text>
+  <text x="365" y="225" text-anchor="middle" font-size="14" fill="#F39C12" font-weight="bold">100</text>
+
+  <!-- Supplementary: Weld-All-Around circle -->
+  <circle cx="530" cy="240" r="8" fill="none" stroke="#2ECC71" stroke-width="2"/>
+
+  <!-- Supplementary: Field weld flag -->
+  <line x1="530" y1="240" x2="530" y2="210" stroke="#2ECC71" stroke-width="2"/>
+  <polygon points="530,210 555,210 530,225" fill="#2ECC71"/>
+
+  <!-- Contour symbol (flush) -->
+  <line x1="340" y1="270" x2="360" y2="270" stroke="#F1C40F" stroke-width="2"/>
+  <text x="370" y="275" font-size="9" fill="#F1C40F" font-weight="bold">G</text>
+
+  <!-- ===== Annotation callouts ===== -->
+
+  <!-- 1. Tail callout -->
+  <line x1="100" y1="240" x2="55" y2="300" stroke="#9B59B6" stroke-width="1" stroke-dasharray="4,3"/>
+  <rect x="5" y="300" width="100" height="40" rx="6" fill="#9B59B6" opacity="0.15" stroke="#9B59B6" stroke-width="1.5"/>
+  <text x="55" y="317" text-anchor="middle" font-size="11" fill="#9B59B6" font-weight="bold">⑤ Tail (Đuôi)</text>
+  <text x="55" y="333" text-anchor="middle" font-size="9" fill="#9B59B6">Quy trình, WPS#</text>
+
+  <!-- 2. Reference Line callout -->
+  <line x1="340" y1="240" x2="340" y2="100" stroke="#ECF0F1" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <rect x="270" y="65" width="140" height="35" rx="6" fill="#ECF0F1" opacity="0.1" stroke="#ECF0F1" stroke-width="1.5"/>
+  <text x="340" y="82" text-anchor="middle" font-size="11" fill="#ECF0F1" font-weight="bold">① Reference Line</text>
+  <text x="340" y="95" text-anchor="middle" font-size="9" fill="#BDC3C7">Đường tham chiếu</text>
+
+  <!-- 3. Arrow callout -->
+  <line x1="565" y1="280" x2="680" y2="290" stroke="#E74C3C" stroke-width="1" stroke-dasharray="4,3"/>
+  <rect x="680" y="275" width="90" height="35" rx="6" fill="#E74C3C" opacity="0.15" stroke="#E74C3C" stroke-width="1.5"/>
+  <text x="725" y="292" text-anchor="middle" font-size="11" fill="#E74C3C" font-weight="bold">② Arrow</text>
+  <text x="725" y="305" text-anchor="middle" font-size="9" fill="#E74C3C">Chỉ vào mối nối</text>
+
+  <!-- 4. Weld Symbol callout (below = Arrow Side) -->
+  <line x1="325" y1="270" x2="200" y2="340" stroke="#E67E22" stroke-width="1" stroke-dasharray="4,3"/>
+  <rect x="120" y="340" width="160" height="55" rx="6" fill="#E67E22" opacity="0.15" stroke="#E67E22" stroke-width="1.5"/>
+  <text x="200" y="358" text-anchor="middle" font-size="11" fill="#E67E22" font-weight="bold">③ Weld Symbol</text>
+  <text x="200" y="373" text-anchor="middle" font-size="10" fill="#E67E22">▼ DƯỚI = Arrow Side</text>
+  <text x="200" y="388" text-anchor="middle" font-size="9" fill="#E67E22">(phía mũi tên chỉ vào)</text>
+
+  <!-- 5. Weld Symbol callout (above = Other Side) -->
+  <line x1="325" y1="210" x2="200" y2="130" stroke="#3498DB" stroke-width="1" stroke-dasharray="4,3"/>
+  <rect x="120" y="108" width="160" height="55" rx="6" fill="#3498DB" opacity="0.15" stroke="#3498DB" stroke-width="1.5"/>
+  <text x="200" y="126" text-anchor="middle" font-size="11" fill="#3498DB" font-weight="bold">③ Weld Symbol</text>
+  <text x="200" y="141" text-anchor="middle" font-size="10" fill="#3498DB">▲ TRÊN = Other Side</text>
+  <text x="200" y="156" text-anchor="middle" font-size="9" fill="#3498DB">(phía đối diện mũi tên)</text>
+
+  <!-- 6. Dimensions callout (Size) -->
+  <line x1="285" y1="268" x2="70" y2="405" stroke="#E74C3C" stroke-width="1" stroke-dasharray="4,3"/>
+  <rect x="5" y="398" width="135" height="35" rx="6" fill="#E74C3C" opacity="0.15" stroke="#E74C3C" stroke-width="1.5"/>
+  <text x="72" y="415" text-anchor="middle" font-size="11" fill="#E74C3C" font-weight="bold">④ Size (bên trái)</text>
+  <text x="72" y="428" text-anchor="middle" font-size="9" fill="#E74C3C">Kích thước cạnh hàn</text>
+
+  <!-- 7. Dimensions callout (Length) -->
+  <line x1="365" y1="268" x2="365" y2="412" stroke="#F39C12" stroke-width="1" stroke-dasharray="4,3"/>
+  <rect x="300" y="412" width="135" height="35" rx="6" fill="#F39C12" opacity="0.15" stroke="#F39C12" stroke-width="1.5"/>
+  <text x="367" y="428" text-anchor="middle" font-size="11" fill="#F39C12" font-weight="bold">④ Length (bên phải)</text>
+  <text x="367" y="442" text-anchor="middle" font-size="9" fill="#F39C12">Chiều dài đường hàn</text>
+
+  <!-- 8. Supplementary callout -->
+  <line x1="530" y1="210" x2="600" y2="125" stroke="#2ECC71" stroke-width="1" stroke-dasharray="4,3"/>
+  <rect x="530" y="85" width="180" height="55" rx="6" fill="#2ECC71" opacity="0.15" stroke="#2ECC71" stroke-width="1.5"/>
+  <text x="620" y="103" text-anchor="middle" font-size="11" fill="#2ECC71" font-weight="bold">⑥ Supplementary</text>
+  <text x="620" y="118" text-anchor="middle" font-size="9" fill="#2ECC71">○ = Hàn vòng quanh</text>
+  <text x="620" y="133" text-anchor="middle" font-size="9" fill="#2ECC71">⚑ = Hàn tại công trường</text>
+
+  <!-- 9. Contour/Finish callout -->
+  <line x1="370" y1="275" x2="500" y2="410" stroke="#F1C40F" stroke-width="1" stroke-dasharray="4,3"/>
+  <rect x="450" y="410" width="155" height="50" rx="6" fill="#F1C40F" opacity="0.15" stroke="#F1C40F" stroke-width="1.5"/>
+  <text x="527" y="428" text-anchor="middle" font-size="11" fill="#F1C40F" font-weight="bold">⑦⑧ Contour + Finish</text>
+  <text x="527" y="443" text-anchor="middle" font-size="9" fill="#F1C40F">— Flush / ⌒ Convex / ⌣ Concave</text>
+  <text x="527" y="455" text-anchor="middle" font-size="9" fill="#F1C40F">G = Grind / M = Machine / C = Chip</text>
+
+  <!-- Footer -->
+  <text x="390" y="505" text-anchor="middle" font-size="11" fill="#7F8C8D">Hình 3 — 8 thành phần của Welding Symbol theo AWS A2.4-2007</text>
+</svg>

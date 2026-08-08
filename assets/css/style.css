@@ -134,6 +134,30 @@ header{position:sticky;top:0;z-index:50;background:rgba(28,31,34,.92);backdrop-f
 .feature h3{font-size:1.1rem;margin-bottom:.5rem}
 .feature p{color:var(--steel);font-size:.92rem}
 
+/* ---- About section ----------------------------------------------------
+   Both intro paragraphs share ONE measure so they wrap at the same width.
+   Without this the .lead (60ch) breaks several words earlier than the plain
+   paragraph below it, which reads like a layout bug. -------------------- */
+.about-intro{max-width:78ch}
+.about-intro .lead{max-width:none;font-size:clamp(1.05rem,1.6vw,1.22rem);color:var(--charcoal);font-weight:500}
+.about-intro p + p{margin-top:1rem}
+.about-outro{max-width:78ch;margin-top:2.8rem}
+.about-close{margin-top:.6rem;font-size:1.05rem}
+
+/* Photo variant of .feature — image on top, icon badge straddling the edge */
+.feature-media{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.feature-media .feature-img{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--paper)}
+.feature-media .feature-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.2,.7,.3,1)}
+.feature-media:hover .feature-img img{transform:scale(1.06)}
+.feature-media .feature-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(28,31,34,.42) 0%,rgba(28,31,34,.06) 45%,transparent 70%)}
+.feature-media .feature-tag{position:absolute;left:1.5rem;bottom:1rem;z-index:2;font-family:var(--ff-head);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#fff;opacity:.92}
+.feature-media .feature-body{position:relative;padding:2.4rem 1.8rem 1.9rem}
+.feature-media .ico{position:absolute;top:-26px;left:1.8rem;margin:0;width:52px;height:52px;border-radius:12px;background:var(--white);border:1px solid var(--silver);box-shadow:0 8px 22px rgba(0,0,0,.10);font-size:1.15rem}
+.feature-media:hover .ico{background:var(--accent);color:#fff;border-color:var(--accent)}
+.feature-media .ico{transition:background .3s,color .3s,border-color .3s}
+.feature-media h3{font-size:1.18rem;margin-bottom:.6rem}
+.feature-media p{font-size:.94rem;line-height:1.75}
+
 /* Section dark */
 .dark{background:var(--charcoal);color:#fff}
 .dark .lead{color:var(--steel-light)}

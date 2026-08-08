@@ -1,0 +1,981 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 750 500"
+   font-family="'Segoe UI', Arial, sans-serif"
+   version="1.1"
+   id="svg48"
+   sodipodi:docname="02_groove_weld_types.svg"
+   width="750"
+   height="500"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview48"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="1.546"
+     inkscape:cx="368.04657"
+     inkscape:cy="250"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg48" />
+  <defs
+     id="defs6">
+    <linearGradient
+       id="steel1"
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1">
+      <stop
+         offset="0%"
+         style="stop-color:#BDC3C7;stop-opacity:1"
+         id="stop1" />
+      <stop
+         offset="100%"
+         style="stop-color:#95A5A6;stop-opacity:1"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       id="weld1"
+       x1="0"
+       y1="0"
+       x2="1"
+       y2="1">
+      <stop
+         offset="0%"
+         style="stop-color:#E67E22;stop-opacity:1"
+         id="stop3" />
+      <stop
+         offset="100%"
+         style="stop-color:#D35400;stop-opacity:1"
+         id="stop4" />
+    </linearGradient>
+    <linearGradient
+       id="weld2"
+       x1="697.90872"
+       y1="86.388044"
+       x2="752.63373"
+       y2="141.11305"
+       gradientTransform="scale(0.75833699,1.318675)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0%"
+         style="stop-color:#F39C12;stop-opacity:1"
+         id="stop5" />
+      <stop
+         offset="100%"
+         style="stop-color:#E67E22;stop-opacity:1"
+         id="stop6" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#steel1"
+       id="linearGradient50"
+       x1="32.628975"
+       y1="154.9409"
+       x2="32.628975"
+       y2="251.9061"
+       gradientTransform="matrix(1.3561566,0,0,0.73737795,-19.115136,0)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#weld1"
+       id="linearGradient51"
+       x1="229.63214"
+       y1="87.009811"
+       x2="283.58582"
+       y2="140.9635"
+       gradientTransform="matrix(0.75991104,0,0,1.3159435,-19.115136,0)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#weld1"
+       id="linearGradient52"
+       x1="226.5313"
+       y1="87.608627"
+       x2="281.35858"
+       y2="142.4359"
+       gradientTransform="scale(0.76681509,1.3040954)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#steel1"
+       id="linearGradient53"
+       x1="157.98323"
+       y1="154.9409"
+       x2="157.98323"
+       y2="251.9061"
+       gradientTransform="matrix(1.3561566,0,0,0.73737795,-19.115136,0)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#steel1"
+       id="linearGradient54"
+       x1="313.945"
+       y1="148.93313"
+       x2="313.945"
+       y2="242.13855"
+       gradientTransform="scale(1.3035723,0.76712278)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#steel1"
+       id="linearGradient55"
+       x1="404.64841"
+       y1="160.72425"
+       x2="404.64841"
+       y2="261.30879"
+       gradientTransform="matrix(1.4067768,0,0,0.71084482,-7.1151357,0)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#steel1"
+       id="linearGradient56"
+       x1="0"
+       y1="108.44353"
+       x2="0"
+       y2="123.93547"
+       gradientTransform="scale(1.9364917,0.51639778)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#steel1"
+       id="linearGradient57"
+       x1="15.491933"
+       y1="108.44353"
+       x2="15.491933"
+       y2="123.93547"
+       gradientTransform="scale(1.9364917,0.51639778)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#steel1"
+       id="linearGradient58"
+       x1="0"
+       y1="108.44353"
+       x2="0"
+       y2="123.93547"
+       gradientTransform="scale(1.9364917,0.51639778)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#steel1"
+       id="linearGradient59"
+       x1="15.491933"
+       y1="108.44353"
+       x2="15.491933"
+       y2="123.93547"
+       gradientTransform="scale(1.9364917,0.51639778)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#steel1"
+       id="linearGradient60"
+       x1="0"
+       y1="98.994949"
+       x2="0"
+       y2="113.13708"
+       gradientTransform="scale(1.767767,0.56568542)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#steel1"
+       id="linearGradient61"
+       x1="19.79899"
+       y1="98.994949"
+       x2="19.79899"
+       y2="113.13708"
+       gradientTransform="scale(1.767767,0.56568542)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#steel1"
+       id="linearGradient62"
+       x1="0"
+       y1="108.44353"
+       x2="0"
+       y2="123.93547"
+       gradientTransform="scale(1.9364917,0.51639778)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#steel1"
+       id="linearGradient63"
+       x1="15.491933"
+       y1="108.44353"
+       x2="15.491933"
+       y2="123.93547"
+       gradientTransform="scale(1.9364917,0.51639778)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#steel1"
+       id="linearGradient64"
+       x1="0"
+       y1="98.994949"
+       x2="0"
+       y2="113.13708"
+       gradientTransform="scale(1.767767,0.56568542)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#steel1"
+       id="linearGradient65"
+       x1="19.79899"
+       y1="98.994949"
+       x2="19.79899"
+       y2="113.13708"
+       gradientTransform="scale(1.767767,0.56568542)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#steel1"
+       id="linearGradient66"
+       x1="0"
+       y1="98.994949"
+       x2="0"
+       y2="113.13708"
+       gradientTransform="scale(1.767767,0.56568542)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#steel1"
+       id="linearGradient67"
+       x1="19.79899"
+       y1="98.994949"
+       x2="19.79899"
+       y2="113.13708"
+       gradientTransform="scale(1.767767,0.56568542)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#steel1"
+       id="linearGradient68"
+       x1="0"
+       y1="98.994949"
+       x2="0"
+       y2="113.13708"
+       gradientTransform="scale(1.767767,0.56568542)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#steel1"
+       id="linearGradient69"
+       x1="19.79899"
+       y1="98.994949"
+       x2="19.79899"
+       y2="113.13708"
+       gradientTransform="scale(1.767767,0.56568542)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <rect
+     width="750"
+     height="500"
+     rx="12"
+     fill="#1a1a2e"
+     id="rect6"
+     x="0"
+     y="0"
+     style="stroke-width:0.999998" />
+  <text
+     x="367.88486"
+     y="35"
+     text-anchor="middle"
+     font-size="18px"
+     font-weight="bold"
+     fill="#ecf0f1"
+     id="text6">GROOVE WELD — CJP vs PJP</text>
+  <!-- ===== CJP Section (Left) ===== -->
+  <rect
+     x="12.884865"
+     y="55"
+     width="345"
+     height="210"
+     rx="10"
+     fill="#16213e"
+     stroke="#27ae60"
+     stroke-width="2"
+     id="rect7" />
+  <text
+     x="184.88486"
+     y="80"
+     text-anchor="middle"
+     font-size="16px"
+     font-weight="bold"
+     fill="#27ae60"
+     id="text7">CJP — Complete Joint Penetration</text>
+  <!-- Left plate -->
+  <rect
+     x="25.884865"
+     y="115"
+     width="130"
+     height="70"
+     fill="url(#steel1)"
+     stroke="#555555"
+     stroke-width="1.5"
+     rx="2"
+     id="rect8"
+     style="fill:url(#linearGradient50)" />
+  <!-- Right plate -->
+  <rect
+     x="195.88486"
+     y="115"
+     width="130"
+     height="70"
+     fill="url(#steel1)"
+     stroke="#555555"
+     stroke-width="1.5"
+     rx="2"
+     id="rect9"
+     style="fill:url(#linearGradient53)" />
+  <!-- Groove + full weld -->
+  <polygon
+     points="175,185 195,150 175,115 215,115 215,185 "
+     fill="url(#weld1)"
+     stroke="#c0392b"
+     stroke-width="1.5"
+     id="polygon9"
+     style="fill:url(#linearGradient52)"
+     transform="matrix(0.51451172,0,0,1.0070311,77.397545,-1.0546611)" />
+  <!-- Weld fills entire gap -->
+  <rect
+     x="155.88486"
+     y="115"
+     width="40"
+     height="70"
+     fill="url(#weld1)"
+     stroke="#c0392b"
+     stroke-width="1"
+     opacity="0.9"
+     id="rect10"
+     style="fill:url(#linearGradient51)" />
+  <!-- Full penetration arrow -->
+  <line
+     x1="175.88486"
+     y1="100"
+     x2="175.88486"
+     y2="195"
+     stroke="#27ae60"
+     stroke-width="2"
+     stroke-dasharray="5, 3"
+     id="line10" />
+  <text
+     x="187.88486"
+     y="95"
+     text-anchor="middle"
+     font-size="10px"
+     fill="#27ae60"
+     font-weight="bold"
+     id="text10">100% Penetration</text>
+  <!-- Thickness label -->
+  <line
+     x1="335.88486"
+     y1="115"
+     x2="335.88486"
+     y2="185"
+     stroke="#e74c3c"
+     stroke-width="1.5"
+     id="line11" />
+  <line
+     x1="328.88486"
+     y1="115"
+     x2="338.88486"
+     y2="115"
+     stroke="#e74c3c"
+     stroke-width="1.5"
+     id="line12" />
+  <line
+     x1="330.88486"
+     y1="185"
+     x2="340.88486"
+     y2="185"
+     stroke="#e74c3c"
+     stroke-width="1.5"
+     id="line13" />
+  <text
+     x="133"
+     y="-340.88486"
+     font-size="11px"
+     fill="#e74c3c"
+     font-weight="bold"
+     transform="rotate(90)"
+     id="text13">t (full)</text>
+  <!-- CJP description -->
+  <text
+     x="37.884865"
+     y="218"
+     font-size="11px"
+     fill="#ecf0f1"
+     id="text14">• Hàn xuyên suốt toàn bộ chiều dày</text>
+  <text
+     x="37.884865"
+     y="236"
+     font-size="11px"
+     fill="#ecf0f1"
+     id="text15">• Cường độ = cường độ thép cơ bản</text>
+  <text
+     x="37.884865"
+     y="254"
+     font-size="11px"
+     fill="#2ecc71"
+     font-weight="bold"
+     id="text16">→ Dùng cho: Moment connection, Seismic</text>
+  <!-- ===== PJP Section (Right) ===== -->
+  <rect
+     x="377.89774"
+     y="55.012905"
+     width="354.02982"
+     height="209.97418"
+     rx="10.261734"
+     fill="#16213e"
+     stroke="#e67e22"
+     stroke-width="2.00729"
+     id="rect16" />
+  <text
+     x="549.88489"
+     y="80"
+     text-anchor="middle"
+     font-size="16px"
+     font-weight="bold"
+     fill="#e67e22"
+     id="text17">PJP — Partial Joint Penetration</text>
+  <!-- Left plate with bevel -->
+  <polygon
+     points="530,185 410,185 410,115 530,115 "
+     fill="url(#steel1)"
+     stroke="#555555"
+     stroke-width="1.5"
+     id="polygon17"
+     style="fill:url(#linearGradient54)"
+     transform="translate(-7.1151357)" />
+  <!-- Right plate -->
+  <rect
+     x="562.88489"
+     y="115"
+     width="140"
+     height="70"
+     fill="url(#steel1)"
+     stroke="#555555"
+     stroke-width="1.5"
+     rx="2"
+     id="rect17"
+     style="fill:url(#linearGradient55)" />
+  <!-- Partial weld (not full depth) -->
+  <polygon
+     points="570,185 530,170 530,130 570,115 "
+     fill="url(#weld2)"
+     stroke="#d35400"
+     stroke-width="1.5"
+     id="polygon18"
+     style="fill:url(#weld2)"
+     transform="translate(-7.1151357)" />
+  <!-- Bevel line -->
+  <line
+     x1="522.88489"
+     y1="130"
+     x2="522.88489"
+     y2="170"
+     stroke="#555555"
+     stroke-width="1.5"
+     id="line18" />
+  <!-- Effective throat dimension -->
+  <line
+     x1="537.88489"
+     y1="130"
+     x2="537.88489"
+     y2="170"
+     stroke="#2980b9"
+     stroke-width="2"
+     id="line19" />
+  <line
+     x1="532.88489"
+     y1="130"
+     x2="542.88489"
+     y2="130"
+     stroke="#2980b9"
+     stroke-width="1.5"
+     id="line20" />
+  <line
+     x1="532.88489"
+     y1="170"
+     x2="542.88489"
+     y2="170"
+     stroke="#2980b9"
+     stroke-width="1.5"
+     id="line21" />
+  <text
+     x="544.88489"
+     y="155"
+     font-size="10px"
+     fill="#2980b9"
+     font-weight="bold"
+     id="text21">te</text>
+  <!-- Unfused zone -->
+  <rect
+     x="522.88489"
+     y="115"
+     width="40"
+     height="15"
+     fill="#1a1a2e"
+     opacity="0.6"
+     rx="1"
+     id="rect21" />
+  <text
+     x="542.88489"
+     y="125"
+     text-anchor="middle"
+     font-size="8px"
+     fill="#e74c3c"
+     id="text22">Unfused</text>
+  <rect
+     x="522.88489"
+     y="170"
+     width="40"
+     height="15"
+     fill="#1a1a2e"
+     opacity="0.6"
+     rx="1"
+     id="rect22" />
+  <text
+     x="542.88489"
+     y="180"
+     text-anchor="middle"
+     font-size="8px"
+     fill="#e74c3c"
+     id="text23">Unfused</text>
+  <!-- Full thickness -->
+  <line
+     x1="712.88489"
+     y1="115"
+     x2="712.88489"
+     y2="185"
+     stroke="#e74c3c"
+     stroke-width="1.5"
+     id="line23" />
+  <line
+     x1="707.88489"
+     y1="115"
+     x2="717.88489"
+     y2="115"
+     stroke="#e74c3c"
+     stroke-width="1.5"
+     id="line24" />
+  <line
+     x1="707.88489"
+     y1="185"
+     x2="717.88489"
+     y2="185"
+     stroke="#e74c3c"
+     stroke-width="1.5"
+     id="line25" />
+  <text
+     x="137"
+     y="-716.88489"
+     font-size="11px"
+     fill="#e74c3c"
+     font-weight="bold"
+     transform="rotate(90)"
+     id="text25">t (full)</text>
+  <!-- PJP description -->
+  <text
+     x="392.88486"
+     y="218"
+     font-size="11px"
+     fill="#ecf0f1"
+     id="text26">• Hàn KHÔNG xuyên hết chiều dày</text>
+  <text
+     x="392.88486"
+     y="236"
+     font-size="11px"
+     fill="#ecf0f1"
+     id="text27">• Cường độ phụ thuộc vào te (effective throat)</text>
+  <text
+     x="392.88486"
+     y="254"
+     font-size="11px"
+     fill="#e67e22"
+     font-weight="bold"
+     id="text28">→ Dùng cho: Column splice, Nén, Chi phí thấp</text>
+  <!-- ===== Groove Types Section ===== -->
+  <rect
+     x="12.89118"
+     y="280.00632"
+     width="719.04297"
+     height="194.98737"
+     rx="10.127366"
+     fill="#16213e"
+     stroke="#3498db"
+     stroke-width="2"
+     id="rect28" />
+  <text
+     x="367.88486"
+     y="308"
+     text-anchor="middle"
+     font-size="16px"
+     font-weight="bold"
+     fill="#3498db"
+     id="text29">Các dạng rãnh hàn phổ biến (Groove Types)</text>
+  <line
+     x1="32.884865"
+     y1="316"
+     x2="702.88489"
+     y2="316"
+     stroke="#3498db"
+     stroke-width="1"
+     opacity="0.4"
+     id="line29" />
+  <!-- V-Groove -->
+  <g
+     transform="translate(52.884864,335)"
+     id="g32">
+    <polygon
+       points="10,60 30,0 50,60 "
+       fill="none"
+       stroke="#e67e22"
+       stroke-width="2.5"
+       id="polygon29" />
+    <line
+       x1="0"
+       y1="60"
+       x2="30"
+       y2="60"
+       stroke="url(#steel1)"
+       stroke-width="8"
+       id="line30"
+       style="stroke:url(#linearGradient56)" />
+    <line
+       x1="30"
+       y1="60"
+       x2="60"
+       y2="60"
+       stroke="url(#steel1)"
+       stroke-width="8"
+       id="line31"
+       style="stroke:url(#linearGradient57)" />
+    <text
+       x="30"
+       y="85"
+       text-anchor="middle"
+       font-size="12px"
+       font-weight="bold"
+       fill="#ecf0f1"
+       id="text31">V</text>
+    <text
+       x="30"
+       y="100"
+       text-anchor="middle"
+       font-size="9px"
+       fill="#7f8c8d"
+       id="text32">Vát 2 phía</text>
+  </g>
+  <!-- Bevel -->
+  <g
+     transform="translate(152.88486,335)"
+     id="g34">
+    <polygon
+       points="30,60 30,0 50,60 "
+       fill="none"
+       stroke="#e67e22"
+       stroke-width="2.5"
+       id="polygon32" />
+    <line
+       x1="0"
+       y1="60"
+       x2="30"
+       y2="60"
+       stroke="url(#steel1)"
+       stroke-width="8"
+       id="line32"
+       style="stroke:url(#linearGradient58)" />
+    <line
+       x1="30"
+       y1="60"
+       x2="60"
+       y2="60"
+       stroke="url(#steel1)"
+       stroke-width="8"
+       id="line33"
+       style="stroke:url(#linearGradient59)" />
+    <text
+       x="30"
+       y="85"
+       text-anchor="middle"
+       font-size="12px"
+       font-weight="bold"
+       fill="#ecf0f1"
+       id="text33">Bevel</text>
+    <text
+       x="30"
+       y="100"
+       text-anchor="middle"
+       font-size="9px"
+       fill="#7f8c8d"
+       id="text34">Vát 1 phía</text>
+  </g>
+  <!-- U-Groove -->
+  <g
+     transform="translate(252.88486,335)"
+     id="g36">
+    <path
+       d="M 15,0 Q 15,60 30,60 45,60 45,0"
+       fill="none"
+       stroke="#e67e22"
+       stroke-width="2.5"
+       id="path34" />
+    <line
+       x1="0"
+       y1="60"
+       x2="25"
+       y2="60"
+       stroke="url(#steel1)"
+       stroke-width="8"
+       id="line34"
+       style="stroke:url(#linearGradient60)" />
+    <line
+       x1="35"
+       y1="60"
+       x2="60"
+       y2="60"
+       stroke="url(#steel1)"
+       stroke-width="8"
+       id="line35"
+       style="stroke:url(#linearGradient61)" />
+    <text
+       x="30"
+       y="85"
+       text-anchor="middle"
+       font-size="12px"
+       font-weight="bold"
+       fill="#ecf0f1"
+       id="text35">U</text>
+    <text
+       x="30"
+       y="100"
+       text-anchor="middle"
+       font-size="9px"
+       fill="#7f8c8d"
+       id="text36">Chữ U</text>
+  </g>
+  <!-- J-Groove -->
+  <g
+     transform="translate(352.88486,335)"
+     id="g39">
+    <path
+       d="m 30,0 q 0,60 15,60"
+       fill="none"
+       stroke="#e67e22"
+       stroke-width="2.5"
+       id="path36" />
+    <line
+       x1="30"
+       y1="0"
+       x2="30"
+       y2="60"
+       stroke="#e67e22"
+       stroke-width="2.5"
+       id="line36" />
+    <line
+       x1="0"
+       y1="60"
+       x2="30"
+       y2="60"
+       stroke="url(#steel1)"
+       stroke-width="8"
+       id="line37"
+       style="stroke:url(#linearGradient62)" />
+    <line
+       x1="30"
+       y1="60"
+       x2="60"
+       y2="60"
+       stroke="url(#steel1)"
+       stroke-width="8"
+       id="line38"
+       style="stroke:url(#linearGradient63)" />
+    <text
+       x="30"
+       y="85"
+       text-anchor="middle"
+       font-size="12px"
+       font-weight="bold"
+       fill="#ecf0f1"
+       id="text38">J</text>
+    <text
+       x="30"
+       y="100"
+       text-anchor="middle"
+       font-size="9px"
+       fill="#7f8c8d"
+       id="text39">Chữ J</text>
+  </g>
+  <!-- Square -->
+  <g
+     transform="translate(452.88486,335)"
+     id="g41">
+    <rect
+       x="20"
+       y="0"
+       width="20"
+       height="60"
+       fill="none"
+       stroke="#e67e22"
+       stroke-width="2.5"
+       id="rect39" />
+    <line
+       x1="0"
+       y1="60"
+       x2="25"
+       y2="60"
+       stroke="url(#steel1)"
+       stroke-width="8"
+       id="line39"
+       style="stroke:url(#linearGradient64)" />
+    <line
+       x1="35"
+       y1="60"
+       x2="60"
+       y2="60"
+       stroke="url(#steel1)"
+       stroke-width="8"
+       id="line40"
+       style="stroke:url(#linearGradient65)" />
+    <text
+       x="30"
+       y="85"
+       text-anchor="middle"
+       font-size="12px"
+       font-weight="bold"
+       fill="#ecf0f1"
+       id="text40">Square</text>
+    <text
+       x="30"
+       y="100"
+       text-anchor="middle"
+       font-size="9px"
+       fill="#7f8c8d"
+       id="text41">Vuông</text>
+  </g>
+  <!-- Flare-V -->
+  <g
+     transform="translate(552.88486,335)"
+     id="g44">
+    <path
+       d="M 10,0 Q 30,40 30,60"
+       fill="none"
+       stroke="#e67e22"
+       stroke-width="2.5"
+       id="path41" />
+    <path
+       d="M 50,0 Q 30,40 30,60"
+       fill="none"
+       stroke="#e67e22"
+       stroke-width="2.5"
+       id="path42" />
+    <line
+       x1="0"
+       y1="60"
+       x2="25"
+       y2="60"
+       stroke="url(#steel1)"
+       stroke-width="8"
+       id="line42"
+       style="stroke:url(#linearGradient66)" />
+    <line
+       x1="35"
+       y1="60"
+       x2="60"
+       y2="60"
+       stroke="url(#steel1)"
+       stroke-width="8"
+       id="line43"
+       style="stroke:url(#linearGradient67)" />
+    <text
+       x="30"
+       y="85"
+       text-anchor="middle"
+       font-size="12px"
+       font-weight="bold"
+       fill="#ecf0f1"
+       id="text43">Flare-V</text>
+    <text
+       x="30"
+       y="100"
+       text-anchor="middle"
+       font-size="9px"
+       fill="#7f8c8d"
+       id="text44">V loe</text>
+  </g>
+  <!-- Flare-Bevel -->
+  <g
+     transform="translate(652.88486,335)"
+     id="g47">
+    <path
+       d="M 50,0 Q 30,40 30,60"
+       fill="none"
+       stroke="#e67e22"
+       stroke-width="2.5"
+       id="path44" />
+    <line
+       x1="30"
+       y1="0"
+       x2="30"
+       y2="60"
+       stroke="#e67e22"
+       stroke-width="2.5"
+       id="line44" />
+    <line
+       x1="0"
+       y1="60"
+       x2="25"
+       y2="60"
+       stroke="url(#steel1)"
+       stroke-width="8"
+       id="line45"
+       style="stroke:url(#linearGradient68)" />
+    <line
+       x1="35"
+       y1="60"
+       x2="60"
+       y2="60"
+       stroke="url(#steel1)"
+       stroke-width="8"
+       id="line46"
+       style="stroke:url(#linearGradient69)" />
+    <text
+       x="30"
+       y="85"
+       text-anchor="middle"
+       font-size="10px"
+       font-weight="bold"
+       fill="#ecf0f1"
+       id="text46">Flare-B</text>
+    <text
+       x="30"
+       y="100"
+       text-anchor="middle"
+       font-size="9px"
+       fill="#7f8c8d"
+       id="text47">Bevel loe</text>
+  </g>
+  <!-- Footer -->
+  <text
+     x="367.88486"
+     y="492"
+     text-anchor="middle"
+     font-size="11px"
+     fill="#7f8c8d"
+     id="text48">Hình 2 — So sánh CJP vs PJP và các dạng rãnh hàn phổ biến</text>
+</svg>

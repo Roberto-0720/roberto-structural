@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 780 380"
+   font-family="'Segoe UI', Arial, sans-serif"
+   version="1.1"
+   id="svg36"
+   sodipodi:docname="03_joint_types.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview36"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="1.4570121"
+     inkscape:cx="329.78449"
+     inkscape:cy="155.45512"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g24" />
+  <defs
+     id="defs2">
+    <linearGradient
+       id="slab3"
+       x1="0%"
+       y1="0%"
+       x2="0%"
+       y2="100%">
+      <stop
+         offset="0%"
+         style="stop-color:#BDC3C7;stop-opacity:1"
+         id="stop1" />
+      <stop
+         offset="100%"
+         style="stop-color:#95A5A6;stop-opacity:1"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#slab3"
+       id="linearGradient38"
+       x1="112.96434"
+       y1="109.16554"
+       x2="112.96434"
+       y2="187.80872"
+       gradientTransform="scale(1.0999046,0.90916973)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#slab3"
+       id="linearGradient39"
+       x1="17.501517"
+       y1="109.16554"
+       x2="17.501517"
+       y2="187.80872"
+       gradientTransform="scale(1.0999046,0.90916973)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <rect
+     width="780"
+     height="380"
+     rx="12"
+     fill="#1a1a2e"
+     id="rect2" />
+  <text
+     x="390"
+     y="32"
+     text-anchor="middle"
+     font-size="18"
+     font-weight="bold"
+     fill="#ECF0F1"
+     id="text2">JOINT TYPES — Slab on Grade</text>
+  <!-- ===== CONTRACTION JOINT ===== -->
+  <g
+     transform="translate(20,55)"
+     id="g14">
+    <rect
+       width="230"
+       height="300"
+       rx="10"
+       fill="#16213e"
+       stroke="#3498DB"
+       stroke-width="2"
+       id="rect3" />
+    <text
+       x="115"
+       y="28"
+       text-anchor="middle"
+       font-size="14"
+       font-weight="bold"
+       fill="#3498DB"
+       id="text3">Contraction Joint</text>
+    <text
+       x="115"
+       y="45"
+       text-anchor="middle"
+       font-size="10"
+       fill="#7F8C8D"
+       id="text4">(Control Joint)</text>
+    <!-- Slab cross section -->
+    <rect
+       x="24"
+       y="100"
+       width="85"
+       height="70"
+       fill="url(#slab3)"
+       stroke="#555555"
+       stroke-width="1.5"
+       id="rect4"
+       style="fill:url(#linearGradient39)" />
+    <rect
+       x="113"
+       y="100"
+       width="85"
+       height="70"
+       fill="url(#slab3)"
+       stroke="#555555"
+       stroke-width="1.5"
+       id="rect5"
+       style="fill:url(#linearGradient38)" />
+    <!-- Saw cut -->
+    <line
+       x1="111"
+       y1="100"
+       x2="111"
+       y2="125"
+       stroke="#e74c3c"
+       stroke-width="2.5"
+       id="line5" />
+    <text
+       x="115"
+       y="95"
+       font-size="8"
+       fill="#E74C3C"
+       font-weight="bold"
+       id="text5">Saw cut</text>
+    <!-- Depth label -->
+    <line
+       x1="112"
+       y1="100"
+       x2="112"
+       y2="125"
+       stroke="#F39C12"
+       stroke-width="1"
+       stroke-dasharray="3,2"
+       id="line6" />
+    <text
+       x="124"
+       y="114"
+       font-size="8px"
+       fill="#f39c12"
+       id="text6">≥ t/4</text>
+    <!-- t label -->
+    <line
+       x1="12"
+       y1="100"
+       x2="12"
+       y2="170"
+       stroke="#ECF0F1"
+       stroke-width="1"
+       id="line7" />
+    <line
+       x1="8"
+       y1="100"
+       x2="16"
+       y2="100"
+       stroke="#ECF0F1"
+       stroke-width="1"
+       id="line8" />
+    <line
+       x1="8"
+       y1="170"
+       x2="16"
+       y2="170"
+       stroke="#ECF0F1"
+       stroke-width="1"
+       id="line9" />
+    <text
+       x="10"
+       y="140"
+       font-size="9"
+       fill="#ECF0F1"
+       font-weight="bold"
+       transform="rotate(-90,10,140)"
+       id="text9">t</text>
+    <!-- Crack below joint -->
+    <path
+       d="m 111,125 -2,10 4,10 -3,10 2,10 -1,5"
+       fill="none"
+       stroke="#e74c3c"
+       stroke-width="1.5"
+       stroke-dasharray="3, 2"
+       id="path9" />
+    <!-- Soil -->
+    <rect
+       x="20"
+       y="175"
+       width="190"
+       height="15"
+       fill="#6B5B3E"
+       rx="2"
+       opacity="0.5"
+       id="rect9" />
+    <!-- Description -->
+    <text
+       x="115"
+       y="215"
+       text-anchor="middle"
+       font-size="10"
+       fill="#ECF0F1"
+       id="text10">Create weakened plane</text>
+    <text
+       x="115"
+       y="230"
+       text-anchor="middle"
+       font-size="10"
+       fill="#ECF0F1"
+       id="text11">to control cracking</text>
+    <line
+       x1="30"
+       y1="245"
+       x2="200"
+       y2="245"
+       stroke="#3498DB"
+       stroke-width="0.5"
+       opacity="0.4"
+       id="line11" />
+    <text
+       x="115"
+       y="265"
+       text-anchor="middle"
+       font-size="10"
+       fill="#3498DB"
+       font-weight="bold"
+       id="text12">Spacing:</text>
+    <text
+       x="115"
+       y="280"
+       text-anchor="middle"
+       font-size="10"
+       fill="#ECF0F1"
+       id="text13">L = 24–36 × t</text>
+    <text
+       x="115"
+       y="295"
+       text-anchor="middle"
+       font-size="9"
+       fill="#7F8C8D"
+       id="text14">Panel ratio ≤ 1.5:1</text>
+  </g>
+  <!-- ===== CONSTRUCTION JOINT ===== -->
+  <g
+     transform="translate(270,55)"
+     id="g24">
+    <rect
+       width="230"
+       height="300"
+       rx="10"
+       fill="#16213e"
+       stroke="#E67E22"
+       stroke-width="2"
+       id="rect14" />
+    <text
+       x="115"
+       y="28"
+       text-anchor="middle"
+       font-size="14"
+       font-weight="bold"
+       fill="#E67E22"
+       id="text15">Construction Joint</text>
+    <text
+       x="115"
+       y="45"
+       text-anchor="middle"
+       font-size="10"
+       fill="#7F8C8D"
+       id="text16">(Pour Stop)</text>
+    <!-- Slab cross section -->
+    <rect
+       x="20"
+       y="100"
+       width="85"
+       height="70"
+       fill="url(#slab3)"
+       stroke="#555"
+       stroke-width="1.5"
+       id="rect16" />
+    <rect
+       x="113"
+       y="100"
+       width="85"
+       height="70"
+       fill="#a0a8b0"
+       stroke="#555555"
+       stroke-width="1.5"
+       id="rect17" />
+    <text
+       x="62"
+       y="140"
+       text-anchor="middle"
+       font-size="9"
+       fill="#2C3E50"
+       font-weight="bold"
+       id="text17">Day 1</text>
+    <text
+       x="153"
+       y="144"
+       text-anchor="middle"
+       font-size="9px"
+       fill="#2c3e50"
+       font-weight="bold"
+       id="text18">Day 2</text>
+    <!-- Joint line -->
+    <line
+       x1="105"
+       y1="100"
+       x2="105"
+       y2="170"
+       stroke="#E67E22"
+       stroke-width="2.5"
+       id="line18" />
+    <!-- Dowel bars -->
+    <rect
+       x="85"
+       y="125"
+       width="40"
+       height="4"
+       fill="#E67E22"
+       rx="2"
+       id="rect18" />
+    <rect
+       x="85"
+       y="145"
+       width="40"
+       height="4"
+       fill="#E67E22"
+       rx="2"
+       id="rect19" />
+    <text
+       x="140"
+       y="133"
+       font-size="8"
+       fill="#E67E22"
+       font-weight="bold"
+       id="text19">Dowels</text>
+    <!-- Soil -->
+    <rect
+       x="20"
+       y="175"
+       width="190"
+       height="15"
+       fill="#6B5B3E"
+       rx="2"
+       opacity="0.5"
+       id="rect20" />
+    <!-- Description -->
+    <text
+       x="115"
+       y="215"
+       text-anchor="middle"
+       font-size="10"
+       fill="#ECF0F1"
+       id="text20">End of day's pour</text>
+    <text
+       x="115"
+       y="230"
+       text-anchor="middle"
+       font-size="10"
+       fill="#ECF0F1"
+       id="text21">or planned break</text>
+    <line
+       x1="30"
+       y1="245"
+       x2="200"
+       y2="245"
+       stroke="#E67E22"
+       stroke-width="0.5"
+       opacity="0.4"
+       id="line21" />
+    <text
+       x="115"
+       y="265"
+       text-anchor="middle"
+       font-size="10"
+       fill="#E67E22"
+       font-weight="bold"
+       id="text22">Load Transfer:</text>
+    <text
+       x="115"
+       y="280"
+       text-anchor="middle"
+       font-size="10"
+       fill="#ECF0F1"
+       id="text23">Dowels or keyed</text>
+    <text
+       x="115"
+       y="295"
+       text-anchor="middle"
+       font-size="9"
+       fill="#7F8C8D"
+       id="text24">One side debonded</text>
+  </g>
+  <!-- ===== ISOLATION JOINT ===== -->
+  <g
+     transform="translate(520,55)"
+     id="g35">
+    <rect
+       width="245.49069"
+       height="300"
+       rx="10.000001"
+       fill="#16213e"
+       stroke="#e74c3c"
+       stroke-width="2.02275"
+       id="rect24"
+       x="0"
+       y="0"
+       ry="10" />
+    <text
+       x="120"
+       y="28"
+       text-anchor="middle"
+       font-size="14"
+       font-weight="bold"
+       fill="#E74C3C"
+       id="text25">Isolation Joint</text>
+    <text
+       x="120"
+       y="45"
+       text-anchor="middle"
+       font-size="10"
+       fill="#7F8C8D"
+       id="text26">(Expansion Joint)</text>
+    <!-- Slab -->
+    <rect
+       x="20"
+       y="100"
+       width="85"
+       height="70"
+       fill="url(#slab3)"
+       stroke="#555"
+       stroke-width="1.5"
+       id="rect26" />
+    <!-- Column/wall (fixed element) -->
+    <rect
+       x="121"
+       y="65"
+       width="55"
+       height="105"
+       fill="#7f8c8d"
+       stroke="#555555"
+       stroke-width="1.5"
+       rx="2"
+       id="rect27"
+       ry="2" />
+    <text
+       x="150"
+       y="122"
+       text-anchor="middle"
+       font-size="9px"
+       fill="#ecf0f1"
+       font-weight="bold"
+       id="text27">COLUMN</text>
+    <!-- Gap with filler -->
+    <rect
+       x="106"
+       y="100"
+       width="12"
+       height="70"
+       fill="#2C3E50"
+       stroke="#E74C3C"
+       stroke-width="1.5"
+       stroke-dasharray="4,2"
+       id="rect28" />
+    <text
+       x="112"
+       y="90"
+       text-anchor="middle"
+       font-size="7"
+       fill="#E74C3C"
+       font-weight="bold"
+       id="text28">GAP</text>
+    <!-- Compressible filler label -->
+    <line
+       x1="118"
+       y1="135"
+       x2="200"
+       y2="135"
+       stroke="#E74C3C"
+       stroke-width="1"
+       stroke-dasharray="3,2"
+       id="line28" />
+    <text
+       x="200"
+       y="130"
+       font-size="7"
+       fill="#E74C3C"
+       id="text29">Compressible</text>
+    <text
+       x="200"
+       y="140"
+       font-size="7"
+       fill="#E74C3C"
+       id="text30">filler</text>
+    <!-- Soil -->
+    <rect
+       x="20"
+       y="175"
+       width="170"
+       height="15"
+       fill="#6B5B3E"
+       rx="2"
+       opacity="0.5"
+       id="rect30" />
+    <!-- Description -->
+    <text
+       x="120"
+       y="215"
+       text-anchor="middle"
+       font-size="10"
+       fill="#ECF0F1"
+       id="text31">Separate slab from</text>
+    <text
+       x="120"
+       y="230"
+       text-anchor="middle"
+       font-size="10"
+       fill="#ECF0F1"
+       id="text32">fixed structures</text>
+    <line
+       x1="30"
+       y1="245"
+       x2="210"
+       y2="245"
+       stroke="#E74C3C"
+       stroke-width="0.5"
+       opacity="0.4"
+       id="line32" />
+    <text
+       x="120"
+       y="265"
+       text-anchor="middle"
+       font-size="10"
+       fill="#E74C3C"
+       font-weight="bold"
+       id="text33">Locations:</text>
+    <text
+       x="120"
+       y="280"
+       text-anchor="middle"
+       font-size="10"
+       fill="#ECF0F1"
+       id="text34">Columns, walls,</text>
+    <text
+       x="120"
+       y="295"
+       text-anchor="middle"
+       font-size="10"
+       fill="#ECF0F1"
+       id="text35">footings, equipment</text>
+  </g>
+  <text
+     x="390"
+     y="372"
+     text-anchor="middle"
+     font-size="11"
+     fill="#7F8C8D"
+     id="text36">Fig. 3 — Three types of joints in slab-on-grade design</text>
+</svg>

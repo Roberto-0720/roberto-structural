@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 450" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="steelG" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#BDC3C7;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#95A5A6;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="weldG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E67E22;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#D35400;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="780" height="450" rx="12" fill="#1a1a2e"/>
+  <text x="390" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#ECF0F1">COMMON WELD DEFECTS — Các khuyết tật hàn thường gặp</text>
+
+  <!-- ===== 1. CRACK ===== -->
+  <g transform="translate(25,60)">
+    <rect width="230" height="170" rx="10" fill="#16213e" stroke="#E74C3C" stroke-width="2"/>
+    <text x="115" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#E74C3C">❌ NỨT (Crack)</text>
+    
+    <!-- Weld with crack -->
+    <rect x="30" y="110" width="170" height="30" fill="url(#steelG)" stroke="#555" stroke-width="1"/>
+    <path d="M 70,110 Q 90,70 115,90 Q 130,65 160,110" fill="url(#weldG)" stroke="#C0392B" stroke-width="1.5"/>
+    <!-- Crack line -->
+    <path d="M 95,105 L 100,85 L 105,95 L 112,75 L 118,90 L 122,80" fill="none" stroke="#E74C3C" stroke-width="2.5" filter="url(#glow)"/>
+    
+    <text x="115" y="155" text-anchor="middle" font-size="10" fill="#ECF0F1">Kết quả: ❌ KHÔNG chấp nhận</text>
+    <text x="115" y="168" text-anchor="middle" font-size="9" fill="#E74C3C" font-weight="bold">Bất kỳ kích thước nào</text>
+  </g>
+
+  <!-- ===== 2. POROSITY ===== -->
+  <g transform="translate(275,60)">
+    <rect width="230" height="170" rx="10" fill="#16213e" stroke="#F39C12" stroke-width="2"/>
+    <text x="115" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#F39C12">⚠️ RỖ XỐP (Porosity)</text>
+    
+    <!-- Weld with porosity -->
+    <rect x="30" y="110" width="170" height="30" fill="url(#steelG)" stroke="#555" stroke-width="1"/>
+    <path d="M 70,110 Q 90,70 115,85 Q 140,68 160,110" fill="url(#weldG)" stroke="#C0392B" stroke-width="1.5"/>
+    <!-- Pores -->
+    <circle cx="90" cy="95" r="4" fill="#1a1a2e" stroke="#F39C12" stroke-width="1"/>
+    <circle cx="105" cy="88" r="3" fill="#1a1a2e" stroke="#F39C12" stroke-width="1"/>
+    <circle cx="120" cy="100" r="5" fill="#1a1a2e" stroke="#F39C12" stroke-width="1"/>
+    <circle cx="135" cy="90" r="3.5" fill="#1a1a2e" stroke="#F39C12" stroke-width="1"/>
+    <circle cx="145" cy="102" r="2.5" fill="#1a1a2e" stroke="#F39C12" stroke-width="1"/>
+    
+    <text x="115" y="155" text-anchor="middle" font-size="10" fill="#ECF0F1">Do: khí, ẩm, bề mặt bẩn</text>
+    <text x="115" y="168" text-anchor="middle" font-size="9" fill="#F39C12" font-weight="bold">CJP kéo ngang: KHÔNG cho phép</text>
+  </g>
+
+  <!-- ===== 3. UNDERCUT ===== -->
+  <g transform="translate(525,60)">
+    <rect width="230" height="170" rx="10" fill="#16213e" stroke="#9B59B6" stroke-width="2"/>
+    <text x="115" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#9B59B6">⚠️ LẸM CHÂN (Undercut)</text>
+    
+    <!-- Weld with undercut -->
+    <rect x="30" y="110" width="170" height="30" fill="url(#steelG)" stroke="#555" stroke-width="1"/>
+    <path d="M 70,110 Q 90,70 115,85 Q 140,68 160,110" fill="url(#weldG)" stroke="#C0392B" stroke-width="1.5"/>
+    <!-- Undercut groove at toe -->
+    <path d="M 65,110 Q 68,115 72,110" fill="none" stroke="#9B59B6" stroke-width="2.5" filter="url(#glow)"/>
+    <path d="M 155,110 Q 158,116 163,110" fill="none" stroke="#9B59B6" stroke-width="2.5" filter="url(#glow)"/>
+    <!-- Arrow to undercut -->
+    <line x1="68" y1="118" x2="68" y2="130" stroke="#9B59B6" stroke-width="1.5"/>
+    <text x="68" y="142" text-anchor="middle" font-size="8" fill="#9B59B6" font-weight="bold">Undercut</text>
+    
+    <text x="115" y="155" text-anchor="middle" font-size="10" fill="#ECF0F1">Rãnh ở chân hàn (stress riser)</text>
+    <text x="115" y="168" text-anchor="middle" font-size="9" fill="#9B59B6" font-weight="bold">t&lt;25mm: ≤1mm | t≥25mm: ≤2mm</text>
+  </g>
+
+  <!-- ===== 4. LACK OF FUSION ===== -->
+  <g transform="translate(25,250)">
+    <rect width="230" height="170" rx="10" fill="#16213e" stroke="#2980B9" stroke-width="2"/>
+    <text x="115" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#2980B9">❌ THIẾU NGẤU (Lack of Fusion)</text>
+    
+    <!-- T-joint with LOF -->
+    <rect x="30" y="110" width="170" height="30" fill="url(#steelG)" stroke="#555" stroke-width="1"/>
+    <rect x="100" y="45" width="30" height="65" fill="url(#steelG)" stroke="#555" stroke-width="1"/>
+    <!-- Fillet weld -->
+    <polygon points="100,110 100,75 65,110" fill="url(#weldG)" stroke="#C0392B" stroke-width="1.5"/>
+    <!-- LOF gap -->
+    <line x1="100" y1="85" x2="100" y2="105" stroke="#2980B9" stroke-width="3" stroke-dasharray="3,2"/>
+    <text x="87" y="97" text-anchor="end" font-size="8" fill="#2980B9" font-weight="bold">LOF</text>
+    
+    <text x="115" y="155" text-anchor="middle" font-size="10" fill="#ECF0F1">Kim loại hàn không liên kết với</text>
+    <text x="115" y="168" text-anchor="middle" font-size="10" fill="#ECF0F1">thép cơ bản hoặc lớp hàn trước</text>
+  </g>
+
+  <!-- ===== 5. INCOMPLETE PENETRATION ===== -->
+  <g transform="translate(275,250)">
+    <rect width="230" height="170" rx="10" fill="#16213e" stroke="#1ABC9C" stroke-width="2"/>
+    <text x="115" y="28" text-anchor="middle" font-size="13" font-weight="bold" fill="#1ABC9C">❌ THIẾU NGẤU RỄ (Incomplete Pen.)</text>
+    
+    <!-- Butt joint with incomplete penetration -->
+    <rect x="30" y="85" width="70" height="55" fill="url(#steelG)" stroke="#555" stroke-width="1"/>
+    <rect x="130" y="85" width="70" height="55" fill="url(#steelG)" stroke="#555" stroke-width="1"/>
+    <!-- V-groove weld -->
+    <polygon points="100,85 130,85 130,140 100,140 115,110" fill="url(#weldG)" stroke="#C0392B" stroke-width="1.5"/>
+    <!-- Unfused root -->
+    <rect x="105" y="125" width="20" height="15" fill="#1a1a2e" stroke="#1ABC9C" stroke-width="1.5" rx="2"/>
+    <text x="115" y="137" text-anchor="middle" font-size="7" fill="#1ABC9C" font-weight="bold">Gap</text>
+    
+    <text x="115" y="155" text-anchor="middle" font-size="10" fill="#ECF0F1">Rễ hàn không xuyên suốt</text>
+    <text x="115" y="168" text-anchor="middle" font-size="10" fill="#ECF0F1">chiều dày mối nối (CJP)</text>
+  </g>
+
+  <!-- ===== 6. OVERLAP ===== -->
+  <g transform="translate(525,250)">
+    <rect width="230" height="170" rx="10" fill="#16213e" stroke="#E67E22" stroke-width="2"/>
+    <text x="115" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#E67E22">❌ CHẢY TRÀN (Overlap)</text>
+    
+    <!-- Base plate -->
+    <rect x="30" y="110" width="170" height="30" fill="url(#steelG)" stroke="#555" stroke-width="1"/>
+    <!-- Oversized weld that flows over -->
+    <path d="M 60,110 Q 80,65 115,78 Q 140,60 170,110" fill="url(#weldG)" stroke="#C0392B" stroke-width="1.5"/>
+    <!-- Overlap -->
+    <path d="M 55,110 Q 50,108 48,112 Q 46,118 55,115" fill="#D35400" stroke="#E67E22" stroke-width="1.5"/>
+    <path d="M 175,110 Q 180,108 182,112 Q 184,118 175,115" fill="#D35400" stroke="#E67E22" stroke-width="1.5"/>
+    <text x="40" y="130" font-size="8" fill="#E67E22" font-weight="bold">Overlap</text>
+    
+    <text x="115" y="155" text-anchor="middle" font-size="10" fill="#ECF0F1">Kim loại hàn tràn lên bề mặt</text>
+    <text x="115" y="168" text-anchor="middle" font-size="10" fill="#ECF0F1">thép cơ bản mà không ngấu</text>
+  </g>
+
+  <text x="390" y="442" text-anchor="middle" font-size="11" fill="#7F8C8D">Hình 7 — 6 khuyết tật hàn thường gặp và tiêu chí nghiệm thu theo AWS D1.1</text>
+</svg>

@@ -193,7 +193,7 @@ function renderDetail(){
                     : `<button class="btn btn-primary btn-block" style="margin-top:1.2rem;opacity:.55;cursor:not-allowed" disabled data-vi="Sắp ra mắt" data-en="Coming soon">Coming soon</button>` ) ) }
 
           ${ !isPaid(t) ? `<div class="trust">
-            ${ t.virustotal ? `<a class="chip" href="${esc(t.virustotal)}" target="_blank" rel="noopener">VirusTotal ↗</a>` : `<span class="chip" data-vi="An toàn, đã kiểm tra" data-en="Safe, scanned">Safe, scanned</span>` }
+            ${ t.virustotal ? `<a class="chip" href="${esc(t.virustotal)}" target="_blank" rel="noopener">VirusTotal ↗</a>` : '' }
           </div>` : '' }
           ${ t.checksum && !isPaid(t) ? `<p style="margin-top:.9rem;font-size:.75rem;color:var(--steel)"><b>SHA-256</b></p><div class="checksum">${esc(t.checksum)}</div>` : `` }
         </div>
