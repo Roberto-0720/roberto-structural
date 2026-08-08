@@ -79,10 +79,10 @@ function footerHtml(lang){
     </div>
     <div>
       <h4 data-vi="Lĩnh vực" data-en="Sectors">Lĩnh vực</h4>
+      <a href="${P('index')}#about" data-rs-page="index" data-rs-hash="#about" data-vi="Công nghiệp nặng" data-en="Heavy Industry">Công nghiệp nặng</a>
+      <a href="${P('index')}#about" data-rs-page="index" data-rs-hash="#about" data-vi="Công nghiệp nhẹ" data-en="Light Industry">Công nghiệp nhẹ</a>
       <a href="${P('index')}#about" data-rs-page="index" data-rs-hash="#about" data-vi="Lọc hóa dầu" data-en="Petrochemical">Lọc hóa dầu</a>
-      <a href="${P('index')}#about" data-rs-page="index" data-rs-hash="#about" data-vi="Nhiệt điện" data-en="Thermal power">Nhiệt điện</a>
-      <a href="${P('index')}#about" data-rs-page="index" data-rs-hash="#about" data-vi="Điện khí" data-en="Gas power">Điện khí</a>
-      <a href="${P('index')}#about" data-rs-page="index" data-rs-hash="#about" data-vi="Điện rác" data-en="Waste-to-energy">Điện rác</a>
+      <a href="${P('index')}#about" data-rs-page="index" data-rs-hash="#about" data-vi="Năng lượng" data-en="Energy">Năng lượng</a>
     </div>
     <div>
       <h4 data-vi="Nhận bản tin" data-en="Newsletter">Nhận bản tin</h4>

@@ -489,6 +489,23 @@ window.ARTICLES = [
         ]
       },
 
+      /* ---------- Công cụ hỗ trợ ---------- */
+      {
+        heading: { vi: "Công cụ tính toán hỗ trợ", en: "Supporting design tools" },
+        body: [
+          {
+            type: "tip",
+            vi: "<b>GRDS — Concrete Slab on Grade Design</b> là phần mềm tính toán chuyên dụng giúp kỹ sư thiết kế sàn nền bê tông theo lý thuyết Westergaard. Công cụ này tự động hoá các bước tính toán nặng (Lr, ứng suất bending, độ võng) cho ba vị trí tải điển hình, từ đó giúp bạn nhanh chóng tìm ra chiều dày sàn, kích thước joint và bố trí cốt thép phù hợp.",
+            en: "<b>GRDS — Concrete Slab on Grade Design</b> is a specialized design software that helps engineers compute slab thickness, stress and deflection using Westergaard theory. It automates the heavy lifting for interior, edge and corner loading positions, allowing you to quickly converge on thickness, joint spacing and reinforcement layout."
+          },
+          {
+            type: "tip",
+            vi: "Xem chi tiết phần mềm: <a href=\"tool-grds-slab-on-grade.html\" style=\"font-weight:600;text-decoration:underline;color:var(--accent)\">tại đây</a>",
+            en: "See details software: <a href=\"tool-grds-slab-on-grade.html\" style=\"font-weight:600;text-decoration:underline;color:var(--accent)\">here</a>"
+          }
+        ]
+      },
+
       /* ---------- Kết ---------- */
       {
         heading: { vi: "Kết — mười điều cần nhớ", en: "Closing — ten things to remember" },
@@ -1148,7 +1165,7 @@ window.ARTICLES = [
   {
     id: "aci318-2nd-order-sap2000",
     no: "03",
-    category: { vi: "Kết cấu BTCT", en: "Reinforced Concrete" },
+    category: { vi: "Mô hình & Phân tích", en: "Modelling & Analysis" },
     date: "2026-08-04",
     readmin: 22,
     title: {
@@ -1634,6 +1651,24 @@ window.ARTICLES = [
           }
         ]
       },
+
+      /* ---------- Công cụ hỗ trợ ---------- */
+      {
+        heading: { vi: "Công cụ tính toán hỗ trợ", en: "Supporting design tools" },
+        body: [
+          {
+            type: "tip",
+            vi: "<b>RC Design Output — SAP2000</b> giúp kỹ sư trích xuất và tổng hợp kết quả thiết kế BTCT từ SAP2000 một cách nhanh chóng, từ đó tạo bảng tính toán chuẩn mực cho hồ sơ dự án. Công cụ này tự động hoá quá trình tính toán các thông số thiết kế từ lực cắt, moment, lực dọc và trích xuất thép dọc + thép cắt theo các tiêu chuẩn phổ biến.",
+            en: "<b>RC Design Output — SAP2000</b> helps engineers extract and synthesize RC design results from SAP2000 quickly, producing a standardized calculation sheet for the project documentation. This tool automates the process of computing design parameters from shear, moment, axial force and extracting longitudinal and transverse reinforcement per common codes."
+          },
+          {
+            type: "tip",
+            vi: "Xem chi tiết phần mềm: <a href=\"tool-rc-design-output-sap2000.html\" style=\"font-weight:600;text-decoration:underline;color:var(--accent)\">tại đây</a>",
+            en: "See details software: <a href=\"tool-rc-design-output-sap2000.html\" style=\"font-weight:600;text-decoration:underline;color:var(--accent)\">here</a>"
+          }
+        ]
+      },
+
       {
         heading: { vi: "13. Ghi chú về phiên bản ACI 318", en: "13. A note on ACI 318 editions" },
         body: [

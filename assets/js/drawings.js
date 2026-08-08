@@ -6,7 +6,10 @@
 
 function dbi(obj){ return `data-vi="${(obj.vi||'').replace(/"/g,'&quot;')}" data-en="${(obj.en||'').replace(/"/g,'&quot;')}"`; }
 function desc2(s){ return String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
-function dReady(d){ return d.download && /^https?:/.test(d.download); }
+function dIsPaid(d){ return Number(d.priceVnd || 0) > 0; }
+// A free set can be downloaded only when it has a real public link.
+function dReady(d){ return !dIsPaid(d) && d.download && /^https?:/.test(d.download); }
+function dFmtVnd(n){ return Number(n).toLocaleString('vi-VN') + ' ₫'; }
 
 function renderDrawings(){
   const grid = document.getElementById('draw-grid');
@@ -41,11 +44,16 @@ function renderDrawings(){
             <span><b ${dbi(d.count)}>${desc2(d.count.en)}</b><span data-vi="Quy mô" data-en="Scope">Scope</span></span>
           </div>
           <div class="foot">
+            ${ dIsPaid(d)
+                ? `<span class="badge-price">${dFmtVnd(d.priceVnd)}</span>`
+                : `<span class="badge-free" data-vi="Miễn phí" data-en="Free">Free</span>` }
             <button class="btn btn-ghost" style="padding:.5rem 1rem" onclick="rsOpenLightbox('${d.id}')" data-vi="Xem bản vẽ" data-en="View drawings">View drawings</button>
-            ${ dReady(d)
-                ? `<button class="btn btn-primary" style="padding:.5rem 1rem" onclick='rsOpenDrawing("${d.id}")' data-vi="Tải bản vẽ" data-en="Download">Download</button>`
-                : `<span class="badge-soon" data-vi="Sắp có bản tải" data-en="Download soon">Download soon</span>` }
           </div>
+          ${ dIsPaid(d)
+              ? `<a class="btn btn-primary btn-block" href="purchase.html?id=${encodeURIComponent(d.id)}" data-vi="Mua bản vẽ" data-en="Buy drawing">Buy drawing</a>`
+              : ( dReady(d)
+                  ? `<button class="btn btn-primary btn-block" onclick='rsOpenDrawing("${d.id}")' data-vi="Tải bản vẽ" data-en="Download">Download</button>`
+                  : `<span class="badge-soon" data-vi="Sắp có bản tải" data-en="Download soon">Download soon</span>` ) }
         </div>
       </article>`).join('');
     }

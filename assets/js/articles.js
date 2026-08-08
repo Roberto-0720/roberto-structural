@@ -142,7 +142,7 @@ function renderBlock(b){
   // that each belong next to their own paragraph.
   if(b.type === 'figure'){
     return `<figure class="art-fig reveal">
-      <img ${afigSrc(b)} alt="${aesc(afigAlt(b))}" loading="lazy" onclick="rsArtZoom(this.src)"/>
+      <img ${afigSrc(b)} alt="${aesc(afigAlt(b))}" loading="lazy" onclick="rsArtZoom(this)"/>
       ${ b.caption ? `<figcaption ${abi(b.caption)}>${araw(b.caption)}</figcaption>` : '' }
     </figure>`;
   }
@@ -194,7 +194,7 @@ function renderArticle(){
         ${s.body.map(b=>renderBlock(b)).join('')}
         ${ (s.figures || (s.figure ? [s.figure] : [])).map(f=>`
         <figure class="art-fig reveal">
-          <img ${afigSrc(f)} alt="${aesc(afigAlt(f, s))}" loading="lazy" onclick="rsArtZoom(this.src)"/>
+          <img ${afigSrc(f)} alt="${aesc(afigAlt(f, s))}" loading="lazy" onclick="rsArtZoom(this)"/>
           ${ f.caption ? `<figcaption ${abi(f.caption)}>${aesc(f.caption.en)}</figcaption>` : '' }
         </figure>`).join('') }
       `).join('')}
@@ -254,7 +254,7 @@ window.rsShare = function(where){
 
 /* Article figures — open every figure of the article in the shared lightbox,
    starting at the one that was clicked, so the reader can page through them. */
-window.rsArtZoom = function(src){
+window.rsArtZoom = function(clickedImg){
   if(!window.RSLightbox) return;
   const figs = [...document.querySelectorAll('.art-fig img')];
   const srcs = figs.map(f => f.getAttribute('src'));
@@ -262,7 +262,10 @@ window.rsArtZoom = function(src){
     const c = f.parentElement.querySelector('figcaption');
     return c ? c.textContent.trim() : '';
   });
-  const i = Math.max(0, srcs.indexOf(src));
+  // Find the clicked image's index by comparing the image element itself,
+  // not by src string (which can be resolved to different URLs depending on context)
+  const clickedIndex = figs.indexOf(clickedImg);
+  const i = clickedIndex >= 0 ? clickedIndex : 0;
   window.RSLightbox.open(srcs, i, caps);
 };
 

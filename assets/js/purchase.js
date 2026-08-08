@@ -1,14 +1,22 @@
 /* ============================================================
    Roberto Structural — purchase page (domestic VN payment)
-   Depends on: tools-data.js (window.TOOLS), main.js (window.RS)
+   Depends on: tools-data.js (window.TOOLS), drawings-data.js (window.DRAWINGS),
+               main.js (window.RS)
 
    FLOW
-     1. Customer lands here from a paid tool  →  purchase.html?id=<tool id>
+     1. Customer lands here from a paid tool OR a paid drawing set →
+        purchase.html?id=<tool id | drawing id>. The id is looked up in
+        both TOOLS and DRAWINGS (findProduct) — ids never collide between
+        the two lists, so a plain search is enough.
      2. Page shows an auto-generated order reference, the amount and the
         bank / e-wallet details to transfer to.
      3. Customer submits the order form (name, e-mail, order ref).
-     4. Roberto checks the bank app, issues the key with the Licence
-        Generator and e-mails the key + download link.
+     4. Roberto checks the bank app, then delivers by hand:
+          · Tool     → licence key from the Licence Generator + download link.
+          · Drawing  → the real GitHub Release link, kept OUTSIDE the repo in
+                        _LicenseSystem/DrawingDownloadLinks.md (drawings have
+                        no licence key — the link itself is what's withheld
+                        until payment, same reasoning as products.py).
 
    Edit PAYMENT below with your real account details.
    ============================================================ */
@@ -19,7 +27,7 @@ const PAYMENT = {
     account: "0451000210168",                 // <-- SỐ TÀI KHOẢN của bạn
     holder: "TRUONG VAN NAM",           // <-- TÊN CHỦ TÀI KHOẢN (không dấu)
     branch: "",                            // tuỳ chọn
-    qr: "Resource/payment/vcb-qr.png"      // <-- ảnh QR VietQR (tuỳ chọn)
+    qr: "Resource/payment/vcb-qr.png.png"      // <-- ảnh QR VietQR (tuỳ chọn)
   },
   momo: {
     phone: "0977200787",                   // <-- SỐ MOMO của bạn
@@ -50,14 +58,25 @@ function makeOrderRef() {
   return `RBT${stamp}${rnd}`;
 }
 
+// Looks up an id in both catalogs. Ids never collide (tools use plain slugs
+// like "deflection-check", drawings use "residential-*" / "tuduong-*"), so a
+// simple sequential search is enough — no "type=" query param needed.
+function findProduct(id) {
+  const t = (window.TOOLS || []).find(x => x.id === id);
+  if (t) return { kind: 'tool', item: t };
+  const d = (window.DRAWINGS || []).find(x => x.id === id);
+  if (d) return { kind: 'drawing', item: d };
+  return null;
+}
+
 function renderPurchase() {
   const root = document.getElementById('purchase-root');
   if (!root) return;
 
   const id = new URLSearchParams(location.search).get('id');
-  const t = (window.TOOLS || []).find(x => x.id === id);
+  const found = findProduct(id);
 
-  if (!t) {
+  if (!found) {
     root.innerHTML = `<section class="section"><div class="container" style="text-align:center">
       <h2 class="h2" data-vi="Không tìm thấy sản phẩm" data-en="Product not found">Product not found</h2>
       <a class="btn btn-primary" href="${window.RS_URL.page('tools')}" style="margin-top:1rem" data-vi="Về danh mục phần mềm" data-en="Back to software">Back to software</a>
@@ -66,17 +85,73 @@ function renderPurchase() {
     return;
   }
 
+  const { kind, item: t } = found;
+  const isDraw = kind === 'drawing';
+
   const ref = makeOrderRef();
   const amount = Number(t.priceVnd || 0);
   const transferNote = ref;                       // keep the note short & unique
   document.title = `${t.name.en} — ${window.RS.lang === 'vi' ? 'Thanh toán' : 'Purchase'} — Roberto Structural`;
 
+  // Everything that differs between a tool purchase and a drawing purchase
+  // is decided once here, so the markup below reads the same for both.
+  const catalogUrl = isDraw ? window.RS_URL.page('drawings') : window.RS_URL.page('tools');
+  const catalogCrumb = isDraw
+    ? `<a href="${catalogUrl}" data-vi="Bản vẽ" data-en="Drawings">Drawings</a>`
+    : `<a href="${catalogUrl}" data-vi="Phần mềm" data-en="Software">Software</a> / <a href="${window.RS_URL.tool(t.id)}" ${pbi(t.name)}>${pesc(t.name.en)}</a>`;
+  const eyebrow = isDraw
+    ? { vi: 'Mua bản vẽ', en: 'Buy drawing' }
+    : { vi: 'Mua bản quyền', en: 'Buy licence' };
+  const introP = isDraw
+    ? { vi: 'Chuyển khoản nội địa, nhận link tải bản vẽ qua email trong vòng vài giờ làm việc.', en: 'Domestic bank transfer — your drawing download link is e-mailed within a few working hours.' }
+    : { vi: 'Chuyển khoản nội địa, nhận mã bản quyền qua email trong vòng vài giờ làm việc.', en: 'Domestic bank transfer — your licence key is e-mailed within a few working hours.' };
+  const step2Body = isDraw
+    ? { vi: 'Link tải bản vẽ sẽ gửi tới email bạn nhập dưới đây — hãy nhập chính xác.', en: 'Your download link is sent to the e-mail below — please enter it correctly.' }
+    : { vi: 'Mã bản quyền sẽ gắn với email bạn nhập dưới đây — hãy nhập chính xác.', en: 'Your licence key is bound to the e-mail below — please enter it correctly.' };
+  const step2Note = isDraw
+    ? { vi: 'Sau khi đối soát, chúng tôi gửi link tải bản vẽ (DWG) qua email.', en: 'Once the payment is matched we e-mail your drawing (DWG) download link.' }
+    : { vi: 'Sau khi đối soát, chúng tôi gửi mã bản quyền và link tải qua email.', en: 'Once the payment is matched we e-mail your licence key and download link.' };
+  const step3 = isDraw
+    ? {
+        h: { vi: 'Nhận file bản vẽ', en: 'Receive your files' },
+        p: { vi: 'File DWG được gửi qua email đính kèm hoặc link tải. Dùng ngay trong AutoCAD / ZWCAD, không cần kích hoạt.', en: 'DWG files arrive as an e-mail attachment or download link. Open directly in AutoCAD / ZWCAD — no activation needed.' }
+      }
+    : {
+        h: { vi: 'Kích hoạt phần mềm', en: 'Activate the software' },
+        p: { vi: 'Mở phần mềm lần đầu, nhập email và mã bản quyền đã nhận. Kích hoạt offline, chỉ làm một lần, dùng được trên máy khác khi bạn đổi máy.', en: 'On first launch, enter your e-mail and licence key. Activation is offline, one-time, and still works if you change computer.' }
+      };
+  const licenceRow = isDraw
+    ? { vi: 'Sử dụng', en: 'Usage' }
+    : { vi: 'Bản quyền', en: 'Licence' };
+  const licenceVal = isDraw ? { vi: 'Không giới hạn dự án', en: 'Unlimited projects' } : { vi: 'Vĩnh viễn', en: 'Perpetual' };
+  const rightFeatures = isDraw
+    ? [
+        { vi: 'Trọn bộ file DWG gốc, chỉnh sửa tự do', en: 'Full editable native DWG files' },
+        { vi: 'Giao file qua email sau khi xác nhận thanh toán', en: 'Delivered by e-mail once payment is confirmed' },
+        { vi: 'Dùng được cho nhiều dự án', en: 'Usable across multiple projects' },
+        { vi: 'Hỗ trợ qua email', en: 'E-mail support' }
+      ]
+    : [
+        { vi: 'Bản quyền vĩnh viễn, không thuê bao', en: 'Perpetual licence, no subscription' },
+        { vi: 'Kích hoạt offline, dùng được khi đổi máy', en: 'Offline activation, works after changing PC' },
+        { vi: 'Cập nhật nhỏ miễn phí cùng phiên bản', en: 'Free minor updates within the version' },
+        { vi: 'Hỗ trợ qua email', en: 'E-mail support' }
+      ];
+  const specRows = isDraw
+    ? `<tr><td data-vi="Định dạng" data-en="Format">Format</td><td>${pesc(t.format)}</td></tr>
+       <tr><td data-vi="Quy mô" data-en="Scope">Scope</td><td ${pbi(t.count)}>${pesc(t.count.en)}</td></tr>
+       <tr><td ${pbi(licenceRow)}>${pesc(licenceRow.en)}</td><td ${pbi(licenceVal)}>${pesc(licenceVal.en)}</td></tr>`
+    : `<tr><td data-vi="Phiên bản" data-en="Version">Version</td><td>${pesc(t.version)}</td></tr>
+       <tr><td data-vi="Dung lượng" data-en="Size">Size</td><td>${pesc(t.size)}</td></tr>
+       <tr><td data-vi="Hệ điều hành" data-en="OS">OS</td><td>${pesc(t.os)}</td></tr>
+       <tr><td ${pbi(licenceRow)}>${pesc(licenceRow.en)}</td><td ${pbi(licenceVal)}>${pesc(licenceVal.en)}</td></tr>`;
+
   root.innerHTML = `
   <section class="page-hero"><div class="container">
-    <p class="breadcrumb"><a href="${window.RS_URL.page('index')}" data-vi="Trang chủ" data-en="Home">Home</a> / <a href="${window.RS_URL.page('tools')}" data-vi="Phần mềm" data-en="Software">Software</a> / <a href="${window.RS_URL.tool(t.id)}" ${pbi(t.name)}>${pesc(t.name.en)}</a> / <span data-vi="Thanh toán" data-en="Purchase">Purchase</span></p>
-    <p class="eyebrow" data-vi="Mua bản quyền" data-en="Buy licence">Buy licence</p>
+    <p class="breadcrumb"><a href="${window.RS_URL.page('index')}" data-vi="Trang chủ" data-en="Home">Home</a> / ${catalogCrumb} / <span data-vi="Thanh toán" data-en="Purchase">Purchase</span></p>
+    <p class="eyebrow" ${pbi(eyebrow)}>${pesc(eyebrow.en)}</p>
     <h1 ${pbi(t.name)}>${pesc(t.name.en)}</h1>
-    <p data-vi="Chuyển khoản nội địa, nhận mã bản quyền qua email trong vòng vài giờ làm việc." data-en="Domestic bank transfer — your licence key is e-mailed within a few working hours.">Domestic bank transfer — your licence key is e-mailed within a few working hours.</p>
+    <p ${pbi(introP)}>${pesc(introP.en)}</p>
   </div></section>
 
   <section class="section" style="padding-top:clamp(2rem,5vw,3rem)"><div class="container">
@@ -128,14 +203,14 @@ function renderPurchase() {
             <div class="step-no">2</div>
             <div class="step-body">
               <h3 data-vi="Điền thông tin để nhận bản quyền" data-en="Send us your details">Send us your details</h3>
-              <p class="muted" data-vi="Mã bản quyền sẽ gắn với email bạn nhập dưới đây — hãy nhập chính xác." data-en="Your licence key is bound to the e-mail below — please enter it correctly.">Your licence key is bound to the e-mail below — please enter it correctly.</p>
+              <p class="muted" ${pbi(step2Body)}>${pesc(step2Body.en)}</p>
               <div id="orderForm">
                 <div class="fld"><label data-vi="Họ tên" data-en="Full name">Full name</label><input id="oName" type="text" placeholder="Nguyễn Văn A"/></div>
                 <div class="fld"><label data-vi="Email nhận bản quyền" data-en="E-mail for the licence">E-mail for the licence</label><input id="oEmail" type="email" placeholder="ban@congty.com"/></div>
                 <div class="fld"><label data-vi="Mã đơn (nội dung đã chuyển khoản)" data-en="Order reference (your transfer note)">Order reference (your transfer note)</label><input id="oRef" type="text" value="${pesc(transferNote)}"/></div>
                 <div class="fld"><label data-vi="Ghi chú (tuỳ chọn)" data-en="Note (optional)">Note (optional)</label><input id="oNote" type="text" placeholder=""/></div>
                 <button class="btn btn-primary btn-block" onclick="rsSubmitOrder('${pesc(t.id)}')" data-vi="Gửi thông tin đơn hàng" data-en="Submit order">Submit order</button>
-                <p class="muted small" data-vi="Sau khi đối soát, chúng tôi gửi mã bản quyền và link tải qua email." data-en="Once the payment is matched we e-mail your licence key and download link.">Once the payment is matched we e-mail your licence key and download link.</p>
+                <p class="muted small" ${pbi(step2Note)}>${pesc(step2Note.en)}</p>
               </div>
               <div id="orderThanks" class="hidden order-thanks">
                 <h3 data-vi="Đã nhận đơn hàng!" data-en="Order received!">Order received!</h3>
@@ -157,8 +232,8 @@ function renderPurchase() {
           <li class="step reveal">
             <div class="step-no">3</div>
             <div class="step-body">
-              <h3 data-vi="Kích hoạt phần mềm" data-en="Activate the software">Activate the software</h3>
-              <p class="muted" data-vi="Mở phần mềm lần đầu, nhập email và mã bản quyền đã nhận. Kích hoạt offline, chỉ làm một lần, dùng được trên máy khác khi bạn đổi máy." data-en="On first launch, enter your e-mail and licence key. Activation is offline, one-time, and still works if you change computer.">On first launch, enter your e-mail and licence key. Activation is offline and one-time.</p>
+              <h3 ${pbi(step3.h)}>${pesc(step3.h.en)}</h3>
+              <p class="muted" ${pbi(step3.p)}>${pesc(step3.p.en)}</p>
             </div>
           </li>
         </ol>
@@ -170,20 +245,14 @@ function renderPurchase() {
           <div class="order-thumb" style="background-image:url('${pesc(t.thumb)}')"></div>
           <h3 style="margin-top:1rem;font-size:1.05rem" ${pbi(t.name)}>${pesc(t.name.en)}</h3>
           <table class="spec">
-            <tr><td data-vi="Phiên bản" data-en="Version">Version</td><td>${pesc(t.version)}</td></tr>
-            <tr><td data-vi="Dung lượng" data-en="Size">Size</td><td>${pesc(t.size)}</td></tr>
-            <tr><td data-vi="Hệ điều hành" data-en="OS">OS</td><td>${pesc(t.os)}</td></tr>
-            <tr><td data-vi="Bản quyền" data-en="Licence">Licence</td><td data-vi="Vĩnh viễn" data-en="Perpetual">Perpetual</td></tr>
+            ${specRows}
           </table>
           <div class="order-total">
             <span data-vi="Tổng cộng" data-en="Total">Total</span>
             <b>${pvnd(amount)}</b>
           </div>
           <ul class="feat-list" style="margin-top:1rem">
-            <li data-vi="Bản quyền vĩnh viễn, không thuê bao" data-en="Perpetual licence, no subscription">Perpetual licence, no subscription</li>
-            <li data-vi="Kích hoạt offline, dùng được khi đổi máy" data-en="Offline activation, works after changing PC">Offline activation, works after changing PC</li>
-            <li data-vi="Cập nhật nhỏ miễn phí cùng phiên bản" data-en="Free minor updates within the version">Free minor updates within the version</li>
-            <li data-vi="Hỗ trợ qua email" data-en="E-mail support">E-mail support</li>
+            ${rightFeatures.map(f => `<li ${pbi(f)}>${pesc(f.en)}</li>`).join('')}
           </ul>
           <p class="muted small" style="margin-top:1rem" data-vi="Cần xuất hoá đơn hoặc mua nhiều bản? Liên hệ email." data-en="Need an invoice or a volume licence? Contact us by e-mail.">Need an invoice or a volume licence? Contact us.</p>
           <a class="btn btn-ghost btn-block" href="mailto:${pesc(PAYMENT.supportEmail)}" style="margin-top:.5rem">${pesc(PAYMENT.supportEmail)}</a>
@@ -274,7 +343,12 @@ window.rsSubmitOrder = async function (toolId) {
   if (!name) { alert(vi ? 'Vui lòng nhập họ tên.' : 'Please enter your name.'); return; }
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { alert(vi ? 'Vui lòng nhập email hợp lệ.' : 'Please enter a valid e-mail.'); return; }
 
-  const t = (window.TOOLS || []).find(x => x.id === toolId) || {};
+  const found = findProduct(toolId);
+  const t = found ? found.item : {};
+  // Drawings have no licence "productCode" — fall back to the id itself so
+  // Roberto can still tell which GitHub Release link to send (see
+  // _LicenseSystem/DrawingDownloadLinks.md).
+  const code = t.productCode || (found && found.kind === 'drawing' ? toolId : '');
   const when = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Ho_Chi_Minh', hour12: false });
 
   const payload = {
@@ -283,7 +357,7 @@ window.rsSubmitOrder = async function (toolId) {
     customer_name: name,
     email,
     product: t.name ? t.name.en : toolId,
-    product_code: t.productCode || '',
+    product_code: code,
     amount_vnd: t.priceVnd || '',
     order_ref: ref,
     note,
