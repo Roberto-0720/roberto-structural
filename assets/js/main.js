@@ -265,9 +265,15 @@ window.rsSubmitGate = async function(){
     // works. A plain link click behaves exactly like the address bar.
     btn.href = url; btn.removeAttribute('download'); btn.target = '_blank'; btn.rel = 'noopener';
     btn.classList.remove('hidden');
+    // Close the dialog once the download has been kicked off — leaving it open
+    // reads as "nothing happened". The short delay lets the click register and
+    // the download start before the panel disappears; closing is only a DOM
+    // change here, so it can never cancel a download already under way.
+    btn.onclick = () => { setTimeout(window.rsCloseGate, 1200); };
   }else{
     msg.textContent = RS.lang==='vi' ? 'File sẽ sớm được cập nhật — chúng tôi sẽ gửi email cho bạn.' : 'The file will be available soon — we will email you.';
     btn.classList.add('hidden');
+    btn.onclick = null;   // drop the handler left over from a previous open
   }
   RS.setLang(RS.lang);
 };
