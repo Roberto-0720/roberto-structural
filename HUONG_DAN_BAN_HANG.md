@@ -104,15 +104,31 @@ Thời gian xử lý: **~3 phút/đơn**.
 
 ## 4. Lưu file bản trả phí ở đâu?
 
-**Không** dùng GitHub Release công khai cho bản trả phí (Google sẽ index).
+**Chốt 2026-08-09: Google Drive, chia sẻ theo email người mua.**
 
-Chọn một trong hai:
-- **Google Drive**: upload file `.zip` → Share → *Anyone with the link* → copy link.
-  Dán link đó vào ô "Link tải gửi khách" trong Licence Generator.
-- **GitHub Release ở repo Private**: an toàn hơn nhưng khách phải đăng nhập GitHub → bất tiện.
+- Upload `.zip` vào thư mục `RS_Paid_Tools` (tool) hoặc `RS_Paid_Dwgs` (bản vẽ)
+- **Giữ chế độ mặc định *Restricted*** — tuyệt đối không chọn *Anyone with the link*
+- Link Drive cố định, khai một lần trong `products.py`; app tự điền vào ô
+  "Link tải gửi khách" khi bạn cấp key
+- **Mỗi lần bán, thêm đúng 1 thao tác:** chuột phải file → Share → nhập email khách → Send
+
+Cách này gắn quyền tải vào đúng email đã mua — trùng khớp với mã bản quyền vốn cũng
+gắn theo email, nên thành hai lớp cùng chỉ về một người.
+
+> ⚠️ **GitHub Release KHÔNG dùng được cho bản trả phí.** Repo private thì khách nhận
+> **404** (release thừa hưởng chế độ hiển thị của repo — chủ repo tải được vì đang đăng
+> nhập, khách thì không). Repo public thì ai cũng tải. GitHub không có khái niệm "người
+> này đã mua". Đây là kết luận sau khi thử thật, không phải phỏng đoán.
+>
+> GitHub Release vẫn đúng cho **bản miễn phí**: repo public tên `<gốc>_Release`,
+> lịch sử trống, chỉ chứa file zip.
 
 > Nhắc lại: link nào cũng có thể bị chia sẻ. Bảo vệ thật nằm ở **mã bản quyền** và
 > **tên khách in trên báo cáo**, không phải ở độ bí mật của link.
+
+⚠️ **Trước khi bán bất kỳ tool nào: kiểm tool đó đã nhúng cổng chặn bản quyền chưa.**
+Hiện mới `SIDESWAY` có; 11 tool trả phí còn lại mở lên là dùng được ngay, mã bản quyền
+gửi kèm chỉ là dãy ký tự vô nghĩa. Xem CLAUDE.md mục 6.
 
 ---
 

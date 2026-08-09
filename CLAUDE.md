@@ -222,16 +222,69 @@ Khách bấm "Buy licence" → purchase.html sinh mã đơn RBTyymmddXXX
   toàn bộ secret → mọi key đã cấp cho khách đều vô hiệu. Secret vào git history là **vĩnh viễn**.
 
   → **Không bao giờ** copy `_LicenseSystem/` vào trong `WebsiteRobertoStructural/`.
-- Chỉ tool **miễn phí** mới có link công khai, và luôn dùng dạng
-  `https://github.com/<user>/<repo>/releases/latest/download/<file>.zip`
-  — link `latest` không đổi khi phát hành bản mới.
+### Đường giao hàng — hai kênh, không được lẫn (chốt 2026-08-09)
+
+|  | Nội dung **miễn phí** | Nội dung **trả phí** |
+|---|---|---|
+| Nơi chứa | GitHub repo **public** tên `<gốc>_Release` | **Google Drive**, thư mục `RS_Paid_Tools` / `RS_Paid_Dwgs` |
+| Link | `.../releases/latest/download/<file>.zip` | Link Drive cố định trong `products.py` |
+| Cấp quyền | ai cũng tải | chia sẻ theo **email người mua** |
+| Khai ở đâu | `tools-data.js` / `drawings-data.js` (công khai) | `products.py` (riêng tư) |
+
+⚠️ **Bài học tốn nhiều thời gian nhất của dự án:** *"đã tạo Release" không có nghĩa là
+khách tải được.* Release **thừa hưởng** chế độ hiển thị của repo — repo private thì
+release cũng private. Chủ repo dán link vẫn tải ngon lành vì đang đăng nhập, còn khách
+nhận **404**. GitHub cố tình trả "Not Found" chứ không phải "không có quyền", nên triệu
+chứng nhìn y hệt link gõ sai.
+
+→ **Luôn kiểm link tải bằng cửa sổ ẩn danh** (Ctrl+Shift+N) hoặc `curl` — đó là thứ khách
+thực sự thấy. Đừng bao giờ kết luận "link chạy được" từ trình duyệt đang đăng nhập.
+
+→ **Không** chuyển repo source của tool sang public để chữa: repo đó chứa source và
+lịch sử commit của nó (nơi secret có thể từng nằm). Tạo repo `_Release` mới, lịch sử
+trống, chỉ chứa file zip.
+
+→ GitHub Releases **không dùng được cho bản trả phí**: private thì khách 404, public thì
+ai cũng tải. GitHub không có khái niệm "người này đã mua". Đó là lý do bản trả phí đi
+Google Drive.
 
 **Mã bản quyền:** `HMAC-SHA256(secret_sản_phẩm, "email|MÃ_SP")` → base32 →
 `RBT-XXXX-XXXX-XXXX-XXXX`. Gắn với **email**, kiểm tra **offline**, **vĩnh viễn không hết hạn**.
 Cùng email luôn sinh ra cùng một key → khách mất key thì sinh lại y hệt.
 
-Răn đe chống chia sẻ mạnh nhất **không phải** khoá kỹ thuật, mà là **in tên người mua
-lên báo cáo** do phần mềm xuất ra (hồ sơ thiết kế chính thức).
+### Cổng chặn trong tool — trạng thái thật
+
+Hệ thống bản quyền có **hai nửa**. Nửa cấp key (Licence Generator) xong từ lâu; nửa
+kiểm key nằm **trong từng tool** và phải nhúng thủ công cho mỗi tool.
+
+| Tool | Cổng chặn |
+|---|---|
+| `SIDESWAY` (Sidesway Check) | ✅ xong, đã test đầu-cuối 2026-08-09 |
+| 11 tool trả phí đã phát hành còn lại | ❌ **chưa có — mở lên là dùng được ngay** |
+
+→ **Không bán tool nào trước khi tool đó có cổng chặn.** File đã ra ngoài không thu hồi
+được, và người mua sớm giữ mãi bản không khoá.
+
+Cách nhúng: xem `_LicenseSystem/integration/README.md`, và `BUILD_NOTES.md` mục
+*Licence gate* trong repo tool 02 (bản tham chiếu đã chạy thật).
+
+⚠️ **Bộ tích hợp mẫu viết cho PyQt5.** Tool nào dùng Tkinter thì chép
+`ui/license_dialog.py` từ repo tool 02 (bản port Tkinter, dùng `run()` thay `exec_()`),
+không chép bản gốc PyQt5.
+
+⚠️ **`license_config.py` (chứa secret) KHÔNG được commit vào repo tool.** Tái tạo bằng:
+`python _LicenseSystem/integration/make_license_config.py <MÃ_SP> <thư-mục-tool>`
+
+### Mức bảo vệ thật sự — đừng tin quá mức
+
+Đã kiểm chứng trên bản build Nuitka của tool 02: quét `SWC.exe` tìm chuỗi 64 ký tự hex
+ra **đúng 1 kết quả, chính là khoá bí mật**. Nuitka biên dịch *logic* sang mã máy nên
+không dịch ngược về Python được, **nhưng chuỗi hằng vẫn nằm dạng chữ trong file**. Lấy
+được khoá là sinh được key cho mọi email.
+
+Đây đúng là giới hạn README của Licence Generator đã nêu — chống chia sẻ tuỳ tiện, không
+phải DRM. Răn đe thật sự vẫn là **in tên người mua lên báo cáo** do phần mềm xuất ra
+(hồ sơ thiết kế chính thức, không kỹ sư nào muốn nộp hồ sơ mang tên người khác).
 
 ---
 
@@ -359,6 +412,11 @@ bằng bản ghi TXT — gộp cả `www`/không-`www`, `http`/`https`.
    `customers.csv` hay `Resource/software_list/` (chứa giá và link trả phí).
    *Đã kiểm tra 2026-08-02: `git log --all` trên `_LicenseSystem`, `products.py`,
    `*.secret`, `customers.csv` → sạch, secret chưa bao giờ vào history.*
+   ⚠️ Nhưng `softwarelist.xlsx` **đã từng bị commit** (2026-08-09 mới gỡ bằng
+   `git rm --cached`) vì nó vào git *trước* khi dòng `.gitignore` ra đời. Đây là
+   lần thứ hai dính đúng lỗi này, sau `Article/`. **`.gitignore` không hồi tố** —
+   thêm luật chỉ chặn file mới, file đã track vẫn theo dõi vĩnh viễn. Thêm luật
+   xong phải kiểm `git ls-files | grep <mẫu>`.
 3. **Không** xoá thư mục ảnh — file `.webp` website đang dùng nằm chung với ảnh gốc.
 4. **Không** đổi thuật toán sinh key trong `license_core.py` — mọi key đã cấp sẽ vô hiệu.
 5. **Không** đổi `id` của tool/bài viết đã publish — `id` giờ nằm thẳng trong tên file
@@ -367,6 +425,11 @@ bằng bản ghi TXT — gộp cả `www`/không-`www`, `http`/`https`.
 7. **Không** sửa tay file có dấu ⚙ (`sitemap.xml`, `tool-*.html`, `article-*.html`) —
    lần chạy generator sau sẽ ghi đè sạch.
 8. **Không** để form tải file và form đơn hàng dùng chung endpoint Formspree (mục 11.C).
+9. **Không** bán tool trả phí chưa nhúng cổng chặn bản quyền (mục 6). File đã ra ngoài
+   không thu hồi được. Hiện mới `SIDESWAY` có cổng chặn; 11 tool còn lại **chưa**.
+10. **Không** kết luận "link tải chạy được" từ trình duyệt đang đăng nhập GitHub —
+    luôn thử bằng cửa sổ ẩn danh hoặc `curl`. Repo private trả 404 cho khách nhưng
+    tải ngon cho chủ repo, và triệu chứng nhìn giống hệt link gõ sai (mục 6).
 
 ---
 
