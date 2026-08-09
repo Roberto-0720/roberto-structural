@@ -350,8 +350,8 @@ window.TOOLS = [
       { vi: "Xuất Excel và lưu/mở dự án (.json)", en: "Excel export and save/open project (.json)" }
     ],
     requirements: REQ_STD,
-    download: "https://github.com/Roberto-0720/10_SeismicOnVerTank/releases/latest/download/SLVT.zip",
-    checksum: "", virustotal: ""
+    download: "https://github.com/Roberto-0720/10_SeismicOnVerTank_Release/releases/latest/download/SLVT.zip",
+    checksum: "b779bc54c7bd116dc4a4a18545930eaa60ee4a9fb8c91c6537cca0d8e3f91627", virustotal: ""
   },
 
   /* ---- 13 ---- */
