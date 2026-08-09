@@ -89,7 +89,7 @@ window.DRAWINGS = [
     ],
     format: "DWG",
     count: { vi: "10×10m · 2 tầng", en: "10×10m · 2 floors" },
-    priceVnd: 50000,
+    priceVnd: 0,
     thumb: "Resource/drawings/villa-02/01.webp",
     screenshots: [
       "Resource/drawings/villa-02/01.webp",
@@ -98,7 +98,7 @@ window.DRAWINGS = [
       "Resource/drawings/villa-02/00Living_01.webp",
       "Resource/drawings/villa-02/001Bedroom.webp"
     ],
-    download: ""
+    download: "https://github.com/Roberto-0720/Villa_02_10x10x2_Release/releases/latest/download/Villa_02_10x10x2.zip"
   },
   {
     id: "residential-townhouse-02",
@@ -138,14 +138,14 @@ window.DRAWINGS = [
     ],
     format: "DWG",
     count: { vi: "5×20m · 4 tầng", en: "5×20m · 4 floors" },
-    priceVnd: 50000,
+    priceVnd: 0,
     thumb: "Resource/drawings/townhouse-03/01.webp",
     screenshots: [
       "Resource/drawings/townhouse-03/01.webp",
       "Resource/drawings/townhouse-03/02.webp",
       "Resource/drawings/townhouse-03/03.webp"
     ],
-    download: ""
+    download: "https://github.com/Roberto-0720/Townhouse_03_5x20x4_Release/releases/latest/download/Townhouse_03_5x20x4.zip"
   },
   {
     id: "residential-townhouse-04",
@@ -186,14 +186,14 @@ window.DRAWINGS = [
     ],
     format: "DWG",
     count: { vi: "4×21m · 4 tầng", en: "4×21m · 4 floors" },
-    priceVnd: 50000,
+    priceVnd: 0,
     thumb: "Resource/drawings/townhouse-05/01.webp",
     screenshots: [
       "Resource/drawings/townhouse-05/01.webp",
       "Resource/drawings/townhouse-05/02.webp",
       "Resource/drawings/townhouse-05/03.webp"
     ],
-    download: ""
+    download: "https://github.com/Roberto-0720/Townhouse_05_4x21x4_Release/releases/latest/download/Townhouse_05_4x21x4.zip"
   },
   {
     id: "residential-townhouse-06",
@@ -209,14 +209,14 @@ window.DRAWINGS = [
     ],
     format: "DWG",
     count: { vi: "4×20m · 4 tầng", en: "4×20m · 4 floors" },
-    priceVnd: 50000,
+    priceVnd: 0,
     thumb: "Resource/drawings/townhouse-06/02.webp",
     screenshots: [
       "Resource/drawings/townhouse-06/02.webp",
       "Resource/drawings/townhouse-06/01.webp",
       "Resource/drawings/townhouse-06/03.webp"
     ],
-    download: ""
+    download: "https://github.com/Roberto-0720/Townhouse_06_4x20x4_Release/releases/latest/download/Townhouse_06_4x20x4.zip"
   },
   {
     id: "tuduong-01",
@@ -239,7 +239,7 @@ window.DRAWINGS = [
       "Resource/drawings/Tuduong_01/02.webp",
       "Resource/drawings/Tuduong_01/03.webp"
     ],
-    download: "https://github.com/Roberto-0720/Tuduong_01/releases/latest/download/Tuduong_01_9x11.zip"
+    download: "https://github.com/Roberto-0720/Tuduong_01_09x11/releases/latest/download/Tuduong_01_9x11.zip"
   },
   {
     id: "tuduong-02",
@@ -263,6 +263,6 @@ window.DRAWINGS = [
       "Resource/drawings/Tuduong_02/03.webp",
       "Resource/drawings/Tuduong_02/04.webp"
     ],
-    download: "https://github.com/Roberto-0720/Tuduong_02_15x6.5/releases/latest/download/Tuduong_02_15x6.5.dwg.zip"
+    download: "https://github.com/Roberto-0720/Tuduong_02_15x6.5_Release/releases/latest/download/Tuduong_02_15x6.5.dwg.zip"
   }
 ];

@@ -324,7 +324,7 @@ window.TOOLS = [
       { vi: "Xuất báo cáo Excel (.xlsx) hoặc HTML", en: "Export printable Excel (.xlsx) or HTML report" },
     ],
     requirements: REQ_STD,
-    download: "https://github.com/Roberto-0720/05_GroundFloorDesign/releases/latest/download/GRDS.zip",
+    download: "https://github.com/Roberto-0720/05_GroundFloorDesign_Release/releases/latest/download/GRDS.zip",
     checksum: "", virustotal: ""
   },
 
