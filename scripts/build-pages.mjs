@@ -111,7 +111,6 @@ function head({ title, desc, url, altUrl, lang, image, type, extra = '' }) {
 <meta name="twitter:title" content="${attr(title)}" />
 <meta name="twitter:description" content="${attr(desc)}" />
 <meta name="twitter:image" content="${attr(image)}" />${extra}
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="icon" type="image/x-icon" href="Logo/rbt.ico" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

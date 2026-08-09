@@ -256,7 +256,15 @@ window.rsSubmitGate = async function(){
   const url = it && it.download;
   if(url && /^https?:/.test(url)){
     msg.textContent = RS.lang==='vi' ? 'Link tải đã sẵn sàng — bấm nút bên dưới để tải file.' : 'Your download link is ready — click the button below to download.';
-    btn.href = url; btn.setAttribute('download',''); btn.classList.remove('hidden');
+    // No `download` attribute: for a cross-origin GitHub release URL it adds no
+    // benefit (GitHub already sends Content-Disposition: attachment) and on some
+    // browsers a cross-origin download-attribute click is NOT treated as a normal
+    // top-level navigation, so a SameSite=Lax session cookie (e.g. a logged-in
+    // GitHub session, relevant if a release repo is private) may not be sent —
+    // producing a 404 here even though pasting the same URL into the address bar
+    // works. A plain link click behaves exactly like the address bar.
+    btn.href = url; btn.removeAttribute('download'); btn.target = '_blank'; btn.rel = 'noopener';
+    btn.classList.remove('hidden');
   }else{
     msg.textContent = RS.lang==='vi' ? 'File sẽ sớm được cập nhật — chúng tôi sẽ gửi email cho bạn.' : 'The file will be available soon — we will email you.';
     btn.classList.add('hidden');
