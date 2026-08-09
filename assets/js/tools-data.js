@@ -360,8 +360,8 @@ window.TOOLS = [
     category: CAT_STEEL,
     name: { vi: "Thiết kế bản đế cột (liên kết khớp)", en: "Base Plate Design (Hinge Type)" },
     tagline: {
-      vi: "Thiết kế bản đế cột thép dạng liên kết khớp theo AISC 360 / ACI 318M, kết nối trực tiếp SAP2000: tự phát hiện toàn bộ bản đế trong mô hình, không cần chọn tay.",
-      en: "Hinged steel column base-plate design per AISC 360 / ACI 318M, connected live to SAP2000: every base plate in the model is discovered automatically, nothing to select by hand."
+      vi: "Thiết kế bản đế cột thép dạng liên kết khớp theo AISC 360 / ACI 318.",
+      en: "Hinged steel column base-plate design per AISC 360 / ACI 318."
     },
     version: "2.3", size: "—", updated: "2026-08", os: WIN, host: "SAP2000",
     priceVnd: 350000, productCode: "BASEPLATE", status: "ready",
@@ -371,7 +371,7 @@ window.TOOLS = [
       PIC + "web_description_13/04.webp", PIC + "web_description_13/05.webp", PIC + "web_description_13/06.webp"
     ],
     features: [
-      { vi: "Tự động phát hiện toàn bộ bản đế trong mô hình SAP2000 — không cần chọn tay", en: "Auto-discovers every base plate in the SAP2000 model — nothing to select by hand" },
+      { vi: "Tự động phát hiện toàn bộ bản đế trong mô hình SAP2000", en: "Auto-discovers every base plate in the SAP2000 model" },
       { vi: "Thiết kế theo <b>AISC 360 / ACI 318M</b> cho liên kết khớp (2 hoặc 4 bulông neo)", en: "Design per <b>AISC 360 / ACI 318M</b> for hinge-type bases (2 or 4 anchor bolts)" },
       { vi: "Sơ đồ mặt bằng bản đế trực quan, tô màu <b>xanh (OK) / đỏ (NG)</b> theo từng nút", en: "Visual base-plate plan view, colour-coded <b>green (OK) / red (NG)</b> per node" },
       { vi: "Bảng tra vật liệu, bulông neo và loại liên kết khớp có thể chỉnh sửa", en: "Editable material, anchor-bolt and hinge-type reference tables" },
@@ -379,7 +379,7 @@ window.TOOLS = [
       { vi: "Lưu/mở dự án (.json), thiết kế lại mà không cần mở SAP2000", en: "Save/open project (.json) — recheck later without SAP2000 running" }
     ],
     requirements: REQ_SAP,
-    download: "https://github.com/Roberto-0720/13_BasePlateDesign/releases/latest/download/BPL.zip",
+    download: "",
     checksum: "", virustotal: ""
   },
 
@@ -389,23 +389,22 @@ window.TOOLS = [
     category: CAT_FDN,
     name: { vi: "Thiết kế bulông neo chống động đất cho thiết bị đứng", en: "Anchor Bolt Design for Vertical Equipment (Seismic)" },
     tagline: {
-      vi: "Thiết kế bulông neo chịu động đất cho bồn/thiết bị đứng trên bệ bát giác theo ACI 318M Chương 17, đã đối chiếu với ví dụ tính toán của ASCE.",
-      en: "Seismic anchor-bolt design for vertical vessels on octagonal pedestals per ACI 318M Chapter 17, cross-checked against an ASCE worked example."
+      vi: "Thiết kế bulông neo chịu động đất cho bồn/thiết bị đứng trên bệ bát giác theo ACI 318M Chương 17.",
+      en: "Seismic anchor-bolt design for vertical vessels on octagonal pedestals per ACI 318M Chapter 17."
     },
     version: "1.1", size: "—", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 125000, productCode: "EQAB", status: "ready",
     thumb: PIC + "web_description_20/01.webp",
     screenshots: [PIC + "web_description_20/01.webp", PIC + "web_description_20/02.webp", PIC + "web_description_20/03.webp", PIC + "web_description_20/04.webp"],
     features: [
-      { vi: "Thiết kế theo <b>ACI 318M Chương 17</b> cho bệ bát giác, bố trí bulông trên vòng tròn BCD", en: "Design per <b>ACI 318M Chapter 17</b> for octagonal pedestals, anchors on a bolt circle (BCD)" },
-      { vi: "Kiểm tra đầy đủ: kéo (thép, phá hoại bê tông, bung, nổ cạnh), cắt (thép, phá hoại bê tông, pryout) và tổ hợp kéo–cắt", en: "Full checks: tension (steel, concrete breakout, pullout, side-face blowout), shear (steel, concrete breakout, pryout) and tension–shear interaction" },
-      { vi: "Áp dụng hệ số chiết giảm động đất 0,75 và kiểm tra dẻo theo §17.2.3", en: "Applies the seismic 0.75 reduction factor and ductility checks per §17.2.3" },
-      { vi: "Tùy chọn truyền lực cắt qua ma sát đáy bản đế (theo hướng dẫn ASCE)", en: "Optional shear transfer by base friction (per the ASCE guide)" },
-      { vi: "<b>Đã đối chiếu với Ví dụ 2</b> trong tài liệu ASCE “Anchorage Design for Petrochemical Facilities”", en: "<b>Verified against Example 2</b> of the ASCE “Anchorage Design for Petrochemical Facilities” guide" },
+      { vi: "Thiết kế theo <b>ACI 318</b> cho bệ bát giác", en: "Design per <b>ACI 318</b> for octagonal pedestals" },
+      { vi: "Kiểm tra đầy đủ: kéo, cắt và tổ hợp kéo–cắt", en: "Full checks: tension, shear and tension–shear interaction" },
+      { vi: "Áp dụng hệ số giảm động đất 0,75 và kiểm tra dẻo theo §17.2.3", en: "Applies the seismic 0.75 reduction factor and ductility checks per §17.2.3" },
+      { vi: "Tùy chọn truyền lực cắt qua ma sát đáy bản đế", en: "Optional shear transfer by base friction" },
       { vi: "Xuất báo cáo Excel chi tiết từng bước tính kèm điều khoản tiêu chuẩn", en: "Detailed Excel export with every calculation step and code clause" }
     ],
     requirements: REQ_STD,
-    download: "https://github.com/Roberto-0720/20_EQAnchorBoltDesign/releases/latest/download/EQAB.zip",
+    download: "",
     checksum: "", virustotal: ""
   },
 
