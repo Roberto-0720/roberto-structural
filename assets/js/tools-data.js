@@ -210,7 +210,7 @@ window.TOOLS = [
       en: "Wind design loads for ground-supported vertical tanks, vessels and stacks per ASCE 7-22 Chapter 29."
     },
     version: "2.1", size: "—", updated: "2026-08", os: WIN, host: "General",
-    priceVnd: 250000, productCode: "WIND TANK", status: "ready",
+    priceVnd: 250000, productCode: "WINDTANK", status: "ready",
     thumb: PIC + "web_description_09/01.webp",
     screenshots: [PIC + "web_description_09/01.webp", PIC + "web_description_09/02.webp"],
     features: [
