@@ -259,8 +259,12 @@ kiểm key nằm **trong từng tool** và phải nhúng thủ công cho mỗi t
 
 | Tool | Cổng chặn |
 |---|---|
-| `SIDESWAY` (Sidesway Check) | ✅ xong, đã test đầu-cuối 2026-08-09 |
-| 11 tool trả phí đã phát hành còn lại | ❌ **chưa có — mở lên là dùng được ngay** |
+| 11/12 tool trả phí đã phát hành | ✅ xong 2026-08-09 (01, 02, 03, 04, 06, 08, 09, 11, 12, 13, 20) |
+| `STEELCAD` (tool 07) | ❌ chưa — là plugin `.dll` cho AutoCAD (.NET), bộ bản quyền Python không dùng được |
+
+Chỉ `SIDESWAY` đã build + test tay đầu-cuối. 10 tool còn lại mới kiểm ở mức
+mã nguồn (key khớp hai phía, hàm đóng dấu chạy đúng) — **phải build và bấm thử
+một lượt trước khi bán**.
 
 → **Không bán tool nào trước khi tool đó có cổng chặn.** File đã ra ngoài không thu hồi
 được, và người mua sớm giữ mãi bản không khoá.
