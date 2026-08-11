@@ -91,7 +91,8 @@ function renderPurchase() {
   const ref = makeOrderRef();
   const amount = Number(t.priceVnd || 0);
   const transferNote = ref;                       // keep the note short & unique
-  document.title = `${t.name.en} — ${window.RS.lang === 'vi' ? 'Thanh toán' : 'Purchase'} — Roberto Structural`;
+  const pname = t.name[window.RS.lang] || t.name.en;
+  document.title = `${pname} — ${window.RS.lang === 'vi' ? 'Thanh toán' : 'Purchase'} — Roberto Structural`;
 
   // Everything that differs between a tool purchase and a drawing purchase
   // is decided once here, so the markup below reads the same for both.

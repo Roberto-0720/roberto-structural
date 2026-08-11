@@ -25,7 +25,7 @@ công nghiệp (lọc hoá dầu, nhiệt điện, điện khí, điện rác). 
 - **Repo:** `Roberto-0720/roberto-structural` (GitHub Pages, nhánh `main`, thư mục gốc)
 - Địa chỉ cũ `roberto-0720.github.io/roberto-structural/` **vẫn chạy** — GitHub Pages
   tự chuyển hướng 301 sang tên miền mới, giữ nguyên đường dẫn.
-- **Slogan:** *Engineering the Core of Heavy Industry* / *Kiến tạo lõi kỹ thuật cho công nghiệp nặng* (song ngữ,
+- **Slogan:** *Engineering the Core of Heavy Industry* / *Kiến tạo lõi kỹ thuật kết cấu công nghiệp nặng* (song ngữ,
   đổi từ 2026-08 — trước đó là "Engineering Strength Into Every Structure", cố định tiếng Anh)
 - **Định vị (2026-08):** Roberto là **một kỹ sư cá nhân** chia sẻ tri thức + công cụ, **không phải công ty tư
   vấn thiết kế**. Site trước đây mang giọng "hire our firm" (mục Dự án/portfolio, nút "Tư vấn", câu chữ kiểu
@@ -114,7 +114,9 @@ Sửa menu/footer → sửa `HEADER_HTML` / `FOOTER_HTML` trong `main.js`, áp d
 
 ## 4b. Cách một trang được dựng — hợp đồng bắt buộc
 
-Không có router, không có template engine. Mỗi trang là một khung HTML rỗng, JS đổ nội dung vào.
+Không có router, không có template engine. JS đổ nội dung vào các container bên dưới.
+(Riêng `tool-*.html` / `article-*.html` thì generator đã dựng sẵn nội dung vào file — JS chạy
+xong dựng lại y hệt; xem mục 11.A2. Hợp đồng dưới đây vẫn giữ nguyên cho cả hai loại.)
 Khi tạo trang mới hoặc sửa trang cũ phải giữ đủ **4 điều**:
 
 ```html
@@ -148,6 +150,11 @@ Các file data khai báo `window.TOOLS` / `window.DRAWINGS` / `window.ARTICLES` 
 3. Vì là `innerHTML`, giá trị `data-vi`/`data-en` **cho phép HTML** (`<b> <i> <br>`) nhưng
    mọi chuỗi từ file data phải escape khi nhúng — dùng helper `pesc()` / `pbi()` có sẵn
    trong `purchase.js`, `tools.js`, `articles.js`.
+4. **Chữ nằm sẵn giữa hai thẻ phải đúng ngôn ngữ của trang**, đừng ghi cứng tiếng Anh rồi
+   trông chờ `setLang()` sửa hộ. Nó chỉ đúng sau khi JS chạy; máy quét và trang tĩnh dựng
+   sẵn đọc trước đó, và sẽ thấy sai ngôn ngữ. Trong renderer dùng `atxt()` / `ttxt()`; với
+   trang viết tay thì sửa thẳng. *(Đã dính đúng lỗi này ở cả 90 thẻ của 8 trang viết tay và
+   toàn bộ trang tool bản VI — 2026-08-11.)*
 
 ---
 
@@ -434,6 +441,13 @@ bằng bản ghi TXT — gộp cả `www`/không-`www`, `http`/`https`.
 10. **Không** kết luận "link tải chạy được" từ trình duyệt đang đăng nhập GitHub —
     luôn thử bằng cửa sổ ẩn danh hoặc `curl`. Repo private trả 404 cho khách nhưng
     tải ngon cho chủ repo, và triệu chứng nhìn giống hệt link gõ sai (mục 6).
+11. **Không** chép template markup từ `articles.js`/`tools.js` sang `build-pages.mjs`.
+    Generator gọi thẳng `RS_ARTICLE_HTML` / `RS_TOOL_HTML` của chính hai file đó
+    (mục 11.A2). Có hai bản là chúng lệch nhau âm thầm ngay lần sửa sau.
+12. **Không** hard-code `.en` làm chữ hiển thị trong renderer nữa. Trước đây markup ghi
+    `esc(x.en)` rồi trông chờ `setLang()` sửa lại sau — nên bất cứ ai đọc trang mà không
+    chạy JS đều thấy tiếng Anh trên trang tiếng Việt. Dùng `atxt(o, lang)` (articles.js)
+    hoặc `ttxt(o, lang)` (tools.js).
 
 ---
 
@@ -452,9 +466,8 @@ Cách xử lý: [scripts/build-pages.mjs](scripts/build-pages.mjs) sinh **một 
 repo cho mỗi tool/bài viết** — `tool-<id>.html`, `article-<id>.html` — mỗi file có
 `<title>`, description, `og:*`, `twitter:*`, `canonical` riêng.
 
-- **Phần thân vẫn do JS render** từ chính `*-data.js` cũ. Generator **không** nhân bản nội
-  dung → file data vẫn là nguồn duy nhất. Trang tĩnh báo id cho renderer qua
-  `window.RS_PAGE_ID`.
+- **Phần thân được dựng SẴN vào file** (từ 2026-08-11), xem mục A2 ngay dưới. Trang tĩnh
+  vẫn báo id cho renderer qua `window.RS_PAGE_ID` để JS dựng lại y hệt khi trang chạy.
 - **Vì sao file phẳng ở gốc, không phải `tool/<id>.html`:** mọi đường dẫn trong site đều
   tương đối (`assets/…`, `Resource/…`, `index.html#…`) để chạy được cả ở `/roberto-structural/`
   lẫn `/`. Đặt trong thư mục con sẽ hỏng hết, còn `<base href>` thì hỏng anchor `#`.
@@ -467,6 +480,40 @@ repo cho mỗi tool/bài viết** — `tool-<id>.html`, `article-<id>.html` — 
 ⚠️ **Sửa `tools-data.js` / `articles-data.js` xong PHẢI chạy `node scripts/build-pages.mjs`.**
 Quên thì tool mới không có trang riêng và sitemap sai. Link URL định nghĩa một chỗ duy nhất:
 `window.RS_URL` trong `main.js`.
+
+### A2. ✅ Nội dung dựng sẵn vào file tĩnh (2026-08-11)
+
+Mục A ở trên mới giải quyết được **nửa** vấn đề: `<head>` là tĩnh thật (nên thẻ chia sẻ
+Facebook/Zalo đã đúng từ đợt đó), nhưng `<main>` vẫn rỗng — file chỉ 3,4 KB, chữ trong bài
+chỉ xuất hiện sau khi JS chạy. Googlebot có chạy JS nên vẫn index được, **Bing / Cốc Cốc và
+mọi thứ chỉ đọc HTML thì thấy bài trống trơn**.
+
+Giờ generator dựng sẵn thân trang vào file. Trang bài viết từ 3,4 KB → 60–100 KB chữ thật.
+
+**Cách làm — không nhân bản markup:**
+- `articles.js` xuất `window.RS_ARTICLE_HTML(a, lang, articles)`, `tools.js` xuất
+  `window.RS_TOOL_HTML(t, lang)` — **hàm thuần**, chỉ trả về chuỗi, không đụng
+  `document`/`window`. Trình duyệt gọi chúng, và `build-pages.mjs` cũng gọi **đúng chúng**.
+- `build-pages.mjs` có `makeRenderer()`: nạp `main.js` + `*-data.js` + `articles.js`/`tools.js`
+  vào sandbox `node:vm` với `document`/`localStorage` giả (chỉ cần sống qua lúc nạp module —
+  các handler `DOMContentLoaded` không bao giờ chạy ở đây).
+- **Tuyệt đối không chép lại template sang build-pages.mjs.** Chép là hai bản sẽ lệch nhau âm
+  thầm ngay lần sửa `articles.js` tiếp theo. Dùng chung hàm thì lệch là chuyện không thể xảy ra.
+  `makeRenderer()` có kiểm tra 4 hàm đó tồn tại và **ném lỗi** nếu ai lỡ xoá.
+- `headerHtml(lang)` / `footerHtml(lang)` cũng được dựng sẵn → máy quét thấy cả menu.
+
+**Cái bẫy đã sập một lần:** `.reveal` khởi đầu `opacity:0`, chờ IntersectionObserver bật lên.
+Không có JS thì chữ vừa dựng sẵn bị **giấu sạch**. Nên mỗi trang sinh ra có:
+```html
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+```
+Lưu ý khi tự kiểm: **xoá thẻ `<script>` KHÔNG phải là tắt JavaScript** — trình duyệt vẫn bật JS
+nên bỏ qua `<noscript>`, và bạn sẽ thấy trang trắng rồi tưởng hỏng. Muốn thử đúng thì xoá script
+**và** gỡ luôn cặp thẻ `<noscript>` để phần `<style>` bên trong có hiệu lực.
+
+**Chưa làm:** 3 trang danh mục (`insights.html`, `tools.html`, `drawings.html` + bản `-vi`) vẫn
+đổ lưới thẻ bằng JS, `<div id="art-grid">` còn rỗng. Ít quan trọng hơn vì đó chủ yếu là link mà
+sitemap đã có, nhưng muốn triệt để thì làm nốt.
 
 ### B. ✅ URL song ngữ — mỗi trang có 2 địa chỉ, tự đúng ngôn ngữ khi tải
 

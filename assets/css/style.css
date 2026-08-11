@@ -68,6 +68,25 @@ header{position:sticky;top:0;z-index:50;background:rgba(28,31,34,.92);backdrop-f
 .hero .container{position:relative;z-index:2;padding-top:clamp(3.5rem,8vw,6rem);padding-bottom:clamp(3.5rem,8vw,6rem)}
 .hero h1{font-size:clamp(2.2rem,5.5vw,4.2rem);text-transform:uppercase;letter-spacing:.01em;max-width:18ch}
 .hero h1 .hl{color:var(--accent)}
+/* Tiêu đề hero bản VI — bản EN không đụng tới. Câu VI chia sẵn 4 dòng bằng <br>;
+   dòng dài nhất "công nghiệp nặng" rộng 10.3em, đó là ràng buộc của mọi con số dưới.
+   • Cỡ chữ phải co theo chỗ trống, mà chỗ trống đổi hai lần:
+       < 980px  : một cột, rộng = 0.9 × màn hình      → tối đa 8.74vw
+       ≥ 980px  : hai cột, cột chữ chỉ còn ~52%       → tối đa 4.6vw, chốt 51.8px
+                  (container 1200px nên từ 1280px trở lên cột chữ đứng yên ở 533px)
+     Lấy 8.5vw / 4.1vw và chặn trên 3.1rem, chừa ~4% biên an toàn.
+     Không dùng được clamp() gốc vì dưới 640px thì 5.5vw < 2.2rem, clamp chạm sàn
+     → cỡ chữ ĐỨNG YÊN trong khi màn hình hẹp dần, chữ tràn ra ngoài ở máy 320–390px.
+   • .nb CHỈ bật dưới 980px. Tiếng Việt đơn âm nên trình duyệt ngắt dòng được ở MỌI
+     khoảng trắng, cắt đôi cụm phải đi liền — nowrap chặn việc đó khi màn hẹp.
+     Từ 980px trở lên thì KHÔNG được bật: .hero-grid dùng fr, mà kích thước tối
+     thiểu tự động của ô lưới là min-content; nowrap kéo min-content của h1 bằng
+     cả cụm dài nhất, đẩy cột chữ rộng ra và bóp nhỏ khung ảnh bên phải. Đó chính
+     là lý do ảnh bản VI từng nhỏ hơn bản EN. Ở đó các <br> đã định sẵn dòng rồi.
+   setLang() có cập nhật <html lang> nên các quy tắc này theo đúng nút đổi ngôn ngữ. */
+html[lang="vi"] .hero h1{font-size:min(8.5vw,3.1rem)}
+@media(min-width:980px){html[lang="vi"] .hero h1{font-size:min(4.1vw,3.1rem)}}
+@media(max-width:979px){html[lang="vi"] .hero h1 .nb{white-space:nowrap}}
 .hero .slogan{color:var(--steel);font-size:clamp(1rem,2vw,1.25rem);margin-top:1.4rem;max-width:55ch}
 .hero-cta{display:flex;gap:1rem;margin-top:2.2rem;flex-wrap:wrap}
 .hero-grid{display:grid;gap:clamp(2rem,5vw,3.5rem);align-items:center}

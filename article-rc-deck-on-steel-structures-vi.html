@@ -31,14 +31,167 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/style.css" />
+<!-- The pre-rendered body below carries .reveal, which starts at opacity:0 and is
+     switched on by IntersectionObserver. With JS off that would hide the very
+     content we just baked in, so undo the animation in that case. -->
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body data-page="insights">
 
-<header id="site-header"></header>
+<header id="site-header">
+<div class="container nav">
+  <a class="brand" href="index-vi.html" data-rs-page="index">
+    <img src="Logo/Roberto_1.webp" alt="Roberto Structural logo" />
+    <b>Roberto<br>Structural</b>
+  </a>
+  <nav class="nav-links">
+    <a href="insights-vi.html" data-nav="insights" data-rs-page="insights" data-vi="Bài viết" data-en="Insights">Bài viết</a>
+    <a href="tools-vi.html" data-nav="tools" data-rs-page="tools" data-vi="Phần mềm" data-en="Software">Phần mềm</a>
+    <a href="drawings-vi.html" data-nav="drawings" data-rs-page="drawings" data-vi="Bản vẽ" data-en="Drawings">Bản vẽ</a>
+    <a href="index-vi.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a>
+    <a href="index-vi.html#contact" data-rs-page="index" data-rs-hash="#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a>
+  </nav>
+  <div class="nav-right">
+    <div class="lang">
+      <button data-lang="vi">VI</button>
+      <button data-lang="en">EN</button>
+    </div>
+    <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</div></header>
 
-<main id="article-root"><!-- rendered by JS from RS_PAGE_ID --></main>
+<main id="article-root">
+  <section class="page-hero"><div class="container">
+    <p class="breadcrumb"><a href="index-vi.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a> / <a href="insights-vi.html" data-vi="Bài viết" data-en="Insights">Bài viết</a> / <span>No. 01</span></p>
+    <p class="eyebrow" data-vi="Kết cấu thép" data-en="Steel Structures">Kết cấu thép</p>
+    <h1 data-vi="Sàn Deck trên kết cấu thép — Bốn góc nhìn dễ bị bỏ qua" data-en="RC Deck on Steel Structures — Four Overlooked Perspectives">Sàn Deck trên kết cấu thép — Bốn góc nhìn dễ bị bỏ qua</h1>
+    <div class="art-meta">
+      <span>Structural Notes · No. 01</span>
+      <span class="acard-dot">·</span>
+      <span data-date="2026-07-25">25 thg 7, 2026</span>
+      <span class="acard-dot">·</span>
+      <span>9 min read</span>
+    </div>
+  </div></section>
 
-<footer id="site-footer"></footer>
+  <section class="section" style="padding-top:clamp(2rem,5vw,3.5rem)"><div class="container">
+    <article class="prose">
+      
+        <h2 class="reveal" data-vi="1. Sàn Deck là gì?" data-en="1. What is a deck slab?">1. Sàn Deck là gì?</h2>
+        <p class="reveal" data-vi="Sàn deck dùng tấm tôn định hình làm coffa, bê tông đổ lên trên. Có hai loại khác nhau về bản chất:" data-en="A deck slab uses profiled steel sheeting as permanent formwork with concrete cast on top. Two families differ fundamentally:">Sàn deck dùng tấm tôn định hình làm coffa, bê tông đổ lên trên. Có hai loại khác nhau về bản chất:</p><ul class="prose-list reveal"><li data-vi="<b>Composite deck:</b> tôn có gân dập (embossment), khóa cơ học với bê tông, tôn <i>chính là</i> cốt chịu kéo." data-en="<b>Composite deck:</b> embossed sheeting mechanically interlocked with the concrete — the sheeting <i>is</i> the tensile reinforcement."><b>Composite deck:</b> tôn có gân dập (embossment), khóa cơ học với bê tông, tôn <i>chính là</i> cốt chịu kéo.</li><li data-vi="<b>Form deck:</b> tôn chỉ làm coffa, cốt thép tính toàn/bố trí riêng." data-en="<b>Form deck:</b> sheeting acts as formwork only; reinforcement is placed separately."><b>Form deck:</b> tôn chỉ làm coffa, cốt thép tính toàn/bố trí riêng.</li></ul><p class="reveal" data-vi="Ưu điểm khi dùng cho công trình sử dụng kết cấu thép:" data-en="Advantages on steel-framed buildings:">Ưu điểm khi dùng cho công trình sử dụng kết cấu thép:</p><ul class="prose-list reveal"><li data-vi="Giảm tối đa giàn giáo chống đỡ; tấm tôn trở thành mặt bằng thi công an toàn." data-en="Shoring eliminated or minimised; the sheeting becomes a safe working platform immediately after installation.">Giảm tối đa giàn giáo chống đỡ; tấm tôn trở thành mặt bằng thi công an toàn.</li><li data-vi="Tốc độ thi công nhanh, đồng bộ với tiến độ lắp dựng kết cấu thép; sóng tôn rỗng làm giảm tải trọng bản thân so với sàn đặc cùng nhịp, và là không gian sẵn có để luồn ống, cáp điện." data-en="Erection speed matches the steel programme; hollow ribs reduce self-weight against a solid slab of equal span and provide ready-made routing for conduits and cables.">Tốc độ thi công nhanh, đồng bộ với tiến độ lắp dựng kết cấu thép; sóng tôn rỗng làm giảm tải trọng bản thân so với sàn đặc cùng nhịp, và là không gian sẵn có để luồn ống, cáp điện.</li></ul>
+        
+        <figure class="art-fig reveal">
+          <img src="Resource/articles/01-deck-slab/fig1.webp" alt="Deck slab anatomy: profiled sheeting, shear studs, wire mesh and supporting steel beam." loading="lazy" onclick="rsArtZoom(this)"/>
+          <figcaption data-vi="Cấu tạo sàn deck: tôn định hình, chốt chịu cắt, lưới thép và dầm thép." data-en="Deck slab anatomy: profiled sheeting, shear studs, wire mesh and supporting steel beam.">Cấu tạo sàn deck: tôn định hình, chốt chịu cắt, lưới thép và dầm thép.</figcaption>
+        </figure>
+        <figure class="art-fig reveal">
+          <img src="Resource/articles/01-deck-slab/fig3.webp" alt="The two shear-transfer mechanisms: headed shear stud (left) and mechanical embossment interlock (right)." loading="lazy" onclick="rsArtZoom(this)"/>
+          <figcaption data-vi="Hai cơ chế truyền lực cắt: chốt chịu cắt đầu mũ (trái) và khóa cơ học của gân dập trên tôn (phải)." data-en="The two shear-transfer mechanisms: headed shear stud (left) and mechanical embossment interlock (right).">Hai cơ chế truyền lực cắt: chốt chịu cắt đầu mũ (trái) và khóa cơ học của gân dập trên tôn (phải).</figcaption>
+        </figure>
+      
+        <h2 class="reveal" data-vi="2. Mô hình hoá trong phần mềm phân tích" data-en="2. Modelling in analysis software">2. Mô hình hoá trong phần mềm phân tích</h2>
+        <p class="reveal" data-vi="Ba loại tiết diện tấm (Area Section Type) cung cấp ba cách ứng xử khác nhau:" data-en="The three area-section types supply three different behaviours:">Ba loại tiết diện tấm (Area Section Type) cung cấp ba cách ứng xử khác nhau:</p><ul class="prose-list reveal"><li data-vi="<b>Plate:</b> chịu uốn và cắt ngoài mặt phẳng." data-en="<b>Plate:</b> out-of-plane bending and shear."><b>Plate:</b> chịu uốn và cắt ngoài mặt phẳng.</li><li data-vi="<b>Membrane:</b> chịu kéo nén <b>trong mặt phẳng</b> (f11, f22, f12)." data-en="<b>Membrane:</b> in-plane axial (f11, f22, f12)."><b>Membrane:</b> chịu kéo nén <b>trong mặt phẳng</b> (f11, f22, f12).</li><li data-vi="<b>Shell:</b> kết hợp cả Plate và Membrane." data-en="<b>Shell:</b> both Plate and Membrane combined."><b>Shell:</b> kết hợp cả Plate và Membrane.</li></ul><p class="reveal" data-vi="Riêng với Shell và Plate, phần mềm phân tích còn phân biệt theo cách ứng xử biến dạng cắt ngang:" data-en="For Shell and Plate only, the software further distinguishes how transverse shear is treated:">Riêng với Shell và Plate, phần mềm phân tích còn phân biệt theo cách ứng xử biến dạng cắt ngang:</p><ul class="prose-list reveal"><li data-vi="<b>Thin:</b> bỏ qua biến dạng cắt ngang ngoài mặt phẳng (tỷ lệ chiều dày/nhịp cạnh ngắn của sàn &lt; 1/10–1/20)." data-en="<b>Thin:</b> transverse shear deformation ignored — use where t/L (short span) &lt; 1/10–1/20."><b>Thin:</b> bỏ qua biến dạng cắt ngang ngoài mặt phẳng (tỷ lệ chiều dày/nhịp cạnh ngắn của sàn &lt; 1/10–1/20).</li><li data-vi="<b>Thick:</b> có kể đến biến dạng cắt ngang (tỷ lệ chiều dày/nhịp cạnh ngắn của sàn &gt; 1/5–1/10)." data-en="<b>Thick:</b> transverse shear included — use where t/L &gt; 1/5–1/10."><b>Thick:</b> có kể đến biến dạng cắt ngang (tỷ lệ chiều dày/nhịp cạnh ngắn của sàn &gt; 1/5–1/10).</li></ul><p class="reveal" data-vi="Tùy chọn này <b>không áp dụng cho Membrane</b>." data-en="This option <b>does not apply to Membrane</b>.">Tùy chọn này <b>không áp dụng cho Membrane</b>.</p><p class="reveal" data-vi="Điểm ít được để ý: <b>sàn dày 200 mm không có 200 mm bê tông đặc</b> — phần sóng tôn là rỗng, và độ cứng trong mặt phẳng chỉ do lớp bê tông phủ trên đỉnh sóng đảm nhiệm. Sàn deck <b>dị hướng</b>: độ cứng theo phương song song sóng tôn nhỏ hơn hẳn phương vuông góc, nên f11 ≠ f22." data-en="An often-missed point: <b>a 200 mm slab does not contain 200 mm of solid concrete</b> — the ribs are voided, and in-plane stiffness comes only from the topping above the rib crest. Deck is <b>orthotropic</b>: stiffness parallel to the ribs is markedly lower than perpendicular to them, so f11 ≠ f22.">Điểm ít được để ý: <b>sàn dày 200 mm không có 200 mm bê tông đặc</b> — phần sóng tôn là rỗng, và độ cứng trong mặt phẳng chỉ do lớp bê tông phủ trên đỉnh sóng đảm nhiệm. Sàn deck <b>dị hướng</b>: độ cứng theo phương song song sóng tôn nhỏ hơn hẳn phương vuông góc, nên f11 ≠ f22.</p><p class="reveal" data-vi="Về diaphragm, khác biệt cốt lõi:" data-en="On diaphragms, the essential distinction:">Về diaphragm, khác biệt cốt lõi:</p><ul class="prose-list reveal"><li data-vi="<b>Rigid</b> là một <i>ràng buộc động học</i>, hoạt động độc lập với độ cứng của tấm. Rigid vẫn ảnh hưởng ngay cả khi Stiffness Modifiers = 0 hoặc Section Properties = None." data-en="<b>Rigid</b> is a <i>kinematic constraint</i> that works independently of shell stiffness. It remains effective even with Stiffness Modifiers = 0 or Section Properties = None."><b>Rigid</b> là một <i>ràng buộc động học</i>, hoạt động độc lập với độ cứng của tấm. Rigid vẫn ảnh hưởng ngay cả khi Stiffness Modifiers = 0 hoặc Section Properties = None.</li><li data-vi="<b>Semi-rigid</b> thì ngược lại, toàn bộ ứng xử dựa vào độ cứng membrane thực của tấm (f11, f22, f12). Semi-rigid chỉ có tác dụng khi Section Type = Shell hoặc Membrane với Stiffness Modifiers &gt; 0." data-en="<b>Semi-rigid</b> is the opposite, behaviour relies entirely on the shell's real membrane stiffness (f11, f22, f12). It takes effect only where Section Type = Shell or Membrane with Stiffness Modifiers &gt; 0."><b>Semi-rigid</b> thì ngược lại, toàn bộ ứng xử dựa vào độ cứng membrane thực của tấm (f11, f22, f12). Semi-rigid chỉ có tác dụng khi Section Type = Shell hoặc Membrane với Stiffness Modifiers &gt; 0.</li></ul><p class="reveal" data-vi="Semi-rigid <b>mất ý nghĩa</b> nếu Section Type = Plate, hoặc Properties = None, hoặc Stiffness Modifiers = 0: không có đường truyền lực ngang, và yêu cầu lệch tâm ngẫu nhiên 5% cũng không được áp đặt đúng." data-en="Semi-rigid becomes <b>meaningless</b> where Section Type = Plate, or Properties = None, or Stiffness Modifiers = 0: there is no lateral load path, and the 5% accidental eccentricity requirement is not genuinely enforced.">Semi-rigid <b>mất ý nghĩa</b> nếu Section Type = Plate, hoặc Properties = None, hoặc Stiffness Modifiers = 0: không có đường truyền lực ngang, và yêu cầu lệch tâm ngẫu nhiên 5% cũng không được áp đặt đúng.</p>
+        
+        <figure class="art-fig reveal">
+          <img src="Resource/articles/01-deck-slab/fig2.webp" alt="Finite-element model of composite deck — sheeting, concrete and shear studs." loading="lazy" onclick="rsArtZoom(this)"/>
+          <figcaption data-vi="Mô hình phần tử hữu hạn sàn deck liên hợp — tôn, bê tông và chốt chịu cắt." data-en="Finite-element model of composite deck — sheeting, concrete and shear studs.">Mô hình phần tử hữu hạn sàn deck liên hợp — tôn, bê tông và chốt chịu cắt.</figcaption>
+        </figure>
+      
+        <h2 class="reveal" data-vi="3. Hai kiểu liên kết thiết bị" data-en="3. Two ways to support equipment">3. Hai kiểu liên kết thiết bị</h2>
+        <p class="reveal" data-vi="<b>Qua bệ RC trên sàn</b> (anchor bolt hoặc embedded part đặt trong bệ): tải đi vào sàn. Sàn deck có chiều dày hữu hiệu mỏng và bị chi phối bởi chọc thủng, nên hướng này phù hợp với <b>support nhỏ và trung bình</b> — pipe support cho ống nhỏ, bệ máy bơm, bệ máy nén. Lắp đặt phải chờ bệ đủ cường độ, tức là bị ràng buộc trình tự." data-en="<b>Via an RC pedestal on the slab</b> (anchor bolts or embedded plate cast into the pedestal): the load enters the slab. Deck slabs have a thin effective depth and are punching-shear governed, so this route suits <b>small to medium supports</b> — pipe supports, pump and compressor bases. Installation must wait for the pedestal to gain strength, which constrains the erection sequence."><b>Qua bệ RC trên sàn</b> (anchor bolt hoặc embedded part đặt trong bệ): tải đi vào sàn. Sàn deck có chiều dày hữu hiệu mỏng và bị chi phối bởi chọc thủng, nên hướng này phù hợp với <b>support nhỏ và trung bình</b> — pipe support cho ống nhỏ, bệ máy bơm, bệ máy nén. Lắp đặt phải chờ bệ đủ cường độ, tức là bị ràng buộc trình tự.</p><p class="reveal" data-vi="<b>Trực tiếp vào dầm thép bên dưới</b>, xuyên qua sàn: tải <b>bỏ qua sàn</b> và đi thẳng vào cấu kiện vốn được thiết kế để chịu nó. Đây là hướng cho <b>thiết bị nặng</b> — bồn đứng, bồn ngang, thiết bị có tải ngang lớn. Đổi lại: phải lắp trước khi đổ bê tông, và cần chi tiết mối nối riêng — cốt thép gia cường quanh lỗ mở, xử lý chống thấm và khe co giãn tại mặt tiếp giáp." data-en="<b>Directly to the steel beam below</b>, penetrating the slab: the load <b>bypasses the slab</b> and enters a member actually designed to carry it. This is the route for <b>heavy equipment</b> — vertical and horizontal vessels, items with significant horizontal reactions. The trade-off: it must be erected before the concrete pour, and it needs dedicated joint detailing — trimming bars around the opening, plus waterproofing and movement provision at the interface."><b>Trực tiếp vào dầm thép bên dưới</b>, xuyên qua sàn: tải <b>bỏ qua sàn</b> và đi thẳng vào cấu kiện vốn được thiết kế để chịu nó. Đây là hướng cho <b>thiết bị nặng</b> — bồn đứng, bồn ngang, thiết bị có tải ngang lớn. Đổi lại: phải lắp trước khi đổ bê tông, và cần chi tiết mối nối riêng — cốt thép gia cường quanh lỗ mở, xử lý chống thấm và khe co giãn tại mặt tiếp giáp.</p><h3 class="prose-sub reveal" data-vi="So sánh hai kiểu" data-en="Comparison">So sánh hai kiểu</h3><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="" data-en=""></th><th data-vi="Có bệ RC" data-en="With RC Pedestal">Có bệ RC</th><th data-vi="Không bệ RC" data-en="Without RC Pedestal">Không bệ RC</th><th data-vi="Ghi chú" data-en="Remark">Ghi chú</th></tr></thead>
+      <tbody><tr><td data-vi="Đặc tính kết cấu" data-en="Structural characteristic">Đặc tính kết cấu</td><td data-vi="Gối tựa trên sàn" data-en="Slab support">Gối tựa trên sàn</td><td data-vi="Gối tựa kết cấu" data-en="Structural support">Gối tựa kết cấu</td><td data-vi="" data-en=""></td></tr><tr><td data-vi="Truyền tải" data-en="Load transfer">Truyền tải</td><td data-vi="Hạn chế" data-en="Limited">Hạn chế</td><td data-vi="Ít ràng buộc hơn" data-en="Less restricted">Ít ràng buộc hơn</td><td data-vi="" data-en=""></td></tr><tr><td data-vi="Trình tự lắp dựng" data-en="Erection sequence">Trình tự lắp dựng</td><td data-vi="Sau khi rót vữa bệ" data-en="After pedestal grouting">Sau khi rót vữa bệ</td><td data-vi="Trước khi đổ sàn" data-en="Before slab pour">Trước khi đổ sàn</td><td data-vi="Cần chi tiết mối nối đặc biệt; không bệ RC thì không ràng buộc trình tự" data-en="Special joint consideration; without pedestal, no sequence restriction">Cần chi tiết mối nối đặc biệt; không bệ RC thì không ràng buộc trình tự</td></tr></tbody>
+    </table></div><h3 class="prose-sub reveal" data-vi="Phạm vi áp dụng" data-en="Applicability">Phạm vi áp dụng</h3><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="" data-en=""></th><th data-vi="Có bệ RC" data-en="With RC Pedestal">Có bệ RC</th><th data-vi="Không bệ RC" data-en="Without RC Pedestal">Không bệ RC</th><th data-vi="Ghi chú" data-en="Remark">Ghi chú</th></tr></thead>
+      <tbody><tr><td data-vi="Thiết bị đứng" data-en="Vertical equipment">Thiết bị đứng</td><td data-vi="✗" data-en="✗">✗</td><td data-vi="✓" data-en="✓">✓</td><td data-vi="" data-en=""></td></tr><tr><td data-vi="Thiết bị nằm ngang" data-en="Horizontal equipment">Thiết bị nằm ngang</td><td data-vi="✗" data-en="✗">✗</td><td data-vi="✓" data-en="✓">✓</td><td data-vi="" data-en=""></td></tr><tr><td data-vi="Bơm & máy nén" data-en="Pump & compressor">Bơm & máy nén</td><td data-vi="✓" data-en="✓">✓</td><td data-vi="✗" data-en="✗">✗</td><td data-vi="Không áp dụng cho máy nén kiểu khung" data-en="Frame-type compressor not applicable">Không áp dụng cho máy nén kiểu khung</td></tr><tr><td data-vi="Kết cấu thép" data-en="Steel structure">Kết cấu thép</td><td data-vi="✓ với support nhỏ<br>✗ với support lớn" data-en="✓ small supports<br>✗ large supports">✓ với support nhỏ<br>✗ với support lớn</td><td data-vi="✓" data-en="✓">✓</td><td data-vi="" data-en=""></td></tr><tr><td data-vi="Giá đỡ ống" data-en="Pipe support">Giá đỡ ống</td><td data-vi="✓ với support nhỏ<br>✗ với support lớn" data-en="✓ small supports<br>✗ large supports">✓ với support nhỏ<br>✗ với support lớn</td><td data-vi="–" data-en="–">–</td><td data-vi="" data-en=""></td></tr></tbody>
+    </table></div><p class="reveal" data-vi="<i>Bơm & máy nén</i> thoạt nhìn có vẻ ngược với nguyên tắc “tải nặng thì đi thẳng vào dầm”. Lý do không nằm ở độ lớn tải mà ở <b>rung động</b>: bệ bê tông cung cấp khối lượng và cản để hấp thụ dao động từ máy quay, trong khi nối cứng trực tiếp vào dầm thép sẽ truyền rung vào hệ kết cấu." data-en="The <i>pump &amp; compressor</i> appears to contradict the “heavy loads go straight to the beam” principle. The reason is not load magnitude but <b>vibration</b>: a concrete pedestal provides mass and damping to absorb rotating-machine excitation, whereas a direct rigid connection would feed that vibration into the steel frame."><i>Bơm & máy nén</i> thoạt nhìn có vẻ ngược với nguyên tắc “tải nặng thì đi thẳng vào dầm”. Lý do không nằm ở độ lớn tải mà ở <b>rung động</b>: bệ bê tông cung cấp khối lượng và cản để hấp thụ dao động từ máy quay, trong khi nối cứng trực tiếp vào dầm thép sẽ truyền rung vào hệ kết cấu.</p>
+        
+      
+        <h2 class="reveal" data-vi="4. Giai đoạn thi công và giằng ngang tạm" data-en="4. Construction stage and temporary bracing">4. Giai đoạn thi công và giằng ngang tạm</h2>
+        <p class="reveal" data-vi="Trước khi bê tông đạt cường độ, <b>diaphragm chưa tồn tại</b>. Đây là điều dễ bị bỏ sót nhất, và nó lấy đi cùng lúc hai thứ:" data-en="Before the concrete gains strength, <b>the diaphragm does not yet exist</b>. This is the most commonly missed point, and it removes two things at once:">Trước khi bê tông đạt cường độ, <b>diaphragm chưa tồn tại</b>. Đây là điều dễ bị bỏ sót nhất, và nó lấy đi cùng lúc hai thứ:</p><ul class="prose-list reveal"><li data-vi="<b>Đường truyền lực ngang:</b> sàn chưa có độ cứng trong mặt phẳng để phân phối tải ngang về hệ chịu lực chính." data-en="<b>The lateral load path:</b> the slab has no in-plane stiffness to distribute lateral load back to the primary system."><b>Đường truyền lực ngang:</b> sàn chưa có độ cứng trong mặt phẳng để phân phối tải ngang về hệ chịu lực chính.</li><li data-vi="<b>Giằng chống oằn ngang cho dầm:</b> cánh nén của dầm thép mất điểm tựa ngang, khả năng chịu uốn bị chi phối bởi mất ổn định ngang." data-en="<b>Lateral restraint to the beams:</b> the compression flange loses its bracing, and beam capacity becomes governed by lateral-torsional buckling rather than the plastic moment."><b>Giằng chống oằn ngang cho dầm:</b> cánh nén của dầm thép mất điểm tựa ngang, khả năng chịu uốn bị chi phối bởi mất ổn định ngang.</li></ul><p class="reveal" data-vi="Kỹ sư thiết kế cần kể đến sự không làm việc của tấm sàn trong giai đoạn này. Thiết kế một <b>hệ giằng ngang tạm thời</b> hoặc hệ giằng vĩnh viễn là cần thiết." data-en="Engineers need to take into account the non-working state of the slab during this phase. Designing a <b>temporary or permanent horizontal bracing system</b> is necessary.">Kỹ sư thiết kế cần kể đến sự không làm việc của tấm sàn trong giai đoạn này. Thiết kế một <b>hệ giằng ngang tạm thời</b> hoặc hệ giằng vĩnh viễn là cần thiết.</p>
+        
+        <figure class="art-fig reveal">
+          <img src="Resource/articles/01-deck-slab/fig4.webp" alt="Construction stage: temporary horizontal bracing, propping system and concrete pouring edge." loading="lazy" onclick="rsArtZoom(this)"/>
+          <figcaption data-vi="Giai đoạn thi công: giằng ngang tạm, hệ chống đỡ và mép đổ bê tông." data-en="Construction stage: temporary horizontal bracing, propping system and concrete pouring edge.">Giai đoạn thi công: giằng ngang tạm, hệ chống đỡ và mép đổ bê tông.</figcaption>
+        </figure>
+      
+        <h2 class="reveal" data-vi="Kết" data-en="Closing">Kết</h2>
+        <p class="reveal" data-vi="Sàn deck trông đơn giản, nhưng phần lớn sai sót không nằm ở chiều dày hay cấp bê tông — mà ở <b>giả định mô hình</b> và ở <b>đường truyền lực</b>. Bốn điểm trên đều xuất phát từ một câu hỏi duy nhất: <i>lực này thực sự đi đâu?</i>" data-en="Deck slabs look simple, but most errors do not lie in thickness or concrete grade — they lie in <b>modelling assumptions</b> and in the <b>load path</b>. All four points above stem from a single question: <i>where does this force actually go?</i>">Sàn deck trông đơn giản, nhưng phần lớn sai sót không nằm ở chiều dày hay cấp bê tông — mà ở <b>giả định mô hình</b> và ở <b>đường truyền lực</b>. Bốn điểm trên đều xuất phát từ một câu hỏi duy nhất: <i>lực này thực sự đi đâu?</i></p>
+        
+        <figure class="art-fig reveal">
+          <img src="Resource/articles/01-deck-slab/fig5.webp" alt="On site: deck with mesh in place awaiting the pour — the stage where no diaphragm yet exists." loading="lazy" onclick="rsArtZoom(this)"/>
+          <figcaption data-vi="Hiện trường: sàn deck đã lắp lưới thép, chờ đổ bê tông — giai đoạn chưa có diaphragm." data-en="On site: deck with mesh in place awaiting the pour — the stage where no diaphragm yet exists.">Hiện trường: sàn deck đã lắp lưới thép, chờ đổ bê tông — giai đoạn chưa có diaphragm.</figcaption>
+        </figure>
+      
+      <p class="art-note reveal" data-vi="Bài viết thuộc series &quot;Hướng dẫn thiết kế kết cấu Công trình Công nghiệp&quot; — Roberto Structural. Nội dung mang tính hướng dẫn kỹ thuật; kỹ sư chịu trách nhiệm kiểm tra và hiệu chỉnh theo điều kiện cụ thể của từng dự án và yêu cầu của tiêu chuẩn áp dụng." data-en="Part of the series &quot;Structural design for industrial facilities&quot; — Roberto Structural. The content is technical guidance; the engineer remains responsible for checking and adapting it to the conditions of each project and the requirements of the governing code.">Bài viết thuộc series "Hướng dẫn thiết kế kết cấu Công trình Công nghiệp" — Roberto Structural. Nội dung mang tính hướng dẫn kỹ thuật; kỹ sư chịu trách nhiệm kiểm tra và hiệu chỉnh theo điều kiện cụ thể của từng dự án và yêu cầu của tiêu chuẩn áp dụng.</p>
+
+      <div class="art-share reveal">
+        <span data-vi="Chia sẻ bài viết" data-en="Share this article">Chia sẻ bài viết</span>
+        <div class="art-share-btns">
+          <a href="#" onclick="return rsShare('facebook')" aria-label="Share on Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+          </a>
+          <a href="#" onclick="return rsShare('linkedin')" aria-label="Share on LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+          <a href="#" onclick="return rsShare('copy')" aria-label="Copy link" title="Copy link">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <nav class="art-nav">
+      <span></span>
+      <a class="art-nav-item art-nav-next" href="article-dam-aisc360-sap2000-vi.html"><span data-vi="Bài sau →" data-en="Next →">Bài sau →</span><b data-vi="Phương pháp Phân tích Trực tiếp (DAM) theo AISC 360-10 trong SAP2000" data-en="The Direct Analysis Method (AISC 360-10) in SAP2000">Phương pháp Phân tích Trực tiếp (DAM) theo AISC 360-10 trong SAP2000</b></a>
+    </nav>
+
+    <div style="text-align:center;margin-top:3rem">
+      <a class="btn btn-ghost" href="insights-vi.html" data-vi="Xem tất cả bài viết" data-en="View all articles">Xem tất cả bài viết</a>
+    </div>
+  </div></section></main>
+
+<footer id="site-footer">
+<div class="container">
+  <div class="foot-grid">
+    <div>
+      <h4>Roberto Structural</h4>
+      <p style="color:var(--steel-light);font-size:.9rem;max-width:34ch"><span data-vi="Kiến tạo lõi kỹ thuật kết cấu công nghiệp nặng." data-en="Engineering the Core of Heavy Industry.">Kiến tạo lõi kỹ thuật kết cấu công nghiệp nặng.</span></p>
+      <a href="mailto:robertostructural@gmail.com" style="display:inline-block;margin-top:.9rem;font-size:.9rem;color:var(--steel-light)">robertostructural@gmail.com</a>
+      <div class="social">
+        <a href="https://www.facebook.com/RobertoStructural" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@RobertoStructural" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.09 0 12 0 12s0 3.91.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.91 24 12 24 12s0-3.91-.5-5.8zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4 data-vi="Liên kết" data-en="Links">Liên kết</h4>
+      <a href="index-vi.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a>
+      <a href="insights-vi.html" data-rs-page="insights" data-vi="Bài viết" data-en="Insights">Bài viết</a>
+      <a href="tools-vi.html" data-rs-page="tools" data-vi="Phần mềm" data-en="Software">Phần mềm</a>
+      <a href="drawings-vi.html" data-rs-page="drawings" data-vi="Bản vẽ" data-en="Drawings">Bản vẽ</a>
+    </div>
+    <div>
+      <h4 data-vi="Lĩnh vực" data-en="Sectors">Lĩnh vực</h4>
+      <a href="index-vi.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Công nghiệp nặng" data-en="Heavy Industry">Công nghiệp nặng</a>
+      <a href="index-vi.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Công nghiệp nhẹ" data-en="Light Industry">Công nghiệp nhẹ</a>
+      <a href="index-vi.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Lọc hóa dầu" data-en="Petrochemical">Lọc hóa dầu</a>
+      <a href="index-vi.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Năng lượng" data-en="Energy">Năng lượng</a>
+    </div>
+    <div>
+      <h4 data-vi="Nhận bản tin" data-en="Newsletter">Nhận bản tin</h4>
+      <p style="font-size:.9rem;color:var(--steel-light)" data-vi="Nhận thông báo khi có Tool mới." data-en="Get notified about new Tools.">Nhận thông báo khi có Tool mới.</p>
+      <form class="newsletter" onsubmit="return false">
+        <input type="email" placeholder="Email" />
+        <button class="btn btn-primary" type="submit" style="padding:.6rem 1rem" data-vi="Gửi" data-en="Send">Gửi</button>
+      </form>
+    </div>
+  </div>
+  <div class="foot-bottom">© <span id="yr"></span> Roberto Structural · <span data-vi="Đã đăng ký bản quyền" data-en="All rights reserved">Đã đăng ký bản quyền</span></div>
+</div></footer>
 
 <script>window.RS_PAGE_ID = "rc-deck-on-steel-structures"; window.RS_PAGE_LANG = "vi";</script>
 <script src="assets/js/main.js"></script>

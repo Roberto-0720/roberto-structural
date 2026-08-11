@@ -30,6 +30,805 @@ window.ARTICLE_CATEGORIES = [
 ];
 
 window.ARTICLES = [
+  /* ============================== No. 08 ==============================
+     Pipe Rack gồm 2 phần. Part 2 đặt TRƯỚC Part 1 trong mảng là CỐ Ý:
+     articles.js lấy prev = ARTICLES[idx+1] (bài cũ hơn) và next = ARTICLES[idx-1]
+     (bài mới hơn). Xếp thế này thì đứng ở Part 1 thấy “Bài sau → Part 2”, đứng ở
+     Part 2 thấy “← Bài trước: Part 1”. Đảo lại thì cả hai chiều đều sai.
+     ==================================================================== */
+  {
+    id: "pipe-rack-design-part-2",
+    no: "08",
+    category: { vi: "Kết cấu thép", en: "Steel Structures" },
+    date: "2026-08-11",
+    readmin: 12,
+    title: {
+      vi: "Pipe Rack — Sổ tay thiết kế (Phần 2): Chi tiết liên kết & Checklist",
+      en: "Pipe Rack Design Guide (Part 2): Connection Detail & Checklist"
+    },
+    excerpt: {
+      vi: "Từ thiết kế cấu kiện đến chi tiết thi công: liên kết end-plate, base plate và bu-lông neo, giằng, chi tiết cấu tạo, và checklist 6 giai đoạn dùng được ngay tại bàn làm việc.",
+      en: "From member design to construction details: end-plate connections, base plates and anchor bolts, bracing, practical detailing, and a six-phase checklist you can use at your desk."
+    },
+    cover: "Resource/articles/06-pipe-rack/cover_2.webp",
+    sections: [
+      {
+        heading: { vi: "8. Liên kết dầm–cột", en: "8. Beam-to-column connections" },
+        body: [
+          { type: "subhead", vi: "8.1. Triết lý liên kết cho Pipe Rack", en: "8.1. Connection philosophy for pipe racks" },
+          {
+            type: "list",
+            items: [
+              { vi: "<b>Liên kết bu-lông ưu tiên</b> — giảm thiểu hàn công trường để đảm bảo tốc độ và chất lượng.", en: "<b>Bolted connections preferred</b> — minimise field welding for speed and quality." },
+              { vi: "Phương ngang: <b>liên kết moment</b> (khung cứng).", en: "Transverse direction: <b>moment connections</b> (rigid frames)." },
+              { vi: "Phương dọc: <b>liên kết cắt</b> (dầm đóng vai trò strut hoặc được giằng).", en: "Longitudinal direction: <b>shear connections</b> (beams act as struts or are braced)." },
+              { vi: "Mọi liên kết phải truyền: cắt + moment (nếu cứng) + dọc trục (nếu là strut).", en: "All connections must transfer: shear + moment (if rigid) + axial (if strut)." }
+            ]
+          },
+          { type: "subhead", vi: "8.2. Liên kết End-Plate Moment (phổ biến nhất)", en: "8.2. End-plate moment connection (most common)" },
+          {
+            type: "figure",
+            src: "Resource/articles/06-pipe-rack/04_endplate_connection.webp",
+            caption: { vi: "<b>Hình 4.</b> Liên kết End-Plate Moment bu-lông.", en: "<b>Figure 4.</b> Bolted end-plate moment connection." }
+          },
+          {
+            type: "list",
+            items: [
+              { vi: "<b>Loại:</b> Flush hoặc Extended End-Plate.", en: "<b>Type:</b> flush or extended end-plate." },
+              { vi: "<b>Tham chiếu:</b> AISC Design Guide 4 / 39.", en: "<b>Reference:</b> AISC Design Guide 4 / 39." }
+            ]
+          },
+          { vi: "<b>Các bước thiết kế:</b>", en: "<b>Design steps:</b>" },
+          {
+            type: "list",
+            items: [
+              { vi: "<b>1.</b> Xác định moment (M<sub>u</sub>) và cắt (V<sub>u</sub>) tại liên kết.", en: "<b>1.</b> Determine required moment (M<sub>u</sub>) and shear (V<sub>u</sub>) at the connection." },
+              { vi: "<b>2.</b> Chọn cấu hình bu-lông (4-bolt, 8-bolt).", en: "<b>2.</b> Select bolt configuration (4-bolt, 8-bolt)." },
+              { vi: "<b>3.</b> Tính chiều dày end-plate (phương pháp yield-line).", en: "<b>3.</b> Calculate end-plate thickness (yield-line method)." },
+              { vi: "<b>4.</b> Kiểm tra kéo bu-lông (bao gồm prying action).", en: "<b>4.</b> Check bolt tension (including prying action)." },
+              { vi: "<b>5.</b> Kiểm tra uốn cánh cột / chảy bụng cột / crippling bụng cột.", en: "<b>5.</b> Check column flange bending / web yielding / web crippling." },
+              { vi: "<b>6.</b> Thêm sườn gia cường nếu cột không đủ.", en: "<b>6.</b> Add stiffeners if the column is inadequate." }
+            ]
+          },
+          { type: "subhead", vi: "Các kiểm tra chính", en: "Key design checks" },
+          {
+            type: "table",
+            head: [{ vi: "Kiểm tra", en: "Check" }, { vi: "Nội dung", en: "What to verify" }],
+            rows: [
+              [{ vi: "Kéo bu-lông", en: "Bolt tension" }, { vi: "T<sub>b</sub> ≥ T<sub>u</sub> (bao gồm prying)", en: "T<sub>b</sub> ≥ T<sub>u</sub> (including prying)" }],
+              [{ vi: "Uốn end-plate", en: "End-plate bending" }, { vi: "t<sub>p</sub> ≥ yêu cầu (yield-line)", en: "t<sub>p</sub> ≥ required (yield-line)" }],
+              [{ vi: "Uốn cánh cột", en: "Column flange bending" }, { vi: "t<sub>f</sub> ≥ yêu cầu, hoặc thêm sườn", en: "t<sub>f</sub> ≥ required, or add stiffeners" }],
+              [{ vi: "Chảy bụng cột", en: "Column web yielding" }, { vi: "R<sub>n</sub> ≥ lực cánh dầm", en: "R<sub>n</sub> ≥ beam flange force" }],
+              [{ vi: "Crippling bụng cột", en: "Column web crippling" }, { vi: "R<sub>n</sub> ≥ lực cánh dầm", en: "R<sub>n</sub> ≥ beam flange force" }],
+              [{ vi: "Cắt panel zone cột", en: "Column web panel zone shear" }, { vi: "R<sub>v</sub> ≥ yêu cầu", en: "R<sub>v</sub> ≥ required" }],
+              [{ vi: "Cắt nhóm bu-lông", en: "Shear at bolt group" }, { vi: "R<sub>n</sub> ≥ V<sub>u</sub>", en: "R<sub>n</sub> ≥ V<sub>u</sub>" }]
+            ]
+          },
+          { type: "subhead", vi: "8.3. Liên kết cắt (Simple Connection)", en: "8.3. Shear connection (simple connection)" },
+          {
+            type: "list",
+            items: [
+              { vi: "Dùng cho: dầm không truyền moment, strut, khung phụ.", en: "Used for: non-moment beams, struts, secondary framing." },
+              { vi: "Loại: <b>thép góc đơn/đôi</b>, <b>shear tab</b>, <b>end-plate cắt</b>.", en: "Types: <b>single/double angle</b>, <b>shear tab (single plate)</b>, <b>end-plate shear</b>." },
+              { vi: "Tham chiếu: AISC Manual Part 10.", en: "Reference: AISC Manual Part 10." },
+              { vi: "Kiểm tra: cắt bu-lông, ép mặt, tiết diện thực, block shear.", en: "Design checks: bolt shear, bearing, net section, block shear." }
+            ]
+          },
+          {
+            type: "tip",
+            vi: "<b>Mẹo:</b> Strut chịu cả cắt và lực dọc đáng kể (ma sát/gió), liên kết cắt đơn giản có thể không đủ. Dùng <b>liên kết moment</b> hoặc <b>liên kết có bản mã</b> truyền được lực dọc.",
+            en: "<b>Tip:</b> For struts that carry both shear and significant axial force (friction/wind), a shear connection may not be sufficient. Use a <b>moment connection</b> or a <b>gusseted connection</b> that can transfer axial force."
+          }
+        ]
+      },
+      {
+        heading: { vi: "9. Base Plate & bu-lông neo", en: "9. Base plate & anchor bolt design" },
+        body: [
+          { type: "subhead", vi: "9.1. Thiết kế Base Plate theo AISC Design Guide 1", en: "9.1. Base plate design per AISC Design Guide 1" },
+          {
+            type: "figure",
+            src: "Resource/articles/06-pipe-rack/05_base_plate_types.webp",
+            caption: { vi: "<b>Hình 5.</b> Base Plate: chân khớp và chân ngàm.", en: "<b>Figure 5.</b> Base plate: pinned vs fixed configurations." }
+          },
+          {
+            type: "table",
+            head: [{ vi: "Loại", en: "Type" }, { vi: "Truyền moment", en: "Moment transfer" }, { vi: "Khi nào dùng", en: "When to use" }],
+            rows: [
+              [{ vi: "<b>Chân khớp (Pinned)</b>", en: "<b>Pinned base</b>" }, { vi: "Không truyền moment (chỉ cắt + nén)", en: "No moment (shear + axial only)" }, { vi: "Khi đầu cột có liên kết moment với dầm", en: "Top of column has a moment connection to the beam" }],
+              [{ vi: "<b>Chân ngàm (Fixed)</b>", en: "<b>Fixed base</b>" }, { vi: "Truyền moment xuống móng", en: "Transfers moment to the foundation" }, { vi: "Cột console, rack cao, tải ngang lớn", en: "Cantilever columns, tall racks, large lateral loads" }]
+            ]
+          },
+          { type: "subhead", vi: "9.2. Thiết kế chân ngàm — các bước", en: "9.2. Fixed base design steps" },
+          {
+            type: "list",
+            items: [
+              { vi: "<b>1. Xác định tải:</b> P<sub>u</sub> (dọc trục), M<sub>u</sub> (moment), V<sub>u</sub> (cắt).", en: "<b>1. Determine loads:</b> P<sub>u</sub> (axial), M<sub>u</sub> (moment), V<sub>u</sub> (shear)." },
+              { vi: "<b>2. Kích thước base plate (B × N):</b> phải chứa cột + khoảng trống; kiểm tra ép bê tông f<sub>p</sub> ≤ φ(0.85f′<sub>c</sub>)√(A₂/A₁).", en: "<b>2. Base plate size (B × N):</b> must fit within the column footprint + clearance; check concrete bearing f<sub>p</sub> ≤ φ(0.85f′<sub>c</sub>)√(A₂/A₁)." },
+              { vi: "<b>3. Chiều dày base plate (t<sub>p</sub>):</b> dựa trên uốn bản thò (kích thước m, n).", en: "<b>3. Base plate thickness (t<sub>p</sub>):</b> based on bending of the plate cantilever (m, n dimensions); simplified t<sub>p</sub> = 2.11 × √(M<sub>u,plate</sub> / (F<sub>y</sub> × B))." },
+              { vi: "<b>4. Bu-lông neo:</b> kéo T<sub>u</sub> = M<sub>u</sub>/d − P<sub>u</sub>/n<sub>bolts</sub>; cắt truyền qua ma sát, ép mặt, hoặc shear lug.", en: "<b>4. Anchor bolts:</b> tension T<sub>u</sub> = M<sub>u</sub>/d − P<sub>u</sub>/n<sub>bolts</sub> (for small axial); shear transferred by friction, bearing or shear lugs." },
+              { vi: "<b>5. Chiều sâu chôn bu-lông:</b> theo ACI 318 Chương 17.", en: "<b>5. Anchor bolt embedment:</b> per ACI 318 Chapter 17 (anchorage to concrete)." }
+            ]
+          },
+          { type: "subhead", vi: "9.3. Kiểm tra bu-lông neo (ACI 318 Ch.17)", en: "9.3. Anchor bolt checks (ACI 318 Ch.17)" },
+          {
+            type: "table",
+            head: [{ vi: "Dạng phá hoại", en: "Failure mode" }, { vi: "Nội dung kiểm tra", en: "What to check" }],
+            rows: [
+              [{ vi: "<b>Kéo đứt thép</b>", en: "<b>Steel tension</b>" }, { vi: "Khả năng kéo bu-lông", en: "Bolt tensile capacity" }],
+              [{ vi: "<b>Phá vỡ bê tông (kéo)</b>", en: "<b>Concrete breakout (tension)</b>" }, { vi: "Nón phá hoại, ảnh hưởng mép", en: "Cone pullout, edge effects" }],
+              [{ vi: "<b>Nhổ bê tông</b>", en: "<b>Concrete pullout</b>" }, { vi: "Ép mặt đầu bu-lông/đai ốc", en: "Bearing on bolt head/nut" }],
+              [{ vi: "<b>Cắt thép</b>", en: "<b>Steel shear</b>" }, { vi: "Khả năng cắt bu-lông", en: "Bolt shear capacity" }],
+              [{ vi: "<b>Phá vỡ bê tông (cắt)</b>", en: "<b>Concrete breakout (shear)</b>" }, { vi: "Khoảng cách mép, kích thước trụ", en: "Edge distance, pier size" }],
+              [{ vi: "<b>Pryout bê tông</b>", en: "<b>Concrete pryout</b>" }, { vi: "Bu-lông ngắn", en: "Short bolts" }]
+            ]
+          },
+          {
+            type: "tip",
+            vi: "<b>Tối thiểu 4 bu-lông neo</b> mỗi chân cột (OSHA — an toàn lắp dựng). Kể cả chân khớp.",
+            en: "<b>Minimum 4 anchor bolts</b> per column base (OSHA erection safety) — even for pinned bases."
+          }
+        ]
+      },
+      {
+        heading: { vi: "10. Thiết kế giằng", en: "10. Bracing design" },
+        body: [
+          { type: "subhead", vi: "10.1. Giằng đứng (phương dọc)", en: "10.1. Vertical bracing (longitudinal)" },
+          {
+            type: "list",
+            items: [
+              { vi: "<b>Mục đích:</b> chịu tải ngang dọc (ma sát, gió, động đất).", en: "<b>Purpose:</b> resist longitudinal lateral loads (friction, wind, seismic)." },
+              { vi: "<b>Loại:</b> X-bracing (phổ biến nhất), V-ngược (chevron), chéo đơn.", en: "<b>Types:</b> X-bracing (most common), inverted V (chevron), single diagonal." },
+              { vi: "<b>Vị trí:</b> mỗi 3–5 bay. Phối hợp với vòng lặp giãn nở ống.", en: "<b>Location:</b> every 3–5 bays. Coordinate with piping expansion loops." }
+            ]
+          },
+          { type: "subhead", vi: "10.2. Kiểm tra cấu kiện giằng", en: "10.2. Design checks for bracing members" },
+          {
+            type: "code",
+            vi: "Thanh kéo:    Pn = Fy × Ag   (chảy)\n              Pn = Fu × Ae   (đứt)\n\nThanh nén:    Pn = Fcr × Ag  (mất ổn định — AISC Ch. E)\n\nĐộ mảnh:      KL/r ≤ 200  (nén)\n              L/r  ≤ 300  (kéo — khuyến nghị)",
+            en: "Tension member:      Pn = Fy × Ag   (yielding)\n                     Pn = Fu × Ae   (rupture)\n\nCompression member:  Pn = Fcr × Ag  (buckling — AISC Ch. E)\n\nSlenderness:         KL/r ≤ 200  (compression)\n                     L/r  ≤ 300  (tension — recommended)"
+          },
+          { type: "subhead", vi: "10.3. Thanh giằng ngang (Strut)", en: "10.3. Horizontal struts" },
+          {
+            type: "list",
+            items: [
+              { vi: "Nối các bent ở mức dầm theo phương dọc.", en: "Connect bents at beam level in the longitudinal direction." },
+              { vi: "Chịu: lực ma sát, gió đại diện, lực strut từ giằng.", en: "Must resist: friction force, tributary wind, strut force from the bracing." },
+              { vi: "Thường thiết kế như <b>thanh nén</b> (có thể mất ổn định khi lực ma sát đổi chiều).", en: "Often designed as <b>compression members</b> (they can buckle when the friction load reverses)." },
+              { vi: "<b>Chiều dài hiệu dụng:</b> thường KL = toàn bộ chiều dài bay.", en: "<b>Effective length:</b> typically KL = the full bay length between bents." }
+            ]
+          },
+          { type: "subhead", vi: "10.4. Liên kết giằng (bản mã — Gusset Plate)", en: "10.4. Bracing connection (gusset plate)" },
+          {
+            type: "list",
+            items: [
+              { vi: "Bản mã truyền lực giằng đến nút dầm–cột.", en: "Gusset plates must transfer the brace force to the beam-column joint." },
+              { vi: "<b>Tiết diện Whitmore</b> cho khả năng kéo/nén.", en: "<b>Whitmore section</b> for tension/compression capacity." },
+              { vi: "<b>Phương pháp Thornton</b> cho mất ổn định bản mã.", en: "<b>Thornton method</b> for gusset plate buckling." },
+              { vi: "Kiểm tra <b>block shear</b> tại nhóm bu-lông.", en: "<b>Block shear</b> check at the bolt group." },
+              { vi: "<b>Khoảng trống:</b> đảm bảo khe hở 2t (yêu cầu AISC).", en: "<b>Clearance:</b> ensure the 2t linear clearance (AISC requirement)." }
+            ]
+          }
+        ]
+      },
+      {
+        heading: { vi: "11. Chi tiết cấu tạo — mẹo từ kinh nghiệm", en: "11. Practical detailing — tips from experience" },
+        body: [
+          { type: "subhead", vi: "11.1. Hướng đặt cấu kiện", en: "11.1. Member orientation" },
+          {
+            type: "list",
+            items: [
+              { vi: "<b>Cột:</b> trục mạnh (x-x) đặt theo <b>phương ngang</b> — khung moment phương ngang nên uốn lớn nhất quanh trục mạnh.", en: "<b>Columns:</b> strong axis (x-x) oriented in the <b>transverse</b> direction — moment frame action is transverse, so maximum bending is about the strong axis." },
+              { vi: "<b>Dầm:</b> trục mạnh chịu tải trọng đứng (hiển nhiên).", en: "<b>Beams:</b> strong axis resists gravity loads (obvious)." },
+              { vi: "<b>Strut:</b> mất ổn định trục yếu phải được kiểm tra — thường chi phối.", en: "<b>Struts:</b> weak-axis buckling must be checked — it often controls." }
+            ]
+          },
+          { type: "subhead", vi: "11.2. Dự phòng mở rộng", en: "11.2. Future expansion" },
+          {
+            type: "list",
+            items: [
+              { vi: "Thiết kế dư <b>10–25% tải trọng ống</b> cho tương lai.", en: "Design for <b>10–25% additional pipe load capacity</b>." },
+              { vi: "Để trống chỗ cho mức ống bổ sung.", en: "Leave space for future pipe levels." },
+              { vi: "Móng phải tính đến khả năng nhổ tăng thêm trong tương lai.", en: "Foundation design should account for potential future uplift." },
+              { vi: "Vị trí giằng phải cho phép ống tương lai đi qua.", en: "Bracing locations should allow future piping runs." }
+            ]
+          },
+          { type: "subhead", vi: "11.3. Lối đi & bảo trì", en: "11.3. Access & maintenance" },
+          {
+            type: "list",
+            items: [
+              { vi: "Thông thuỷ dưới dầm thấp nhất ≥ <b>4.5 m</b> cho xe cộ.", en: "Clear height under the lowest beam ≥ <b>4.5 m</b> (15 ft) for vehicle access." },
+              { vi: "Sàn bảo trì tại mỗi mức dầm (nếu vận hành yêu cầu).", en: "Maintenance platforms at each beam level (if required by operations)." },
+              { vi: "Thang/cầu thang theo OSHA hoặc tiêu chuẩn địa phương.", en: "Ladder and stairway access per OSHA/local codes." },
+              { vi: "Tránh đặt giằng chắn lối đi.", en: "Avoid placing bracing where it blocks access routes." }
+            ]
+          },
+          { type: "subhead", vi: "11.4. Chống cháy (Fireproofing)", en: "11.4. Fireproofing" },
+          {
+            type: "list",
+            items: [
+              { vi: "Yêu cầu theo quy định địa phương hoặc đặc tả dự án.", en: "Required in some jurisdictions or by project specification." },
+              { vi: "Thường: sơn chống cháy phồng nở hoặc phun xi măng.", en: "Typically intumescent paint or cementitious spray." },
+              { vi: "Tăng tĩnh tải (15–30 kg/m² bề mặt cấu kiện).", en: "Adds dead load (15–30 kg/m² of member surface area)." },
+              { vi: "Ảnh hưởng chi tiết liên kết — cần khe hở cho thi công chống cháy.", en: "Affects connection details — clearances are needed for fireproofing application." }
+            ]
+          }
+        ]
+      },
+      {
+        heading: { vi: "12. Tương tác gối đỡ ống", en: "12. Pipe support interaction" },
+        body: [
+          { type: "subhead", vi: "12.1. Các loại gối đỡ", en: "12.1. Support types" },
+          {
+            type: "table",
+            head: [{ vi: "Loại", en: "Type" }, { vi: "Chuyển vị cho phép", en: "Movement allowed" }, { vi: "Lực truyền", en: "Force transfer" }],
+            rows: [
+              [{ vi: "<b>Rest (đặt tự do)</b>", en: "<b>Rest</b>" }, { vi: "Tự do mọi phương ngang", en: "Free in all horizontal directions" }, { vi: "Chỉ đứng (+ ma sát)", en: "Vertical only (+ friction)" }],
+              [{ vi: "<b>Guide (dẫn hướng)</b>", en: "<b>Guide</b>" }, { vi: "Chỉ dọc trục ống", en: "Axial only" }, { vi: "Đứng + ngang (không giữ dọc)", en: "Vertical + lateral (no axial restraint)" }],
+              [{ vi: "<b>Anchor (neo)</b>", en: "<b>Anchor</b>" }, { vi: "Không (cố định)", en: "None (fixed)" }, { vi: "Đứng + ngang + dọc (toàn phần)", en: "Vertical + lateral + axial (full restraint)" }],
+              [{ vi: "<b>Spring (lò xo)</b>", en: "<b>Spring</b>" }, { vi: "Chuyển vị đứng", en: "Vertical movement" }, { vi: "Đỡ đứng thay đổi", en: "Variable vertical support" }]
+            ]
+          },
+          { type: "subhead", vi: "12.2. Thông tin cần từ nhóm Piping", en: "12.2. Information required from the piping team" },
+          {
+            type: "checklist",
+            items: [
+              { vi: "Kích thước ống, chiều dày cách nhiệt, mật độ dung dịch.", en: "Pipe sizes, insulation thickness, content density." },
+              { vi: "Vị trí và loại gối đỡ (rest / guide / anchor).", en: "Support locations and types (rest / guide / anchor)." },
+              { vi: "Tải neo (F<sub>x</sub>, F<sub>y</sub>, F<sub>z</sub>) từ phân tích ứng suất ống.", en: "Anchor loads (F<sub>x</sub>, F<sub>y</sub>, F<sub>z</sub>) from piping stress analysis." },
+              { vi: "Phạm vi giãn nở nhiệt và hướng di chuyển.", en: "Thermal expansion ranges and movement directions." },
+              { vi: "Yêu cầu thử thuỷ lực (ống nào, trình tự).", en: "Hydrotest requirements (which pipes, in what sequence)." },
+              { vi: "Ống bổ sung trong tương lai.", en: "Future piping additions." }
+            ]
+          },
+          {
+            type: "tip",
+            vi: "<b>Phối hợp là tất cả.</b> Thiết kế pipe rack chỉ tốt bằng dữ liệu tải trọng nó nhận được. Thiết lập quy trình trao đổi dữ liệu tải chính thức với nhóm piping.",
+            en: "<b>Coordination is everything.</b> A pipe rack design is only as good as the load data it receives. Establish a formal load data exchange process with the piping team."
+          }
+        ]
+      },
+      {
+        heading: { vi: "13. Giới hạn chuyển vị", en: "13. Deflection limits" },
+        body: [
+          {
+            type: "table",
+            head: [{ vi: "Điều kiện", en: "Condition" }, { vi: "Giới hạn", en: "Limit" }, { vi: "Tham chiếu", en: "Reference" }],
+            rows: [
+              [{ vi: "Võng dầm (TT+HT)", en: "Beam vertical deflection (DL+LL)" }, { vi: "L/240", en: "L/240" }, { vi: "AISC / đặc tả dự án", en: "AISC / project spec" }],
+              [{ vi: "Võng dầm (chỉ HT)", en: "Beam vertical deflection (LL only)" }, { vi: "L/360", en: "L/360" }, { vi: "AISC / đặc tả dự án", en: "AISC / project spec" }],
+              [{ vi: "Chuyển vị ngang (phương ngang)", en: "Lateral drift (transverse)" }, { vi: "H/100 đến H/200", en: "H/100 to H/200" }, { vi: "Đặc tả dự án / PIP", en: "Project spec / PIP" }],
+              [{ vi: "Chuyển vị ngang (phương dọc)", en: "Lateral drift (longitudinal)" }, { vi: "H/200", en: "H/200" }, { vi: "Đặc tả dự án", en: "Project spec" }],
+              [{ vi: "Co ngắn cột", en: "Column vertical shortening" }, { vi: "Theo dung sai ống", en: "Per piping tolerance" }, { vi: "Phối hợp với piping", en: "Coordinate with piping" }]
+            ]
+          },
+          {
+            type: "tip",
+            vi: "<b>Lưu ý thực tế:</b> Kỹ sư piping thường quan tâm <b>chênh lệch võng</b> giữa các gối liền kề hơn là võng tuyệt đối. Thông báo giới hạn sớm.",
+            en: "<b>Practical note:</b> Piping engineers are often more concerned about <b>differential deflection</b> between adjacent supports than about absolute deflection. Communicate the limits early."
+          }
+        ]
+      },
+      {
+        heading: { vi: "14. Checklist thiết kế — quy trình dự án hoàn chỉnh", en: "14. Design checklist — complete project workflow" },
+        body: [
+          { type: "subhead", vi: "Giai đoạn 1: Thu thập dữ liệu", en: "Phase 1: Input data collection" },
+          {
+            type: "checklist",
+            items: [
+              { vi: "Bản vẽ mặt bằng và tuyến pipe rack.", en: "Plot plan and pipe rack routing layout." },
+              { vi: "Danh sách ống: kích thước, cách nhiệt, dung dịch, nhiệt độ.", en: "Pipe list with sizes, insulation, content, temperatures." },
+              { vi: "Bản vẽ máng cáp và trọng lượng.", en: "Cable tray layouts and weights." },
+              { vi: "Báo cáo địa chất (khả năng chịu tải, thông số động đất).", en: "Geotechnical report (bearing capacity, seismic parameters)." },
+              { vi: "Tài liệu tiêu chí thiết kế dự án.", en: "Project design criteria document." },
+              { vi: "Dữ liệu phân tích ứng suất ống (tải neo / dẫn hướng).", en: "Piping stress analysis data (anchor/guide loads)." }
+            ]
+          },
+          { type: "subhead", vi: "Giai đoạn 2: Thiết kế cấu hình", en: "Phase 2: Configuration design" },
+          {
+            type: "checklist",
+            items: [
+              { vi: "Khoảng cách bent đã xác định (phù hợp khoảng cách gối ống).", en: "Bent spacing determined (matching pipe support spacing)." },
+              { vi: "Chiều rộng rack đã xác định (từ nghiên cứu tuyến ống).", en: "Rack width determined (from the pipe routing study)." },
+              { vi: "Số mức dầm đã xác định.", en: "Number of beam levels determined." },
+              { vi: "Chiều cao cột đã xác định (yêu cầu thông thuỷ).", en: "Column height determined (clearance requirements)." },
+              { vi: "Vị trí bay giằng đã chọn (phối hợp với piping).", en: "Bracing bay locations selected (coordinated with piping)." },
+              { vi: "Dự phòng mở rộng đã tính.", en: "Future expansion allowance incorporated." }
+            ]
+          },
+          { type: "subhead", vi: "Giai đoạn 3: Phân tích kết cấu", en: "Phase 3: Structural analysis" },
+          {
+            type: "checklist",
+            items: [
+              { vi: "Tính toán tải trọng hoàn chỉnh (D, D<sub>o</sub>, D<sub>t</sub>, L, F<sub>f</sub>, W, E).", en: "Load calculation complete (D, D<sub>o</sub>, D<sub>t</sub>, L, F<sub>f</sub>, W, E)." },
+              { vi: "Tổ hợp tải theo AISC / ASCE 7 đã thiết lập.", en: "Load combinations per AISC/ASCE 7 established." },
+              { vi: "Phân tích khung ngang hoàn chỉnh.", en: "Transverse bent analysis complete." },
+              { vi: "Phân tích khung giằng dọc hoàn chỉnh.", en: "Longitudinal braced bay analysis complete." },
+              { vi: "Hiệu ứng bậc hai (P-Δ) đã tính.", en: "Second-order effects (P-Δ) included." },
+              { vi: "Tỷ số thiết kế cấu kiện ≤ 1.0 (mục tiêu 0.7–0.9).", en: "Member design ratios ≤ 1.0 (target 0.7–0.9)." }
+            ]
+          },
+          { type: "subhead", vi: "Giai đoạn 4: Thiết kế liên kết", en: "Phase 4: Connection design" },
+          {
+            type: "checklist",
+            items: [
+              { vi: "Liên kết moment dầm–cột đã thiết kế.", en: "Beam-to-column moment connections designed." },
+              { vi: "Base plate và bu-lông neo đã thiết kế.", en: "Base plate and anchor bolts designed." },
+              { vi: "Liên kết bản mã giằng đã thiết kế.", en: "Bracing gusset connections designed." },
+              { vi: "Liên kết strut đã thiết kế (cắt + dọc trục).", en: "Strut connections designed (shear + axial)." },
+              { vi: "Gối đỡ ống đã chi tiết.", en: "Pipe support attachments detailed." }
+            ]
+          },
+          { type: "subhead", vi: "Giai đoạn 5: Thiết kế móng", en: "Phase 5: Foundation design" },
+          {
+            type: "checklist",
+            items: [
+              { vi: "Phản lực móng đã xuất từ mô hình kết cấu.", en: "Foundation reactions extracted from the structural analysis." },
+              { vi: "Kích thước trụ/bệ (trọng lực + moment + cắt).", en: "Pedestal/pier sizing (gravity + moment + shear)." },
+              { vi: "Chiều sâu chôn bu-lông theo ACI 318 Ch.17.", en: "Anchor bolt embedment per ACI 318 Ch.17." },
+              { vi: "Ổn định móng (chống lật, trượt).", en: "Foundation stability (overturning, sliding)." },
+              { vi: "Trường hợp tải thử thuỷ lực đã kiểm tra trên móng.", en: "Hydrotest load case checked on the foundation." }
+            ]
+          },
+          { type: "subhead", vi: "Giai đoạn 6: Bản vẽ & hồ sơ", en: "Phase 6: Drawing & documentation" },
+          {
+            type: "checklist",
+            items: [
+              { vi: "Bản vẽ bố trí tổng thể.", en: "General arrangement drawings." },
+              { vi: "Bảng thống kê cấu kiện với kích thước và vật liệu.", en: "Member schedule with sizes and materials." },
+              { vi: "Chi tiết liên kết (tiêu chuẩn và đặc biệt).", en: "Connection details (standard and special)." },
+              { vi: "Bản vẽ mặt bằng và chi tiết móng.", en: "Foundation plan and details." },
+              { vi: "Bảng khối lượng.", en: "Bill of materials." },
+              { vi: "Thuyết minh tính toán.", en: "Calculation report." }
+            ]
+          }
+        ]
+      },
+      {
+        heading: { vi: "15. Hệ thống tiêu chuẩn liên quan", en: "15. Related standards — quick reference" },
+        body: [
+          {
+            type: "table",
+            head: [{ vi: "Tiêu chuẩn", en: "Standard" }, { vi: "Phạm vi", en: "Scope" }, { vi: "Nội dung chính", en: "Key content" }],
+            rows: [
+              [{ vi: "<b>AISC 360</b>", en: "<b>AISC 360</b>" }, { vi: "Thiết kế thép", en: "Steel design" }, { vi: "Cấu kiện, ổn định, liên kết", en: "Member design, stability, connections" }],
+              [{ vi: "<b>AISC 341</b>", en: "<b>AISC 341</b>" }, { vi: "Thiết kế chống động đất", en: "Seismic steel design" }, { vi: "Quy định đặc biệt cho vùng động đất", en: "Special provisions for seismic zones" }],
+              [{ vi: "<b>AISC Design Guide 1</b>", en: "<b>AISC Design Guide 1</b>" }, { vi: "Base plate &amp; bu-lông neo", en: "Base plates &amp; anchor rods" }, { vi: "Chiều dày bản, thiết kế bu-lông", en: "Plate thickness, anchor design" }],
+              [{ vi: "<b>AISC Design Guide 4/39</b>", en: "<b>AISC Design Guide 4/39</b>" }, { vi: "Liên kết end-plate", en: "End-plate connections" }, { vi: "Thiết kế liên kết moment", en: "Moment connection design" }],
+              [{ vi: "<b>ASCE 7</b>", en: "<b>ASCE 7</b>" }, { vi: "Tải trọng và tổ hợp", en: "Loads and load combinations" }, { vi: "Gió, động đất, hệ số tải", en: "Wind, seismic, load factors" }],
+              [{ vi: "<b>ASCE Petrochemical</b>", en: "<b>ASCE Petrochemical</b>" }, { vi: "Hướng dẫn kết cấu công nghiệp", en: "Industrial structure guidelines" }, { vi: "Quy định non-building structure", en: "Non-building structure provisions" }],
+              [{ vi: "<b>ACI 318</b>", en: "<b>ACI 318</b>" }, { vi: "Thiết kế bê tông", en: "Concrete design" }, { vi: "Móng, chôn bu-lông neo", en: "Foundation, anchor bolt embedment" }],
+              [{ vi: "<b>PIP STC01015</b>", en: "<b>PIP STC01015</b>" }, { vi: "Tiêu chí thiết kế pipe rack", en: "Pipe rack design criteria" }, { vi: "Thực hành công nghiệp, định nghĩa tải", en: "Industry practice, load definitions" }]
+            ]
+          }
+        ]
+      },
+      {
+        heading: { vi: "Tóm tắt Part 2", en: "Part 2 summary" },
+        body: [
+          {
+            type: "table",
+            head: [{ vi: "#", en: "#" }, { vi: "Nội dung", en: "Content" }, { vi: "Từ khoá", en: "Keyword" }],
+            rows: [
+              [{ vi: "1", en: "1" }, { vi: "End-plate moment = tiêu chuẩn cho bent pipe rack", en: "End-plate moment connection = standard for pipe rack bents" }, { vi: "<b>End-Plate</b>", en: "<b>End-Plate</b>" }],
+              [{ vi: "2", en: "2" }, { vi: "Base plate: khớp hoặc ngàm — luôn tối thiểu 4 bu-lông", en: "Base plate: pinned or fixed — always minimum 4 anchor bolts" }, { vi: "<b>4 Bolts Min</b>", en: "<b>4 Bolts Min</b>" }],
+              [{ vi: "3", en: "3" }, { vi: "Giằng đứng mỗi 3–5 bay, phối hợp piping", en: "Vertical bracing every 3–5 bays, coordinate with piping" }, { vi: "<b>Bracing Layout</b>", en: "<b>Bracing Layout</b>" }],
+              [{ vi: "4", en: "4" }, { vi: "Bản mã: Whitmore + Thornton + Block Shear", en: "Gusset plate: Whitmore + Thornton + block shear" }, { vi: "<b>Gusset Checks</b>", en: "<b>Gusset Checks</b>" }],
+              [{ vi: "5", en: "5" }, { vi: "Trục mạnh cột đặt theo phương ngang", en: "Strong axis of column oriented in the transverse direction" }, { vi: "<b>Column Orientation</b>", en: "<b>Column Orientation</b>" }],
+              [{ vi: "6", en: "6" }, { vi: "Thiết kế dư 10–25% cho mở rộng tương lai", en: "Design for 10–25% future expansion capacity" }, { vi: "<b>Future Growth</b>", en: "<b>Future Growth</b>" }],
+              [{ vi: "7", en: "7" }, { vi: "Dữ liệu gối đỡ ống từ nhóm piping = đầu vào quyết định", en: "Pipe support data from the piping team = critical input" }, { vi: "<b>Coordination</b>", en: "<b>Coordination</b>" }],
+              [{ vi: "8", en: "8" }, { vi: "Checklist hoàn chỉnh từ thu thập dữ liệu đến hồ sơ", en: "Complete checklist from input data to documentation" }, { vi: "<b>6-Phase Workflow</b>", en: "<b>6-Phase Workflow</b>" }]
+            ]
+          },
+          {
+            type: "tip",
+            vi: "Pipe rack không chỉ là một khung thép giữ ống. Nó là <b>xương sống của nhà máy công nghiệp</b> — kết nối các cụm công nghệ, mang theo tiện ích quan trọng, và chịu những lực mà kỹ sư dân dụng hiếm khi gặp.<br><b>Hiểu tải trọng — Mô hình đúng — Chi tiết cho thi công</b> = Pipe rack thành công.",
+            en: "A pipe rack is not just a frame holding pipes. It is the <b>backbone of an industrial plant</b> — connecting process units, carrying critical utilities, and resisting forces that most building engineers never encounter.<br><b>Understand the loads — Model correctly — Detail for construction</b> = successful pipe rack."
+          },
+          {
+            type: "tip",
+            vi: "<b>Tiêu chuẩn và đặc tả dự án thay đổi theo thời gian.</b> Luôn kiểm tra phiên bản mới nhất của AISC 360, ASCE 7, và tiêu chí thiết kế dự án trước khi áp dụng. Bài viết này dùng làm <b>tham chiếu nhanh</b> — không thay thế việc đọc và hiểu code gốc.",
+            en: "<b>Standards and project specifications evolve.</b> Always verify against the latest editions of AISC 360, ASCE 7 and the project-specific design criteria before applying them. This article is a <b>quick reference</b> — it does not replace reading and understanding the original codes."
+          }
+        ]
+      }
+    ],
+    footnote: {
+      vi: "Bài viết thuộc series “Hướng dẫn thiết kế kết cấu Công trình Công nghiệp” — Roberto Structural. Nội dung mang tính hướng dẫn kỹ thuật; kỹ sư chịu trách nhiệm kiểm tra và hiệu chỉnh theo điều kiện cụ thể của từng dự án và yêu cầu của tiêu chuẩn áp dụng. © Tổng hợp từ AISC 360, ASCE 7, AISC Design Guides, PIP Standards, và kinh nghiệm dự án thực tế.",
+      en: "Part of the series “Structural design for industrial facilities” — Roberto Structural. The content is technical guidance; the engineer remains responsible for checking and adapting it to the conditions of each project and the requirements of the governing code. © Compiled from AISC 360, ASCE 7, AISC Design Guides, PIP Standards and practical project experience."
+    }
+  },
+
+  /* ============================== No. 07 ============================== */
+  {
+    id: "pipe-rack-design-part-1",
+    no: "07",
+    category: { vi: "Kết cấu thép", en: "Steel Structures" },
+    date: "2026-08-11",
+    readmin: 12,
+    title: {
+      vi: "Pipe Rack — Sổ tay thiết kế (Phần 1): Cấu hình, tải trọng & phân tích",
+      en: "Pipe Rack Design Guide (Part 1): Configuration, Loading & Analysis"
+    },
+    excerpt: {
+      vi: "Pipe rack không phải nhà. Tải ngang — ma sát nhiệt, gió, động đất — mới là thứ chi phối thiết kế cột, và ma sát nhiệt là tải trọng đặc trưng không có trong kết cấu dân dụng.",
+      en: "A pipe rack is not a building. Lateral loads — thermal friction, wind, seismic — govern the column design, and thermal friction is the signature load that conventional structures never see."
+    },
+    cover: "Resource/articles/06-pipe-rack/cover_1.webp",
+    sections: [
+      {
+        heading: { vi: "1. Tổng quan — Pipe Rack có gì đặc biệt?", en: "1. Overview — what makes pipe racks special?" },
+        body: [
+          {
+            type: "list",
+            items: [
+              { vi: "Pipe rack là <b>hệ khung thép</b> đỡ đường ống công nghệ, máng cáp điện, máng thiết bị đo lường trong nhà máy (dầu khí, hoá dầu, nhiệt điện).", en: "A pipe rack is a <b>steel framing system</b> that supports process piping, cable trays and instrument trays in industrial plants (oil &amp; gas, petrochemical, power)." },
+              { vi: "<b>Không phải nhà</b> — là <b>non-building structure</b> với đặc điểm tải trọng riêng biệt.", en: "<b>Not a building</b> — it is a <b>non-building structure</b> with unique load characteristics." },
+              { vi: "<b>Tải nhiệt/ma sát</b> từ giãn nở ống — thường là tải ngang chi phối thiết kế.", en: "<b>Thermal/friction loads</b> from piping expansion — often the governing lateral load." },
+              { vi: "<b>Tải trọng biến thiên lớn</b> — ống rỗng, ống đầy dung dịch, hoặc thử thuỷ lực.", en: "<b>Highly variable loads</b> — pipes can be empty, full, or under test pressure." },
+              { vi: "<b>Phối hợp đa ngành</b> — kết cấu, đường ống, điện, đo lường cần thống nhất.", en: "<b>Multi-discipline coordination</b> — structural, piping, electrical and instrument teams must align." },
+              { vi: "<b>Thi công lắp ghép</b> — liên kết bu-lông được ưu tiên, hạn chế hàn ngoài công trường.", en: "<b>Modular construction</b> — bolted connections preferred for field erection." },
+              { vi: "<b>Dự phòng mở rộng</b> — cân nhắc thiết kế dư 10–25% tải trọng cho tương lai.", en: "<b>Future expansion</b> — consider designing with 10–25% additional capacity." }
+            ]
+          },
+          {
+            type: "tip",
+            vi: "<b>Thay đổi tư duy:</b> Trong nhà dân dụng, tải trọng đứng chi phối. Trong pipe rack, <b>tải ngang</b> (ma sát, gió, động đất) thường <b>chi phối</b> thiết kế cột.",
+            en: "<b>Mindset shift:</b> In buildings, gravity loads dominate. In pipe racks, <b>lateral loads</b> (thermal, wind, seismic) often <b>govern</b> the column design."
+          }
+        ]
+      },
+      {
+        heading: { vi: "2. Cấu hình kết cấu", en: "2. Structural configuration" },
+        body: [
+          {
+            type: "figure",
+            src: "Resource/articles/06-pipe-rack/01_pipe_rack_configuration.webp",
+            caption: { vi: "<b>Hình 1.</b> Hệ kết cấu Pipe Rack: khung ngang + giằng dọc.", en: "<b>Figure 1.</b> Pipe rack structural system: transverse bent + longitudinal bracing." }
+          },
+          { type: "subhead", vi: "2.1. Phương ngang — Khung moment", en: "2.1. Transverse direction — moment frame" },
+          {
+            type: "list",
+            items: [
+              { vi: "Mỗi <b>Moment Frame</b> là khung cứng gồm 2 cột + 1 hoặc nhiều dầm.", en: "Each <b>moment frame</b> is a rigid (portal) frame of 2 columns + one or more beams." },
+              { vi: "Chịu <b>tải ngang vuông góc</b> với hướng ống (gió, động đất).", en: "Resists <b>transverse lateral loads</b> (wind, seismic perpendicular to the pipe run)." },
+              { vi: "Chân cột: thường <b>ngàm</b> hoặc <b>khớp</b> phụ thuộc vào thiết kế.", en: "Column bases: typically <b>fixed</b> or <b>pinned</b>, depending on the design strategy." },
+              { vi: "Liên kết dầm–cột: <b>cứng</b> (chịu moment).", en: "Beam-to-column connections: <b>rigid</b> (moment-resisting)." },
+              { vi: "Phải giữ <b>thông thoáng bên dưới</b> cho xe cộ, bảo trì, thiết bị.", en: "Must remain <b>open below</b> for access, maintenance and equipment clearance." }
+            ]
+          },
+          { type: "subhead", vi: "2.2. Phương dọc — Khung giằng", en: "2.2. Longitudinal direction — braced frame" },
+          {
+            type: "list",
+            items: [
+              { vi: "<b>Giằng đứng</b> (X-bracing hoặc V-ngược) đặt cách quãng dọc pipe rack.", en: "<b>Vertical bracing</b> (X-bracing or inverted V) placed at intervals along the rack." },
+              { vi: "Chân cột: thường là <b>khớp</b>.", en: "Column bases: usually <b>pinned</b>." },
+              { vi: "<b>Thanh giằng ngang (strut)</b> nối các bent ở mức dầm → truyền lực ngang đến bay giằng.", en: "<b>Longitudinal struts</b> connect bents at beam level to transfer lateral loads to the braced bays." },
+              { vi: "Chịu: lực ma sát, gió, động đất song song hướng ống.", en: "Resists friction loads, wind and seismic parallel to the pipe run." }
+            ]
+          },
+          {
+            type: "tip",
+            vi: "<b>Thực hành:</b> Vị trí bay giằng <b>không được</b> xung đột với điểm neo (anchor) hoặc vòng lặp giãn nở (expansion loop) của ống. Phối hợp với nhóm piping để bố trí hợp lý.",
+            en: "<b>Practical rule:</b> The braced bay location should <b>not</b> conflict with major anchor points or expansion loops. Coordinate with the piping team for a workable arrangement."
+          }
+        ]
+      },
+      {
+        heading: { vi: "3. Tải trọng — bước quan trọng nhất", en: "3. Loading — the most critical step" },
+        body: [
+          { type: "subhead", vi: "3.1. Tĩnh tải (D)", en: "3.1. Dead load (D)" },
+          {
+            type: "list",
+            items: [
+              { vi: "<b>Trọng lượng ống:</b> ống rỗng + bọc cách nhiệt.", en: "<b>Piping weight:</b> empty weight + insulation weight." },
+              { vi: "<b>Trọng lượng máng cáp:</b> máng + cáp (thường 20–150 kg/m mỗi máng).", en: "<b>Cable tray weight:</b> tray + cables (typically 20–150 kg/m per tray)." },
+              { vi: "<b>Tải trọng bản thân:</b> thép kết cấu, lớp chống cháy.", en: "<b>Self-weight:</b> steel members, fireproofing (if any)." },
+              { vi: "<b>Tải dự trữ</b> khi chưa có dữ liệu ống chi tiết: mức ống 10–15 kPa mỗi mức; mức máng cáp 2.5–5 kPa.", en: "<b>Preliminary design load</b> if pipe data is not yet available: piping level 10–15 kPa (200–300 psf) per level; cable tray level 2.5–5 kPa (50–100 psf)." }
+            ]
+          },
+          { type: "subhead", vi: "3.2. Hoạt tải (L)", en: "3.2. Live load (L)" },
+          {
+            type: "list",
+            items: [
+              { vi: "Sàn thao tác: <b>2.5–5.0 kPa</b>.", en: "Platform: <b>2.5–5.0 kPa</b> (50–100 psf)." },
+              { vi: "Tải thi công/lắp dựng: theo yêu cầu dự án.", en: "Construction/erection loads: per project specification." }
+            ]
+          },
+          { type: "subhead", vi: "3.3. Tải vận hành (Do)", en: "3.3. Operating load (Do)" },
+          {
+            vi: "Tĩnh tải <b>+ trọng lượng dung dịch</b> trong điều kiện vận hành bình thường. Đây là <b>tải trọng đứng chính</b> cho hầu hết kiểm tra thiết kế.",
+            en: "Dead load <b>+ fluid content</b> weight under normal operation. This is the <b>primary gravity load</b> for most design checks."
+          },
+          { type: "subhead", vi: "3.4. Tải thử thuỷ lực (Dt)", en: "3.4. Test load (Dt)" },
+          {
+            type: "list",
+            items: [
+              { vi: "Tĩnh tải + <b>trọng lượng nước thử</b> (nước nặng hơn hầu hết dung dịch công nghệ).", en: "Dead load + <b>hydrotest water weight</b> (water is heavier than most process fluids)." },
+              { vi: "Áp dụng <b>từng ống một</b> — không phải tất cả ống cùng lúc.", en: "Applied <b>one pipe at a time</b> — not all pipes simultaneously." },
+              { vi: "Có thể là <b>tải trọng đứng chi phối</b> cho ống đường kính lớn.", en: "Can be the <b>governing gravity load</b> for large-diameter pipes." }
+            ]
+          },
+          { type: "subhead", vi: "3.5. Tải nhiệt / ma sát (Ff)", en: "3.5. Thermal / friction load (Ff)" },
+          {
+            type: "figure",
+            src: "Resource/articles/06-pipe-rack/02_friction_thermal_loads.webp",
+            caption: { vi: "<b>Hình 2.</b> Giãn nở nhiệt và lực ma sát trên Pipe Rack.", en: "<b>Figure 2.</b> Thermal expansion and friction forces on a pipe rack." }
+          },
+          {
+            vi: "Đây là <b>tải trọng đặc trưng</b> của pipe rack — không có trong nhà dân dụng.",
+            en: "This is <b>the signature load</b> of pipe rack design — absent in conventional buildings."
+          },
+          {
+            type: "list",
+            items: [
+              { vi: "<b>Nguyên nhân:</b> ống giãn/co theo nhiệt độ → trượt trên gối đỡ → lực ma sát.", en: "<b>Cause:</b> pipes expand/contract with temperature → slide on supports → friction force." },
+              { vi: "<b>Phương:</b> chủ yếu <b>dọc</b> theo hướng ống.", en: "<b>Direction:</b> primarily <b>longitudinal</b> (along the pipe run)." },
+              { vi: "<b>Hệ số ma sát (μ):</b> thép–thép ≈ 0.3; thép–PTFE ≈ 0.05–0.10.", en: "<b>Friction coefficient (μ):</b> steel-on-steel ≈ 0.3; steel-on-PTFE ≈ 0.05–0.10." }
+            ]
+          },
+          {
+            type: "code",
+            vi: "Ff = MAX của:\n  (a) μ × 10% tổng trọng lượng ống trên bent\n  (b) μ × 40% trọng lượng ống lớn nhất trên bent",
+            en: "Ff = MAX of:\n  (a) μ × 10% of total piping weight on the bent\n  (b) μ × 40% of the heaviest single pipe weight on the bent"
+          },
+          {
+            type: "list",
+            items: [
+              { vi: "<b>Tải neo (Anchor):</b> tại điểm neo, toàn bộ lực giãn nở truyền trực tiếp — có thể <b>rất lớn</b> (hàng trăm kN).", en: "<b>Anchor loads:</b> where pipes are anchored, the full thermal expansion force is transferred directly — this can be <b>very large</b> (hundreds of kN)." },
+              { vi: "<b>Tải dẫn hướng (Guide):</b> lực ngang tại vị trí dẫn hướng — ống di chuyển dọc trục nhưng bị giữ ngang.", en: "<b>Guide loads:</b> lateral forces at guide locations — the pipe can move axially but is restrained laterally." }
+            ]
+          },
+          {
+            type: "tip",
+            vi: "<b>Lưu ý quan trọng:</b> Kỹ sư thường đánh giá thấp tải ma sát/neo. Các tải này có thể <b>chi phối thiết kế</b> theo phương dọc. Luôn yêu cầu dữ liệu phân tích ứng suất ống đầy đủ.",
+            en: "<b>Common trap:</b> Engineers often underestimate friction and anchor loads. These can <b>govern the design</b> in the longitudinal direction. Always request the full piping stress analysis data."
+          },
+          { type: "subhead", vi: "3.6. Tải gió (W)", en: "3.6. Wind load (W)" },
+          {
+            type: "list",
+            items: [
+              { vi: "Tính theo <b>ASCE 7</b> (hoặc tiêu chuẩn địa phương).", en: "Calculated per <b>ASCE 7</b> (or the local code)." },
+              { vi: "Áp dụng lên: diện tích đón gió của cột, dầm, ống, máng cáp, bọc cách nhiệt.", en: "Applied on the projected area of columns, beams, pipes, cable trays and insulation." },
+              { vi: "<b>Diện tích ống:</b> dùng đường kính toàn bộ (bao gồm cách nhiệt).", en: "<b>Pipe area:</b> use the total projected diameter (including insulation)." },
+              { vi: "<b>Hiệu ứng che chắn:</b> một số tiêu chuẩn cho phép giảm khi có nhiều hàng ống.", en: "<b>Shielding effect:</b> some codes allow a reduction for multiple pipe rows." },
+              { vi: "Gió trên pipe rack thường theo <b>phương ngang</b> (vuông góc hướng ống).", en: "Wind on a pipe rack is typically <b>transverse</b> (perpendicular to the pipe run)." }
+            ]
+          },
+          {
+            type: "figure",
+            src: "Resource/articles/06-pipe-rack/06_wind_load_on_pipes.webp",
+            caption: { vi: "<b>Hình 6.</b> Tải gió tác dụng lên hệ ống trên pipe rack — diện tích đón gió và hiệu ứng che chắn giữa các hàng ống.", en: "<b>Figure 6.</b> Wind load on the pipe bundle — projected area and the shielding effect between pipe rows." }
+          },
+          { type: "subhead", vi: "3.7. Tải động đất (E)", en: "3.7. Seismic load (E)" },
+          {
+            type: "list",
+            items: [
+              { vi: "Theo <b>ASCE 7</b> và thông số động đất dự án.", en: "Per <b>ASCE 7</b> and the project seismic parameters." },
+              { vi: "Pipe rack là non-building structure → dùng R-factor và hệ số tầm quan trọng riêng.", en: "For non-building structures: use the specific R-factors and importance factors." },
+              { vi: "Giá trị điển hình tham khảo: <b>R = 3.5–8.0</b> cho khung moment (phương ngang); <b>R = 8</b> cho khung giằng thường (phương dọc).", en: "Typical pipe rack values: <b>R = 3.5-8.0</b> for ordinary moment frames (transverse); <b>R = 8</b> for ordinary braced frames (longitudinal). Higher values may apply to special or intermediate frames." },
+              { vi: "Trọng lượng động đất: trọng lượng kết cấu + trọng lượng ống vận hành.", en: "Seismic weight includes the structure weight + the operating piping weight." }
+            ]
+          },
+          { type: "subhead", vi: "3.8. Bảng tóm tắt tải trọng", en: "3.8. Load summary table" },
+          {
+            type: "table",
+            head: [{ vi: "Tải trọng", en: "Load" }, { vi: "Ký hiệu", en: "Symbol" }, { vi: "Phương", en: "Direction" }, { vi: "Ghi chú", en: "Notes" }],
+            rows: [
+              [{ vi: "Tĩnh tải", en: "Dead" }, { vi: "D", en: "D" }, { vi: "Đứng ↓", en: "Vertical ↓" }, { vi: "Kết cấu + ống rỗng + cách nhiệt", en: "Structure + empty pipe + insulation" }],
+              [{ vi: "Vận hành", en: "Operating" }, { vi: "Do", en: "Do" }, { vi: "Đứng ↓", en: "Vertical ↓" }, { vi: "D + dung dịch", en: "D + fluid content" }],
+              [{ vi: "Thử thuỷ lực", en: "Test" }, { vi: "Dt", en: "Dt" }, { vi: "Đứng ↓", en: "Vertical ↓" }, { vi: "D + nước thử (từng ống)", en: "D + hydrotest water (one pipe at a time)" }],
+              [{ vi: "Hoạt tải", en: "Live" }, { vi: "L", en: "L" }, { vi: "Đứng ↓", en: "Vertical ↓" }, { vi: "Sàn thao tác", en: "Platform" }],
+              [{ vi: "Ma sát", en: "Friction" }, { vi: "Ff", en: "Ff" }, { vi: "Dọc ← →", en: "Longitudinal ← →" }, { vi: "Giãn nở nhiệt ống", en: "Thermal pipe expansion" }],
+              [{ vi: "Tải neo", en: "Anchor" }, { vi: "Fa", en: "Fa" }, { vi: "Dọc / Ngang", en: "Longitudinal / lateral" }, { vi: "Phân tích ứng suất ống", en: "Piping stress analysis" }],
+              [{ vi: "Gió", en: "Wind" }, { vi: "W", en: "W" }, { vi: "Ngang / Dọc", en: "Transverse / longitudinal" }, { vi: "ASCE 7, diện tích đón gió", en: "ASCE 7, on projected area" }],
+              [{ vi: "Động đất", en: "Seismic" }, { vi: "E", en: "E" }, { vi: "Cả 2 phương", en: "Both directions" }, { vi: "ASCE 7, khối lượng vận hành", en: "ASCE 7, operating weight" }]
+            ]
+          }
+        ]
+      },
+      {
+        heading: { vi: "4. Tổ hợp tải trọng — AISC 360 / ASCE 7", en: "4. Load combinations — AISC 360 / ASCE 7" },
+        body: [
+          { type: "subhead", vi: "4.1. Tổ hợp LRFD (chính)", en: "4.1. LRFD load combinations (primary)" },
+          {
+            type: "code",
+            vi: "1)  1.4D\n2)  1.2D  + 1.6L\n3)  1.2Do + 1.0L + 1.6W\n4)  1.2Do + 1.0E\n5)  0.9D  + 1.6W      (kiểm tra nhổ/lật)\n6)  0.9D  + 1.0E      (kiểm tra nhổ/lật)\n7)  1.2D  + 1.6Ff     (ma sát là tải ngang chính)\n8)  1.2Dt             (thử thuỷ lực — trường hợp đặc biệt)",
+            en: "1)  1.4D\n2)  1.2D  + 1.6L\n3)  1.2Do + 1.0L + 1.6W\n4)  1.2Do + 1.0E\n5)  0.9D  + 1.6W      (uplift / overturning check)\n6)  0.9D  + 1.0E      (uplift / overturning check)\n7)  1.2D  + 1.6Ff     (friction as the primary lateral load)\n8)  1.2Dt             (hydrotest — special case)"
+          },
+          { type: "subhead", vi: "4.2. Lưu ý quan trọng", en: "4.2. Key notes on combinations" },
+          {
+            type: "list",
+            items: [
+              { vi: "<b>Ma sát (Ff)</b> là tải ngang <b>riêng biệt</b> — không tổ hợp đồng thời với gió hoặc động đất.", en: "<b>Friction (Ff)</b> is a <b>separate lateral load</b> — not combined with wind or seismic simultaneously (they do not occur together)." },
+              { vi: "<b>Tải thử (Dt)</b> là điều kiện đặc biệt — chỉ tổ hợp với tĩnh tải.", en: "<b>Test load (Dt)</b> is a special condition — combined only with dead load; no live, wind or seismic." },
+              { vi: "Luôn kiểm tra cả <b>nhổ</b> (0.9D + W hoặc E) và <b>tải trọng đứng lớn nhất</b>.", en: "Always check <b>both uplift</b> (0.9D + W or E) and <b>maximum gravity</b> (1.2Do + 1.6L)." },
+              { vi: "Dùng <b>tải danh nghĩa (notional loads)</b> nếu sử dụng Direct Analysis Method.", en: "Use <b>notional loads</b> if using the Direct Analysis Method." }
+            ]
+          },
+          {
+            type: "tip",
+            vi: "<b>Lưu ý:</b> Tổ hợp tải ma sát thường <b>chi phối</b> thiết kế cột theo phương dọc. Gió/động đất có thể chi phối phương ngang.",
+            en: "<b>Tip:</b> Friction load combinations often <b>govern</b> the column design in the longitudinal direction, while wind/seismic may govern the transverse direction."
+          }
+        ]
+      },
+      {
+        heading: { vi: "5. Phương pháp phân tích", en: "5. Analysis approach" },
+        body: [
+          { type: "subhead", vi: "5.1. Phân tích tách biệt (khuyến nghị cho rack tiêu chuẩn)", en: "5.1. Separated analysis (recommended for standard racks)" },
+          {
+            vi: "Hầu hết pipe rack có thể phân tích hiệu quả bằng cách tách hai phương vuông góc:",
+            en: "Most pipe racks can be efficiently analysed by separating the two orthogonal directions:"
+          },
+          {
+            type: "list",
+            items: [
+              { vi: "<b>① Khung ngang (2D Frame):</b> mô hình khung moment 2 cột + dầm; tải trọng lực + gió/động đất ngang; kết quả là kích thước cột, dầm, tỷ số tương tác.", en: "<b>① Transverse moment frame (2D):</b> portal frame with 2 columns + beams; gravity + transverse wind/seismic; output is column sizes, beam sizes and interaction ratios." },
+              { vi: "<b>② Khung giằng dọc (2D Truss):</b> mô hình khung giằng với strut + giằng + cột đại diện; tải ma sát + gió/động đất dọc; kết quả là kích thước giằng, strut, kiểm tra cột phương dọc.", en: "<b>② Longitudinal braced bay (2D truss):</b> braced frame with struts + bracing + tributary columns; friction + longitudinal wind/seismic; output is bracing sizes, strut sizes and the longitudinal column check." },
+              { vi: "<b>③ Kết hợp kết quả:</b> tỷ số cột chi phối = MAX (kiểm tra ngang, kiểm tra dọc, tương tác hai trục).", en: "<b>③ Combine results:</b> the governing column ratio = MAX (transverse check, longitudinal check, biaxial interaction)." }
+            ]
+          },
+          { type: "subhead", vi: "5.2. Phân tích 3D đầy đủ (cho rack phức tạp)", en: "5.2. Full 3D analysis (for complex racks)" },
+          {
+            type: "list",
+            items: [
+              { vi: "Hình học không đều (chiều cao thay đổi, offset).", en: "Non-uniform geometry (varying heights, offsets)." },
+              { vi: "Thiết bị nặng đặt trên rack.", en: "Heavy equipment mounted on the rack." },
+              { vi: "Tải neo lớn từ phân tích ứng suất ống.", en: "Large anchor loads from piping stress analysis." },
+              { vi: "Thiết kế động đất yêu cầu phân tích modal.", en: "Seismic design requiring modal or response spectrum analysis." }
+            ]
+          },
+          { type: "subhead", vi: "5.3. Hiệu ứng bậc hai (P-Δ)", en: "5.3. Second-order effects (P-Δ)" },
+          {
+            type: "list",
+            items: [
+              { vi: "<b>AISC 360 yêu cầu</b> xét hiệu ứng bậc hai.", en: "<b>AISC 360 requires</b> consideration of second-order effects." },
+              { vi: "<b>Direct Analysis Method (DAM):</b> ưu tiên — áp dụng tải danh nghĩa, giảm độ cứng, K = 1.0.", en: "<b>Direct Analysis Method (DAM):</b> preferred — apply notional loads, use reduced stiffness, K = 1.0." },
+              { vi: "<b>Effective Length Method (ELM):</b> tính K-factor cho sway frame.", en: "<b>Effective Length Method (ELM):</b> calculate the K-factor for sway frames." },
+              { vi: "Pipe rack chiều cao vừa phải: <b>hệ số khuếch đại B₂</b> thường 1.05–1.15.", en: "For most pipe racks of moderate height, the <b>B₂ amplifier</b> is typically 1.05–1.15." }
+            ]
+          }
+        ]
+      },
+      {
+        heading: { vi: "6. Thiết kế dầm", en: "6. Beam design" },
+        body: [
+          { type: "subhead", vi: "6.1. Tải trọng trên dầm", en: "6.1. Loading on beams" },
+          {
+            type: "list",
+            items: [
+              { vi: "Dầm đỡ ống tại <b>các điểm rời rạc</b> — không phải tải phân bố đều.", en: "Beams support pipes at <b>discrete points</b>, not as a uniform load." },
+              { vi: "Mỗi gối đỡ ống = <b>tải tập trung</b> trên dầm.", en: "Each pipe support is a <b>point load</b> on the beam." },
+              { vi: "Máng cáp: xử lý như <b>tải phân bố đều (UDL)</b>.", en: "For cable trays: treat as a <b>uniform distributed load (UDL)</b>." },
+              { vi: "Trọng lượng bản thân dầm: kể như tải phân bố đều.", en: "Beam self-weight: include as a UDL." }
+            ]
+          },
+          { type: "subhead", vi: "6.2. Các kiểm tra thiết kế", en: "6.2. Design checks" },
+          {
+            type: "table",
+            head: [{ vi: "Kiểm tra", en: "Check" }, { vi: "Công thức / tham chiếu", en: "Formula / reference" }, { vi: "Ghi chú", en: "Notes" }],
+            rows: [
+              [{ vi: "<b>Uốn</b>", en: "<b>Flexure</b>" }, { vi: "M<sub>n</sub> = M<sub>p</sub> = F<sub>y</sub> × Z<sub>x</sub> (compact)", en: "M<sub>n</sub> = M<sub>p</sub> = F<sub>y</sub> × Z<sub>x</sub> (compact)" }, { vi: "AISC 360 Chương F", en: "AISC 360 Chapter F" }],
+              [{ vi: "<b>Cắt</b>", en: "<b>Shear</b>" }, { vi: "V<sub>n</sub> = 0.6F<sub>y</sub> × A<sub>w</sub> × C<sub>v</sub>", en: "V<sub>n</sub> = 0.6F<sub>y</sub> × A<sub>w</sub> × C<sub>v</sub>" }, { vi: "AISC 360 Chương G", en: "AISC 360 Chapter G" }],
+              [{ vi: "<b>Võng</b>", en: "<b>Deflection</b>" }, { vi: "δ ≤ L/240 (TT+HT) hoặc L/360 (HT)", en: "δ ≤ L/240 (DL+LL) or L/360 (LL)" }, { vi: "Khả năng sử dụng", en: "Serviceability" }],
+              [{ vi: "<b>Mất ổn định xoắn ngang (LTB)</b>", en: "<b>Lateral-torsional buckling (LTB)</b>" }, { vi: "Kiểm tra L<sub>b</sub> so với L<sub>p</sub>, L<sub>r</sub>", en: "Check L<sub>b</sub> against L<sub>p</sub>, L<sub>r</sub>" }, { vi: "Chiều dài không giằng quan trọng", en: "Unbraced length is critical" }],
+              [{ vi: "<b>Oằn cục bộ bụng</b>", en: "<b>Web local buckling</b>" }, { vi: "Giới hạn h/t<sub>w</sub>", en: "h/t<sub>w</sub> limit" }, { vi: "Ưu tiên tiết diện compact", en: "Compact section preferred" }]
+            ]
+          },
+          { type: "subhead", vi: "6.3. Chiều dài không giằng (Lb)", en: "6.3. Unbraced length (Lb) for beams" },
+          {
+            type: "list",
+            items: [
+              { vi: "<b>Cánh trên chịu nén:</b> L<sub>b</sub> = khoảng cách giữa các điểm giằng ngang.", en: "<b>Top flange in compression:</b> L<sub>b</sub> = the distance between lateral braces." },
+              { vi: "<b>Cánh dưới chịu nén</b> (moment âm tại liên kết): L<sub>b</sub> = toàn bộ nhịp dầm trừ khi có giằng riêng.", en: "<b>Bottom flange in compression</b> (negative moment at connections): L<sub>b</sub> = the full beam span unless specifically braced." }
+            ]
+          },
+          {
+            type: "tip",
+            vi: "<b>Câu hỏi then chốt:</b> Gối đỡ ống có tạo giằng ngang cho dầm không? Chỉ khi gối <b>giữ chặt</b> cánh nén. Ống đặt tự do thường <b>KHÔNG</b> giằng dầm.",
+            en: "<b>Key question:</b> Do the pipe supports laterally brace the beam? Only if the support <b>positively restrains</b> the compression flange. Resting pipes generally do <b>NOT</b> brace the beam."
+          }
+        ]
+      },
+      {
+        heading: { vi: "7. Thiết kế cột — tương tác dầm–cột", en: "7. Column design — beam-column interaction" },
+        body: [
+          {
+            vi: "Đây là kiểm tra thiết kế <b>quan trọng nhất</b> trong pipe rack.",
+            en: "This is the <b>most critical</b> member design in a pipe rack."
+          },
+          { type: "subhead", vi: "7.1. Thiết kế cột thép", en: "7.1. Steel column design" },
+          {
+            type: "list",
+            items: [
+              { vi: "<b>Nén dọc trục</b> (trọng lực từ các mức).", en: "<b>Axial compression</b> (gravity from all levels)." },
+              { vi: "<b>Uốn trục mạnh</b> (tải ngang — khung moment).", en: "<b>Bending about the strong axis</b> (transverse lateral loads — moment frame action)." },
+              { vi: "<b>Uốn trục yếu</b> (ma sát/gió dọc — nếu không giằng).", en: "<b>Bending about the weak axis</b> (longitudinal friction/wind — if unbraced longitudinally)." },
+              { vi: "→ Phải thoả mãn phương trình tương tác <b>AISC 360 Chương H</b>.", en: "→ Must satisfy the <b>AISC 360 Chapter H</b> interaction equations." }
+            ]
+          },
+          { type: "subhead", vi: "7.2. Phương trình tương tác AISC H1-1", en: "7.2. AISC H1-1 interaction equations" },
+          {
+            type: "figure",
+            src: "Resource/articles/06-pipe-rack/03_beam_column_interaction.webp",
+            caption: { vi: "<b>Hình 3.</b> Biểu đồ tương tác Beam-Column (AISC H1-1).", en: "<b>Figure 3.</b> Beam-column interaction diagram (AISC H1-1)." }
+          },
+          {
+            type: "code",
+            vi: "Khi Pr/Pc ≥ 0.2:\n  Pr/Pc + (8/9)(Mrx/Mcx + Mry/Mcy) ≤ 1.0    — Eq. H1-1a\n\nKhi Pr/Pc &lt; 0.2:\n  Pr/(2Pc) + (Mrx/Mcx + Mry/Mcy) ≤ 1.0      — Eq. H1-1b",
+            en: "When Pr/Pc ≥ 0.2:\n  Pr/Pc + (8/9)(Mrx/Mcx + Mry/Mcy) ≤ 1.0    — Eq. H1-1a\n\nWhen Pr/Pc &lt; 0.2:\n  Pr/(2Pc) + (Mrx/Mcx + Mry/Mcy) ≤ 1.0      — Eq. H1-1b"
+          },
+          {
+            type: "table",
+            head: [{ vi: "Ký hiệu", en: "Symbol" }, { vi: "Ý nghĩa", en: "Meaning" }],
+            rows: [
+              [{ vi: "P<sub>r</sub>", en: "P<sub>r</sub>" }, { vi: "Lực dọc yêu cầu (đã nhân hệ số)", en: "Required axial strength (factored)" }],
+              [{ vi: "P<sub>c</sub>", en: "P<sub>c</sub>" }, { vi: "Khả năng chịu nén cho phép (φP<sub>n</sub>)", en: "Available axial strength (φP<sub>n</sub>)" }],
+              [{ vi: "M<sub>rx</sub>, M<sub>ry</sub>", en: "M<sub>rx</sub>, M<sub>ry</sub>" }, { vi: "Moment yêu cầu (trục mạnh, trục yếu)", en: "Required flexural strength (strong, weak axis)" }],
+              [{ vi: "M<sub>cx</sub>, M<sub>cy</sub>", en: "M<sub>cx</sub>, M<sub>cy</sub>" }, { vi: "Khả năng chịu uốn cho phép (φM<sub>n</sub>)", en: "Available flexural strength (φM<sub>n</sub>)" }]
+            ]
+          },
+          { type: "subhead", vi: "7.3. Chiều dài không giằng cột", en: "7.3. Critical unbraced lengths for columns" },
+          {
+            type: "table",
+            head: [{ vi: "Phương", en: "Direction" }, { vi: "Trục mạnh", en: "Major axis" }, { vi: "Trục yếu", en: "Minor axis" }],
+            rows: [
+              [{ vi: "<b>Ngang</b>", en: "<b>Transverse</b>" }, { vi: "Chân cột đến dầm (khung moment)", en: "Base to beam (moment frame)" }, { vi: "Chân cột đến strut/dầm đầu tiên", en: "Base to first strut or beam" }],
+              [{ vi: "<b>Dọc</b>", en: "<b>Longitudinal</b>" }, { vi: "Chân cột đến dầm", en: "Base to beam" }, { vi: "Chân cột đến strut/dầm đầu tiên", en: "Base to first strut or beam" }],
+              [{ vi: "<b>K (DAM)</b>", en: "<b>K-factor (DAM)</b>" }, { vi: "K = 1.0", en: "K = 1.0" }, { vi: "K = 1.0", en: "K = 1.0" }],
+              [{ vi: "<b>K (ELM, lắc)</b>", en: "<b>K-factor (ELM, sway)</b>" }, { vi: "K &gt; 1.0 (abacus)", en: "K &gt; 1.0 (alignment chart)" }, { vi: "K &gt; 1.0 (nếu không giằng)", en: "K &gt; 1.0 (if unbraced)" }]
+            ]
+          },
+          {
+            type: "tip",
+            vi: "<b>Mẹo:</b> <b>Chiều dài không giằng trục yếu</b> thường chi phối khả năng chịu lực cột. Thêm strut ngang tại giữa chiều cao có thể giảm KL/r đáng kể → giảm được tiết diện cột.",
+            en: "<b>Practical tip:</b> The <b>weak-axis unbraced length</b> often controls the column capacity. Adding a horizontal strut at mid-height can dramatically reduce KL/r and shrink the column size."
+          },
+          { type: "subhead", vi: "7.4. Quy trình thiết kế cột từng bước", en: "7.4. Step-by-step column design" },
+          {
+            type: "list",
+            items: [
+              { vi: "<b>1.</b> Xác định tải: P<sub>r</sub>, M<sub>rx</sub>, M<sub>ry</sub> (bao gồm hiệu ứng bậc hai).", en: "<b>1.</b> Determine loads: P<sub>r</sub>, M<sub>rx</sub>, M<sub>ry</sub> from the analysis (including second-order effects)." },
+              { vi: "<b>2.</b> Chọn tiết diện thử: H-shape, trục khoẻ theo phương ngang.", en: "<b>2.</b> Select a trial section: H-shape with the strong axis oriented transversely." },
+              { vi: "<b>3.</b> Tính P<sub>c</sub>: dựa trên KL<sub>x</sub>/r<sub>x</sub> và KL<sub>y</sub>/r<sub>y</sub> — dùng P<sub>n</sub> nhỏ hơn.", en: "<b>3.</b> Calculate P<sub>c</sub>: based on KL<sub>x</sub>/r<sub>x</sub> and KL<sub>y</sub>/r<sub>y</sub> — use the smaller P<sub>n</sub>." },
+              { vi: "<b>4.</b> Tính M<sub>cx</sub>: dựa trên L<sub>b</sub> (chiều dài không giằng cho LTB).", en: "<b>4.</b> Calculate M<sub>cx</sub>: based on L<sub>b</sub> (the unbraced length for LTB)." },
+              { vi: "<b>5.</b> Tính M<sub>cy</sub>: khả năng uốn trục yếu.", en: "<b>5.</b> Calculate M<sub>cy</sub>: the weak-axis bending capacity." },
+              { vi: "<b>6.</b> Kiểm tra H1-1a hoặc H1-1b: tỷ số tương tác ≤ 1.0.", en: "<b>6.</b> Check H1-1a or H1-1b: interaction ratio ≤ 1.0." },
+              { vi: "<b>7.</b> Lặp lại nếu tỷ số &gt; 1.0 hoặc &lt; 0.6 (tối ưu).", en: "<b>7.</b> Iterate if the ratio is &gt; 1.0 or &lt; 0.6 (optimise)." }
+            ]
+          }
+        ]
+      },
+      {
+        heading: { vi: "Tóm tắt Part 1", en: "Part 1 summary" },
+        body: [
+          {
+            type: "table",
+            head: [{ vi: "#", en: "#" }, { vi: "Nội dung", en: "Content" }, { vi: "Từ khoá", en: "Keyword" }],
+            rows: [
+              [{ vi: "1", en: "1" }, { vi: "Pipe rack = non-building, tải ngang thường chi phối", en: "Pipe rack = non-building structure, lateral loads often govern" }, { vi: "<b>Non-Building</b>", en: "<b>Non-Building</b>" }],
+              [{ vi: "2", en: "2" }, { vi: "Ngang = khung moment, Dọc = khung giằng", en: "Transverse = moment frame, longitudinal = braced frame" }, { vi: "<b>Two Systems</b>", en: "<b>Two Systems</b>" }],
+              [{ vi: "3", en: "3" }, { vi: "Ma sát nhiệt là tải trọng ĐẶC TRƯNG của pipe rack", en: "Thermal friction is THE signature load of pipe racks" }, { vi: "<b>Ff = μ × W</b>", en: "<b>Ff = μ × W</b>" }],
+              [{ vi: "4", en: "4" }, { vi: "Ma sát và gió/động đất KHÔNG tổ hợp đồng thời", en: "Friction and wind/seismic are NOT combined simultaneously" }, { vi: "<b>Exclusive Lateral</b>", en: "<b>Exclusive Lateral</b>" }],
+              [{ vi: "5", en: "5" }, { vi: "Gối ống có thể KHÔNG giằng dầm", en: "Pipe supports may NOT brace the beam" }, { vi: "<b>Lb Caution</b>", en: "<b>Lb Caution</b>" }],
+              [{ vi: "6", en: "6" }, { vi: "Cột = beam-column, kiểm tra AISC H1-1", en: "Column = beam-column, check AISC H1-1 interaction" }, { vi: "<b>Interaction</b>", en: "<b>Interaction</b>" }],
+              [{ vi: "7", en: "7" }, { vi: "Chiều dài không giằng trục yếu thường chi phối", en: "Weak-axis unbraced length often controls" }, { vi: "<b>Weak Axis KL/r</b>", en: "<b>Weak Axis KL/r</b>" }]
+            ]
+          },
+          {
+            type: "tip",
+            vi: "<b>→ Xem tiếp Phần 2:</b> thiết kế liên kết, base plate, giằng, chi tiết cấu tạo và checklist.",
+            en: "<b>→ Continue to Part 2:</b> connection design, base plate, bracing, detailing and the design checklist."
+          }
+        ]
+      }
+    ],
+    footnote: {
+      vi: "Bài viết thuộc series “Hướng dẫn thiết kế kết cấu Công trình Công nghiệp” — Roberto Structural. Nội dung mang tính hướng dẫn kỹ thuật; kỹ sư chịu trách nhiệm kiểm tra và hiệu chỉnh theo điều kiện cụ thể của từng dự án và yêu cầu của tiêu chuẩn áp dụng.",
+      en: "Part of the series “Structural design for industrial facilities” — Roberto Structural. The content is technical guidance; the engineer remains responsible for checking and adapting it to the conditions of each project and the requirements of the governing code."
+    }
+  },
+
   /* ============================== No. 06 ============================== */
   {
     id: "concrete-slab-on-grade",

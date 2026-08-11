@@ -30,14 +30,125 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/style.css" />
+<!-- The pre-rendered body below carries .reveal, which starts at opacity:0 and is
+     switched on by IntersectionObserver. With JS off that would hide the very
+     content we just baked in, so undo the animation in that case. -->
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body data-page="tools">
 
-<header id="site-header"></header>
+<header id="site-header">
+<div class="container nav">
+  <a class="brand" href="index-vi.html" data-rs-page="index">
+    <img src="Logo/Roberto_1.webp" alt="Roberto Structural logo" />
+    <b>Roberto<br>Structural</b>
+  </a>
+  <nav class="nav-links">
+    <a href="insights-vi.html" data-nav="insights" data-rs-page="insights" data-vi="Bài viết" data-en="Insights">Bài viết</a>
+    <a href="tools-vi.html" data-nav="tools" data-rs-page="tools" data-vi="Phần mềm" data-en="Software">Phần mềm</a>
+    <a href="drawings-vi.html" data-nav="drawings" data-rs-page="drawings" data-vi="Bản vẽ" data-en="Drawings">Bản vẽ</a>
+    <a href="index-vi.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a>
+    <a href="index-vi.html#contact" data-rs-page="index" data-rs-hash="#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a>
+  </nav>
+  <div class="nav-right">
+    <div class="lang">
+      <button data-lang="vi">VI</button>
+      <button data-lang="en">EN</button>
+    </div>
+    <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</div></header>
 
-<main id="tool-detail"><!-- rendered by JS from RS_PAGE_ID --></main>
+<main id="tool-detail">
+  <section class="page-hero"><div class="container">
+    <p class="breadcrumb"><a href="index-vi.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a> / <a href="tools-vi.html" data-vi="Phần mềm" data-en="Software">Phần mềm</a> / <span>Kiểm tra sức chịu tải cọc &amp; lún lệch</span></p>
+    <p class="eyebrow" data-vi="Nền móng & Công trình ngầm" data-en="Foundation & Underground">Nền móng &amp; Công trình ngầm</p>
+    <h1 data-vi="Kiểm tra sức chịu tải cọc & lún lệch" data-en="Pile Capacity & Settlement Check">Kiểm tra sức chịu tải cọc &amp; lún lệch</h1>
+    <p data-vi="Kiểm tra khả năng chịu tải của cọc theo từng nhóm tổ hợp Thường xuyên / Gió / Động đất. Kiểm tra lún lệch vi sai giữa các cọc. Lấy phản lực trực tiếp từ SAP2000." data-en="Checks pile capacity against Long-term / Wind / Seismic combination groups, plus differential settlement between every pile pair. Reactions taken live from SAP2000.">Kiểm tra khả năng chịu tải của cọc theo từng nhóm tổ hợp Thường xuyên / Gió / Động đất. Kiểm tra lún lệch vi sai giữa các cọc. Lấy phản lực trực tiếp từ SAP2000.</p>
+  </div></section>
 
-<footer id="site-footer"></footer>
+  <section class="section" style="padding-top:clamp(2rem,5vw,3.5rem)"><div class="container">
+    <div class="detail-grid">
+      <div>
+        
+        <div class="gallery">
+          <img class="main-img" id="mainImg" src="Resource/tools/web_description_04/01.webp" alt="Kiểm tra sức chịu tải cọc &amp; lún lệch" onclick="rsOpenShot()" title="Bấm để phóng to | Click to zoom"/>
+          <span class="gallery-zoom">⤢</span>
+          <div class="thumbs">
+            <img src="Resource/tools/web_description_04/01.webp" class="active" onclick="rsSwapShot(this,0)" alt="screenshot 1"/><img src="Resource/tools/web_description_04/02.webp" class="" onclick="rsSwapShot(this,1)" alt="screenshot 2"/><img src="Resource/tools/web_description_04/03.webp" class="" onclick="rsSwapShot(this,2)" alt="screenshot 3"/><img src="Resource/tools/web_description_04/04.webp" class="" onclick="rsSwapShot(this,3)" alt="screenshot 4"/><img src="Resource/tools/web_description_04/05.webp" class="" onclick="rsSwapShot(this,4)" alt="screenshot 5"/>
+          </div>
+        </div>
+
+        
+        <p class="block-title" data-vi="Tính năng chính" data-en="Key features">Tính năng chính</p>
+        <ul class="feat-list">
+          <li data-vi="<b>Nhập dữ liệu tự động</b>" data-en="<b>Automatic data input</b>">&lt;b&gt;Nhập dữ liệu tự động&lt;/b&gt;</li><li data-vi="<b>Tự phân loại Load Type</b> (Thường xuyên / Gió / Động đất)" data-en="<b>Automatic load-type classification</b> (Long-term / Wind / Seismic)">&lt;b&gt;Tự phân loại Load Type&lt;/b&gt; (Thường xuyên / Gió / Động đất)</li><li data-vi="Khai báo nhiều loại cọc; đổi đơn vị kN ↔ Ton tự quy đổi" data-en="Multiple pile types; kN ↔ Ton switching converts values automatically">Khai báo nhiều loại cọc; đổi đơn vị kN ↔ Ton tự quy đổi</li><li data-vi="<b>Sơ đồ mặt bằng cọc</b> tô màu theo loại cọc hoặc theo tỉ số chịu tải" data-en="<b>Piling diagram</b> coloured by pile type or capacity ratio">&lt;b&gt;Sơ đồ mặt bằng cọc&lt;/b&gt; tô màu theo loại cọc hoặc theo tỉ số chịu tải</li><li data-vi="<b>Kiểm tra lún lệch</b>" data-en="<b>Differential settlement check</b>">&lt;b&gt;Kiểm tra lún lệch&lt;/b&gt;</li><li data-vi="Báo cáo Excel sức chịu tải (4 sheet) và báo cáo lún lệch (2 sheet)" data-en="Excel capacity report (4 sheets) and settlement report (2 sheets)">Báo cáo Excel sức chịu tải (4 sheet) và báo cáo lún lệch (2 sheet)</li>
+        </ul>
+
+        <p class="block-title" data-vi="Yêu cầu hệ thống" data-en="System requirements">Yêu cầu hệ thống</p>
+        <p class="lead" style="margin-top:.3rem" data-vi="Windows / SAP2000" data-en="Windows / SAP2000">Windows / SAP2000</p>
+      </div>
+
+      <aside>
+        <div class="buybox">
+          <div class="price">250.000 ₫ <small data-vi="· bản quyền vĩnh viễn" data-en="· perpetual licence">· bản quyền vĩnh viễn</small></div>
+          <table class="spec">
+            <tr><td data-vi="Phiên bản" data-en="Version">Phiên bản</td><td>v1.2</td></tr>
+            
+            <tr><td data-vi="Yêu cầu" data-en="Requires">Yêu cầu</td><td>SAP2000</td></tr>
+            <tr><td data-vi="Hệ điều hành" data-en="OS">Hệ điều hành</td><td>Windows</td></tr>
+          </table>
+
+          <a class="btn btn-primary btn-block" style="margin-top:1.2rem" href="purchase.html?id=pile-capacity-check" data-vi="Mua bản quyền" data-en="Buy licence">Mua bản quyền</a>
+
+          
+          
+        </div>
+      </aside>
+    </div>
+  </div></section></main>
+
+<footer id="site-footer">
+<div class="container">
+  <div class="foot-grid">
+    <div>
+      <h4>Roberto Structural</h4>
+      <p style="color:var(--steel-light);font-size:.9rem;max-width:34ch"><span data-vi="Kiến tạo lõi kỹ thuật kết cấu công nghiệp nặng." data-en="Engineering the Core of Heavy Industry.">Kiến tạo lõi kỹ thuật kết cấu công nghiệp nặng.</span></p>
+      <a href="mailto:robertostructural@gmail.com" style="display:inline-block;margin-top:.9rem;font-size:.9rem;color:var(--steel-light)">robertostructural@gmail.com</a>
+      <div class="social">
+        <a href="https://www.facebook.com/RobertoStructural" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@RobertoStructural" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.09 0 12 0 12s0 3.91.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.91 24 12 24 12s0-3.91-.5-5.8zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4 data-vi="Liên kết" data-en="Links">Liên kết</h4>
+      <a href="index-vi.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a>
+      <a href="insights-vi.html" data-rs-page="insights" data-vi="Bài viết" data-en="Insights">Bài viết</a>
+      <a href="tools-vi.html" data-rs-page="tools" data-vi="Phần mềm" data-en="Software">Phần mềm</a>
+      <a href="drawings-vi.html" data-rs-page="drawings" data-vi="Bản vẽ" data-en="Drawings">Bản vẽ</a>
+    </div>
+    <div>
+      <h4 data-vi="Lĩnh vực" data-en="Sectors">Lĩnh vực</h4>
+      <a href="index-vi.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Công nghiệp nặng" data-en="Heavy Industry">Công nghiệp nặng</a>
+      <a href="index-vi.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Công nghiệp nhẹ" data-en="Light Industry">Công nghiệp nhẹ</a>
+      <a href="index-vi.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Lọc hóa dầu" data-en="Petrochemical">Lọc hóa dầu</a>
+      <a href="index-vi.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Năng lượng" data-en="Energy">Năng lượng</a>
+    </div>
+    <div>
+      <h4 data-vi="Nhận bản tin" data-en="Newsletter">Nhận bản tin</h4>
+      <p style="font-size:.9rem;color:var(--steel-light)" data-vi="Nhận thông báo khi có Tool mới." data-en="Get notified about new Tools.">Nhận thông báo khi có Tool mới.</p>
+      <form class="newsletter" onsubmit="return false">
+        <input type="email" placeholder="Email" />
+        <button class="btn btn-primary" type="submit" style="padding:.6rem 1rem" data-vi="Gửi" data-en="Send">Gửi</button>
+      </form>
+    </div>
+  </div>
+  <div class="foot-bottom">© <span id="yr"></span> Roberto Structural · <span data-vi="Đã đăng ký bản quyền" data-en="All rights reserved">Đã đăng ký bản quyền</span></div>
+</div></footer>
 
 <script>window.RS_PAGE_ID = "pile-capacity-check"; window.RS_PAGE_LANG = "vi";</script>
 <script src="assets/js/main.js"></script>

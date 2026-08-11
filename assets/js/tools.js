@@ -8,6 +8,10 @@
 function tt(obj){ return (obj && (obj[window.RS.lang] ?? obj.vi)) || ""; }
 function bi(obj){ return `data-vi="${(obj.vi||'').replace(/"/g,'&quot;')}" data-en="${(obj.en||'').replace(/"/g,'&quot;')}"`; }
 function esc(s){ return String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+// Escaped text in the page's own language — see the twin helper atxt() in
+// articles.js for why hard-coding `.en` here was wrong for anything reading the
+// page without running JS.
+function ttxt(obj, lang){ return esc((obj && (obj[lang] ?? obj.en)) || ''); }
 function isPaid(t){ return Number(t.priceVnd || 0) > 0; }
 function isPublished(t){ return (t.status || 'ready') === 'ready'; }
 // A free tool can be downloaded only when it is published AND has a real link.
@@ -109,40 +113,21 @@ function renderCatalog(){
   draw('all');
 }
 
-/* ---------------- DETAIL (tool.html) ---------------- */
-function renderDetail(){
-  const root = document.getElementById('tool-detail');
-  if(!root) return;
-  // Generated pages (tool-<id>.html) declare RS_PAGE_ID; the legacy
-  // tool.html?id= entry point still works for links shared earlier.
-  const id = window.RS_PAGE_ID || new URLSearchParams(location.search).get('id');
-  const t = (window.TOOLS||[]).find(x=>x.id===id);
-
-  if(!t){
-    root.innerHTML = `<div class="container section" style="text-align:center">
-      <h2 class="h2" data-vi="Không tìm thấy phần mềm" data-en="Software not found">Software not found</h2>
-      <p class="lead" style="margin:1rem auto" data-vi="Mục bạn tìm không tồn tại." data-en="The item you requested does not exist.">The item you requested does not exist.</p>
-      <a class="btn btn-primary" href="${window.RS_URL.page('tools')}" data-vi="Về danh mục" data-en="Back to catalog">Back to catalog</a></div>`;
-    window.RS.setLang(window.RS.lang);
-    return;
-  }
-
-  document.title = t.name.en + " — Roberto Structural";
-  // Generated pages (RS_PAGE_ID set) already carry the right language via RS_PAGE_LANG,
-  // so the canonical can just follow RS.lang. The legacy ?id= entry point declares no
-  // language — pin its canonical to 'en' so it doesn't drift with a visitor's localStorage.
-  rsSetCanonical(window.RS_URL.tool(t.id, window.RS_PAGE_ID ? undefined : 'en'));
+/* ---------------- DETAIL (tool.html) ----------------
+   Pure markup builder, shared with scripts/build-pages.mjs so tool-<id>.html can
+   ship the detail page as real HTML instead of an empty <main> filled in by JS.
+   Must not touch document/window state — see RS_ARTICLE_HTML in articles.js. */
+window.RS_TOOL_HTML = function(t, lang){
+  const U = window.RS_URL;
+  const T = (vi, en) => lang === 'vi' ? vi : en;   // visible copy, page's own language
   const shots = (t.screenshots && t.screenshots.length) ? t.screenshots : (t.thumb ? [t.thumb] : []);
-  // Remember the gallery so the lightbox can open at the right image.
-  window.RS_SHOTS = shots;
-  window.RS_SHOT_INDEX = 0;
 
-  root.innerHTML = `
+  return `
   <section class="page-hero"><div class="container">
-    <p class="breadcrumb"><a href="${window.RS_URL.page('index')}" data-vi="Trang chủ" data-en="Home">Home</a> / <a href="${window.RS_URL.page('tools')}" data-vi="Phần mềm" data-en="Software">Software</a> / <span>${esc(t.name.en)}</span></p>
-    <p class="eyebrow" ${bi(t.category)}>${esc(t.category.en)}</p>
-    <h1 ${bi(t.name)}>${esc(t.name.en)}</h1>
-    <p ${bi(t.tagline)}>${esc(t.tagline.en)}</p>
+    <p class="breadcrumb"><a href="${U.page('index', lang)}" data-vi="Trang chủ" data-en="Home">${T('Trang chủ','Home')}</a> / <a href="${U.page('tools', lang)}" data-vi="Phần mềm" data-en="Software">${T('Phần mềm','Software')}</a> / <span>${ttxt(t.name, lang)}</span></p>
+    <p class="eyebrow" ${bi(t.category)}>${ttxt(t.category, lang)}</p>
+    <h1 ${bi(t.name)}>${ttxt(t.name, lang)}</h1>
+    <p ${bi(t.tagline)}>${ttxt(t.tagline, lang)}</p>
   </div></section>
 
   <section class="section" style="padding-top:clamp(2rem,5vw,3.5rem)"><div class="container">
@@ -150,7 +135,7 @@ function renderDetail(){
       <div>
         ${ shots.length ? `
         <div class="gallery">
-          <img class="main-img" id="mainImg" src="${esc(shots[0])}" alt="${esc(t.name.en)}" onclick="rsOpenShot()" title="Bấm để phóng to | Click to zoom"/>
+          <img class="main-img" id="mainImg" src="${esc(shots[0])}" alt="${ttxt(t.name, lang)}" onclick="rsOpenShot()" title="Bấm để phóng to | Click to zoom"/>
           <span class="gallery-zoom">⤢</span>
           ${ shots.length > 1 ? `<div class="thumbs">
             ${shots.map((s,i)=>`<img src="${esc(s)}" class="${i===0?'active':''}" onclick="rsSwapShot(this,${i})" alt="screenshot ${i+1}"/>`).join('')}
@@ -158,39 +143,39 @@ function renderDetail(){
         </div>` : `
         <div class="shot-none">
           <span class="shot-none-initials">${esc(initialsOf(t))}</span>
-          <p data-vi="Ảnh giao diện sẽ được cập nhật." data-en="Interface screenshots coming soon.">Interface screenshots coming soon.</p>
+          <p data-vi="Ảnh giao diện sẽ được cập nhật." data-en="Interface screenshots coming soon.">${T('Ảnh giao diện sẽ được cập nhật.','Interface screenshots coming soon.')}</p>
         </div>` }
 
         ${ t.features && t.features.length ? `
-        <p class="block-title" data-vi="Tính năng chính" data-en="Key features">Key features</p>
+        <p class="block-title" data-vi="Tính năng chính" data-en="Key features">${T('Tính năng chính','Key features')}</p>
         <ul class="feat-list">
-          ${t.features.map(f=>`<li ${bi(f)}>${esc(f.en)}</li>`).join('')}
+          ${t.features.map(f=>`<li ${bi(f)}>${ttxt(f, lang)}</li>`).join('')}
         </ul>` : '' }
 
-        <p class="block-title" data-vi="Yêu cầu hệ thống" data-en="System requirements">System requirements</p>
-        <p class="lead" style="margin-top:.3rem" ${bi(t.requirements)}>${esc(t.requirements.en)}</p>
+        <p class="block-title" data-vi="Yêu cầu hệ thống" data-en="System requirements">${T('Yêu cầu hệ thống','System requirements')}</p>
+        <p class="lead" style="margin-top:.3rem" ${bi(t.requirements)}>${ttxt(t.requirements, lang)}</p>
       </div>
 
       <aside>
         <div class="buybox">
           <div class="price">${ isPaid(t)
-              ? `${fmtVnd(t.priceVnd)} <small data-vi="· bản quyền vĩnh viễn" data-en="· perpetual licence">· perpetual licence</small>`
-              : `<span data-vi="Miễn phí" data-en="Free">Free</span>` }</div>
+              ? `${fmtVnd(t.priceVnd)} <small data-vi="· bản quyền vĩnh viễn" data-en="· perpetual licence">${T('· bản quyền vĩnh viễn','· perpetual licence')}</small>`
+              : `<span data-vi="Miễn phí" data-en="Free">${T('Miễn phí','Free')}</span>` }</div>
           <table class="spec">
-            <tr><td data-vi="Phiên bản" data-en="Version">Version</td><td>v${esc(t.version)}</td></tr>
-            ${ t.size && t.size !== '—' ? `<tr><td data-vi="Dung lượng" data-en="Size">Size</td><td>${esc(t.size)}</td></tr>` : '' }
-            <tr><td data-vi="Yêu cầu" data-en="Requires">Requires</td><td>${esc(t.host || 'General')}</td></tr>
-            <tr><td data-vi="Hệ điều hành" data-en="OS">OS</td><td>${esc(t.os)}</td></tr>
+            <tr><td data-vi="Phiên bản" data-en="Version">${T('Phiên bản','Version')}</td><td>v${esc(t.version)}</td></tr>
+            ${ t.size && t.size !== '—' ? `<tr><td data-vi="Dung lượng" data-en="Size">${T('Dung lượng','Size')}</td><td>${esc(t.size)}</td></tr>` : '' }
+            <tr><td data-vi="Yêu cầu" data-en="Requires">${T('Yêu cầu','Requires')}</td><td>${esc(t.host || 'General')}</td></tr>
+            <tr><td data-vi="Hệ điều hành" data-en="OS">${T('Hệ điều hành','OS')}</td><td>${esc(t.os)}</td></tr>
           </table>
 
           ${ !isPublished(t)
-            ? `<button class="btn btn-primary btn-block" style="margin-top:1.2rem;opacity:.55;cursor:not-allowed" disabled data-vi="Đang phát triển" data-en="In development">In development</button>
-               <p class="muted small" style="margin-top:.7rem;text-align:center;color:var(--steel);font-size:.82rem" data-vi="Đăng ký nhận tin để biết khi phát hành." data-en="Follow us to hear when this is released.">Follow us to hear when this is released.</p>`
+            ? `<button class="btn btn-primary btn-block" style="margin-top:1.2rem;opacity:.55;cursor:not-allowed" disabled data-vi="Đang phát triển" data-en="In development">${T('Đang phát triển','In development')}</button>
+               <p class="muted small" style="margin-top:.7rem;text-align:center;color:var(--steel);font-size:.82rem" data-vi="Đăng ký nhận tin để biết khi phát hành." data-en="Follow us to hear when this is released.">${T('Đăng ký nhận tin để biết khi phát hành.','Follow us to hear when this is released.')}</p>`
             : ( isPaid(t)
-                ? `<a class="btn btn-primary btn-block" style="margin-top:1.2rem" href="purchase.html?id=${t.id}" data-vi="Mua bản quyền" data-en="Buy licence">Buy licence</a>`
+                ? `<a class="btn btn-primary btn-block" style="margin-top:1.2rem" href="purchase.html?id=${t.id}" data-vi="Mua bản quyền" data-en="Buy licence">${T('Mua bản quyền','Buy licence')}</a>`
                 : ( canDownload(t)
-                    ? `<button class="btn btn-primary btn-block" style="margin-top:1.2rem" onclick='rsOpenGate("${t.id}")' data-vi="Tải miễn phí" data-en="Download free">Download free</button>`
-                    : `<button class="btn btn-primary btn-block" style="margin-top:1.2rem;opacity:.55;cursor:not-allowed" disabled data-vi="Sắp ra mắt" data-en="Coming soon">Coming soon</button>` ) ) }
+                    ? `<button class="btn btn-primary btn-block" style="margin-top:1.2rem" onclick='rsOpenGate("${t.id}")' data-vi="Tải miễn phí" data-en="Download free">${T('Tải miễn phí','Download free')}</button>`
+                    : `<button class="btn btn-primary btn-block" style="margin-top:1.2rem;opacity:.55;cursor:not-allowed" disabled data-vi="Sắp ra mắt" data-en="Coming soon">${T('Sắp ra mắt','Coming soon')}</button>` ) ) }
 
           ${ !isPaid(t) ? `<div class="trust">
             ${ t.virustotal ? `<a class="chip" href="${esc(t.virustotal)}" target="_blank" rel="noopener">VirusTotal ↗</a>` : '' }
@@ -200,9 +185,41 @@ function renderDetail(){
       </aside>
     </div>
   </div></section>`;
+};
+
+function renderDetail(){
+  const root = document.getElementById('tool-detail');
+  if(!root) return;
+  // Generated pages (tool-<id>.html) declare RS_PAGE_ID; the legacy
+  // tool.html?id= entry point still works for links shared earlier.
+  const id = window.RS_PAGE_ID || new URLSearchParams(location.search).get('id');
+  const t = (window.TOOLS||[]).find(x=>x.id===id);
+  const lang = window.RS.lang;
+
+  if(!t){
+    root.innerHTML = `<div class="container section" style="text-align:center">
+      <h2 class="h2" data-vi="Không tìm thấy phần mềm" data-en="Software not found">Software not found</h2>
+      <p class="lead" style="margin:1rem auto" data-vi="Mục bạn tìm không tồn tại." data-en="The item you requested does not exist.">The item you requested does not exist.</p>
+      <a class="btn btn-primary" href="${window.RS_URL.page('tools')}" data-vi="Về danh mục" data-en="Back to catalog">Back to catalog</a></div>`;
+    window.RS.setLang(lang);
+    return;
+  }
+
+  // Follow the page language — see the same fix in articles.js renderArticle.
+  document.title = (t.name[lang] || t.name.en) + " — Roberto Structural";
+  // Generated pages (RS_PAGE_ID set) already carry the right language via RS_PAGE_LANG,
+  // so the canonical can just follow RS.lang. The legacy ?id= entry point declares no
+  // language — pin its canonical to 'en' so it doesn't drift with a visitor's localStorage.
+  rsSetCanonical(window.RS_URL.tool(t.id, window.RS_PAGE_ID ? undefined : 'en'));
+
+  // Remember the gallery so the lightbox can open at the right image.
+  window.RS_SHOTS = (t.screenshots && t.screenshots.length) ? t.screenshots : (t.thumb ? [t.thumb] : []);
+  window.RS_SHOT_INDEX = 0;
+
+  root.innerHTML = window.RS_TOOL_HTML(t, lang);
 
   window.RS.observeReveal();
-  window.RS.setLang(window.RS.lang);
+  window.RS.setLang(lang);
 }
 
 // Gallery thumbnail swap

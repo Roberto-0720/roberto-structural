@@ -62,6 +62,54 @@ function loadData(file) {
   return ctx.window;
 }
 
+/* Pre-render the page body with the SITE'S OWN rendering code.
+   The detail pages used to ship an empty <main> and build their content from JS
+   at run time. Googlebot executes JS and coped, but Bing/Cốc Cốc and anything
+   else that only reads HTML saw a blank article — the text existed nowhere in
+   the file. So: run assets/js/*.js right here, in a sandbox with just enough of
+   a browser around it, and call the same pure builders the browser calls
+   (RS_ARTICLE_HTML / RS_TOOL_HTML / headerHtml / footerHtml).
+
+   Deliberately NOT a second copy of the markup: duplicating those templates here
+   would mean every future edit to articles.js had to be mirrored by hand, and the
+   two would drift apart silently. Sharing the functions makes drift impossible.
+
+   The shim only needs to survive module-level evaluation — the DOMContentLoaded
+   handlers never fire here, so document/localStorage can be inert stubs. */
+function makeRenderer() {
+  const ctx = {
+    console,
+    localStorage: { getItem: () => null, setItem() {} },
+    location: { search: '', href: SITE, pathname: '/' },
+    navigator: { clipboard: null },
+    document: {
+      addEventListener() {},
+      getElementById: () => null,
+      querySelector: () => null,
+      querySelectorAll: () => [],
+      createElement: () => ({ style: {}, setAttribute() {}, appendChild() {} }),
+      documentElement: {},
+      head: { appendChild() {} },
+      body: { appendChild() {}, removeChild() {}, classList: { toggle() {}, remove() {} } }
+    }
+  };
+  // The site's scripts read both bare globals and window.*; make them the same object.
+  ctx.window = ctx;
+  vm.createContext(ctx);
+  for (const f of ['assets/js/main.js',
+                   'assets/js/tools-data.js', 'assets/js/tools.js',
+                   'assets/js/articles-data.js', 'assets/js/articles.js']) {
+    vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx, { filename: f });
+  }
+  for (const fn of ['RS_ARTICLE_HTML', 'RS_TOOL_HTML', 'headerHtml', 'footerHtml']) {
+    if (typeof ctx[fn] !== 'function') {
+      throw new Error(`build-pages: ${fn}() not found after loading assets/js — ` +
+                      `did the refactor in articles.js / tools.js / main.js get reverted?`);
+    }
+  }
+  return ctx;
+}
+
 const attr = s => String(s ?? '')
   .replace(/&/g, '&amp;').replace(/</g, '&lt;')
   .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -115,10 +163,14 @@ function head({ title, desc, url, altUrl, lang, image, type, extra = '' }) {
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/style.css" />`;
+<link rel="stylesheet" href="assets/css/style.css" />
+<!-- The pre-rendered body below carries .reveal, which starts at opacity:0 and is
+     switched on by IntersectionObserver. With JS off that would hide the very
+     content we just baked in, so undo the animation in that case. -->
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>`;
 }
 
-function page({ id, lang, page: pageName, mount, scripts, ...meta }) {
+function page({ id, lang, page: pageName, mount, scripts, body = '', header = '', footer = '', ...meta }) {
   return `<!DOCTYPE html>
 <!-- ============================================================
      GENERATED FILE — DO NOT EDIT BY HAND.
@@ -131,11 +183,11 @@ ${head({ lang, ...meta })}
 </head>
 <body data-page="${pageName}">
 
-<header id="site-header"></header>
+<header id="site-header">${header}</header>
 
-<main id="${mount}"><!-- rendered by JS from RS_PAGE_ID --></main>
+<main id="${mount}">${body}</main>
 
-<footer id="site-footer"></footer>
+<footer id="site-footer">${footer}</footer>
 
 <script>window.RS_PAGE_ID = ${JSON.stringify(id)}; window.RS_PAGE_LANG = ${JSON.stringify(lang)};</script>
 ${scripts.map(s => `<script src="assets/js/${s}"></script>`).join('\n')}
@@ -148,6 +200,14 @@ ${scripts.map(s => `<script src="assets/js/${s}"></script>`).join('\n')}
 
 const { TOOLS = [] } = loadData('assets/js/tools-data.js');
 const { ARTICLES = [] } = loadData('assets/js/articles-data.js');
+
+// One sandbox reused for all 56 pages — loading the scripts once is enough.
+const R = makeRenderer();
+// Header/footer markup depends only on the language, so build the two of each once.
+const CHROME = {
+  en: { header: R.headerHtml('en'), footer: R.footerHtml('en') },
+  vi: { header: R.headerHtml('vi'), footer: R.footerHtml('vi') }
+};
 
 // EVERY tool gets a file, including "soon" ones — the catalog links to all of
 // them, so skipping any would turn a working detail page into a 404.
@@ -172,6 +232,8 @@ for (const t of TOOLS) {
       page: 'tools',
       mount: 'tool-detail',
       scripts: ['main.js', 'lightbox.js', 'tools-data.js', 'tools.js'],
+      body: R.RS_TOOL_HTML(t, lang),
+      ...CHROME[lang],
       title: `${plain(t.name[lang])} — Roberto Structural`,
       desc: clip(t.tagline?.[lang]),
       url: lang === 'vi' ? urlVi : urlEn,
@@ -196,6 +258,8 @@ for (const a of ARTICLES) {
       page: 'insights',
       mount: 'article-root',
       scripts: ['main.js', 'lightbox.js', 'articles-data.js', 'articles.js'],
+      body: R.RS_ARTICLE_HTML(a, lang, ARTICLES),
+      ...CHROME[lang],
       title: `${plain(a.title[lang])} — Roberto Structural`,
       desc: clip(a.excerpt?.[lang]),
       url: lang === 'vi' ? urlVi : urlEn,

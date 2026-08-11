@@ -7,16 +7,21 @@
 function abi(o){ return `data-vi="${(o.vi||'').replace(/"/g,'&quot;')}" data-en="${(o.en||'').replace(/"/g,'&quot;')}"`; }
 function aesc(s){ return String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 // Body text may contain <b>/<i> on purpose → insert as-is.
-function araw(o){ return (o && (o[window.RS.lang] ?? o.vi)) || ""; }
+function araw(o, lang){ return (o && (o[lang] ?? o.vi)) || ""; }
+// Escaped text in the page's own language. Used where the markup previously
+// hard-coded `.en`: that only looked right because RS.setLang() rewrote it a
+// moment later, so anything reading the page WITHOUT running JS — a crawler, or
+// the build script that now pre-renders these pages — saw English on a VI page.
+function atxt(o, lang){ return aesc((o && (o[lang] ?? o.en)) || ''); }
 
 /* A figure's "src" is either one path (photo — same in both languages) or
    { vi, en } when the artwork itself carries text, e.g. a labelled diagram.
    In the second case emit data-src-vi/en and let RS.setLang swap the image
    together with the rest of the page. */
-function afigSrc(f){
+function afigSrc(f, lang){
   const s = f.src;
   if(s && typeof s === 'object'){
-    const cur = s[window.RS.lang] || s.vi || s.en;
+    const cur = s[lang] || s.vi || s.en;
     return `src="${aesc(cur)}" data-src-vi="${aesc(s.vi || s.en)}" data-src-en="${aesc(s.en || s.vi)}"`;
   }
   return `src="${aesc(s)}"`;
@@ -109,79 +114,70 @@ function refreshDates(){
                      rows:[[{vi,en}...]] }   → comparison table
    Text may contain <b> <i> <br> on purpose.
 ------------------------------------------------- */
-function renderBlock(b){
+function renderBlock(b, lang){
   if(b.type === 'subhead'){
-    return `<h3 class="prose-sub reveal" ${abi(b)}>${araw(b)}</h3>`;
+    return `<h3 class="prose-sub reveal" ${abi(b)}>${araw(b, lang)}</h3>`;
   }
   if(b.type === 'list'){
-    return `<ul class="prose-list reveal">${b.items.map(it=>`<li ${abi(it)}>${araw(it)}</li>`).join('')}</ul>`;
+    return `<ul class="prose-list reveal">${b.items.map(it=>`<li ${abi(it)}>${araw(it, lang)}</li>`).join('')}</ul>`;
   }
   if(b.type === 'table'){
     return `<div class="table-wrap reveal"><table class="prose-table">
-      <thead><tr>${b.head.map(h=>`<th ${abi(h)}>${araw(h)}</th>`).join('')}</tr></thead>
-      <tbody>${b.rows.map(r=>`<tr>${r.map(c=>`<td ${abi(c)}>${araw(c)}</td>`).join('')}</tr>`).join('')}</tbody>
+      <thead><tr>${b.head.map(h=>`<th ${abi(h)}>${araw(h, lang)}</th>`).join('')}</tr></thead>
+      <tbody>${b.rows.map(r=>`<tr>${r.map(c=>`<td ${abi(c)}>${araw(c, lang)}</td>`).join('')}</tr>`).join('')}</tbody>
     </table></div>`;
   }
   // Verbatim block: software menu paths, command sequences. Whitespace matters,
   // so it goes in <pre>. Like every other block the text is inserted as HTML on
   // language switch, so a literal "<" must be written &lt; in the data file.
   if(b.type === 'code'){
-    return `<pre class="prose-code reveal"><code ${abi(b)}>${araw(b)}</code></pre>`;
+    return `<pre class="prose-code reveal"><code ${abi(b)}>${araw(b, lang)}</code></pre>`;
   }
   // Highlighted aside — the "Tip N" boxes and key-point callouts.
   if(b.type === 'tip'){
-    return `<aside class="prose-tip reveal" ${abi(b)}>${araw(b)}</aside>`;
+    return `<aside class="prose-tip reveal" ${abi(b)}>${araw(b, lang)}</aside>`;
   }
   // Pre-issue checklist. Rendered as static ticked boxes, not real inputs:
   // it is something to read down, not a form to fill in.
   if(b.type === 'checklist'){
-    return `<ul class="prose-check reveal">${b.items.map(it=>`<li ${abi(it)}>${araw(it)}</li>`).join('')}</ul>`;
+    return `<ul class="prose-check reveal">${b.items.map(it=>`<li ${abi(it)}>${araw(it, lang)}</li>`).join('')}</ul>`;
   }
   // Figure placed mid-section. The section-level "figures" array still works
   // and always renders at the end; use this when a section has several figures
   // that each belong next to their own paragraph.
   if(b.type === 'figure'){
     return `<figure class="art-fig reveal">
-      <img ${afigSrc(b)} alt="${aesc(afigAlt(b))}" loading="lazy" onclick="rsArtZoom(this)"/>
-      ${ b.caption ? `<figcaption ${abi(b.caption)}>${araw(b.caption)}</figcaption>` : '' }
+      <img ${afigSrc(b, lang)} alt="${aesc(afigAlt(b))}" loading="lazy" onclick="rsArtZoom(this)"/>
+      ${ b.caption ? `<figcaption ${abi(b.caption)}>${araw(b.caption, lang)}</figcaption>` : '' }
     </figure>`;
   }
-  return `<p class="reveal" ${abi(b)}>${araw(b)}</p>`;
+  return `<p class="reveal" ${abi(b)}>${araw(b, lang)}</p>`;
 }
 
-/* ---------------- READER (article.html) ---------------- */
-function renderArticle(){
-  const root = document.getElementById('article-root');
-  if(!root) return;
-  // Generated pages (article-<id>.html) declare RS_PAGE_ID; the legacy
-  // article.html?id= entry point still works for links shared earlier.
-  const id = window.RS_PAGE_ID || new URLSearchParams(location.search).get('id');
-  const a = (window.ARTICLES||[]).find(x=>x.id===id);
+/* ---------------- READER (article.html) ----------------
+   The markup is built by a PURE function so the same code can run in two places:
+   in the browser here, and in Node at build time (scripts/build-pages.mjs) to bake
+   the article into article-<id>.html as real HTML. Before that, every generated page
+   shipped an empty <main> and the text existed only after JS ran — invisible to any
+   crawler that doesn't execute JS. Keep this function free of document/window access
+   so it stays runnable outside a browser. */
+window.RS_ARTICLE_HTML = function(a, lang, articles){
+  const list = articles || [];
+  const U = window.RS_URL;
+  const T = (vi, en) => lang === 'vi' ? vi : en;   // visible copy, page's own language
+  const idx = list.indexOf(a);
+  const prev = list[idx+1];   // older
+  const next = list[idx-1];   // newer
 
-  if(!a){
-    root.innerHTML = `<div class="container section" style="text-align:center">
-      <h2 class="h2" data-vi="Không tìm thấy bài viết" data-en="Article not found">Article not found</h2>
-      <a class="btn btn-primary" href="${window.RS_URL.page('insights')}" style="margin-top:1rem" data-vi="Về trang bài viết" data-en="Back to Insights">Back to Insights</a></div>`;
-    window.RS.setLang(window.RS.lang);
-    return;
-  }
-
-  document.title = a.title.en + " — Roberto Structural";
-  // See tools.js renderDetail for why the legacy ?id= entry point pins 'en'.
-  window.rsSetCanonical(window.RS_URL.article(a.id, window.RS_PAGE_ID ? undefined : 'en'));
-  const idx = window.ARTICLES.indexOf(a);
-  const prev = window.ARTICLES[idx+1];   // older
-  const next = window.ARTICLES[idx-1];   // newer
-
-  root.innerHTML = `
+  return `
   <section class="page-hero"><div class="container">
-    <p class="breadcrumb"><a href="${window.RS_URL.page('index')}" data-vi="Trang chủ" data-en="Home">Home</a> / <a href="${window.RS_URL.page('insights')}" data-vi="Bài viết" data-en="Insights">Insights</a> / <span>No. ${aesc(a.no)}</span></p>
-    <p class="eyebrow" ${abi(a.category)}>${aesc(a.category.en)}</p>
-    <h1 ${abi(a.title)}>${aesc(a.title.en)}</h1>
+    <p class="breadcrumb"><a href="${U.page('index', lang)}" data-vi="Trang chủ" data-en="Home">${T('Trang chủ','Home')}</a> / <a href="${U.page('insights', lang)}" data-vi="Bài viết" data-en="Insights">${T('Bài viết','Insights')}</a> / <span>No. ${aesc(a.no)}</span></p>
+    <p class="eyebrow" ${abi(a.category)}>${atxt(a.category, lang)}</p>
+    <h1 ${abi(a.title)}>${atxt(a.title, lang)}</h1>
     <div class="art-meta">
       <span>Structural Notes · No. ${aesc(a.no)}</span>
       <span class="acard-dot">·</span>
-      <span data-date="${a.date}">${afmtDate(a.date, window.RS.lang)}</span>
+      <span data-date="${a.date}">${afmtDate(a.date, lang)}</span>
       <span class="acard-dot">·</span>
       <span>${a.readmin} min read</span>
     </div>
@@ -190,18 +186,18 @@ function renderArticle(){
   <section class="section" style="padding-top:clamp(2rem,5vw,3.5rem)"><div class="container">
     <article class="prose">
       ${a.sections.map(s=>`
-        <h2 class="reveal" ${abi(s.heading)}>${aesc(s.heading.en)}</h2>
-        ${s.body.map(b=>renderBlock(b)).join('')}
+        <h2 class="reveal" ${abi(s.heading)}>${atxt(s.heading, lang)}</h2>
+        ${s.body.map(b=>renderBlock(b, lang)).join('')}
         ${ (s.figures || (s.figure ? [s.figure] : [])).map(f=>`
         <figure class="art-fig reveal">
-          <img ${afigSrc(f)} alt="${aesc(afigAlt(f, s))}" loading="lazy" onclick="rsArtZoom(this)"/>
-          ${ f.caption ? `<figcaption ${abi(f.caption)}>${aesc(f.caption.en)}</figcaption>` : '' }
+          <img ${afigSrc(f, lang)} alt="${aesc(afigAlt(f, s))}" loading="lazy" onclick="rsArtZoom(this)"/>
+          ${ f.caption ? `<figcaption ${abi(f.caption)}>${araw(f.caption, lang)}</figcaption>` : '' }
         </figure>`).join('') }
       `).join('')}
-      ${ a.footnote ? `<p class="art-note reveal" ${abi(a.footnote)}>${aesc(a.footnote.en)}</p>` : '' }
+      ${ a.footnote ? `<p class="art-note reveal" ${abi(a.footnote)}>${araw(a.footnote, lang)}</p>` : '' }
 
       <div class="art-share reveal">
-        <span data-vi="Chia sẻ bài viết" data-en="Share this article">Share this article</span>
+        <span data-vi="Chia sẻ bài viết" data-en="Share this article">${T('Chia sẻ bài viết','Share this article')}</span>
         <div class="art-share-btns">
           <a href="#" onclick="return rsShare('facebook')" aria-label="Share on Facebook" title="Facebook">
             <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
@@ -217,17 +213,44 @@ function renderArticle(){
     </article>
 
     <nav class="art-nav">
-      ${ prev ? `<a class="art-nav-item" href="${window.RS_URL.article(prev.id)}"><span data-vi="← Bài trước" data-en="← Previous">← Previous</span><b ${abi(prev.title)}>${aesc(prev.title.en)}</b></a>` : `<span></span>` }
-      ${ next ? `<a class="art-nav-item art-nav-next" href="${window.RS_URL.article(next.id)}"><span data-vi="Bài sau →" data-en="Next →">Next →</span><b ${abi(next.title)}>${aesc(next.title.en)}</b></a>` : `<span></span>` }
+      ${ prev ? `<a class="art-nav-item" href="${U.article(prev.id, lang)}"><span data-vi="← Bài trước" data-en="← Previous">${T('← Bài trước','← Previous')}</span><b ${abi(prev.title)}>${atxt(prev.title, lang)}</b></a>` : `<span></span>` }
+      ${ next ? `<a class="art-nav-item art-nav-next" href="${U.article(next.id, lang)}"><span data-vi="Bài sau →" data-en="Next →">${T('Bài sau →','Next →')}</span><b ${abi(next.title)}>${atxt(next.title, lang)}</b></a>` : `<span></span>` }
     </nav>
 
     <div style="text-align:center;margin-top:3rem">
-      <a class="btn btn-ghost" href="${window.RS_URL.page('insights')}" data-vi="Xem tất cả bài viết" data-en="View all articles">View all articles</a>
+      <a class="btn btn-ghost" href="${U.page('insights', lang)}" data-vi="Xem tất cả bài viết" data-en="View all articles">${T('Xem tất cả bài viết','View all articles')}</a>
     </div>
   </div></section>`;
+};
+
+function renderArticle(){
+  const root = document.getElementById('article-root');
+  if(!root) return;
+  // Generated pages (article-<id>.html) declare RS_PAGE_ID; the legacy
+  // article.html?id= entry point still works for links shared earlier.
+  const id = window.RS_PAGE_ID || new URLSearchParams(location.search).get('id');
+  const a = (window.ARTICLES||[]).find(x=>x.id===id);
+  const lang = window.RS.lang;
+
+  if(!a){
+    root.innerHTML = `<div class="container section" style="text-align:center">
+      <h2 class="h2" data-vi="Không tìm thấy bài viết" data-en="Article not found">Article not found</h2>
+      <a class="btn btn-primary" href="${window.RS_URL.page('insights')}" style="margin-top:1rem" data-vi="Về trang bài viết" data-en="Back to Insights">Back to Insights</a></div>`;
+    window.RS.setLang(lang);
+    return;
+  }
+
+  // Follow the page language, not always 'en' — the generated -vi.html files ship a
+  // Vietnamese <title> in their <head>, and overwriting it with the English one here
+  // put the wrong title in the browser tab (and in what a JS-rendering crawler sees).
+  document.title = (a.title[lang] || a.title.en) + " — Roberto Structural";
+  // See tools.js renderDetail for why the legacy ?id= entry point pins 'en'.
+  window.rsSetCanonical(window.RS_URL.article(a.id, window.RS_PAGE_ID ? undefined : 'en'));
+
+  root.innerHTML = window.RS_ARTICLE_HTML(a, lang, window.ARTICLES);
 
   window.RS.observeReveal();
-  window.RS.setLang(window.RS.lang);
+  window.RS.setLang(lang);
   refreshDates();
 }
 
