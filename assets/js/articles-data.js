@@ -1395,7 +1395,7 @@ window.ARTICLES = [
           },
           {
             type: "figure",
-            src: "Resource/articles/04-welding/01_fillet_weld_anatomy.svg",
+            src: "Resource/articles/04-welding/01_fillet_weld_anatomy.webp",
             caption: { vi: "<b>Hình 1.</b> Giải phẫu đường hàn góc — phân biệt kích thước cạnh (leg) và throat hiệu dụng.", en: "<b>Figure 1.</b> Fillet weld anatomy — leg size versus effective throat." }
           },
           {
