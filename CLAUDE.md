@@ -165,6 +165,7 @@ nhưng **không đẩy lên GitHub** (xem `.gitignore`).
 
 ```
 Resource/01–07,21,22.webp          ảnh nhà máy (trang chủ, CSS)
+Resource/background/               ảnh nền hero — xem §12
 Resource/tools/Picture/web_description_NN/   ảnh giao diện tool (NN = STT trong softwarelist.xlsx)
 Resource/tools/grds/               ảnh tool GRDS (số 05)
 Resource/drawings/townhouse-01/    ảnh bản vẽ
@@ -603,3 +604,90 @@ reply-to là email khách → bấm Reply trong email báo đơn là trả lời
 - Render headless Chrome: trang tĩnh, URL `?id=` cũ, catalog, insights, purchase — đều đúng.
 - Quét toàn bộ link nội bộ từ 4 trang danh mục → không có 404.
 - Test đường tiền với 3 kịch bản (HTTP 429 / mất mạng / HTTP 200) → cả 3 pass.
+
+---
+
+## 12. Ảnh nền hero (2026-08-12)
+
+Trước đây mọi hero chỉ là gradient xanh nhạt. Nay **tất cả hero đều lồng ảnh nhà máy**,
+chữ trắng nổi lên trên. Chỉ trang chủ, 3 trang danh mục và 56 trang chi tiết — mục
+"Giới thiệu" không có hero riêng vì nó là `#about` nằm trong trang chủ.
+
+### Nguyên tắc: ảnh để nguyên, làm tối bằng CSS
+
+**Không bao giờ làm tối sẵn trong file ảnh.** Lớp phủ do CSS lo, vì:
+- chỉnh độ tối chỉ là sửa một số, không phải xuất lại ảnh;
+- cùng một file ảnh vẫn dùng lại được chỗ khác mà không bị tối theo.
+
+### Thêm / đổi ảnh nền
+
+Chỉ 2 bước:
+1. Thêm ảnh vào `Resource/background/`.
+2. Thêm **một dòng** vào `assets/css/style.css` cạnh các dòng `--hero-img` sẵn có,
+   rồi gắn class vào thẻ hero.
+
+```
+.page-hero--insights   insights.html + insights-vi.html
+.page-hero--tools      tools.html + tools-vi.html
+.page-hero--drawings   drawings.html + drawings-vi.html
+.page-hero--detail     DÙNG CHUNG cho cả 56 trang chi tiết (16 bài viết + 40 tool)
+.hero--img             trang chủ (ảnh khai ngay trong luật, không qua biến)
+```
+
+Class của 56 trang chi tiết nằm trong `RS_ARTICLE_HTML` (articles.js) và `RS_TOOL_HTML`
+(tools.js) → **sửa xong phải chạy lại `node scripts/build-pages.mjs`**.
+
+⚠️ **Bẫy đường dẫn:** đường dẫn tương đối trong biến CSS được phân giải so với **file CSS**
+dùng biến, không phải file HTML khai báo. Đặt biến trong `style=` của thẻ HTML với
+`Resource/...` thì trình duyệt đi tìm `assets/css/Resource/...` → mất ảnh. Nên khai báo
+ảnh ngay trong style.css với `../../`. Không dùng `/Resource/...` được vì cả site cố ý
+dùng đường dẫn tương đối để chạy ở cả hai địa chỉ.
+
+### Quy cách ảnh — rút ra từ đo đạc thật
+
+| | Mục tiêu | Trần |
+|---|---|---|
+| **Điểm sáng nhất ở 55% bên trái** (chỗ đặt chữ) | ≤ 0.45 | 0.70 |
+| Độ sáng trung bình toàn ảnh | 0.05 – 0.15 | 0.20 |
+| Kích thước | 1920 × 380 (hero trang trong) | — |
+
+Chỉ số đầu tiên là thứ **duy nhất** quyết định. Đo được: ảnh drawings (0.355) dư 2.4 lần
+ngưỡng, ảnh Insights (0.647) và Tools (0.726) chỉ dư 1.1–1.2 lần.
+
+Hero **trang chủ cao gấp ba** hero trang trong (615px so với ~380px) nên cần ảnh tỉ lệ
+khoảng 2.4, không phải 5.2: ở 1920px ảnh tỉ lệ 2.42 còn thấy 75% khung hình, ảnh 5.21 chỉ
+còn 35%.
+
+Cần tránh: **trời / cửa sổ / đèn pha ở nửa trái** (đây là thứ duy nhất từng làm trượt),
+vệt sáng ngang chạy dài, chữ hoặc logo trong ảnh. Nên chọn kết cấu công nghiệp trải đều
+cả khung — trên điện thoại chỉ còn thấy ~23% ở giữa, chủ thể lệch một bên sẽ biến mất.
+
+### Ba cái bẫy đã vấp khi kiểm tương phản
+
+1. **Gradient theo hướng chỉ đúng khi container hẹp hơn màn hình** (≥1024px). Dưới mốc đó
+   container chiếm trọn bề ngang, chữ trải sang vùng nhạt → trang Phần mềm ở 768px chỉ còn
+   3.1:1. Nên dưới 1024px chuyển sang **phủ tối đều**.
+2. **`.art-meta` không phải thẻ `<p>`** nên không dính luật đổi màu chung, vẫn giữ `--steel`
+   → chỉ còn ~1.6:1. Hero trang chi tiết và trang chủ có nhiều loại chữ hơn hero danh mục
+   (`.art-meta`, `.stat b`, `.stat span`, `.btn-ghost` lấy màu qua `color:inherit`) —
+   **bỏ sót cái nào là cái đó gần như tàng hình.**
+3. **Nới bề rộng khối chữ làm tụt tương phản.** Bỏ khung ảnh trang chủ rồi cho lưới về một
+   cột, chữ vươn từ 52% lên ~70% bề ngang → biên của cụm chữ cam tụt 1.49 → 1.16. Phải
+   đẩy điểm chuyển gradient từ 45% sang 58% mới lấy lại được.
+
+### Cách đo cho đúng (đã vấp 5 lần)
+
+Đo bằng cách chụp 2 ảnh — có chữ và ẩn chữ — rồi so màu chữ khai báo với màu nền. Bốn thứ
+**bắt buộc** phải làm, thiếu cái nào cũng ra số vô nghĩa:
+
+- **Đóng băng hiệu ứng** `.reveal` (`transition/animation:none`, `opacity:1`, `transform:none`)
+  — không thì chụp trúng lúc chữ đang mờ dần, ra 40% nét chữ "trượt" trong khi nhìn rất rõ.
+- **Chờ `document.fonts.ready`** — font web chưa tải thì đo bằng font dự phòng rộng hơn,
+  slogan báo 3 dòng trong khi thật ra 2 dòng.
+- **`--hide-scrollbars` ở CẢ hai lần chụp** — `--screenshot` và `--dump-dom` cho bề rộng bố
+  cục lệch nhau ~18px, đủ để lật một `@media` và làm toạ độ của lần này áp lên ảnh lần kia.
+- **Lấy khung chữ bằng `Range.getBoundingClientRect()`**, không lấy khung phần tử — khung
+  phần tử gồm cả khoảng trống bên phải dòng ngắn.
+
+Đừng đo tương phản từng pixel nét chữ: viền khử răng cưa luôn pha với nền nên bao giờ cũng
+ra tỉ số thấp. WCAG tính **màu khai báo so với màu nền**.

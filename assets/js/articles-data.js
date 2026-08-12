@@ -948,7 +948,7 @@ window.ARTICLES = [
         body: [
           {
             type: "figure",
-            src: "Resource/articles/05-slab-on-grade/01_westergaard_load_positions.svg",
+            src: "Resource/articles/05-slab-on-grade/01_westergaard_load_positions.webp",
             caption: { vi: "<b>Hình 1.</b> Ba vị trí đặt tải theo Westergaard: giữa sàn, mép sàn và góc sàn.", en: "<b>Figure 1.</b> Westergaard's three loading positions: interior, edge and corner." }
           },
           { type: "subhead", vi: "Tải giữa sàn (Interior)", en: "Interior loading" },
@@ -1011,7 +1011,7 @@ window.ARTICLES = [
           },
           {
             type: "figure",
-            src: "Resource/articles/05-slab-on-grade/02_three_load_cases.svg",
+            src: "Resource/articles/05-slab-on-grade/02_three_load_cases.webp",
             caption: { vi: "<b>Hình 2.</b> Ba trường hợp tải thiết kế: tải tập trung, tải tường liên tục và tải phân bố đều.", en: "<b>Figure 2.</b> The three design load cases: concentrated, continuous wall and uniform load." }
           },
           { type: "subhead", vi: "Trường hợp 1 — tải tập trung / tải bánh xe", en: "Case 1 — concentrated or wheel load" },
@@ -1057,7 +1057,7 @@ window.ARTICLES = [
         body: [
           {
             type: "figure",
-            src: "Resource/articles/05-slab-on-grade/03_joint_types.svg",
+            src: "Resource/articles/05-slab-on-grade/03_joint_types.webp",
             caption: { vi: "<b>Hình 3.</b> Các loại mối nối trong sàn trên nền đất.", en: "<b>Figure 3.</b> Joint types in a slab on grade." }
           },
           {
@@ -1149,7 +1149,7 @@ window.ARTICLES = [
         body: [
           {
             type: "figure",
-            src: "Resource/articles/05-slab-on-grade/04_subgrade_system.svg",
+            src: "Resource/articles/05-slab-on-grade/04_subgrade_system.webp",
             caption: { vi: "<b>Hình 4.</b> Hệ thống các lớp nền dưới sàn bê tông.", en: "<b>Figure 4.</b> The layer system beneath a concrete slab on grade." }
           },
           {

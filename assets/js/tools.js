@@ -123,7 +123,7 @@ window.RS_TOOL_HTML = function(t, lang){
   const shots = (t.screenshots && t.screenshots.length) ? t.screenshots : (t.thumb ? [t.thumb] : []);
 
   return `
-  <section class="page-hero"><div class="container">
+  <section class="page-hero page-hero--img page-hero--detail"><div class="container">
     <p class="breadcrumb"><a href="${U.page('index', lang)}" data-vi="Trang chủ" data-en="Home">${T('Trang chủ','Home')}</a> / <a href="${U.page('tools', lang)}" data-vi="Phần mềm" data-en="Software">${T('Phần mềm','Software')}</a> / <span>${ttxt(t.name, lang)}</span></p>
     <p class="eyebrow" ${bi(t.category)}>${ttxt(t.category, lang)}</p>
     <h1 ${bi(t.name)}>${ttxt(t.name, lang)}</h1>

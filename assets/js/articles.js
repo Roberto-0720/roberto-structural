@@ -170,7 +170,7 @@ window.RS_ARTICLE_HTML = function(a, lang, articles){
   const next = list[idx-1];   // newer
 
   return `
-  <section class="page-hero"><div class="container">
+  <section class="page-hero page-hero--img page-hero--detail"><div class="container">
     <p class="breadcrumb"><a href="${U.page('index', lang)}" data-vi="Trang chủ" data-en="Home">${T('Trang chủ','Home')}</a> / <a href="${U.page('insights', lang)}" data-vi="Bài viết" data-en="Insights">${T('Bài viết','Insights')}</a> / <span>No. ${aesc(a.no)}</span></p>
     <p class="eyebrow" ${abi(a.category)}>${atxt(a.category, lang)}</p>
     <h1 ${abi(a.title)}>${atxt(a.title, lang)}</h1>

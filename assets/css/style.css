@@ -74,27 +74,28 @@ header{position:sticky;top:0;z-index:50;background:rgba(28,31,34,.92);backdrop-f
 .hero::after{content:"";position:absolute;inset:0;opacity:.45;
   background-image:linear-gradient(rgba(20,60,55,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(20,60,55,.06) 1px,transparent 1px);
   background-size:46px 46px;pointer-events:none}
-.hero .container{position:relative;z-index:2;padding-top:clamp(3.5rem,8vw,6rem);padding-bottom:clamp(3.5rem,8vw,6rem)}
+.hero .container{position:relative;z-index:2;padding-top:clamp(2.5rem,6vw,4.5rem);padding-bottom:clamp(2.5rem,6vw,4.5rem)}
 .hero h1{font-size:clamp(2.2rem,5.5vw,4.2rem);text-transform:uppercase;letter-spacing:.01em;max-width:18ch}
 .hero h1 .hl{color:var(--accent)}
-/* Tiêu đề hero bản VI — bản EN không đụng tới. Câu VI chia sẵn 4 dòng bằng <br>;
-   dòng dài nhất "công nghiệp nặng" rộng 10.3em, đó là ràng buộc của mọi con số dưới.
-   • Cỡ chữ phải co theo chỗ trống, mà chỗ trống đổi hai lần:
-       < 980px  : một cột, rộng = 0.9 × màn hình      → tối đa 8.74vw
-       ≥ 980px  : hai cột, cột chữ chỉ còn ~52%       → tối đa 4.6vw, chốt 51.8px
-                  (container 1200px nên từ 1280px trở lên cột chữ đứng yên ở 533px)
-     Lấy 8.5vw / 4.1vw và chặn trên 3.1rem, chừa ~4% biên an toàn.
+/* Tiêu đề hero bản VI — bản EN không đụng tới. Câu VI chia 2 dòng bằng <br>;
+   dòng dài nhất "kết cấu công nghiệp nặng" rộng 14.75em — đó là ràng buộc của
+   mọi con số dưới đây (ở 3.1rem nó cần 731px).
+   • max-width: mức 18ch chung chỉ cho ~10.5em, cắt đôi dòng 2 ngay. 27ch ≈ 15.8em,
+     dư 7%. Bản EN vẫn giữ 18ch nên bố cục 4 dòng của nó không đổi.
+   • Cỡ chữ phải co theo chỗ trống:
+       < 980px  : một cột, rộng = 0.9 × màn hình, chữ tự xuống dòng thêm → 8.5vw
+       ≥ 980px  : .hero--img cho lưới về một cột nên chỗ trống rộng hẳn ra,
+                  5vw chạm trần 3.1rem từ khoảng 992px trở lên.
      Không dùng được clamp() gốc vì dưới 640px thì 5.5vw < 2.2rem, clamp chạm sàn
      → cỡ chữ ĐỨNG YÊN trong khi màn hình hẹp dần, chữ tràn ra ngoài ở máy 320–390px.
-   • .nb CHỈ bật dưới 980px. Tiếng Việt đơn âm nên trình duyệt ngắt dòng được ở MỌI
-     khoảng trắng, cắt đôi cụm phải đi liền — nowrap chặn việc đó khi màn hẹp.
-     Từ 980px trở lên thì KHÔNG được bật: .hero-grid dùng fr, mà kích thước tối
-     thiểu tự động của ô lưới là min-content; nowrap kéo min-content của h1 bằng
-     cả cụm dài nhất, đẩy cột chữ rộng ra và bóp nhỏ khung ảnh bên phải. Đó chính
-     là lý do ảnh bản VI từng nhỏ hơn bản EN. Ở đó các <br> đã định sẵn dòng rồi.
+   • .nb CHỈ bật dưới 980px, và giờ chỉ còn trên cụm "lõi kỹ thuật" (6.85em — vẫn
+     vừa màn hẹp). Tiếng Việt đơn âm nên trình duyệt ngắt dòng được ở MỌI khoảng
+     trắng, cắt đôi cụm phải đi liền; nowrap chặn việc đó. Từ 980px trở lên thì
+     KHÔNG bật: lưới dùng fr, kích thước tối thiểu tự động của ô là min-content,
+     nowrap sẽ kéo min-content của h1 bằng cả cụm dài nhất và phá bố cục.
    setLang() có cập nhật <html lang> nên các quy tắc này theo đúng nút đổi ngôn ngữ. */
-html[lang="vi"] .hero h1{font-size:min(8.5vw,3.1rem)}
-@media(min-width:980px){html[lang="vi"] .hero h1{font-size:min(4.1vw,3.1rem)}}
+html[lang="vi"] .hero h1{font-size:min(8.5vw,3.1rem);max-width:27ch}
+@media(min-width:980px){html[lang="vi"] .hero h1{font-size:min(5vw,3.1rem)}}
 @media(max-width:979px){html[lang="vi"] .hero h1 .nb{white-space:nowrap}}
 .hero .slogan{color:var(--steel);font-size:clamp(1rem,2vw,1.25rem);margin-top:1.4rem;max-width:55ch}
 .hero-cta{display:flex;gap:1rem;margin-top:2.2rem;flex-wrap:wrap}
@@ -112,6 +113,60 @@ html[lang="vi"] .hero h1{font-size:min(8.5vw,3.1rem)}
 .stat span{color:var(--steel);font-size:.85rem}
 .stat b .accent{color:var(--accent)}
 
+/* ---- Hero trang chủ có ảnh nền ------------------------------------------
+   Cùng cách làm với .page-hero--img ở dưới, nhưng hero trang chủ khác hẳn ở
+   hai điểm nên phải có luật riêng:
+
+   1. NÓ RẤT CAO — 1046px ở desktop, 1710px ở 768px (khi lưới sập còn một cột).
+      Hero các trang trong chỉ ~380px. Vì thế mới chọn home_background_01
+      (tỉ lệ 2.42) chứ không phải hai ảnh dải ngang 5.21: ở 1920px ảnh 01 còn
+      thấy 75% bề ngang, hai ảnh kia chỉ còn 35% — cắt mất phần lớn khung hình.
+
+   2. Nó có nhiều loại chữ hơn: ngoài h1 và slogan còn có dãy số liệu .stat
+      (số màu --charcoal, nhãn màu --steel) và nút viền .btn-ghost lấy màu
+      theo `color:inherit` từ .hero. Cả ba đều là màu tối, bỏ sót cái nào là
+      cái đó gần như tàng hình trên nền tối.
+
+   Ảnh cũ trong khung bo góc bên phải (.hero-media) đã gỡ khỏi index.html và
+   index-vi.html: để ảnh trong ảnh thì rối, mà cột phải bỏ trống chính là chỗ
+   khoe ảnh nền. Lưới vẫn giữ nguyên nên phần chữ vẫn nằm gọn nửa trái. */
+.hero--img{
+  border-bottom-color:rgba(255,255,255,.10);
+  color:var(--white);
+  background:
+    /* Điểm chuyển đẩy sang 58% chứ không phải 45%: sau khi lưới về một cột, khối
+       chữ vươn tới ~70% bề ngang thay vì dừng ở 52% như lúc còn khung ảnh. Giữ
+       mốc cũ thì đuôi dòng tiêu đề rơi vào vùng đã nhạt — đo được biên tương phản
+       của cụm chữ cam tụt từ 1.49 xuống 1.16 lần ngưỡng. */
+    linear-gradient(100deg,rgba(18,21,24,.90) 0%,rgba(18,21,24,.80) 58%,rgba(18,21,24,.34) 100%),
+    radial-gradient(1000px 520px at 86% -12%,rgba(217,123,52,.30),transparent 62%),
+    radial-gradient(900px 500px at 4% 108%,rgba(23,160,146,.22),transparent 62%),
+    url(../../Resource/background/home_background_01.webp) center/cover no-repeat,
+    #1C1F22;   /* nền lót: ảnh chưa tải xong thì chữ trắng vẫn đọc được */
+}
+/* Lưới hero vốn chia 2 cột để nhường nửa phải cho khung ảnh. Khung ảnh đã gỡ,
+   nên giữ 2 cột chỉ tổ bó cột chữ lại 533px — hẹp hơn 731px mà dòng tiêu đề dài
+   nhất cần, khiến nó vỡ thành 4 dòng và đẩy hero cao lên 1046px. Cho về một cột;
+   bề rộng khối chữ do max-width của chính h1 và .slogan quyết định, phần còn lại
+   của container để lộ ảnh nền. */
+.hero--img .hero-grid{grid-template-columns:1fr}
+.hero--img .stats{margin-top:2.5rem}
+.hero--img h1{color:var(--white)}
+.hero--img .slogan{color:rgba(255,255,255,.88)}
+.hero--img .stat b{color:var(--white)}
+.hero--img .stat span{color:rgba(255,255,255,.78)}
+/* Dưới 1024px lưới sập còn một cột, chữ trải hết bề ngang nên gradient theo
+   hướng không còn chỗ nhạt dần — chuyển sang phủ đều, y như .page-hero--img. */
+@media(max-width:1023px){
+  .hero--img{
+    background:
+      linear-gradient(rgba(18,21,24,.82),rgba(18,21,24,.82)),
+      radial-gradient(700px 420px at 86% 0%,rgba(217,123,52,.26),transparent 64%),
+      url(../../Resource/background/home_background_01.webp) center/cover no-repeat,
+      #1C1F22;
+  }
+}
+
 /* Page hero (sub-pages) */
 .page-hero{position:relative;border-bottom:1px solid #BcdAD3;background:
   radial-gradient(900px 420px at 88% -30%,rgba(217,123,52,.16),transparent 60%),
@@ -121,6 +176,70 @@ html[lang="vi"] .hero h1{font-size:min(8.5vw,3.1rem)}
 .breadcrumb a:hover{color:var(--accent)}
 .page-hero h1{font-size:clamp(1.9rem,4.5vw,3rem);text-transform:uppercase}
 .page-hero p{color:var(--steel);max-width:60ch;margin-top:.8rem}
+
+/* ---- Hero có ảnh nền ----------------------------------------------------
+   Chỉ áp dụng cho hero nào ĐƯỢC GẮN class này. .page-hero dùng chung ở ~62
+   trang (16 bài viết + 40 tool + 6 trang danh mục), nên sửa thẳng .page-hero
+   là đổi hết cả site — tách class riêng để bật từng chỗ một.
+
+   Ảnh giữ nguyên bản gốc, KHÔNG làm tối sẵn trong file: lớp phủ để CSS lo.
+   Làm vậy thì chỉnh độ tối chỉ là sửa một số, không phải xuất lại ảnh; và
+   cùng một file ảnh vẫn dùng lại được ở chỗ khác mà không bị tối theo.
+
+   Thứ tự lớp trong background: lớp ĐẦU nằm TRÊN CÙNG.
+     1. gradient tối theo hướng — đậm bên trái (nơi có chữ), nhạt dần sang
+        phải để lộ ảnh. Đây là lớp bảo đảm tương phản cho chữ.
+     2. quầng cam — giữ đúng tông thương hiệu, khớp với hero cũ.
+     3. ảnh nền.
+   Tỉ lệ ảnh 5.75 (rất ngang) nên khi màn hẹp lại, background-size:cover sẽ
+   cắt hai bên; canh 'center' để giữ phần tuabin ở giữa khung. */
+/* BẪY ĐÃ VẤP: đường dẫn tương đối trong biến CSS được phân giải so với FILE CSS
+   dùng biến (chính file này), KHÔNG phải file HTML khai báo nó. Đặt biến trong
+   thuộc tính style= của thẻ với 'Resource/...' thì trình duyệt đi tìm
+   'assets/css/Resource/...' và không thấy ảnh. Nên khai báo ảnh ngay tại đây,
+   với '../../' để lùi từ assets/css/ về gốc site. Không dùng '/Resource/...'
+   được vì cả site cố ý dùng đường dẫn tương đối để chạy được ở cả
+   robertostructural.com/ lẫn .../roberto-structural/.
+   Thêm mục mới thì thêm một dòng như dòng dưới, rồi gắn class vào thẻ. */
+.page-hero--insights{--hero-img:url(../../Resource/background/Insights_background.webp)}
+.page-hero--tools{--hero-img:url(../../Resource/background/Tools_background.webp)}
+.page-hero--drawings{--hero-img:url(../../Resource/background/drawings_background.webp)}
+/* Dùng chung cho TOÀN BỘ trang chi tiết — 16 bài viết + 40 trang tool. Một ảnh
+   cho tất cả là cố ý: trang chi tiết đã có ảnh riêng của nó (cover bài viết,
+   ảnh giao diện tool) ở ngay bên dưới, nên hero chỉ cần làm nền thống nhất. */
+.page-hero--detail{--hero-img:url(../../Resource/background/detail_background.webp)}
+
+.page-hero--img{
+  border-bottom-color:rgba(255,255,255,.10);
+  background:
+    linear-gradient(100deg,rgba(18,21,24,.86) 0%,rgba(18,21,24,.68) 48%,rgba(18,21,24,.18) 100%),
+    radial-gradient(760px 400px at 90% -25%,rgba(217,123,52,.34),transparent 62%),
+    var(--hero-img) center/cover no-repeat,
+    #1C1F22;   /* nền lót: ảnh chưa tải xong thì chữ trắng vẫn đọc được */
+}
+.page-hero--img h1{color:var(--white)}
+.page-hero--img .breadcrumb,
+.page-hero--img .breadcrumb a{color:rgba(255,255,255,.82)}
+.page-hero--img .breadcrumb a:hover{color:var(--accent)}
+.page-hero--img p{color:rgba(255,255,255,.88)}
+/* Dòng "Structural Notes · No. 04 · ngày · 13 min read" trong hero bài viết.
+   Nó không phải <p> nên không dính luật trên, mà mặc định là --steel (#6B7177)
+   — xám đậm, đặt lên nền tối chỉ còn khoảng 1.6:1. Phải kéo lên trắng mờ. */
+.page-hero--img .art-meta{color:rgba(255,255,255,.82)}
+.page-hero--img .acard-dot{color:rgba(255,255,255,.45)}
+/* Gradient theo hướng ở trên giả định chữ nằm ở khoảng một phần ba bên trái —
+   điều đó chỉ đúng khi container hẹp hơn màn hình, tức từ 1024px trở lên.
+   Dưới mốc đó container chiếm trọn bề ngang, chữ trải sang tận vùng nhạt bên
+   phải: đo được đoạn mô tả trang Phần mềm chỉ còn 3.1:1 ở 768px (cần 4.5:1),
+   vì chỗ đó rơi đúng vào mảng trời sáng của ảnh. Nên dưới 1024px dùng phủ đều. */
+@media(max-width:1023px){
+  .page-hero--img{
+    background:
+      linear-gradient(rgba(18,21,24,.80),rgba(18,21,24,.80)),
+      var(--hero-img) center/cover no-repeat,
+      #1C1F22;
+  }
+}
 
 /* Generic grids */
 .grid{display:grid;gap:1.5rem}
