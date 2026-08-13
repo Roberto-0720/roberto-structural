@@ -40,7 +40,7 @@ window.DRAWINGS = [
     ],
     format: "DWG",
     count: { vi: "5×14,5m · 4 tầng", en: "5×14.5m · 4 floors" },
-    priceVnd: 125000,
+    priceVnd: 50000,
     thumb: "Resource/drawings/townhouse-01/3d.webp",
     screenshots: [
       "Resource/drawings/townhouse-01/3d.webp",
@@ -66,7 +66,7 @@ window.DRAWINGS = [
     ],
     format: "DWG",
     count: { vi: "12×20m · 2,5 tầng", en: "12×20m · 2.5 floors" },
-    priceVnd: 125000,
+    priceVnd: 50000,
     thumb: "Resource/drawings/villa-01/elevation.webp",
     screenshots: [
       "Resource/drawings/villa-01/elevation.webp",
@@ -115,7 +115,7 @@ window.DRAWINGS = [
     ],
     format: "DWG",
     count: { vi: "5×19m · 4 tầng", en: "5×19m · 4 floors" },
-    priceVnd: 125000,
+    priceVnd: 50000,
     thumb: "Resource/drawings/townhouse-02/00.webp",
     screenshots: [
       "Resource/drawings/townhouse-02/00.webp",
@@ -162,7 +162,7 @@ window.DRAWINGS = [
     ],
     format: "DWG",
     count: { vi: "6×20m · 4 tầng", en: "6×20m · 4 floors" },
-    priceVnd: 125000,
+    priceVnd: 50000,
     thumb: "Resource/drawings/townhouse-04/01.webp",
     screenshots: [
       "Resource/drawings/townhouse-04/01.webp",

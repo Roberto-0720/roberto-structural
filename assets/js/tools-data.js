@@ -62,7 +62,7 @@ window.TOOLS = [
       en: "Connects live to a running SAP2000 model, pulls concrete frame design results and turns them into a complete rebar schedule per member group — with live OK/NG checking and a polished Excel report."
     },
     version: "1.0", size: "~34 MB", updated: "2026-08", os: WIN, host: "SAP2000",
-    priceVnd: 350000, productCode: "RCSAP", status: "ready",
+    priceVnd: 100000, productCode: "RCSAP", status: "ready",
     thumb: PIC + "web_description_01/01.webp",
     screenshots: [PIC + "web_description_01/01.webp", PIC + "web_description_01/02.webp", PIC + "web_description_01/03.webp", PIC + "web_description_01/04.webp"],
     features: [
@@ -86,7 +86,7 @@ window.TOOLS = [
       en: "Steel beam deflection check using the 3D chord-rotation method, connected live to SAP2000. Automatic cantilever detection and Physical-Member grouping."
     },
     version: "2.5", size: "~23 MB", updated: "2026-08", os: WIN, host: "SAP2000",
-    priceVnd: 350000, productCode: "DEFLECT", status: "ready",
+    priceVnd: 100000, productCode: "DEFLECT", status: "ready",
     thumb: PIC + "web_description_03/01.webp",
     screenshots: [PIC + "web_description_03/01.webp", PIC + "web_description_03/02.webp"],
     features: [
@@ -112,7 +112,7 @@ window.TOOLS = [
       en: "A .NET plugin for AutoCAD that draws parametric steel members: each beam is a smart object with 7 grips, 4 switchable view types and 6 section shapes — plus drawing-markup, RC detailing and anchor-bolt modules."
     },
     version: "1.0", size: "—", updated: "2026-08", os: WIN, host: "AutoCAD",
-    priceVnd: 350000, productCode: "STEELCAD", status: "ready",
+    priceVnd: 50000, productCode: "STEELCAD", status: "ready",
     thumb: PIC + "web_description_07/01.webp",
     screenshots: [PIC + "web_description_07/01.webp", PIC + "web_description_07/02.webp", PIC + "web_description_07/03.webp", PIC + "web_description_07/04.webp"],
     features: [
@@ -138,7 +138,7 @@ window.TOOLS = [
       en: "Analysis and design of underhung monorail beams per AISC 9th Edition ASD and CMAA Specification No. 74 (2004)."
     },
     version: "1.2", size: "~45 MB", updated: "2026-08", os: WIN, host: "General",
-    priceVnd: 250000, productCode: "MONORAIL", status: "ready",
+    priceVnd: 50000, productCode: "MONORAIL", status: "ready",
     thumb: PIC + "web_description_08/01.webp",
     screenshots: [PIC + "web_description_08/01.webp", PIC + "web_description_08/02.webp", PIC + "web_description_08/03.webp", PIC + "web_description_08/04.webp"],
     features: [
@@ -162,8 +162,8 @@ window.TOOLS = [
       vi: "Thiết kế dầm đỡ đường ray cầu trục: tổ hợp tải trọng cầu trục theo phương đứng – ngang – dọc, kiểm tra uốn hai phương kèm xoắn, ổn định và độ võng vận hành.",
       en: "Design of crane runway girders: vertical, lateral and longitudinal crane load combinations, biaxial bending with torsion, stability and serviceability deflection checks."
     },
-    version: "2.0", size: "—", updated: "2026-08", os: WIN, host: "General",
-    priceVnd: 250000, productCode: "CRANEGIRDER", status: "ready",
+    version: "3.0", size: "—", updated: "2026-08", os: WIN, host: "General",
+    priceVnd: 50000, productCode: "CRANEGIRDER", status: "ready",
     thumb: PIC + "web_description_06/01.webp",
     screenshots: [PIC + "web_description_06/01.webp", PIC + "web_description_06/03.webp"],
     features: [
@@ -186,7 +186,7 @@ window.TOOLS = [
       en: "Checks pile capacity against Long-term / Wind / Seismic combination groups, plus differential settlement between every pile pair. Reactions taken live from SAP2000."
     },
     version: "1.2", size: "—", updated: "2026-08", os: WIN, host: "SAP2000",
-    priceVnd: 250000, productCode: "PILECAP", status: "ready",
+    priceVnd: 125000, productCode: "PILECAP", status: "ready",
     thumb: PIC + "web_description_04/01.webp",
     screenshots: [PIC + "web_description_04/01.webp", PIC + "web_description_04/02.webp", PIC + "web_description_04/03.webp", PIC + "web_description_04/04.webp", PIC + "web_description_04/05.webp"],
     features: [
@@ -210,7 +210,7 @@ window.TOOLS = [
       en: "Wind design loads for ground-supported vertical tanks, vessels and stacks per ASCE 7-22 Chapter 29."
     },
     version: "2.1", size: "—", updated: "2026-08", os: WIN, host: "General",
-    priceVnd: 250000, productCode: "WINDTANK", status: "ready",
+    priceVnd: 50000, productCode: "WINDTANK", status: "ready",
     thumb: PIC + "web_description_09/01.webp",
     screenshots: [PIC + "web_description_09/01.webp", PIC + "web_description_09/02.webp"],
     features: [
@@ -235,7 +235,7 @@ window.TOOLS = [
       en: "Design of plates cast into concrete: stud layout, tension–shear–interaction checks and concrete failure modes per ACI 318."
     },
     version: "1.0", size: "—", updated: "2026-08", os: WIN, host: "General",
-    priceVnd: 250000, productCode: "EMBPLATE", status: "ready",
+    priceVnd: 100000, productCode: "EMBPLATE", status: "ready",
     thumb: PIC + "web_description_11/01.webp",
     screenshots: [PIC + "web_description_11/01.webp", PIC + "web_description_11/02.webp", PIC + "web_description_11/03.webp", PIC + "web_description_11/04.webp"],
     features: [
@@ -259,7 +259,7 @@ window.TOOLS = [
       en: "Design of reinforced-concrete corbels and brackets using the strut-and-tie model: primary tension reinforcement, horizontal stirrups, shear-friction and bearing checks."
     },
     version: "1.0", size: "—", updated: "2026-08", os: WIN, host: "General",
-    priceVnd: 250000, productCode: "RCCORBEL", status: "ready",
+    priceVnd: 100000, productCode: "RCCORBEL", status: "ready",
     thumb: PIC + "web_description_12/01.webp",
     screenshots: [PIC + "web_description_12/01.webp", PIC + "web_description_12/02.webp"],
     features: [
@@ -283,7 +283,7 @@ window.TOOLS = [
       en: "Storey-drift check for structures"
     },
     version: "2.3", size: "~23 MB", updated: "2026-08", os: WIN, host: "SAP2000",
-    priceVnd: 125000, productCode: "SIDESWAY", status: "ready",
+    priceVnd: 50000, productCode: "SIDESWAY", status: "ready",
     thumb: PIC + "web_description_02/01.webp",
     screenshots: [PIC + "web_description_02/01.webp", PIC + "web_description_02/02.webp"],
     features: [
@@ -364,7 +364,7 @@ window.TOOLS = [
       en: "Hinged steel column base-plate design per AISC 360 / ACI 318."
     },
     version: "2.3", size: "—", updated: "2026-08", os: WIN, host: "SAP2000",
-    priceVnd: 350000, productCode: "BASEPLATE", status: "ready",
+    priceVnd: 125000, productCode: "BASEPLATE", status: "ready",
     thumb: PIC + "web_description_13/01.webp",
     screenshots: [
       PIC + "web_description_13/01.webp", PIC + "web_description_13/02.webp", PIC + "web_description_13/03.webp",
@@ -393,7 +393,7 @@ window.TOOLS = [
       en: "Seismic anchor-bolt design for vertical vessels on octagonal pedestals per ACI 318M Chapter 17."
     },
     version: "1.1", size: "—", updated: "2026-08", os: WIN, host: "General",
-    priceVnd: 125000, productCode: "EQAB", status: "ready",
+    priceVnd: 100000, productCode: "EQAB", status: "ready",
     thumb: PIC + "web_description_20/01.webp",
     screenshots: [PIC + "web_description_20/01.webp", PIC + "web_description_20/02.webp", PIC + "web_description_20/03.webp", PIC + "web_description_20/04.webp"],
     features: [
@@ -433,7 +433,7 @@ window.TOOLS = [
       en: "Pile-cap design with load distribution to the pile group, cap flexure and punching-shear checks."
     },
     version: "2.1", size: "—", updated: "—", os: WIN, host: "SAP2000",
-    priceVnd: 125000, productCode: "PILEDFDN", status: "soon",
+    priceVnd: 100000, productCode: "PILEDFDN", status: "soon",
     thumb: "", screenshots: [], features: [], requirements: REQ_SAP,
     download: "", checksum: "", virustotal: ""
   },
@@ -446,7 +446,7 @@ window.TOOLS = [
       en: "Design of octagonal foundations for vertical vessels: stability, base pressure and mat reinforcement."
     },
     version: "1.0", size: "—", updated: "—", os: WIN, host: "SAP2000",
-    priceVnd: 125000, productCode: "OCTAGONEQ", status: "soon",
+    priceVnd: 50000, productCode: "OCTAGONEQ", status: "soon",
     thumb: "", screenshots: [], features: [], requirements: REQ_SAP,
     download: "", checksum: "", virustotal: ""
   },
@@ -459,7 +459,7 @@ window.TOOLS = [
       en: "Determines unbraced lengths and effective-length factors for members in a STAAD.Pro model."
     },
     version: "2.1", size: "—", updated: "—", os: WIN, host: "STAAD.Pro",
-    priceVnd: 150000, productCode: "STAADUL", status: "soon",
+    priceVnd: 50000, productCode: "STAADUL", status: "soon",
     thumb: "", screenshots: [], features: [], requirements: REQ_STAAD,
     download: "", checksum: "", virustotal: ""
   },
@@ -472,7 +472,7 @@ window.TOOLS = [
       en: "Determines unbraced lengths and assigns design parameters for members in a SAP2000 model."
     },
     version: "2.0", size: "—", updated: "—", os: WIN, host: "SAP2000",
-    priceVnd: 125000, productCode: "SAPUL", status: "soon",
+    priceVnd: 50000, productCode: "SAPUL", status: "soon",
     thumb: "", screenshots: [], features: [], requirements: REQ_SAP,
     download: "", checksum: "", virustotal: ""
   },
@@ -485,7 +485,7 @@ window.TOOLS = [
       en: "Batch-assigns loads to a STAAD.Pro model and generates load combinations automatically."
     },
     version: "1.0", size: "—", updated: "—", os: WIN, host: "STAAD.Pro",
-    priceVnd: 250000, productCode: "STAADLOAD", status: "soon",
+    priceVnd: 100000, productCode: "STAADLOAD", status: "soon",
     thumb: "", screenshots: [], features: [], requirements: REQ_STAAD,
     download: "", checksum: "", virustotal: ""
   }
