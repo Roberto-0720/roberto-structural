@@ -44,6 +44,15 @@ function afmtDate(iso, lang){
   return d.toLocaleDateString(lang==='vi' ? 'vi-VN' : 'en-GB', { day:'2-digit', month:'short', year:'numeric' });
 }
 
+/* Một bài có thể thuộc NHIỀU nhóm — ví dụ bài dựng mô hình DAM trong SAP2000 vừa
+   là "Mô hình & Phân tích" vừa là "Kết cấu thép", người tìm ở nhóm nào cũng thấy.
+     category    = nhóm CHÍNH, hiện trên thẻ và trên đầu trang bài (luôn có)
+     categories  = đủ các nhóm, chỉ dùng để LỌC (tuỳ chọn, muốn mấy nhóm cũng được)
+   Bỏ trống `categories` thì rơi về `category` — bài cũ không phải sửa.
+   Giống hệt cách drawings.js làm; xem dCats/dInCat bên đó. */
+function aCats(a){ return (a.categories && a.categories.length) ? a.categories : [a.category]; }
+function aInCat(a, cat){ return aCats(a).some(c => c.en === cat); }
+
 /* ---------------- INDEX (insights.html) ---------------- */
 function renderArticleIndex(){
   const grid = document.getElementById('art-grid');
@@ -52,7 +61,7 @@ function renderArticleIndex(){
 
   // Only show categories that actually have articles, in master order.
   const master = window.ARTICLE_CATEGORIES || [];
-  const used = master.filter(c => window.ARTICLES.some(a => a.category.en === c.en));
+  const used = master.filter(c => window.ARTICLES.some(a => aInCat(a, c.en)));
 
   filterWrap.innerHTML =
     `<button class="filter-btn active" data-cat="all" data-vi="Tất cả" data-en="All">All</button>` +
@@ -60,7 +69,7 @@ function renderArticleIndex(){
 
   function draw(cat){
     const all = asorted(window.ARTICLES);
-    const list = cat==='all' ? all : all.filter(a=>a.category.en===cat);
+    const list = cat==='all' ? all : all.filter(a=>aInCat(a, cat));
     if(!list.length){
       grid.innerHTML = `<p class="lead reveal" data-vi="Chưa có bài trong mục này." data-en="No articles in this category yet.">No articles in this category yet.</p>`;
     } else {

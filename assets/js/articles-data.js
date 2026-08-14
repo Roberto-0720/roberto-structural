@@ -1965,6 +1965,9 @@ window.ARTICLES = [
     id: "aci318-2nd-order-sap2000",
     no: "03",
     category: { vi: "Mô hình & Phân tích", en: "Modelling & Analysis" },
+    /* Tương tự bài DAM — thêm nhóm Kết cấu BTCT. */
+    categories: [{ vi: "Mô hình & Phân tích", en: "Modelling & Analysis" },
+                 { vi: "Kết cấu BTCT", en: "Reinforced Concrete" }],
     date: "2026-08-04",
     readmin: 22,
     title: {
@@ -2491,6 +2494,10 @@ window.ARTICLES = [
     id: "dam-aisc360-sap2000",
     no: "02",
     category: { vi: "Mô hình & Phân tích", en: "Modelling & Analysis" },
+    /* Bài dựng mô hình nhưng nội dung là thép — cho hiện ở cả nhóm Kết cấu thép.
+       `category` ở trên vẫn là nhóm chính hiện trên thẻ; `categories` chỉ dùng để lọc. */
+    categories: [{ vi: "Mô hình & Phân tích", en: "Modelling & Analysis" },
+                 { vi: "Kết cấu thép", en: "Steel Structures" }],
     date: "2026-08-03",
     readmin: 18,
     title: {

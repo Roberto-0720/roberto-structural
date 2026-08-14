@@ -11,6 +11,22 @@ function dIsPaid(d){ return Number(d.priceVnd || 0) > 0; }
 function dReady(d){ return !dIsPaid(d) && d.download && /^https?:/.test(d.download); }
 function dFmtVnd(n){ return Number(n).toLocaleString('vi-VN') + ' ₫'; }
 
+/* Một bản vẽ có thể thuộc NHIỀU nhóm — chi tiết điển hình công nghiệp vừa là
+   "Chi tiết điển hình" vừa thuộc "Kết cấu thép" hoặc "Kết cấu BTCT".
+     category    = nhóm CHÍNH, hiện trên huy hiệu của thẻ (luôn có)
+     categories  = đủ các nhóm, chỉ dùng để LỌC (tuỳ chọn)
+   Bỏ trống `categories` thì rơi về `category` — nên 10 bộ nhà dân cũ không phải sửa. */
+function dCats(d){ return (d.categories && d.categories.length) ? d.categories : [d.category]; }
+function dInCat(d, cat){ return dCats(d).some(c => c.en === cat); }
+
+/* Trong mục "Tất cả", bản vẽ kiến trúc (nhà dân) luôn xếp sau cùng: site này nói
+   về kết cấu công nghiệp, nên chi tiết điển hình phải là thứ khách thấy trước.
+   sort() của JS ổn định nên trong mỗi nhóm thứ tự vẫn giữ nguyên như trong file data. */
+function dSorted(list){
+  const isArch = d => dCats(d).some(c => c.en === 'Architectural');
+  return list.slice().sort((a, b) => (isArch(a) ? 1 : 0) - (isArch(b) ? 1 : 0));
+}
+
 function renderDrawings(){
   const grid = document.getElementById('draw-grid');
   const filterWrap = document.getElementById('draw-filters');
@@ -25,7 +41,7 @@ function renderDrawings(){
     cats.map(c=>`<button class="filter-btn" data-cat="${desc2(c.en)}" ${dbi(c)}>${desc2(c.en)}</button>`).join('');
 
   function draw(cat){
-    const list = cat==='all' ? window.DRAWINGS : window.DRAWINGS.filter(d=>d.category.en===cat);
+    const list = dSorted(cat==='all' ? window.DRAWINGS : window.DRAWINGS.filter(d=>dInCat(d, cat)));
     if(list.length===0){
       grid.innerHTML = `<p class="lead reveal" data-vi="Nhóm này sắp có bản vẽ — vui lòng quay lại sau." data-en="Drawings for this group are coming soon — please check back.">Coming soon.</p>`;
     } else {

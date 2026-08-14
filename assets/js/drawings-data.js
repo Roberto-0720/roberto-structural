@@ -16,14 +16,244 @@
       file is public.
    ============================================================ */
 
-window.DRAWING_CATEGORIES = [
-  { vi: "Kết cấu thép",       en: "Steel Structural" },
-  { vi: "Kết cấu BTCT",       en: "RC Structure" },
-  { vi: "Kiến trúc",          en: "Architectural" },
-  { vi: "Chi tiết điển hình", en: "Standard Details" }
-];
+/* Tên hằng có tiền tố D- (DCAT_) chứ không phải CAT_ như tools-data.js: cả hai
+   file cùng được nạp trong purchase.html, mà `const` trùng tên ở cấp cao nhất là
+   SyntaxError — cả trang thanh toán chết ngay, không phải chỉ hỏng một chỗ. */
+const DCAT_STEEL = { vi: "Kết cấu thép",       en: "Steel Structural" };
+const DCAT_RC    = { vi: "Kết cấu BTCT",       en: "RC Structure" };
+const DCAT_ARCH  = { vi: "Kiến trúc",          en: "Architectural" };
+const DCAT_STD   = { vi: "Chi tiết điển hình", en: "Standard Details" };
+
+/* Thứ tự ở đây CHÍNH LÀ thứ tự tab trên trang. Kiến trúc (nhà dân) xếp cuối —
+   site nói về kết cấu công nghiệp nên chi tiết điển hình phải lên trước. */
+window.DRAWING_CATEGORIES = [ DCAT_STEEL, DCAT_RC, DCAT_STD, DCAT_ARCH ];
 
 window.DRAWINGS = [
+
+  /* ==================================================================
+     CHI TIẾT ĐIỂN HÌNH — KẾT CẤU CÔNG NGHIỆP
+     Mỗi bộ thuộc HAI nhóm: "Chi tiết điển hình" (nhóm chính, hiện trên
+     huy hiệu thẻ) + "Kết cấu thép" hoặc "Kết cấu BTCT" để lọc.
+     Tất cả miễn phí, giao qua link Drive công khai — không qua trang
+     thanh toán. Nguồn: softwarelist.xlsx sheet "Drawing", dòng 14–23.
+     ================================================================== */
+  {
+    id: "std-base-plate",
+    category: DCAT_STD, categories: [DCAT_STD, DCAT_STEEL],
+    name: { vi: "Chi tiết bản đế cột thép", en: "Steel Column Base Plate Details" },
+    description: {
+      vi: "Bản đế chân cột thép tra sẵn theo tiết diện cột, kèm bố trí lỗ bu-lông neo và bệ bê tông bên dưới.",
+      en: "Column base plates tabulated by column section, with anchor-bolt hole layout and the concrete pedestal below."
+    },
+    contents: [
+      { vi: "Bảng tra theo tiết diện cột", en: "Table by column section" },
+      { vi: "Bố trí lỗ bu-lông neo", en: "Anchor-bolt hole layout" },
+      { vi: "Bản đệm (plate washer)", en: "Plate washer" },
+      { vi: "Bệ bê tông", en: "Concrete pedestal" }
+    ],
+    format: "DWG",
+    count: { vi: "4 nhóm tiết diện", en: "4 section groups" },
+    priceVnd: 0,
+    thumb: "Resource/drawings/baseplate/01.webp",
+    screenshots: ["Resource/drawings/baseplate/01.webp", "Resource/drawings/baseplate/02.webp"],
+    download: "https://drive.google.com/file/d/1a-Y1TBswKntRa9guBDLZ7g7m1nF26i59/view?usp=drive_link"
+  },
+  {
+    id: "std-single-shear-connection",
+    category: DCAT_STD, categories: [DCAT_STD, DCAT_STEEL],
+    name: { vi: "Liên kết chịu cắt một bản mã", en: "Single Plate Shear Connection" },
+    description: {
+      vi: "Liên kết dầm bằng một bản mã, tra sẵn theo tiết diện dầm, dùng bu-lông cường độ cao M20.",
+      en: "Beam shear connection on a single plate, tabulated by beam section, using M20 high-strength bolts."
+    },
+    contents: [
+      { vi: "Bảng tra theo tiết diện dầm", en: "Table by beam section" },
+      { vi: "Bu-lông cường độ cao M20", en: "M20 high-strength bolts" },
+      { vi: "Bản mã dày 10", en: "10 mm gusset plate" },
+      { vi: "Cắt vát bụng dầm (scallop)", en: "Web scallop" }
+    ],
+    format: "DWG",
+    count: { vi: "2 nhóm tiết diện", en: "2 section groups" },
+    priceVnd: 0,
+    thumb: "Resource/drawings/single_shear_conn/01.webp",
+    screenshots: ["Resource/drawings/single_shear_conn/01.webp", "Resource/drawings/single_shear_conn/02.webp"],
+    download: "https://drive.google.com/file/d/1CXcVoB5rKRYKF_dpYxR9GO2P4EikteBT/view?usp=drive_link"
+  },
+  {
+    id: "std-welding",
+    category: DCAT_STD, categories: [DCAT_STD, DCAT_STEEL],
+    name: { vi: "Chi tiết mối hàn & ký hiệu hàn", en: "Welding Details & Symbols" },
+    description: {
+      vi: "Mối hàn rãnh vát hai phía ngấu hoàn toàn, kèm cách ghi ký hiệu hàn cho mối nối đối đầu và mối nối chữ T.",
+      en: "Double-bevel full-penetration groove welds, with the welding symbols for butt joints and T-joints."
+    },
+    contents: [
+      { vi: "Hàn rãnh vát hai phía", en: "Double-bevel groove weld" },
+      { vi: "Ngấu hoàn toàn (full penetration)", en: "Full penetration" },
+      { vi: "Ký hiệu mối nối đối đầu", en: "Butt-joint symbol" },
+      { vi: "Ký hiệu mối nối chữ T", en: "T-joint symbol" }
+    ],
+    format: "DWG",
+    count: { vi: "2 dạng mối nối", en: "2 joint types" },
+    priceVnd: 0,
+    thumb: "Resource/drawings/Welding/01.webp",
+    screenshots: ["Resource/drawings/Welding/01.webp", "Resource/drawings/Welding/02.webp"],
+    download: "https://drive.google.com/file/d/1COlxJ7Dl7ZnNoazLUaENaRgE-T-tzJPa/view?usp=drive_link"
+  },
+  {
+    id: "std-rc-deck-on-steel",
+    category: DCAT_STD, categories: [DCAT_STD, DCAT_STEEL],
+    name: { vi: "Sàn BTCT trên tôn sóng", en: "RC Deck on Steel Decking" },
+    description: {
+      vi: "Sàn bê tông cốt thép đổ trên tôn sóng: liên kết khớp dầm–cột hai kiểu, đinh chống cắt, khe nối và mát-tít chèn.",
+      en: "Reinforced concrete slab on steel decking: two beam-to-column pin connection types, shear studs, joint filler and sealant."
+    },
+    contents: [
+      { vi: "Liên kết khớp dầm–cột kiểu A", en: "Beam–column pin connection type A" },
+      { vi: "Liên kết khớp dầm–cột kiểu B", en: "Beam–column pin connection type B" },
+      { vi: "Đinh chống cắt", en: "Shear studs" },
+      { vi: "Khe nối & mát-tít chèn", en: "Joint filler & sealant" }
+    ],
+    format: "DWG",
+    count: { vi: "2 kiểu liên kết", en: "2 connection types" },
+    priceVnd: 0,
+    thumb: "Resource/drawings/rc_deck/01.webp",
+    screenshots: ["Resource/drawings/rc_deck/01.webp", "Resource/drawings/rc_deck/02.webp"],
+    download: "https://drive.google.com/file/d/1kCZKpA2qCIxUr9BNgQwhH-tppIl3H-VL/view?usp=drive_link"
+  },
+  {
+    id: "std-handrail-grating",
+    category: DCAT_STD, categories: [DCAT_STD, DCAT_STEEL],
+    name: { vi: "Lan can & sàn grating", en: "Handrail & Grating Details" },
+    description: {
+      vi: "Lan can ống thép DN32/DN25 với cột lan can, tấm chắn chân và sàn grating, kèm chi tiết nối tại hiện trường.",
+      en: "DN32/DN25 pipe handrail with posts, toe plate and grating, including the field splice details."
+    },
+    contents: [
+      { vi: "Tay vịn trên & giữa", en: "Top & mid rail" },
+      { vi: "Cột lan can", en: "Handrail post" },
+      { vi: "Tấm chắn chân", en: "Toe plate" },
+      { vi: "Sàn grating", en: "Grating" },
+      { vi: "Mối nối tại hiện trường", en: "Field splice" }
+    ],
+    format: "DWG",
+    count: { vi: "Lan can & grating", en: "Handrail & grating" },
+    priceVnd: 0,
+    thumb: "Resource/drawings/handrail_grating/01.webp",
+    screenshots: ["Resource/drawings/handrail_grating/01.webp", "Resource/drawings/handrail_grating/02.webp"],
+    download: "https://drive.google.com/file/d/1zr5HMj-OUnu0ESmHT2BLTMtxpTh7r8R-/view?usp=drive_link"
+  },
+  {
+    id: "std-ladder-cage",
+    category: DCAT_STD, categories: [DCAT_STD, DCAT_STEEL],
+    name: { vi: "Thang leo & lồng bảo hiểm", en: "Ladder & Safety Cage" },
+    description: {
+      vi: "Thang leo thẳng đứng có lồng bảo hiểm và cổng an toàn, kèm mặt cắt tại chân lồng và tại gối đỡ.",
+      en: "Vertical caged ladder with safety gate, including sections at the base of the cage and at the support."
+    },
+    contents: [
+      { vi: "Thang & bậc leo", en: "Ladder & rungs" },
+      { vi: "Lồng bảo hiểm", en: "Safety cage" },
+      { vi: "Cổng an toàn", en: "Safety gate" },
+      { vi: "Mặt cắt chân lồng", en: "Section at cage base" },
+      { vi: "Chi tiết gối đỡ", en: "Support detail" }
+    ],
+    format: "DWG",
+    count: { vi: "Thang & lồng", en: "Ladder & cage" },
+    priceVnd: 0,
+    thumb: "Resource/drawings/ladder_stair/01.webp",
+    screenshots: ["Resource/drawings/ladder_stair/01.webp", "Resource/drawings/ladder_stair/02.webp",
+                  "Resource/drawings/ladder_stair/03.webp"],
+    download: "https://drive.google.com/file/d/1Hs8TRJtQB14x47dqxrEQONvOlG82n7oX/view?usp=drive_link"
+  },
+  {
+    id: "std-anchor-bolt",
+    category: DCAT_STD, categories: [DCAT_STD, DCAT_RC],
+    name: { vi: "Chi tiết bu-lông neo", en: "Anchor Bolt Details" },
+    description: {
+      vi: "Bốn kiểu bu-lông neo điển hình cho chân cột và bệ thiết bị, kèm ê-cu, vòng đệm và bản đệm.",
+      en: "Four typical anchor-bolt types for column bases and equipment pedestals, with nuts, washers and plate washers."
+    },
+    contents: [
+      { vi: "Bốn kiểu TYPE-1 đến TYPE-4", en: "Four types: TYPE-1 to TYPE-4" },
+      { vi: "Ê-cu & vòng đệm", en: "Nuts & washers" },
+      { vi: "Bản đệm", en: "Plate washer" },
+      { vi: "Chiều dài neo", en: "Embedment length" }
+    ],
+    format: "DWG",
+    count: { vi: "4 kiểu", en: "4 types" },
+    priceVnd: 0,
+    thumb: "Resource/drawings/anchor_bolt/01.webp",
+    screenshots: ["Resource/drawings/anchor_bolt/01.webp", "Resource/drawings/anchor_bolt/02.webp"],
+    download: "https://drive.google.com/file/d/1285L_r5iwMohPfvfE0hcpukS2ikysa7J/view?usp=drive_link"
+  },
+  {
+    id: "std-rebar-arrangement",
+    category: DCAT_STD, categories: [DCAT_STD, DCAT_RC],
+    name: { vi: "Bố trí cốt thép quanh bu-lông neo", en: "Rebar Arrangement at Anchor Bolts" },
+    description: {
+      vi: "Bố trí cốt đai quanh cụm bu-lông neo, hai kiểu theo đường kính đai, kèm lớp vữa rót dày 25 mm.",
+      en: "Tie arrangement around the anchor-bolt group, two types by hoop diameter, with a 25 mm grout bed."
+    },
+    contents: [
+      { vi: "Kiểu 1 — đai D10", en: "Type 1 — D10 hoops" },
+      { vi: "Kiểu 2 — đai D13 trở lên", en: "Type 2 — D13 hoops or bigger" },
+      { vi: "Vữa rót dày 25 mm", en: "25 mm grout" },
+      { vi: "Thanh giằng", en: "Tie bars" }
+    ],
+    format: "DWG",
+    count: { vi: "2 kiểu đai", en: "2 hoop types" },
+    priceVnd: 0,
+    thumb: "Resource/drawings/rebar_arrangement/01.webp",
+    screenshots: ["Resource/drawings/rebar_arrangement/01.webp", "Resource/drawings/rebar_arrangement/02.webp",
+                  "Resource/drawings/rebar_arrangement/03.webp"],
+    download: "https://drive.google.com/file/d/1Yid_aj_Yh0i6tIKZ90yRIgK07oARE_oL/view?usp=drive_link"
+  },
+  {
+    id: "std-equipment-foundation",
+    category: DCAT_STD, categories: [DCAT_STD, DCAT_RC],
+    name: { vi: "Chi tiết móng thiết bị", en: "Equipment Foundation Details" },
+    description: {
+      vi: "Móng đơn đỡ thiết bị: bệ bê tông, cốt thép bệ, thanh hairpin và lớp bê tông bảo vệ.",
+      en: "Isolated equipment foundation: concrete pedestal, pedestal reinforcement, hairpin bars and concrete cover."
+    },
+    contents: [
+      { vi: "Bệ & móng", en: "Pedestal & footing" },
+      { vi: "Cốt thép bệ", en: "Pedestal reinforcement" },
+      { vi: "Thanh hairpin", en: "Hairpin bars" },
+      { vi: "Lớp bê tông bảo vệ", en: "Concrete cover" }
+    ],
+    format: "DWG",
+    count: { vi: "Mặt cắt & cốt thép", en: "Section & rebar" },
+    priceVnd: 0,
+    thumb: "Resource/drawings/equipment_fdn/01.webp",
+    screenshots: ["Resource/drawings/equipment_fdn/01.webp", "Resource/drawings/equipment_fdn/02.webp",
+                  "Resource/drawings/equipment_fdn/03.webp"],
+    download: "https://drive.google.com/file/d/12_CsXvEuJG70WXhiJLqP3txDySCRbq_4/view?usp=drive_link"
+  },
+  {
+    id: "std-paving-joint",
+    category: DCAT_STD, categories: [DCAT_STD, DCAT_RC],
+    name: { vi: "Khe nối sân đường bê tông", en: "Concrete Paving Joint Details" },
+    description: {
+      vi: "Bốn loại khe cho sân đường bê tông tải nhẹ: mép tự do, khe thi công, khe co giãn và khe co ngót.",
+      en: "Four light-duty concrete paving joints: free edge, construction joint, expansion joint and contraction joint."
+    },
+    contents: [
+      { vi: "Mép tự do", en: "Free edge" },
+      { vi: "Khe thi công", en: "Construction joint" },
+      { vi: "Khe co giãn", en: "Expansion joint" },
+      { vi: "Khe co ngót", en: "Contraction joint" }
+    ],
+    format: "DWG",
+    count: { vi: "4 loại khe", en: "4 joint types" },
+    priceVnd: 0,
+    thumb: "Resource/drawings/paving_joint/01.webp",
+    screenshots: ["Resource/drawings/paving_joint/01.webp", "Resource/drawings/paving_joint/02.webp"],
+    download: "https://drive.google.com/file/d/1ix8vYGs4SKSQQ31mi8yw2UbWt5YSrxLz/view?usp=drive_link"
+  },
+
+  /* ================= NHÀ DÂN — KIẾN TRÚC ================= */
   {
     id: "residential-townhouse-01",
     category: { vi: "Kiến trúc", en: "Architectural" },
