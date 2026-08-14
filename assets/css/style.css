@@ -373,6 +373,21 @@ html[lang="vi"] .hero h1{font-size:min(8.5vw,3.1rem);max-width:27ch}
 .trust{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.1rem}
 .trust .chip{background:var(--paper);border:1px solid var(--silver);border-radius:999px;padding:.35rem .8rem;color:var(--steel);font-size:.76rem}
 .checksum{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.72rem;word-break:break-all;background:var(--paper);padding:.6rem .7rem;border-radius:8px;color:var(--steel);margin-top:.6rem;border:1px solid var(--silver)}
+/* Mã SHA-256 thu gọn. Trước đây in nguyên 64 ký tự ra hộp mua hàng, chiếm chỗ hơn
+   cả nút tải. Dùng <details> để phần xổ ra vẫn chạy khi tắt JS — JS chỉ lo nút chép. */
+.cks{margin-top:.9rem;font-size:.75rem;color:var(--steel)}
+.cks summary{display:flex;align-items:center;gap:.5rem;cursor:pointer;list-style:none;
+  padding:.45rem .6rem;border:1px solid var(--silver);border-radius:8px;background:var(--paper)}
+.cks summary::-webkit-details-marker{display:none}   /* Safari/Chrome cu */
+.cks summary:hover{border-color:var(--accent)}
+.cks-peek{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--steel-light);
+  flex:1;overflow:hidden;white-space:nowrap}
+.cks[open] .cks-peek{visibility:hidden}   /* xổ ra rồi thì đoạn nhá không còn nghĩa */
+.cks-copy{flex-shrink:0;color:var(--accent);font-weight:600;cursor:pointer;
+  padding:.15rem .45rem;border-radius:6px;transition:all .2s ease}
+.cks-copy:hover{background:var(--accent-soft)}
+.cks-copy.ok{color:var(--teal)}
+.cks .checksum{margin-top:.45rem}
 .block-title{font-family:var(--ff-head);text-transform:uppercase;letter-spacing:.06em;font-size:.85rem;color:var(--charcoal);margin:2.2rem 0 .3rem}
 
 /* ===== Email-gate modal ===== */
@@ -394,6 +409,17 @@ html[lang="vi"] .hero h1{font-size:min(8.5vw,3.1rem);max-width:27ch}
 .cta-band p{max-width:50ch;margin:1rem auto 1.8rem;color:rgba(255,255,255,.9)}
 .cta-band .btn-primary{background:#fff;color:var(--accent)}
 .cta-band .btn-primary:hover{background:var(--charcoal);color:#fff;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+/* Hàng hành động trong khối CTA: nút email + 2 icon mạng xã hội.
+   KHÔNG dùng lại .social của footer được: footer nền tối nên icon ở đó là viền mờ
+   trắng, hover đổi sang nền cam — đặt lên nền cam của khối này thì hover biến mất
+   hoàn toàn (cam trên cam). Nên đảo ngược: nền trắng đặc, icon màu cam, hover
+   chuyển sang than chì — khớp đúng cách .cta-band .btn-primary ở trên đang làm,
+   để nút và icon trông như cùng một bộ. */
+.cta-actions{display:flex;gap:.9rem;justify-content:center;align-items:center;flex-wrap:wrap}
+.cta-social{display:flex;gap:.7rem}
+.cta-social a{display:flex;width:46px;height:46px;border-radius:8px;align-items:center;justify-content:center;
+  background:#fff;color:var(--accent);transition:all .25s ease}
+.cta-social a:hover{background:var(--charcoal);color:#fff;transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25)}
 
 /* Footer */
 footer{background:#15171a;color:var(--steel-light);padding-top:clamp(3rem,7vw,5rem)}

@@ -589,6 +589,12 @@ promise vẫn resolve, `catch` không chạy, code cũ đi thẳng tới màn h�
 **Không bao giờ trỏ hai cái này về cùng một form nữa.** Form tải file không có xác thực và
 chạy nhiều gấp bội, nó sẽ luôn đốt hết quota trước và kéo sập luôn đường nhận đơn trả tiền.
 
+🚫 **Ô "Nhận bản tin" ở footer đã bỏ (2026-08-13).** Nó là `<form onsubmit="return false">` —
+bấm Gửi không làm gì cả, chưa bao giờ được đấu nối. Muốn cho chạy thì **phải mở form Formspree
+thứ BA**, không được dùng lại hai form trên: gói miễn phí giới hạn 50 lượt/tháng **mỗi form**,
+ghép bản tin vào form tải file là lặp lại đúng lỗi đã phải đi sửa ở trên. Chưa có kế hoạch gửi
+bản tin thật nên đã đổi thành nút theo dõi Facebook/YouTube — hai kênh Roberto đang hoạt động.
+
 ⚠️ **Bẫy đã gặp — đơn nằm ở tab `Spam` của Formspree.** Submission bị gắn spam thì Formspree
 **không gửi email thông báo**, rất dễ tưởng là mất đơn. Nguyên nhân khi thử nghiệm: gửi từ
 `localhost` (trường `page` ghi `http://localhost:8000/…`) và nội dung có chữ "TEST".
@@ -691,3 +697,76 @@ cả khung — trên điện thoại chỉ còn thấy ~23% ở giữa, chủ th
 
 Đừng đo tương phản từng pixel nét chữ: viền khử răng cưa luôn pha với nền nên bao giờ cũng
 ra tỉ số thấp. WCAG tính **màu khai báo so với màu nền**.
+
+---
+
+## 13. Vài chỗ dễ sửa hỏng ở trang chủ & trang tool (2026-08-13)
+
+### Khối cam "Bắt đầu dự án" CHÍNH LÀ mục `#contact`
+
+`<section class="section" id="contact">` trong `index.html` / `index-vi.html` — mục **Liên hệ**
+trên menu cuộn xuống đúng đây. Sửa khối này thì phải giữ lại một cách liên hệ, nếu không menu
+Liên hệ dẫn tới một khối không liên hệ được.
+
+Trước đây khối này có nút "Liên hệ ngay" trỏ `mailto:`. Máy nào không cài sẵn ứng dụng mail
+thì bấm vào **im lặng hoàn toàn** — nhìn y như nút hỏng, và Roberto đã tưởng nó hỏng thật.
+Nay hiện **thẳng địa chỉ email** làm nhãn nút: `mailto:` không mở được thì khách vẫn đọc và
+copy được. Cạnh đó là 2 icon Facebook/YouTube.
+
+⚠️ Icon ở đây **không dùng lại được** `.social` của footer. Footer nền tối nên icon là viền mờ
+trắng, hover đổi sang nền cam — đặt lên nền cam của khối này thì hover biến mất (cam trên cam).
+Phải đảo ngược: nền trắng đặc, icon cam, hover chuyển than chì (class `.cta-social`).
+
+Icon mạng xã hội giờ chỉ còn **một chỗ trong footer** (cột "Theo dõi"). Đã gỡ khỏi cột 1 —
+để cả hai thì footer có hai cặp giống hệt cách nhau ba dòng.
+
+### SHA-256 trên trang tool
+
+Chỉ hiện với tool **miễn phí** có `checksum` (`t.checksum && !isPaid(t)` trong `tools.js`).
+Từ 2026-08-13 nó thu gọn thành **một dòng bấm mới xổ ra**, có nút sao chép:
+
+- Dùng `<details>` chứ không phải JS tự viết → phần xổ ra **vẫn chạy khi tắt JS**.
+- Nút "Sao chép" nằm trong `<summary>`, mà bấm bất cứ đâu trong summary cũng đóng/mở khối →
+  `rsCopyChecksum` phải gọi cả `preventDefault()` lẫn `stopPropagation()`.
+- Nó là `<span role="button">` nên không tự nhận Enter/Space — có listener riêng cho bàn phím.
+
+**Trạng thái dữ liệu — còn thiếu:**
+
+| Tool miễn phí | SHA-256 trong xlsx (cột L) | Trong `tools-data.js` |
+|---|---|---|
+| Concrete Slab on Grade | ✅ có | ❌ **chưa chép sang** |
+| Seismic on Vertical Tank | ✅ có | ✅ có |
+| Shallow Foundation Stability | ❌ chưa tính | ❌ |
+
+Tính mã còn thiếu: `Get-FileHash .\<file>.zip -Algorithm SHA256 | Format-List`
+Điền vào **cả** `tools-data.js` lẫn cột L của `softwarelist.xlsx` cho khớp.
+
+### Đừng quên: giá và phiên bản nằm ở HAI nơi
+
+`assets/js/tools-data.js` (`priceVnd`, `version`) và `_LicenseSystem/.../data/products.py`
+(`price`, `version`), nối với nhau qua `productCode` ↔ `code`. Sửa một bên mà quên bên kia thì
+khách trả tiền theo giá web còn bộ sinh key ghi giá khác.
+
+Lệnh đối soát nhanh — in ra mã nào lệch:
+
+```bash
+python - <<'PY'
+import re, io
+web=io.open("assets/js/tools-data.js",encoding="utf-8").read()
+py =io.open("../_LicenseSystem/RobertoLicenseGenerator/data/products.py",encoding="utf-8").read()
+ids=[(m.start(),m.group(1)) for m in re.finditer(r'^\s*id:\s*"([^"]+)"',web,re.M)]
+w={}
+for k,(pos,i) in enumerate(ids):
+    b=web[pos: ids[k+1][0] if k+1<len(ids) else len(web)]
+    pc=re.search(r'productCode:\s*"([^"]*)"',b); pv=re.search(r'priceVnd:\s*(\d+)',b)
+    vv=re.search(r'version:\s*"([^"]*)"',b)
+    if pc: w[pc.group(1)]=(int(pv.group(1)), vv.group(1))
+p={m.group(1):(int(m.group(3)),m.group(2)) for m in
+   re.finditer(r'"code":\s*"([^"]+)".*?"version":\s*"([^"]+)".*?"price":\s*(\d+)',py,re.S)}
+bad=[c for c in w if p.get(c)!=w[c]]
+print("LECH:", bad or "khong co")
+PY
+```
+
+*(2026-08-13: lệnh này tìm ra `BASEPLATE` ghi v2.2 trong khi web v2.3, và `EQAB` ghi `"V1.1"`
+trong khi 19 mục còn lại đều dạng `"1.1"` — kiểu lệch không nhìn bằng mắt mà thấy được.)*

@@ -180,7 +180,16 @@ window.RS_TOOL_HTML = function(t, lang){
           ${ !isPaid(t) ? `<div class="trust">
             ${ t.virustotal ? `<a class="chip" href="${esc(t.virustotal)}" target="_blank" rel="noopener">VirusTotal ↗</a>` : '' }
           </div>` : '' }
-          ${ t.checksum && !isPaid(t) ? `<p style="margin-top:.9rem;font-size:.75rem;color:var(--steel)"><b>SHA-256</b></p><div class="checksum">${esc(t.checksum)}</div>` : `` }
+          ${ t.checksum && !isPaid(t) ? `
+          <details class="cks">
+            <summary>
+              <b>SHA-256</b>
+              <span class="cks-peek">${esc(t.checksum.slice(0, 12))}…</span>
+              <span class="cks-copy" role="button" tabindex="0" onclick="rsCopyChecksum(event,this)"
+                    data-vi="Sao chép" data-en="Copy">${T('Sao chép','Copy')}</span>
+            </summary>
+            <div class="checksum">${esc(t.checksum)}</div>
+          </details>` : `` }
         </div>
       </aside>
     </div>
@@ -221,6 +230,43 @@ function renderDetail(){
   window.RS.observeReveal();
   window.RS.setLang(lang);
 }
+
+/* Sao chép mã SHA-256. Nút nằm TRONG <summary>, mà bấm bất cứ đâu trong summary
+   cũng đóng/mở <details> — nên phải chặn cả hành vi mặc định lẫn việc sự kiện nổi
+   lên, không thì mỗi lần bấm "Sao chép" là khối lại đóng sập vào.
+   Đọc mã từ chính thẻ .checksum thay vì nhận qua tham số: khỏi phải nhét chuỗi 64
+   ký tự vào thuộc tính onclick và khỏi lo escape dấu nháy. */
+window.rsCopyChecksum = function(ev, el){
+  ev.preventDefault();
+  ev.stopPropagation();
+  const box = el.closest('.cks').querySelector('.checksum');
+  const text = box ? box.textContent.trim() : '';
+  if(!text) return;
+  const done = ()=>{
+    el.classList.add('ok');
+    el.textContent = window.RS.lang === 'vi' ? 'Đã chép' : 'Copied';
+    // Trả lại chữ cũ. Lấy từ data-vi/data-en chứ không nhớ chuỗi cũ, để nếu người
+    // dùng đổi ngôn ngữ trong lúc chờ thì chữ vẫn về đúng thứ tiếng đang xem.
+    setTimeout(()=>{
+      el.classList.remove('ok');
+      el.textContent = el.getAttribute('data-' + window.RS.lang) || 'Copy';
+    }, 1600);
+  };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(()=>{});
+  } else {
+    const t = document.createElement('textarea');
+    t.value = text; document.body.appendChild(t); t.select();
+    try{ document.execCommand('copy'); done(); }catch(e){}
+    document.body.removeChild(t);
+  }
+};
+// Bàn phím: Enter/Space trên nút sao chép (nó là <span role="button">, không tự có)
+document.addEventListener('keydown', e=>{
+  if((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('cks-copy')){
+    window.rsCopyChecksum(e, e.target);
+  }
+});
 
 // Gallery thumbnail swap
 window.rsSwapShot = function(el, index){

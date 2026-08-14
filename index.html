@@ -155,8 +155,17 @@
           <h2 data-vi="Bắt đầu dự án của bạn" data-en="Start your project">Start your project</h2>
           <p data-vi="Liên hệ để trao đổi, hoặc theo dõi sản phẩm mới nhất qua Facebook & YouTube."
             data-en="Get in touch, or follow the latest products on Facebook & YouTube.">Get in touch, or follow the latest products on Facebook & YouTube.</p>
-          <a href="mailto:robertostructural@gmail.com" class="btn btn-primary" data-vi="Liên hệ ngay"
-            data-en="Contact now">Contact now</a>
+          <div class="cta-actions">
+            <!-- Hiện thẳng địa chỉ thay vì chữ "Liên hệ ngay": khối này chính là mục
+                 #contact mà menu Liên hệ trỏ tới, mà máy không cài sẵn ứng dụng mail
+                 thì mailto: bấm vào im lặng — nhìn như nút hỏng. Địa chỉ hiện ra thì
+                 vẫn đọc và copy được kể cả khi mailto: không mở gì. -->
+            <a href="mailto:robertostructural@gmail.com" class="btn btn-primary">robertostructural@gmail.com</a>
+            <div class="cta-social">
+              <a href="https://www.facebook.com/RobertoStructural" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg></a>
+              <a href="https://www.youtube.com/@RobertoStructural" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" width="21" height="21" fill="currentColor"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.09 0 12 0 12s0 3.91.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.91 24 12 24 12s0-3.91-.5-5.8zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg></a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
