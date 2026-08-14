@@ -741,6 +741,24 @@ Từ 2026-08-13 nó thu gọn thành **một dòng bấm mới xổ ra**, có n�
 Tính mã còn thiếu: `Get-FileHash .\<file>.zip -Algorithm SHA256 | Format-List`
 Điền vào **cả** `tools-data.js` lẫn cột L của `softwarelist.xlsx` cho khớp.
 
+### STEELCAD cố ý KHÔNG có cổng chặn bản quyền
+
+**Đây là quyết định, không phải việc bỏ sót.** Đã gỡ hẳn khỏi `products.py` (2026-08-13) —
+lý do đầy đủ ghi trong khối chú thích ngay tại chỗ đã gỡ. Tóm tắt:
+
+- Nó là plugin **.NET** (7 file DLL), mà bộ nhúng bản quyền chỉ có mẫu cho PyQt5 / Tkinter /
+  customtkinter / PySide6 — **không có gì cho C#**.
+- .NET dịch ngược bằng ILSpy ra gần như mã gốc → bảo vệ còn **yếu hơn** 11 tool Python.
+- Giá còn 50.000₫ (trước 350.000₫), không đáng bỏ vài ngày.
+- Răn đe mạnh nhất của các tool kia là **in tên người mua lên báo cáo** — SteelCAD chỉ vẽ
+  đối tượng trong AutoCAD, không xuất báo cáo, nên lớp răn đe đó vốn đã không áp dụng được.
+
+Giao hàng: y như bản vẽ có phí — đối soát ngân hàng xong, reply email kèm link Drive.
+**Không cấp key** (cấp cũng không có gì kiểm).
+
+Trên web nó **vẫn giữ** `productCode: "STEELCAD"` trong `tools-data.js`: mã đó chỉ để ghi vào
+email đơn hàng cho biết khách mua gì, không liên quan `products.py`.
+
 ### Đừng quên: giá và phiên bản nằm ở HAI nơi
 
 `assets/js/tools-data.js` (`priceVnd`, `version`) và `_LicenseSystem/.../data/products.py`
@@ -752,6 +770,7 @@ Lệnh đối soát nhanh — in ra mã nào lệch:
 ```bash
 python - <<'PY'
 import re, io
+KHONG_CAN_KEY = {"STEELCAD"}      # xem muc tren — co y khong co trong products.py
 web=io.open("assets/js/tools-data.js",encoding="utf-8").read()
 py =io.open("../_LicenseSystem/RobertoLicenseGenerator/data/products.py",encoding="utf-8").read()
 ids=[(m.start(),m.group(1)) for m in re.finditer(r'^\s*id:\s*"([^"]+)"',web,re.M)]
@@ -760,11 +779,14 @@ for k,(pos,i) in enumerate(ids):
     b=web[pos: ids[k+1][0] if k+1<len(ids) else len(web)]
     pc=re.search(r'productCode:\s*"([^"]*)"',b); pv=re.search(r'priceVnd:\s*(\d+)',b)
     vv=re.search(r'version:\s*"([^"]*)"',b)
-    if pc: w[pc.group(1)]=(int(pv.group(1)), vv.group(1))
+    if pc and pc.group(1) not in KHONG_CAN_KEY:
+        w[pc.group(1)]=(int(pv.group(1)), vv.group(1))
 p={m.group(1):(int(m.group(3)),m.group(2)) for m in
    re.finditer(r'"code":\s*"([^"]+)".*?"version":\s*"([^"]+)".*?"price":\s*(\d+)',py,re.S)}
-bad=[c for c in w if p.get(c)!=w[c]]
-print("LECH:", bad or "khong co")
+thieu=[c for c in w if c not in p]
+lech =[c for c in w if c in p and p[c]!=w[c]]
+print("THIEU trong products.py:", thieu or "khong co")
+print("LECH gia/phien ban    :", lech  or "khong co")
 PY
 ```
 
