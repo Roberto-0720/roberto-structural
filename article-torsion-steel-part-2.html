@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     GENERATED FILE — DO NOT EDIT BY HAND.
+     Produced by scripts/build-pages.mjs from assets/js/*-data.js.
+     Edit the data file, then re-run:  node scripts/build-pages.mjs
+     ============================================================ -->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Torsional Analysis of Structural Steel Members — Part 2: Design Procedure, Worked Examples &amp; Code Checks — Roberto Structural</title>
+<meta name="description" content="The seven-step procedure, formulas for the common loading cases, two worked examples showing how badly a W-shape loses to an HSS, AISC versus Eurocode…" />
+<link rel="canonical" href="https://robertostructural.com/article-torsion-steel-part-2.html" />
+<link rel="alternate" hreflang="en" href="https://robertostructural.com/article-torsion-steel-part-2.html" />
+<link rel="alternate" hreflang="vi" href="https://robertostructural.com/article-torsion-steel-part-2-vi.html" />
+<link rel="alternate" hreflang="x-default" href="https://robertostructural.com/article-torsion-steel-part-2.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Roberto Structural" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="Torsional Analysis of Structural Steel Members — Part 2: Design Procedure, Worked Examples &amp; Code Checks — Roberto Structural" />
+<meta property="og:description" content="The seven-step procedure, formulas for the common loading cases, two worked examples showing how badly a W-shape loses to an HSS, AISC versus Eurocode…" />
+<meta property="og:url" content="https://robertostructural.com/article-torsion-steel-part-2.html" />
+<meta property="og:image" content="https://robertostructural.com/Resource/articles/07-torsion/cover_part2.webp" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Torsional Analysis of Structural Steel Members — Part 2: Design Procedure, Worked Examples &amp; Code Checks — Roberto Structural" />
+<meta name="twitter:description" content="The seven-step procedure, formulas for the common loading cases, two worked examples showing how badly a W-shape loses to an HSS, AISC versus Eurocode…" />
+<meta name="twitter:image" content="https://robertostructural.com/Resource/articles/07-torsion/cover_part2.webp" />
+<meta property="article:published_time" content="2026-08-13" />
+<link rel="icon" type="image/x-icon" href="Logo/rbt.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+<!-- The pre-rendered body below carries .reveal, which starts at opacity:0 and is
+     switched on by IntersectionObserver. With JS off that would hide the very
+     content we just baked in, so undo the animation in that case. -->
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body data-page="insights">
+
+<header id="site-header">
+<div class="container nav">
+  <a class="brand" href="index.html" data-rs-page="index">
+    <img src="Logo/Roberto_1.webp" alt="Roberto Structural logo" />
+    <b>Roberto<br>Structural</b>
+  </a>
+  <nav class="nav-links">
+    <a href="insights.html" data-nav="insights" data-rs-page="insights" data-vi="Bài viết" data-en="Insights">Bài viết</a>
+    <a href="tools.html" data-nav="tools" data-rs-page="tools" data-vi="Phần mềm" data-en="Software">Phần mềm</a>
+    <a href="drawings.html" data-nav="drawings" data-rs-page="drawings" data-vi="Bản vẽ" data-en="Drawings">Bản vẽ</a>
+    <a href="index.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a>
+    <a href="index.html#contact" data-rs-page="index" data-rs-hash="#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a>
+  </nav>
+  <div class="nav-right">
+    <div class="lang">
+      <button data-lang="vi">VI</button>
+      <button data-lang="en">EN</button>
+    </div>
+    <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</div></header>
+
+<main id="article-root">
+  <section class="page-hero page-hero--img page-hero--detail"><div class="container">
+    <p class="breadcrumb"><a href="index.html" data-vi="Trang chủ" data-en="Home">Home</a> / <a href="insights.html" data-vi="Bài viết" data-en="Insights">Insights</a> / <span>No. 10</span></p>
+    <p class="eyebrow" data-vi="Kết cấu thép" data-en="Steel Structures">Steel Structures</p>
+    <h1 data-vi="Phân tích xoắn cho cấu kiện thép — Phần 2: Quy trình thiết kế, ví dụ tính toán & kiểm tra theo tiêu chuẩn" data-en="Torsional Analysis of Structural Steel Members — Part 2: Design Procedure, Worked Examples & Code Checks">Torsional Analysis of Structural Steel Members — Part 2: Design Procedure, Worked Examples &amp; Code Checks</h1>
+    <div class="art-meta">
+      <span>Structural Notes · No. 10</span>
+      <span class="acard-dot">·</span>
+      <span data-date="2026-08-13">13 Aug 2026</span>
+      <span class="acard-dot">·</span>
+      <span>20 min read</span>
+    </div>
+  </div></section>
+
+  <section class="section" style="padding-top:clamp(2rem,5vw,3.5rem)"><div class="container">
+    <article class="prose">
+      
+        <h2 class="reveal" data-vi="11. Quy trình thiết kế bảy bước" data-en="11. The seven-step design procedure">11. The seven-step design procedure</h2>
+        <figure class="art-fig reveal">
+      <img src="Resource/articles/07-torsion/design_flowchart.webp" alt="Figure 1. The torsion design procedure." loading="lazy" onclick="rsArtZoom(this)"/>
+      <figcaption data-vi="<b>Hình 1.</b> Sơ đồ quy trình thiết kế xoắn." data-en="<b>Figure 1.</b> The torsion design procedure."><b>Figure 1.</b> The torsion design procedure.</figcaption>
+    </figure><h3 class="prose-sub reveal" data-vi="Bước 1 — Xác định tải và độ lệch tâm" data-en="Step 1 — Establish the load and its eccentricity">Step 1 — Establish the load and its eccentricity</h3><ul class="prose-list reveal"><li data-vi="Xác định <b>điểm đặt lực</b> trên tiết diện." data-en="Locate the <b>point of load application</b> on the section.">Locate the <b>point of load application</b> on the section.</li><li data-vi="Xác định <b>vị trí tâm cắt</b> — với Channel thì nó nằm ngoài bản bụng." data-en="Locate the <b>shear center</b> — for a Channel it lies outside the web.">Locate the <b>shear center</b> — for a Channel it lies outside the web.</li><li data-vi="Tính độ lệch tâm e, rồi T = P × e (tải tập trung) hoặc t = w × e (tải phân bố)." data-en="Compute the eccentricity e, then T = P × e (concentrated) or t = w × e (distributed).">Compute the eccentricity e, then T = P × e (concentrated) or t = w × e (distributed).</li></ul><h3 class="prose-sub reveal" data-vi="Bước 2 — Kiểm tra sơ bộ: có cần phân tích xoắn không?" data-en="Step 2 — Screening check: is a torsion analysis needed at all?">Step 2 — Screening check: is a torsion analysis needed at all?</h3><pre class="prose-code reveal"><code data-vi="T_r / T_c ≤ 0,20   →   bỏ qua xoắn  (AISC 360 mục H3.1)
+
+Ước lượng nhanh T_c:
+  Tiết diện hở : T_c = φ · 0,6 · F_y · J / t_max
+  Tiết diện kín: T_c = φ · 0,6 · F_y · C   (C tra AISC Manual)" data-en="T_r / T_c ≤ 0.20   →   torsion may be neglected  (AISC 360 §H3.1)
+
+Quick estimate of T_c:
+  Open section  : T_c = φ · 0.6 · F_y · J / t_max
+  Closed section: T_c = φ · 0.6 · F_y · C   (C from the AISC Manual)">T_r / T_c ≤ 0.20   →   torsion may be neglected  (AISC 360 §H3.1)
+
+Quick estimate of T_c:
+  Open section  : T_c = φ · 0.6 · F_y · J / t_max
+  Closed section: T_c = φ · 0.6 · F_y · C   (C from the AISC Manual)</code></pre><h3 class="prose-sub reveal" data-vi="Bước 3 đến 5 — Tra đặc trưng, chọn Case, tính đạo hàm" data-en="Steps 3 to 5 — Properties, load case, derivatives">Steps 3 to 5 — Properties, load case, derivatives</h3><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="Đặc trưng" data-en="Property">Property</th><th data-vi="Nguồn tra" data-en="Source">Source</th><th data-vi="Ghi chú" data-en="Note">Note</th></tr></thead>
+      <tbody><tr><td data-vi="J, Cw" data-en="J, Cw">J, Cw</td><td data-vi="AISC Manual — Dimensions &amp; Properties" data-en="AISC Manual — Dimensions &amp; Properties">AISC Manual — Dimensions &amp; Properties</td><td data-vi="Mọi tiết diện" data-en="All sections">All sections</td></tr><tr><td data-vi="W_no" data-en="W_no">W_no</td><td data-vi="DG9 Appendix A — Table A.1" data-en="DG9 Appendix A — Table A.1">DG9 Appendix A — Table A.1</td><td data-vi="W-shape: tại mép cánh" data-en="W-shape: at the flange tip">W-shape: at the flange tip</td></tr><tr><td data-vi="S_w" data-en="S_w">S_w</td><td data-vi="DG9 Appendix A — Table A.1" data-en="DG9 Appendix A — Table A.1">DG9 Appendix A — Table A.1</td><td data-vi="Tại điểm cần kiểm tra" data-en="At the point being checked">At the point being checked</td></tr><tr><td data-vi="Q_f, Q_w" data-en="Q_f, Q_w">Q_f, Q_w</td><td data-vi="DG9 Appendix A — Table A.1" data-en="DG9 Appendix A — Table A.1">DG9 Appendix A — Table A.1</td><td data-vi="Cánh và bụng W-shape" data-en="W-shape flange and web">W-shape flange and web</td></tr></tbody>
+    </table></div><p class="reveal" data-vi="Tính a = √(E·Cw / G·J) và tỷ số λ = L/a, chọn Case trong 12 trường hợp của DG9, rồi tính bốn đại lượng tại vị trí nguy hiểm." data-en="Compute a = √(E·Cw / G·J) and λ = L/a, pick the Case from the 12 in DG9, then evaluate four quantities at the critical location.">Compute a = √(E·Cw / G·J) and λ = L/a, pick the Case from the 12 in DG9, then evaluate four quantities at the critical location.</p><ul class="prose-list reveal"><li data-vi="<b>θ</b> — góc xoắn, dùng kiểm tra <b>điều kiện sử dụng</b>." data-en="<b>θ</b> — angle of twist, used for the <b>serviceability</b> check."><b>θ</b> — angle of twist, used for the <b>serviceability</b> check.</li><li data-vi="<b>θ'</b> — cho ứng suất cắt St. Venant τ_t." data-en="<b>θ'</b> — gives the St. Venant shear stress τ_t."><b>θ'</b> — gives the St. Venant shear stress τ_t.</li><li data-vi="<b>θ''</b> — cho ứng suất pháp do vênh σ_w." data-en="<b>θ''</b> — gives the warping normal stress σ_w."><b>θ''</b> — gives the warping normal stress σ_w.</li><li data-vi="<b>θ'''</b> — cho ứng suất cắt do vênh τ_w." data-en="<b>θ'''</b> — gives the warping shear stress τ_w."><b>θ'''</b> — gives the warping shear stress τ_w.</li></ul><h3 class="prose-sub reveal" data-vi="Bước 6 — Tính ba loại ứng suất xoắn" data-en="Step 6 — Compute the three torsional stresses">Step 6 — Compute the three torsional stresses</h3><pre class="prose-code reveal"><code data-vi="τ_t = G · t · θ'              tính cho phần tử DÀY NHẤT
+σ_w = E · W_no · θ''          nguy hiểm nhất tại mép ngoài cánh
+τ_w = E · S_w · θ''' / t      thường tại giao cánh–bụng" data-en="τ_t = G · t · θ'              use the THICKEST element
+σ_w = E · W_no · θ''          governs at the outer flange tip
+τ_w = E · S_w · θ''' / t      usually at the flange–web junction">τ_t = G · t · θ'              use the THICKEST element
+σ_w = E · W_no · θ''          governs at the outer flange tip
+τ_w = E · S_w · θ''' / t      usually at the flange–web junction</code></pre>
+        
+      
+        <h2 class="reveal" data-vi="12. Tổ hợp ứng suất và kiểm tra theo AISC 360" data-en="12. Combining stresses and checking to AISC 360">12. Combining stresses and checking to AISC 360</h2>
+        <p class="reveal" data-vi="Ứng suất tổng tại một điểm là <b>tổng đại số</b> của mọi thành phần tác dụng tại chính điểm đó." data-en="The total stress at a point is the <b>algebraic sum</b> of every component acting at that same point.">The total stress at a point is the <b>algebraic sum</b> of every component acting at that same point.</p><pre class="prose-code reveal"><code data-vi="Ứng suất pháp tổng:  f_n = f_bx + f_by + σ_w + f_a
+Ứng suất cắt tổng :  f_v = f_vx + f_vy + τ_t + τ_w
+
+f_bx, f_by = uốn trục mạnh, trục yếu      f_a  = kéo/nén dọc trục
+f_vx, f_vy = cắt theo hai trục" data-en="Total normal stress:  f_n = f_bx + f_by + σ_w + f_a
+Total shear stress :  f_v = f_vx + f_vy + τ_t + τ_w
+
+f_bx, f_by = major- and minor-axis bending   f_a  = axial
+f_vx, f_vy = shear on each axis">Total normal stress:  f_n = f_bx + f_by + σ_w + f_a
+Total shear stress :  f_v = f_vx + f_vy + τ_t + τ_w
+
+f_bx, f_by = major- and minor-axis bending   f_a  = axial
+f_vx, f_vy = shear on each axis</code></pre><aside class="prose-tip reveal" data-vi="<b>Quan trọng:</b> các thành phần phải được tổ hợp <b>tại cùng một điểm</b> trên tiết diện. Đừng cộng trị tuyệt đối một cách mù quáng — phải xét <b>dấu</b> (kéo hay nén, chiều ứng suất cắt)." data-en="<b>Critical:</b> components must be combined <b>at the same point</b> on the section. Do not blindly add absolute values — respect the <b>signs</b> (tension or compression, direction of shear)."><b>Critical:</b> components must be combined <b>at the same point</b> on the section. Do not blindly add absolute values — respect the <b>signs</b> (tension or compression, direction of shear).</aside><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="Kiểm tra" data-en="Check">Check</th><th data-vi="Công thức" data-en="Formula">Formula</th><th data-vi="φ (LRFD)" data-en="φ (LRFD)">φ (LRFD)</th></tr></thead>
+      <tbody><tr><td data-vi="Ứng suất pháp" data-en="Normal stress">Normal stress</td><td data-vi="f_n ≤ φ · F_y" data-en="f_n ≤ φ · F_y">f_n ≤ φ · F_y</td><td data-vi="0,90" data-en="0.90">0.90</td></tr><tr><td data-vi="Ứng suất cắt" data-en="Shear stress">Shear stress</td><td data-vi="f_v ≤ φ · 0,6·F_y" data-en="f_v ≤ φ · 0.6·F_y">f_v ≤ φ · 0.6·F_y</td><td data-vi="1,00" data-en="1.00">1.00</td></tr><tr><td data-vi="Von Mises" data-en="Von Mises">Von Mises</td><td data-vi="√(f_n² + 3·f_v²) ≤ φ · F_y" data-en="√(f_n² + 3·f_v²) ≤ φ · F_y">√(f_n² + 3·f_v²) ≤ φ · F_y</td><td data-vi="0,90" data-en="0.90">0.90</td></tr></tbody>
+    </table></div><aside class="prose-tip reveal" data-vi="Von Mises cho kết quả <b>bớt bảo thủ</b> hơn kiểm tra riêng lẻ, nhưng DG9 khuyến nghị kiểm tra riêng lẻ cho đơn giản — chỉ dùng Von Mises khi cần tối ưu." data-en="Von Mises is <b>less conservative</b> than separate checks, but DG9 recommends the separate checks for simplicity — reach for Von Mises only when optimising.">Von Mises is <b>less conservative</b> than separate checks, but DG9 recommends the separate checks for simplicity — reach for Von Mises only when optimising.</aside><h3 class="prose-sub reveal" data-vi="Tiết diện kín (HSS) — phương trình tương tác H3-6" data-en="Closed sections (HSS) — the H3-6 interaction equation">Closed sections (HSS) — the H3-6 interaction equation</h3><pre class="prose-code reveal"><code data-vi="( P_r/P_c + M_rx/M_cx + M_ry/M_cy ) + ( V_r/V_c + T_r/T_c )² ≤ 1,0
+
+V_r/V_c lấy giá trị LỚN HƠN giữa hai trục.
+
+Cường độ xoắn danh định:  T_n = F_cr · C
+  HSS chữ nhật:  C ≈ 2·(B−t)·(H−t)·t
+  HSS tròn    :  C = π·(D−t)²·t / 2" data-en="( P_r/P_c + M_rx/M_cx + M_ry/M_cy ) + ( V_r/V_c + T_r/T_c )² ≤ 1.0
+
+Take the LARGER of the two axes for V_r/V_c.
+
+Nominal torsional strength:  T_n = F_cr · C
+  Rectangular HSS:  C ≈ 2·(B−t)·(H−t)·t
+  Round HSS      :  C = π·(D−t)²·t / 2">( P_r/P_c + M_rx/M_cx + M_ry/M_cy ) + ( V_r/V_c + T_r/T_c )² ≤ 1.0
+
+Take the LARGER of the two axes for V_r/V_c.
+
+Nominal torsional strength:  T_n = F_cr · C
+  Rectangular HSS:  C ≈ 2·(B−t)·(H−t)·t
+  Round HSS      :  C = π·(D−t)²·t / 2</code></pre><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="Tỷ số h/t" data-en="Ratio h/t">Ratio h/t</th><th data-vi="Trạng thái giới hạn" data-en="Limit state">Limit state</th><th data-vi="F_cr" data-en="F_cr">F_cr</th></tr></thead>
+      <tbody><tr><td data-vi="h/t ≤ 2,45·√(E/F_y)" data-en="h/t ≤ 2.45·√(E/F_y)">h/t ≤ 2.45·√(E/F_y)</td><td data-vi="Chảy dẻo" data-en="Yielding">Yielding</td><td data-vi="0,6·F_y" data-en="0.6·F_y">0.6·F_y</td></tr><tr><td data-vi="2,45·√(E/F_y) &lt; h/t ≤ 3,07·√(E/F_y)" data-en="2.45·√(E/F_y) &lt; h/t ≤ 3.07·√(E/F_y)">2.45·√(E/F_y) &lt; h/t ≤ 3.07·√(E/F_y)</td><td data-vi="Oằn không đàn hồi" data-en="Inelastic buckling">Inelastic buckling</td><td data-vi="0,6·F_y · 2,45·√(E/F_y) / (h/t)" data-en="0.6·F_y · 2.45·√(E/F_y) / (h/t)">0.6·F_y · 2.45·√(E/F_y) / (h/t)</td></tr><tr><td data-vi="h/t &gt; 3,07·√(E/F_y)" data-en="h/t &gt; 3.07·√(E/F_y)">h/t &gt; 3.07·√(E/F_y)</td><td data-vi="Oằn đàn hồi" data-en="Elastic buckling">Elastic buckling</td><td data-vi="0,458·π²·E / (h/t)²" data-en="0.458·π²·E / (h/t)²">0.458·π²·E / (h/t)²</td></tr></tbody>
+    </table></div><h3 class="prose-sub reveal" data-vi="Tiết diện hở — kiểm tra tại nhiều điểm" data-en="Open sections — check several points">Open sections — check several points</h3><p class="reveal" data-vi="AISC 360 <b>không</b> cho phương trình tương tác đơn giản như HSS. Phải tính ứng suất tổng rồi so với cường độ tại <b>từng điểm</b>, ít nhất bốn điểm trên tiết diện." data-en="AISC 360 gives <b>no</b> simple interaction equation for open sections. Compute the total stress and compare with the capacity <b>point by point</b> — at least four points on the section.">AISC 360 gives <b>no</b> simple interaction equation for open sections. Compute the total stress and compare with the capacity <b>point by point</b> — at least four points on the section.</p><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="Điểm" data-en="Point">Point</th><th data-vi="Ứng suất pháp" data-en="Normal stress">Normal stress</th><th data-vi="Ứng suất cắt" data-en="Shear stress">Shear stress</th></tr></thead>
+      <tbody><tr><td data-vi="<b>A</b> — mép ngoài cánh trên" data-en="<b>A</b> — top flange tip"><b>A</b> — top flange tip</td><td data-vi="f_bx + σ_w" data-en="f_bx + σ_w">f_bx + σ_w</td><td data-vi="τ_t (nhỏ)" data-en="τ_t (small)">τ_t (small)</td></tr><tr><td data-vi="<b>B</b> — giao cánh–bụng" data-en="<b>B</b> — flange–web junction"><b>B</b> — flange–web junction</td><td data-vi="f_bx" data-en="f_bx">f_bx</td><td data-vi="τ_t + τ_w + f_vy" data-en="τ_t + τ_w + f_vy">τ_t + τ_w + f_vy</td></tr><tr><td data-vi="<b>C</b> — giữa bụng" data-en="<b>C</b> — mid-web"><b>C</b> — mid-web</td><td data-vi="0" data-en="0">0</td><td data-vi="f_vy + τ_t" data-en="f_vy + τ_t">f_vy + τ_t</td></tr><tr><td data-vi="<b>D</b> — mép ngoài cánh dưới" data-en="<b>D</b> — bottom flange tip"><b>D</b> — bottom flange tip</td><td data-vi="f_bx ∓ σ_w" data-en="f_bx ∓ σ_w">f_bx ∓ σ_w</td><td data-vi="τ_t" data-en="τ_t">τ_t</td></tr></tbody>
+    </table></div><aside class="prose-tip reveal" data-vi="<b>Điểm A thường nguy hiểm nhất</b> — nơi ứng suất pháp do uốn và ứng suất pháp do vênh cộng <b>cùng dấu</b>." data-en="<b>Point A usually governs</b> — it is where bending normal stress and warping normal stress add with the <b>same sign</b>."><b>Point A usually governs</b> — it is where bending normal stress and warping normal stress add with the <b>same sign</b>.</aside>
+        
+      
+        <h2 class="reveal" data-vi="13. Công thức cho các trường hợp tải phổ biến" data-en="13. Formulas for the common loading cases">13. Formulas for the common loading cases</h2>
+        <h3 class="prose-sub reveal" data-vi="Case 1 — Pinned–Pinned, T tập trung giữa nhịp" data-en="Case 1 — Pinned–Pinned, concentrated T at midspan">Case 1 — Pinned–Pinned, concentrated T at midspan</h3><p class="reveal" data-vi="Đây là trường hợp <b>phổ biến nhất</b> trong thực hành. Điều kiện biên: θ = 0 và θ'' = 0 tại cả hai đầu." data-en="The <b>most common</b> case in practice. Boundary conditions: θ = 0 and θ'' = 0 at both ends.">The <b>most common</b> case in practice. Boundary conditions: θ = 0 and θ'' = 0 at both ends.</p><pre class="prose-code reveal"><code data-vi="Với 0 ≤ z ≤ L/2:
+
+  θ(z)    = T/(G·J) · [ z/2 − (a/2)·sinh(z/a)/cosh(L/2a) ]
+  θ'(z)   = T/(2·G·J) · [ 1 − cosh(z/a)/cosh(L/2a) ]
+  θ''(z)  = −T/(2·G·J·a) · sinh(z/a)/cosh(L/2a)
+  θ'''(z) = −T/(2·G·J·a²) · cosh(z/a)/cosh(L/2a)
+
+Cực trị tại giữa nhịp:
+  θ_max  = T/(2·G·J) · [ L/2 − a·tanh(L/2a) ]
+  θ'_max = T/(2·G·J) · [ 1 − 1/cosh(L/2a) ]" data-en="For 0 ≤ z ≤ L/2:
+
+  θ(z)    = T/(G·J) · [ z/2 − (a/2)·sinh(z/a)/cosh(L/2a) ]
+  θ'(z)   = T/(2·G·J) · [ 1 − cosh(z/a)/cosh(L/2a) ]
+  θ''(z)  = −T/(2·G·J·a) · sinh(z/a)/cosh(L/2a)
+  θ'''(z) = −T/(2·G·J·a²) · cosh(z/a)/cosh(L/2a)
+
+Extreme values at midspan:
+  θ_max  = T/(2·G·J) · [ L/2 − a·tanh(L/2a) ]
+  θ'_max = T/(2·G·J) · [ 1 − 1/cosh(L/2a) ]">For 0 ≤ z ≤ L/2:
+
+  θ(z)    = T/(G·J) · [ z/2 − (a/2)·sinh(z/a)/cosh(L/2a) ]
+  θ'(z)   = T/(2·G·J) · [ 1 − cosh(z/a)/cosh(L/2a) ]
+  θ''(z)  = −T/(2·G·J·a) · sinh(z/a)/cosh(L/2a)
+  θ'''(z) = −T/(2·G·J·a²) · cosh(z/a)/cosh(L/2a)
+
+Extreme values at midspan:
+  θ_max  = T/(2·G·J) · [ L/2 − a·tanh(L/2a) ]
+  θ'_max = T/(2·G·J) · [ 1 − 1/cosh(L/2a) ]</code></pre><h3 class="prose-sub reveal" data-vi="Case 3 — Pinned–Pinned, t phân bố đều toàn nhịp" data-en="Case 3 — Pinned–Pinned, uniform t over the full span">Case 3 — Pinned–Pinned, uniform t over the full span</h3><p class="reveal" data-vi="Trường hợp của <b>dầm biên chịu tải tường</b>." data-en="This is the <b>spandrel beam carrying a wall load</b>.">This is the <b>spandrel beam carrying a wall load</b>.</p><pre class="prose-code reveal"><code data-vi="θ'(z)   = t/(G·J) · [ (L−2z)/2 + a·sinh((L−2z)/2a)/cosh(L/2a) ]
+θ''(z)  = t/(G·J) · [ −1 + cosh((L−2z)/2a)/cosh(L/2a) ]
+θ'''(z) = t/(G·J·a) · sinh((L−2z)/2a)/cosh(L/2a)" data-en="θ'(z)   = t/(G·J) · [ (L−2z)/2 + a·sinh((L−2z)/2a)/cosh(L/2a) ]
+θ''(z)  = t/(G·J) · [ −1 + cosh((L−2z)/2a)/cosh(L/2a) ]
+θ'''(z) = t/(G·J·a) · sinh((L−2z)/2a)/cosh(L/2a)">θ'(z)   = t/(G·J) · [ (L−2z)/2 + a·sinh((L−2z)/2a)/cosh(L/2a) ]
+θ''(z)  = t/(G·J) · [ −1 + cosh((L−2z)/2a)/cosh(L/2a) ]
+θ'''(z) = t/(G·J·a) · sinh((L−2z)/2a)/cosh(L/2a)</code></pre><h3 class="prose-sub reveal" data-vi="Case 9 — Fixed–Free (console), T tại đầu tự do" data-en="Case 9 — Fixed–Free (cantilever), T at the free end">Case 9 — Fixed–Free (cantilever), T at the free end</h3><pre class="prose-code reveal"><code data-vi="θ'(z)   =  T/(G·J) · [ 1 − cosh((L−z)/a)/cosh(L/a) ]
+θ''(z)  =  T/(G·J·a) · sinh((L−z)/a)/cosh(L/a)
+θ'''(z) = −T/(G·J·a²) · cosh((L−z)/a)/cosh(L/a)
+
+Cực trị:  θ và θ' lớn nhất tại z = L (đầu tự do)
+          θ'' và θ''' lớn nhất tại z = 0 (gối ngàm)" data-en="θ'(z)   =  T/(G·J) · [ 1 − cosh((L−z)/a)/cosh(L/a) ]
+θ''(z)  =  T/(G·J·a) · sinh((L−z)/a)/cosh(L/a)
+θ'''(z) = −T/(G·J·a²) · cosh((L−z)/a)/cosh(L/a)
+
+Extremes:  θ and θ' peak at z = L (free end)
+           θ'' and θ''' peak at z = 0 (fixed support)">θ'(z)   =  T/(G·J) · [ 1 − cosh((L−z)/a)/cosh(L/a) ]
+θ''(z)  =  T/(G·J·a) · sinh((L−z)/a)/cosh(L/a)
+θ'''(z) = −T/(G·J·a²) · cosh((L−z)/a)/cosh(L/a)
+
+Extremes:  θ and θ' peak at z = L (free end)
+           θ'' and θ''' peak at z = 0 (fixed support)</code></pre><aside class="prose-tip reveal" data-vi="Công thức đầy đủ cho <b>Case 5 (Fixed–Fixed)</b> khá dài. Trong thực hành nên <b>lập trình vào bảng tính</b> thay vì tra biểu đồ." data-en="The full formula for <b>Case 5 (Fixed–Fixed)</b> is long. In practice, <b>program it into a spreadsheet</b> rather than reading charts.">The full formula for <b>Case 5 (Fixed–Fixed)</b> is long. In practice, <b>program it into a spreadsheet</b> rather than reading charts.</aside>
+        
+      
+        <h2 class="reveal" data-vi="14. Ví dụ 1 — W-shape chịu tải lệch tâm" data-en="14. Worked example 1 — W-shape under an eccentric load">14. Worked example 1 — W-shape under an eccentric load</h2>
+        <pre class="prose-code reveal"><code data-vi="Cấu kiện    : W16×26  (A992, F_y = 50 ksi)
+Nhịp        : L = 20 ft = 240 in
+Tải         : P = 10 kips giữa nhịp, lệch tâm e = 6 in
+Điều kiện biên: Pinned–Pinned (vênh tự do hai đầu)" data-en="Member        : W16×26  (A992, F_y = 50 ksi)
+Span          : L = 20 ft = 240 in
+Load          : P = 10 kips at midspan, eccentricity e = 6 in
+End conditions: Pinned–Pinned (free warping both ends)">Member        : W16×26  (A992, F_y = 50 ksi)
+Span          : L = 20 ft = 240 in
+Load          : P = 10 kips at midspan, eccentricity e = 6 in
+End conditions: Pinned–Pinned (free warping both ends)</code></pre><p class="reveal" data-vi="Mô-men xoắn thiết kế: <b>T = P × e = 10 × 6 = 60 kip-in</b> → dùng Case 1." data-en="Design torque: <b>T = P × e = 10 × 6 = 60 kip-in</b> → use Case 1.">Design torque: <b>T = P × e = 10 × 6 = 60 kip-in</b> → use Case 1.</p><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="Đặc trưng" data-en="Property">Property</th><th data-vi="W16×26" data-en="W16×26">W16×26</th><th data-vi="Đơn vị" data-en="Unit">Unit</th></tr></thead>
+      <tbody><tr><td data-vi="J" data-en="J">J</td><td data-vi="0,262" data-en="0.262">0.262</td><td data-vi="in⁴" data-en="in⁴">in⁴</td></tr><tr><td data-vi="C_w" data-en="C_w">C_w</td><td data-vi="456" data-en="456">456</td><td data-vi="in⁶" data-en="in⁶">in⁶</td></tr><tr><td data-vi="W_no" data-en="W_no">W_no</td><td data-vi="15,5" data-en="15.5">15.5</td><td data-vi="in²" data-en="in²">in²</td></tr><tr><td data-vi="S_w" data-en="S_w">S_w</td><td data-vi="5,35" data-en="5.35">5.35</td><td data-vi="in⁴" data-en="in⁴">in⁴</td></tr><tr><td data-vi="t_f / t_w" data-en="t_f / t_w">t_f / t_w</td><td data-vi="0,345 / 0,250" data-en="0.345 / 0.250">0.345 / 0.250</td><td data-vi="in" data-en="in">in</td></tr></tbody>
+    </table></div><pre class="prose-code reveal"><code data-vi="a = √( 29.000 × 456 / (11.200 × 0,262) ) = √4.507 = 67,1 in
+L/a = 240 / 67,1 = 3,58
+L/2a = 1,789     cosh(1,789) = 3,121     tanh(1,789) = 0,946
+
+θ_max = 60/(2 × 11.200 × 0,262) × [ 120 − 67,1 × 0,946 ]
+      = 0,01022 × 56,5 = 0,578 rad" data-en="a = √( 29,000 × 456 / (11,200 × 0.262) ) = √4,507 = 67.1 in
+L/a = 240 / 67.1 = 3.58
+L/2a = 1.789     cosh(1.789) = 3.121     tanh(1.789) = 0.946
+
+θ_max = 60/(2 × 11,200 × 0.262) × [ 120 − 67.1 × 0.946 ]
+      = 0.01022 × 56.5 = 0.578 rad">a = √( 29,000 × 456 / (11,200 × 0.262) ) = √4,507 = 67.1 in
+L/a = 240 / 67.1 = 3.58
+L/2a = 1.789     cosh(1.789) = 3.121     tanh(1.789) = 0.946
+
+θ_max = 60/(2 × 11,200 × 0.262) × [ 120 − 67.1 × 0.946 ]
+      = 0.01022 × 56.5 = 0.578 rad</code></pre><aside class="prose-tip reveal" data-vi="<b>Góc xoắn 0,578 rad ≈ 33° — quá lớn.</b> Giới hạn thường dùng là θ ≤ 0,02–0,05 rad (1°–3°). Tiết diện W16×26 <b>không đủ</b> cho tải xoắn này." data-en="<b>A twist of 0.578 rad ≈ 33° is far too large.</b> The usual limit is θ ≤ 0.02–0.05 rad (1°–3°). W16×26 is <b>not adequate</b> for this torque."><b>A twist of 0.578 rad ≈ 33° is far too large.</b> The usual limit is θ ≤ 0.02–0.05 rad (1°–3°). W16×26 is <b>not adequate</b> for this torque.</aside><h3 class="prose-sub reveal" data-vi="Thử tiết diện nặng hơn: W16×50" data-en="Try a heavier section: W16×50">Try a heavier section: W16×50</h3><pre class="prose-code reveal"><code data-vi="W16×50:  J = 1,52 in⁴    C_w = 2.340 in⁶
+
+a = √( 29.000 × 2.340 / (11.200 × 1,52) ) = √3.986 = 63,1 in
+L/2a = 1,902     tanh(1,902) = 0,956
+
+θ_max = 60/(2 × 11.200 × 1,52) × [ 120 − 63,1 × 0,956 ]
+      = 0,001762 × 59,7 = 0,105 rad  ≈ 6°" data-en="W16×50:  J = 1.52 in⁴    C_w = 2,340 in⁶
+
+a = √( 29,000 × 2,340 / (11,200 × 1.52) ) = √3,986 = 63.1 in
+L/2a = 1.902     tanh(1.902) = 0.956
+
+θ_max = 60/(2 × 11,200 × 1.52) × [ 120 − 63.1 × 0.956 ]
+      = 0.001762 × 59.7 = 0.105 rad  ≈ 6°">W16×50:  J = 1.52 in⁴    C_w = 2,340 in⁶
+
+a = √( 29,000 × 2,340 / (11,200 × 1.52) ) = √3,986 = 63.1 in
+L/2a = 1.902     tanh(1.902) = 0.956
+
+θ_max = 60/(2 × 11,200 × 1.52) × [ 120 − 63.1 × 0.956 ]
+      = 0.001762 × 59.7 = 0.105 rad  ≈ 6°</code></pre><aside class="prose-tip reveal" data-vi="<b>Bài học:</b> tăng khối lượng tiết diện gần gấp đôi (26 → 50 lb/ft) chỉ giảm góc xoắn từ 33° xuống 6° — vẫn chưa đạt. Tiết diện hở <b>rất yếu</b> khi chịu xoắn; hãy cân nhắc HSS hoặc giảm độ lệch tâm <b>trước khi</b> cố tăng kích thước W-shape." data-en="<b>The lesson:</b> nearly doubling the weight (26 → 50 lb/ft) only cuts the twist from 33° to 6° — still not acceptable. Open sections are <b>very weak</b> in torsion; consider an HSS or reducing the eccentricity <b>before</b> upsizing a W-shape."><b>The lesson:</b> nearly doubling the weight (26 → 50 lb/ft) only cuts the twist from 33° to 6° — still not acceptable. Open sections are <b>very weak</b> in torsion; consider an HSS or reducing the eccentricity <b>before</b> upsizing a W-shape.</aside>
+        
+      
+        <h2 class="reveal" data-vi="15. Ví dụ 2 — HSS, cách tiếp cận đơn giản hơn nhiều" data-en="15. Worked example 2 — HSS, a far simpler route">15. Worked example 2 — HSS, a far simpler route</h2>
+        <pre class="prose-code reveal"><code data-vi="Cấu kiện : HSS 8×6×3/8  (A500 Gr.C, F_y = 50 ksi)
+Nhịp     : L = 20 ft
+Tải      : P = 10 kips giữa nhịp, lệch tâm e = 6 in
+Tổ hợp thêm: M_x = 50 kip-ft, V = 10 kips
+
+T_r = P × e = 60 kip-in" data-en="Member  : HSS 8×6×3/8  (A500 Gr.C, F_y = 50 ksi)
+Span    : L = 20 ft
+Load    : P = 10 kips at midspan, eccentricity e = 6 in
+Also    : M_x = 50 kip-ft, V = 10 kips
+
+T_r = P × e = 60 kip-in">Member  : HSS 8×6×3/8  (A500 Gr.C, F_y = 50 ksi)
+Span    : L = 20 ft
+Load    : P = 10 kips at midspan, eccentricity e = 6 in
+Also    : M_x = 50 kip-ft, V = 10 kips
+
+T_r = P × e = 60 kip-in</code></pre><aside class="prose-tip reveal" data-vi="<b>So sánh J:</b> W16×50 có J = 1,52 in⁴; HSS 8×6×3/8 có J = <b>86,2 in⁴</b> — gấp <b>57 lần</b>." data-en="<b>Compare J:</b> W16×50 has J = 1.52 in⁴; HSS 8×6×3/8 has J = <b>86.2 in⁴</b> — <b>57 times</b> more."><b>Compare J:</b> W16×50 has J = 1.52 in⁴; HSS 8×6×3/8 has J = <b>86.2 in⁴</b> — <b>57 times</b> more.</aside><pre class="prose-code reveal"><code data-vi="h/t = 20,0    so với    2,45·√(E/F_y) = 2,45·√(29.000/50) = 59,0
+→ 20,0 nhỏ hơn 59,0  →  trạng thái giới hạn: CHẢY DẺO
+
+F_cr = 0,6 × 50 = 30 ksi
+T_n  = F_cr × C = 30 × 72,7 = 2.181 kip-in
+T_c  = φ × T_n = 0,90 × 2.181 = 1.963 kip-in   (LRFD)
+
+T_r / T_c = 60 / 1.963 = 0,031  ≤  0,20   →  BỎ QUA XOẮN" data-en="h/t = 20.0    versus    2.45·√(E/F_y) = 2.45·√(29,000/50) = 59.0
+→ 20.0 is below 59.0  →  limit state: YIELDING
+
+F_cr = 0.6 × 50 = 30 ksi
+T_n  = F_cr × C = 30 × 72.7 = 2,181 kip-in
+T_c  = φ × T_n = 0.90 × 2,181 = 1,963 kip-in   (LRFD)
+
+T_r / T_c = 60 / 1,963 = 0.031  ≤  0.20   →  TORSION NEGLECTED">h/t = 20.0    versus    2.45·√(E/F_y) = 2.45·√(29,000/50) = 59.0
+→ 20.0 is below 59.0  →  limit state: YIELDING
+
+F_cr = 0.6 × 50 = 30 ksi
+T_n  = F_cr × C = 30 × 72.7 = 2,181 kip-in
+T_c  = φ × T_n = 0.90 × 2,181 = 1,963 kip-in   (LRFD)
+
+T_r / T_c = 60 / 1,963 = 0.031  ≤  0.20   →  TORSION NEGLECTED</code></pre><h3 class="prose-sub reveal" data-vi="Tham khảo: nếu vẫn chạy phương trình H3-6" data-en="For reference: running H3-6 anyway">For reference: running H3-6 anyway</h3><pre class="prose-code reveal"><code data-vi="M_rx = 600 kip-in     M_cx = 0,90 × 50 × 21,3 = 958,5 kip-in
+V_r  = 10 kips        V_c  ≈ 150,8 kips
+
+( 0 + 600/958,5 + 0 ) + ( 10/150,8 + 60/1.963 )²
+= 0,626 + (0,066 + 0,031)² = 0,626 + 0,0094 = 0,635  ≤  1,0   ✓" data-en="M_rx = 600 kip-in     M_cx = 0.90 × 50 × 21.3 = 958.5 kip-in
+V_r  = 10 kips        V_c  ≈ 150.8 kips
+
+( 0 + 600/958.5 + 0 ) + ( 10/150.8 + 60/1,963 )²
+= 0.626 + (0.066 + 0.031)² = 0.626 + 0.0094 = 0.635  ≤  1.0   ✓">M_rx = 600 kip-in     M_cx = 0.90 × 50 × 21.3 = 958.5 kip-in
+V_r  = 10 kips        V_c  ≈ 150.8 kips
+
+( 0 + 600/958.5 + 0 ) + ( 10/150.8 + 60/1,963 )²
+= 0.626 + (0.066 + 0.031)² = 0.626 + 0.0094 = 0.635  ≤  1.0   ✓</code></pre><aside class="prose-tip reveal" data-vi="<b>Kết luận hai ví dụ:</b> cùng một mô-men xoắn T = 60 kip-in, W-shape xoắn quá mức phải loại, còn HSS xử lý nhẹ nhàng với tỷ số chỉ <b>3,1%</b> và tổng mức sử dụng 63,5%." data-en="<b>Conclusion from both examples:</b> for the identical torque T = 60 kip-in, the W-shape twists unacceptably while the HSS copes easily at a ratio of just <b>3.1%</b>, with 63.5% overall utilisation."><b>Conclusion from both examples:</b> for the identical torque T = 60 kip-in, the W-shape twists unacceptably while the HSS copes easily at a ratio of just <b>3.1%</b>, with 63.5% overall utilisation.</aside>
+        
+      
+        <h2 class="reveal" data-vi="16. AISC so với Eurocode (SCI P385)" data-en="16. AISC versus Eurocode (SCI P385)">16. AISC versus Eurocode (SCI P385)</h2>
+        <div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="Khía cạnh" data-en="Aspect">Aspect</th><th data-vi="AISC (DG9)" data-en="AISC (DG9)">AISC (DG9)</th><th data-vi="Eurocode (SCI P385)" data-en="Eurocode (SCI P385)">Eurocode (SCI P385)</th></tr></thead>
+      <tbody><tr><td data-vi="Tiêu chuẩn gốc" data-en="Base code">Base code</td><td data-vi="AISC 360, DG9" data-en="AISC 360, DG9">AISC 360, DG9</td><td data-vi="EN 1993-1-1" data-en="EN 1993-1-1">EN 1993-1-1</td></tr><tr><td data-vi="Hệ số sức kháng" data-en="Resistance factors">Resistance factors</td><td data-vi="φ = 0,90 (uốn), 1,00 (cắt)" data-en="φ = 0.90 (bending), 1.00 (shear)">φ = 0.90 (bending), 1.00 (shear)</td><td data-vi="γ_M0 = γ_M1 = 1,00" data-en="γ_M0 = γ_M1 = 1.00">γ_M0 = γ_M1 = 1.00</td></tr><tr><td data-vi="Xoắn vênh" data-en="Warping torsion">Warping torsion</td><td data-vi="Tính trực tiếp σ_w, τ_w" data-en="Direct σ_w, τ_w">Direct σ_w, τ_w</td><td data-vi="Qua bimoment B" data-en="Via the bimoment B">Via the bimoment B</td></tr><tr><td data-vi="Tiết diện kín" data-en="Closed sections">Closed sections</td><td data-vi="Phương trình H3-6" data-en="Equation H3-6">Equation H3-6</td><td data-vi="τ_t,Ed / (f_y/√3) ≤ 1,0" data-en="τ_t,Ed / (f_y/√3) ≤ 1.0">τ_t,Ed / (f_y/√3) ≤ 1.0</td></tr></tbody>
+    </table></div><h3 class="prose-sub reveal" data-vi="Khái niệm bimoment của SCI P385" data-en="The bimoment concept in SCI P385">The bimoment concept in SCI P385</h3><pre class="prose-code reveal"><code data-vi="B   = E · C_w · θ''            (bimoment)
+σ_w = B · W_no / C_w
+
+Tương tác uốn – xoắn (đơn giản hoá, tiết diện hở):
+  M_y,Ed / M_y,Rd + σ_w,Ed / (f_y/γ_M0) ≤ 1,0" data-en="B   = E · C_w · θ''            (bimoment)
+σ_w = B · W_no / C_w
+
+Bending–torsion interaction (simplified, open sections):
+  M_y,Ed / M_y,Rd + σ_w,Ed / (f_y/γ_M0) ≤ 1.0">B   = E · C_w · θ''            (bimoment)
+σ_w = B · W_no / C_w
+
+Bending–torsion interaction (simplified, open sections):
+  M_y,Ed / M_y,Rd + σ_w,Ed / (f_y/γ_M0) ≤ 1.0</code></pre><aside class="prose-tip reveal" data-vi="<b>Hai phương pháp cho kết quả tương đương</b> khi cùng điều kiện biên và tải trọng — cả hai đều dựa trên phương trình vi phân xoắn Vlasov. SCI P385 trình bày gọn hơn; AISC DG9 cho phép tính chi tiết tại từng điểm trên tiết diện." data-en="<b>The two methods agree</b> for the same boundary conditions and loading — both rest on the Vlasov torsion differential equation. SCI P385 is more compact; AISC DG9 lets you work point by point across the section."><b>The two methods agree</b> for the same boundary conditions and loading — both rest on the Vlasov torsion differential equation. SCI P385 is more compact; AISC DG9 lets you work point by point across the section.</aside>
+        
+      
+        <h2 class="reveal" data-vi="17. Chiến lược thiết kế & sáu cái bẫy" data-en="17. Design strategy and six traps">17. Design strategy and six traps</h2>
+        <h3 class="prose-sub reveal" data-vi="Thứ tự ưu tiên khi gặp xoắn" data-en="Priority order when torsion appears">Priority order when torsion appears</h3><ul class="prose-list reveal"><li data-vi="<b>1. Loại bỏ xoắn</b> — đặt tải qua tâm cắt, thêm giằng ngang, thiết kế liên kết sao cho phản lực đi qua tâm cắt. Đây luôn là lựa chọn tốt nhất." data-en="<b>1. Eliminate it</b> — put the load through the shear center, add lateral bracing, detail connections so reactions pass through the shear center. Always the best option."><b>1. Eliminate it</b> — put the load through the shear center, add lateral bracing, detail connections so reactions pass through the shear center. Always the best option.</li><li data-vi="<b>2. Giảm thiểu xoắn</b> — giảm độ lệch tâm, tăng số điểm giằng, dùng sàn liên hợp (bản bê tông ngăn vênh cánh trên)." data-en="<b>2. Minimise it</b> — cut the eccentricity, add bracing points, use a composite slab (the concrete restrains warping of the top flange)."><b>2. Minimise it</b> — cut the eccentricity, add bracing points, use a composite slab (the concrete restrains warping of the top flange).</li><li data-vi="<b>3. Chuyển sang HSS</b> — nếu xoắn đáng kể và không loại bỏ được. Tính toán đơn giản hơn nhiều vì bỏ qua được vênh." data-en="<b>3. Switch to HSS</b> — if torsion is significant and unavoidable. The calculation is far simpler because warping drops out."><b>3. Switch to HSS</b> — if torsion is significant and unavoidable. The calculation is far simpler because warping drops out.</li><li data-vi="<b>4. Phân tích đầy đủ tiết diện hở</b> — chỉ khi bắt buộc phải dùng W-shape hoặc Channel." data-en="<b>4. Full open-section analysis</b> — only when a W-shape or Channel is mandatory."><b>4. Full open-section analysis</b> — only when a W-shape or Channel is mandatory.</li></ul><h3 class="prose-sub reveal" data-vi="Sáu cái bẫy hay gặp" data-en="Six traps that catch engineers out">Six traps that catch engineers out</h3><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="Bẫy" data-en="Trap">Trap</th><th data-vi="Vì sao sai" data-en="Why it bites">Why it bites</th></tr></thead>
+      <tbody><tr><td data-vi="<b>1.</b> Bỏ qua tâm cắt của Channel" data-en="<b>1.</b> Ignoring a Channel's shear center"><b>1.</b> Ignoring a Channel's shear center</td><td data-vi="Tâm cắt nằm ngoài bản bụng — tải qua trọng tâm <b>vẫn</b> sinh xoắn." data-en="It lies outside the web — a load through the centroid <b>still</b> twists it.">It lies outside the web — a load through the centroid <b>still</b> twists it.</td></tr><tr><td data-vi="<b>2.</b> Lẫn lộn liên kết xoắn và liên kết vênh" data-en="<b>2.</b> Confusing torsional and warping restraint"><b>2.</b> Confusing torsional and warping restraint</td><td data-vi="Clip angle ngăn xoắn nhưng <b>không</b> ngăn vênh. Không chắc thì lấy Pinned." data-en="A clip angle restrains twist but <b>not</b> warping. When unsure, assume Pinned.">A clip angle restrains twist but <b>not</b> warping. When unsure, assume Pinned.</td></tr><tr><td data-vi="<b>3.</b> Quên kiểm tra góc xoắn" data-en="<b>3.</b> Forgetting the twist check"><b>3.</b> Forgetting the twist check</td><td data-vi="Chỉ kiểm ứng suất mà bỏ θ. Xoắn quá mức gây rung, hỏng cladding và kính." data-en="Checking stress but not θ. Excessive twist causes vibration and damages cladding and glazing.">Checking stress but not θ. Excessive twist causes vibration and damages cladding and glazing.</td></tr><tr><td data-vi="<b>4.</b> Quên Errata của DG9" data-en="<b>4.</b> Missing the DG9 errata"><b>4.</b> Missing the DG9 errata</td><td data-vi="Bản in ban đầu có nhiều lỗi công thức, biểu đồ và nhãn Case. Luôn tra Errata mới nhất." data-en="Early printings contain formula, chart and Case-label errors. Always check the current errata.">Early printings contain formula, chart and Case-label errors. Always check the current errata.</td></tr><tr><td data-vi="<b>5.</b> Dùng thẳng kết quả xoắn của phần mềm khung" data-en="<b>5.</b> Taking frame-software torque at face value"><b>5.</b> Taking frame-software torque at face value</td><td data-vi="T từ SAP2000/STAAD <b>chưa kể vênh</b> — chỉ là St. Venant. Phải tự tính σ_w, τ_w." data-en="T from SAP2000/STAAD <b>excludes warping</b> — it is St. Venant only. You must compute σ_w and τ_w yourself.">T from SAP2000/STAAD <b>excludes warping</b> — it is St. Venant only. You must compute σ_w and τ_w yourself.</td></tr><tr><td data-vi="<b>6.</b> Tổ hợp ứng suất sai vị trí" data-en="<b>6.</b> Combining stresses at different points"><b>6.</b> Combining stresses at different points</td><td data-vi="Uốn lớn nhất ở cánh, vênh lớn nhất ở mép cánh, cắt lớn nhất ở bụng — <b>không</b> được cộng các cực trị khác chỗ." data-en="Bending peaks at the flange, warping at the flange tip, shear in the web — you may <b>not</b> add extremes from different locations.">Bending peaks at the flange, warping at the flange tip, shear in the web — you may <b>not</b> add extremes from different locations.</td></tr></tbody>
+    </table></div><h3 class="prose-sub reveal" data-vi="Chọn W-shape nào nếu buộc phải dùng?" data-en="Which W-shape if you must use one?">Which W-shape if you must use one?</h3><ul class="prose-list reveal"><li data-vi="<b>Cánh rộng và dày</b> làm tăng cả J lẫn Cw — tốt hơn hẳn." data-en="<b>Wide, thick flanges</b> raise both J and Cw — clearly better."><b>Wide, thick flanges</b> raise both J and Cw — clearly better.</li><li data-vi="<b>Bụng dày</b> làm tăng J." data-en="<b>A thick web</b> raises J."><b>A thick web</b> raises J.</li><li data-vi="<b>Chiều cao lớn</b> tăng Cw nhưng giảm J — phải cân nhắc." data-en="<b>Greater depth</b> raises Cw but lowers J — a trade-off."><b>Greater depth</b> raises Cw but lowers J — a trade-off.</li><li data-vi="Ưu tiên dòng cánh rộng (W14, W12); tránh tiết diện mảnh như W24×55, W21×44 vì J rất nhỏ." data-en="Prefer wide-flange series (W14, W12); avoid slender sections such as W24×55 or W21×44 — their J is tiny.">Prefer wide-flange series (W14, W12); avoid slender sections such as W24×55 or W21×44 — their J is tiny.</li></ul>
+        
+      
+        <h2 class="reveal" data-vi="18. Checklist thiết kế xoắn" data-en="18. Torsion design checklist">18. Torsion design checklist</h2>
+        <ul class="prose-check reveal"><li data-vi="Tải có đi qua tâm cắt không? Nếu có thì không có xoắn." data-en="Does the load pass through the shear center? If so, there is no torsion.">Does the load pass through the shear center? If so, there is no torsion.</li><li data-vi="Tính T = P × e với vị trí tâm cắt đã xác định đúng." data-en="Compute T = P × e using a correctly located shear center.">Compute T = P × e using a correctly located shear center.</li><li data-vi="Kiểm tra T_r/T_c ≤ 0,20 — nếu đạt thì dừng, bỏ qua xoắn." data-en="Check T_r/T_c ≤ 0.20 — if satisfied, stop; torsion is negligible.">Check T_r/T_c ≤ 0.20 — if satisfied, stop; torsion is negligible.</li><li data-vi="Chọn loại tiết diện: HSS nếu xoắn đáng kể." data-en="Choose the section type: HSS if torsion is significant.">Choose the section type: HSS if torsion is significant.</li><li data-vi="Tra J, Cw, W_no, S_w từ AISC Manual và DG9 Appendix A." data-en="Look up J, Cw, W_no, S_w from the AISC Manual and DG9 Appendix A.">Look up J, Cw, W_no, S_w from the AISC Manual and DG9 Appendix A.</li><li data-vi="Tính a = √(E·Cw / G·J) và tỷ số L/a." data-en="Compute a = √(E·Cw / G·J) and L/a.">Compute a = √(E·Cw / G·J) and L/a.</li><li data-vi="Xác định điều kiện biên: Fixed, Pinned hay Free." data-en="Determine the end conditions: Fixed, Pinned or Free.">Determine the end conditions: Fixed, Pinned or Free.</li><li data-vi="Chọn Case tải trong 12 trường hợp của DG9 Appendix B." data-en="Select the load Case from the 12 in DG9 Appendix B.">Select the load Case from the 12 in DG9 Appendix B.</li><li data-vi="Tính θ, θ', θ'', θ''' tại vị trí nguy hiểm." data-en="Evaluate θ, θ', θ'', θ''' at the critical location.">Evaluate θ, θ', θ'', θ''' at the critical location.</li><li data-vi="Tính τ_t, σ_w, τ_w." data-en="Compute τ_t, σ_w and τ_w.">Compute τ_t, σ_w and τ_w.</li><li data-vi="Tổ hợp f_n và f_v tại ít nhất bốn điểm trên tiết diện." data-en="Combine f_n and f_v at no fewer than four points on the section.">Combine f_n and f_v at no fewer than four points on the section.</li><li data-vi="Kiểm tra f_n ≤ φ·F_y và f_v ≤ φ·0,6·F_y." data-en="Check f_n ≤ φ·F_y and f_v ≤ φ·0.6·F_y.">Check f_n ≤ φ·F_y and f_v ≤ φ·0.6·F_y.</li><li data-vi="Kiểm tra góc xoắn θ so với giới hạn sử dụng." data-en="Check the twist θ against the serviceability limit.">Check the twist θ against the serviceability limit.</li><li data-vi="Với HSS: kiểm tra phương trình H3-6 ≤ 1,0." data-en="For HSS: check equation H3-6 ≤ 1.0.">For HSS: check equation H3-6 ≤ 1.0.</li></ul>
+        
+      
+        <h2 class="reveal" data-vi="19. Bảng tra nhanh" data-en="19. Quick reference tables">19. Quick reference tables</h2>
+        <pre class="prose-code reveal"><code data-vi="HẰNG SỐ VẬT LIỆU (thép)
+  E = 29.000 ksi = 200.000 MPa
+  G = 11.200 ksi =  77.200 MPa
+  ν = 0,30
+
+GIỚI HẠN LRFD
+  Ứng suất pháp : f_n ≤ 0,90 · F_y
+  Ứng suất cắt  : f_v ≤ 1,00 · 0,6·F_y
+  Von Mises     : √(f_n² + 3f_v²) ≤ 0,90 · F_y" data-en="MATERIAL CONSTANTS (steel)
+  E = 29,000 ksi = 200,000 MPa
+  G = 11,200 ksi =  77,200 MPa
+  ν = 0.30
+
+LRFD LIMITS
+  Normal stress : f_n ≤ 0.90 · F_y
+  Shear stress  : f_v ≤ 1.00 · 0.6·F_y
+  Von Mises     : √(f_n² + 3f_v²) ≤ 0.90 · F_y">MATERIAL CONSTANTS (steel)
+  E = 29,000 ksi = 200,000 MPa
+  G = 11,200 ksi =  77,200 MPa
+  ν = 0.30
+
+LRFD LIMITS
+  Normal stress : f_n ≤ 0.90 · F_y
+  Shear stress  : f_v ≤ 1.00 · 0.6·F_y
+  Von Mises     : √(f_n² + 3f_v²) ≤ 0.90 · F_y</code></pre><h3 class="prose-sub reveal" data-vi="J, Cw và a cho một số W-shape thường dùng" data-en="J, Cw and a for common W-shapes">J, Cw and a for common W-shapes</h3><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="Tiết diện" data-en="Section">Section</th><th data-vi="J (in⁴)" data-en="J (in⁴)">J (in⁴)</th><th data-vi="Cw (in⁶)" data-en="Cw (in⁶)">Cw (in⁶)</th><th data-vi="W_no (in²)" data-en="W_no (in²)">W_no (in²)</th><th data-vi="a (in)" data-en="a (in)">a (in)</th></tr></thead>
+      <tbody><tr><td data-vi="W8×31" data-en="W8×31">W8×31</td><td data-vi="0,536" data-en="0.536">0.536</td><td data-vi="212" data-en="212">212</td><td data-vi="12,2" data-en="12.2">12.2</td><td data-vi="32,0" data-en="32.0">32.0</td></tr><tr><td data-vi="W10×49" data-en="W10×49">W10×49</td><td data-vi="1,39" data-en="1.39">1.39</td><td data-vi="620" data-en="620">620</td><td data-vi="16,5" data-en="16.5">16.5</td><td data-vi="34,0" data-en="34.0">34.0</td></tr><tr><td data-vi="W12×50" data-en="W12×50">W12×50</td><td data-vi="1,71" data-en="1.71">1.71</td><td data-vi="1.880" data-en="1,880">1,880</td><td data-vi="25,0" data-en="25.0">25.0</td><td data-vi="53,3" data-en="53.3">53.3</td></tr><tr><td data-vi="W14×48" data-en="W14×48">W14×48</td><td data-vi="1,45" data-en="1.45">1.45</td><td data-vi="2.240" data-en="2,240">2,240</td><td data-vi="27,2" data-en="27.2">27.2</td><td data-vi="63,2" data-en="63.2">63.2</td></tr><tr><td data-vi="W14×90" data-en="W14×90">W14×90</td><td data-vi="4,06" data-en="4.06">4.06</td><td data-vi="4.990" data-en="4,990">4,990</td><td data-vi="33,0" data-en="33.0">33.0</td><td data-vi="56,4" data-en="56.4">56.4</td></tr><tr><td data-vi="W16×26" data-en="W16×26">W16×26</td><td data-vi="0,262" data-en="0.262">0.262</td><td data-vi="456" data-en="456">456</td><td data-vi="15,5" data-en="15.5">15.5</td><td data-vi="67,1" data-en="67.1">67.1</td></tr><tr><td data-vi="W16×50" data-en="W16×50">W16×50</td><td data-vi="1,52" data-en="1.52">1.52</td><td data-vi="2.340" data-en="2,340">2,340</td><td data-vi="23,6" data-en="23.6">23.6</td><td data-vi="63,1" data-en="63.1">63.1</td></tr><tr><td data-vi="W21×44" data-en="W21×44">W21×44</td><td data-vi="0,770" data-en="0.770">0.770</td><td data-vi="2.110" data-en="2,110">2,110</td><td data-vi="24,5" data-en="24.5">24.5</td><td data-vi="84,2" data-en="84.2">84.2</td></tr><tr><td data-vi="W24×55" data-en="W24×55">W24×55</td><td data-vi="1,18" data-en="1.18">1.18</td><td data-vi="3.870" data-en="3,870">3,870</td><td data-vi="29,1" data-en="29.1">29.1</td><td data-vi="92,0" data-en="92.0">92.0</td></tr></tbody>
+    </table></div><h3 class="prose-sub reveal" data-vi="Channel và HSS" data-en="Channels and HSS">Channels and HSS</h3><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="Tiết diện" data-en="Section">Section</th><th data-vi="J (in⁴)" data-en="J (in⁴)">J (in⁴)</th><th data-vi="Cw (in⁶) / C (in³)" data-en="Cw (in⁶) / C (in³)">Cw (in⁶) / C (in³)</th><th data-vi="Ghi chú" data-en="Note">Note</th></tr></thead>
+      <tbody><tr><td data-vi="C10×15.3" data-en="C10×15.3">C10×15.3</td><td data-vi="0,209" data-en="0.209">0.209</td><td data-vi="54,8" data-en="54.8">54.8</td><td data-vi="e₀ = 0,634 in" data-en="e₀ = 0.634 in">e₀ = 0.634 in</td></tr><tr><td data-vi="C15×33.9" data-en="C15×33.9">C15×33.9</td><td data-vi="0,904" data-en="0.904">0.904</td><td data-vi="349" data-en="349">349</td><td data-vi="e₀ = 0,788 in" data-en="e₀ = 0.788 in">e₀ = 0.788 in</td></tr><tr><td data-vi="HSS 8×6×3/8" data-en="HSS 8×6×3/8">HSS 8×6×3/8</td><td data-vi="86,2" data-en="86.2">86.2</td><td data-vi="C = 72,7" data-en="C = 72.7">C = 72.7</td><td data-vi="Phổ biến" data-en="Common">Common</td></tr><tr><td data-vi="HSS 12×8×1/2" data-en="HSS 12×8×1/2">HSS 12×8×1/2</td><td data-vi="353" data-en="353">353</td><td data-vi="C = 265" data-en="C = 265">C = 265</td><td data-vi="Rất mạnh" data-en="Very strong">Very strong</td></tr></tbody>
+    </table></div><aside class="prose-tip reveal" data-vi="Giá trị <b>a</b> tính theo a = √(E·Cw / G·J) với E = 29.000 ksi và G = 11.200 ksi. J, Cw, W_no tham khảo AISC Manual và DG9 Appendix A." data-en="The <b>a</b> values follow a = √(E·Cw / G·J) with E = 29,000 ksi and G = 11,200 ksi. J, Cw and W_no are from the AISC Manual and DG9 Appendix A.">The <b>a</b> values follow a = √(E·Cw / G·J) with E = 29,000 ksi and G = 11,200 ksi. J, Cw and W_no are from the AISC Manual and DG9 Appendix A.</aside>
+        
+      
+        <h2 class="reveal" data-vi="20. Bảy khuyến nghị then chốt" data-en="20. Seven key recommendations">20. Seven key recommendations</h2>
+        <ul class="prose-list reveal"><li data-vi="<b>Ưu tiên loại bỏ xoắn bằng cấu tạo</b> trước khi bắt tay vào tính toán." data-en="<b>Try to detail the torsion away</b> before you start calculating."><b>Try to detail the torsion away</b> before you start calculating.</li><li data-vi="<b>Xoắn đáng kể thì dùng tiết diện kín (HSS)</b> — đơn giản và hiệu quả hơn hẳn." data-en="<b>If torsion is significant, use a closed section (HSS)</b> — simpler and far more effective."><b>If torsion is significant, use a closed section (HSS)</b> — simpler and far more effective.</li><li data-vi="<b>Xác định chính xác tâm cắt</b>, đặc biệt với Channel." data-en="<b>Locate the shear center precisely</b>, especially for Channels."><b>Locate the shear center precisely</b>, especially for Channels.</li><li data-vi="<b>Xác định đúng điều kiện biên</b> — Fixed hay Pinned ảnh hưởng rất lớn đến kết quả." data-en="<b>Get the end conditions right</b> — Fixed versus Pinned changes the answer dramatically."><b>Get the end conditions right</b> — Fixed versus Pinned changes the answer dramatically.</li><li data-vi="<b>Luôn kiểm tra góc xoắn θ</b> bên cạnh ứng suất." data-en="<b>Always check the twist θ</b> alongside the stresses."><b>Always check the twist θ</b> alongside the stresses.</li><li data-vi="<b>Tổ hợp ứng suất tại cùng một điểm</b> — không cộng các cực trị ở khác vị trí." data-en="<b>Combine stresses at the same point</b> — never add extremes from different locations."><b>Combine stresses at the same point</b> — never add extremes from different locations.</li><li data-vi="<b>Kiểm tra Errata của DG9</b> trước khi dùng bất kỳ công thức nào." data-en="<b>Check the DG9 errata</b> before trusting any formula."><b>Check the DG9 errata</b> before trusting any formula.</li></ul><aside class="prose-tip reveal" data-vi="<b>Xem lại Phần 1</b> — <a href='article-torsion-steel-part-1-vi.html'>Lý thuyết nền tảng & đặc trưng tiết diện</a>: phân loại tiết diện hở/kín, tâm cắt, hai cơ chế kháng xoắn, điều kiện biên và 12 trường hợp tải." data-en="<b>Back to Part 1</b> — <a href='article-torsion-steel-part-1.html'>theory and section properties</a>: open versus closed sections, the shear center, the two resisting mechanisms, boundary conditions and the 12 loading cases."><b>Back to Part 1</b> — <a href='article-torsion-steel-part-1.html'>theory and section properties</a>: open versus closed sections, the shear center, the two resisting mechanisms, boundary conditions and the 12 loading cases.</aside>
+        
+      
+      <p class="art-note reveal" data-vi="Bài viết thuộc series “Hướng dẫn thiết kế kết cấu công trình công nghiệp” — Roberto Structural. Nội dung mang tính hướng dẫn kỹ thuật; kỹ sư chịu trách nhiệm kiểm tra và hiệu chỉnh theo điều kiện cụ thể của dự án và tiêu chuẩn áp dụng. Tiêu chuẩn thay đổi theo thời gian — luôn kiểm tra phiên bản mới nhất, kể cả Errata của AISC Design Guide 9." data-en="Part of the “Industrial structural design guide” series by Roberto Structural. The content is technical guidance only; the engineer remains responsible for verifying and adapting it to each project and the governing code. Codes change — always check the current edition, including the AISC Design Guide 9 errata.">Part of the “Industrial structural design guide” series by Roberto Structural. The content is technical guidance only; the engineer remains responsible for verifying and adapting it to each project and the governing code. Codes change — always check the current edition, including the AISC Design Guide 9 errata.</p>
+
+      <div class="art-share reveal">
+        <span data-vi="Chia sẻ bài viết" data-en="Share this article">Share this article</span>
+        <div class="art-share-btns">
+          <a href="#" onclick="return rsShare('facebook')" aria-label="Share on Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+          </a>
+          <a href="#" onclick="return rsShare('linkedin')" aria-label="Share on LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+          <a href="#" onclick="return rsShare('copy')" aria-label="Copy link" title="Copy link">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <nav class="art-nav">
+      <a class="art-nav-item" href="article-torsion-steel-part-1.html"><span data-vi="← Bài trước" data-en="← Previous">← Previous</span><b data-vi="Phân tích xoắn cho cấu kiện thép — Phần 1: Lý thuyết nền tảng & đặc trưng tiết diện" data-en="Torsional Analysis of Structural Steel Members — Part 1: Theory & Section Properties">Torsional Analysis of Structural Steel Members — Part 1: Theory &amp; Section Properties</b></a>
+      <span></span>
+    </nav>
+
+    <div style="text-align:center;margin-top:3rem">
+      <a class="btn btn-ghost" href="insights.html" data-vi="Xem tất cả bài viết" data-en="View all articles">View all articles</a>
+    </div>
+  </div></section></main>
+
+<footer id="site-footer">
+<div class="container">
+  <div class="foot-grid">
+    <div>
+      <h4>Roberto Structural</h4>
+      <p style="color:var(--steel-light);font-size:.9rem;max-width:34ch"><span data-vi="Kiến tạo lõi kỹ thuật kết cấu công nghiệp nặng." data-en="Engineering the Core of Heavy Industry.">Kiến tạo lõi kỹ thuật kết cấu công nghiệp nặng.</span></p>
+      <a href="mailto:robertostructural@gmail.com" style="display:inline-block;margin-top:.9rem;font-size:.9rem;color:var(--steel-light)">robertostructural@gmail.com</a>
+    </div>
+    <div>
+      <h4 data-vi="Liên kết" data-en="Links">Liên kết</h4>
+      <a href="index.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a>
+      <a href="insights.html" data-rs-page="insights" data-vi="Bài viết" data-en="Insights">Bài viết</a>
+      <a href="tools.html" data-rs-page="tools" data-vi="Phần mềm" data-en="Software">Phần mềm</a>
+      <a href="drawings.html" data-rs-page="drawings" data-vi="Bản vẽ" data-en="Drawings">Bản vẽ</a>
+    </div>
+    <div>
+      <h4 data-vi="Lĩnh vực" data-en="Sectors">Lĩnh vực</h4>
+      <a href="index.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Công nghiệp nặng" data-en="Heavy Industry">Công nghiệp nặng</a>
+      <a href="index.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Công nghiệp nhẹ" data-en="Light Industry">Công nghiệp nhẹ</a>
+      <a href="index.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Lọc hóa dầu" data-en="Petrochemical">Lọc hóa dầu</a>
+      <a href="index.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Năng lượng" data-en="Energy">Năng lượng</a>
+    </div>
+    <!-- Trước đây là ô "Nhận bản tin" với form onsubmit="return false" — bấm Gửi
+         không làm gì cả, chưa bao giờ được đấu nối. Đấu vào Formspree thì phải mở
+         form thứ BA (hai form hiện có đều đã có việc riêng và giới hạn 50 lượt/tháng
+         mỗi form), mà chưa có kế hoạch gửi bản tin thật. Nên đổi thành nút theo dõi
+         hai kênh Roberto đang thật sự hoạt động. Icon gộp về đây, gỡ khỏi cột 1 để
+         khỏi hiện hai lần trong cùng một footer. -->
+    <div>
+      <h4 data-vi="Theo dõi" data-en="Follow">Theo dõi</h4>
+      <p style="font-size:.9rem;color:var(--steel-light)" data-vi="Nhận thông báo khi có Tool mới." data-en="Get notified about new Tools.">Nhận thông báo khi có Tool mới.</p>
+      <div class="social">
+        <a href="https://www.facebook.com/RobertoStructural" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@RobertoStructural" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.09 0 12 0 12s0 3.91.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.91 24 12 24 12s0-3.91-.5-5.8zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">© <span id="yr"></span> Roberto Structural · <span data-vi="Đã đăng ký bản quyền" data-en="All rights reserved">Đã đăng ký bản quyền</span></div>
+</div></footer>
+
+<script>window.RS_PAGE_ID = "torsion-steel-part-2"; window.RS_PAGE_LANG = "en";</script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/lightbox.js"></script>
+<script src="assets/js/articles-data.js"></script>
+<script src="assets/js/articles.js"></script>
+</body>
+</html>

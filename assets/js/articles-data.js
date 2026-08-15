@@ -30,6 +30,684 @@ window.ARTICLE_CATEGORIES = [
 ];
 
 window.ARTICLES = [
+
+  /* ===================== No. 10 — Torsion, part 2 of 2 ===================== */
+  {
+    id: "torsion-steel-part-2",
+    no: "10",
+    category: { vi: "Kết cấu thép", en: "Steel Structures" },
+    date: "2026-08-13",
+    readmin: 20,
+    title: {
+      vi: "Phân tích xoắn cho cấu kiện thép — Phần 2: Quy trình thiết kế, ví dụ tính toán & kiểm tra theo tiêu chuẩn",
+      en: "Torsional Analysis of Structural Steel Members — Part 2: Design Procedure, Worked Examples & Code Checks"
+    },
+    excerpt: {
+      vi: "Quy trình bảy bước, công thức cho các trường hợp tải phổ biến, hai ví dụ tính đầy đủ cho thấy W-shape thua HSS đến mức nào, so sánh AISC với Eurocode và sáu cái bẫy hay gặp.",
+      en: "The seven-step procedure, formulas for the common loading cases, two worked examples showing how badly a W-shape loses to an HSS, AISC versus Eurocode, and six traps that catch engineers out."
+    },
+    cover: "Resource/articles/07-torsion/cover_part2.webp",
+    sections: [
+      {
+        heading: { vi: "11. Quy trình thiết kế bảy bước", en: "11. The seven-step design procedure" },
+        body: [
+          {
+            type: "figure", src: "Resource/articles/07-torsion/design_flowchart.webp",
+            caption: { vi: "<b>Hình 1.</b> Sơ đồ quy trình thiết kế xoắn.", en: "<b>Figure 1.</b> The torsion design procedure." }
+          },
+          { type: "subhead", vi: "Bước 1 — Xác định tải và độ lệch tâm", en: "Step 1 — Establish the load and its eccentricity" },
+          {
+            type: "list", items: [
+              { vi: "Xác định <b>điểm đặt lực</b> trên tiết diện.", en: "Locate the <b>point of load application</b> on the section." },
+              { vi: "Xác định <b>vị trí tâm cắt</b> — với Channel thì nó nằm ngoài bản bụng.", en: "Locate the <b>shear center</b> — for a Channel it lies outside the web." },
+              { vi: "Tính độ lệch tâm e, rồi T = P × e (tải tập trung) hoặc t = w × e (tải phân bố).", en: "Compute the eccentricity e, then T = P × e (concentrated) or t = w × e (distributed)." }
+            ]
+          },
+          { type: "subhead", vi: "Bước 2 — Kiểm tra sơ bộ: có cần phân tích xoắn không?", en: "Step 2 — Screening check: is a torsion analysis needed at all?" },
+          {
+            type: "code",
+            vi: "T_r / T_c ≤ 0,20   →   bỏ qua xoắn  (AISC 360 mục H3.1)\n\nƯớc lượng nhanh T_c:\n  Tiết diện hở : T_c = φ · 0,6 · F_y · J / t_max\n  Tiết diện kín: T_c = φ · 0,6 · F_y · C   (C tra AISC Manual)",
+            en: "T_r / T_c ≤ 0.20   →   torsion may be neglected  (AISC 360 §H3.1)\n\nQuick estimate of T_c:\n  Open section  : T_c = φ · 0.6 · F_y · J / t_max\n  Closed section: T_c = φ · 0.6 · F_y · C   (C from the AISC Manual)"
+          },
+          { type: "subhead", vi: "Bước 3 đến 5 — Tra đặc trưng, chọn Case, tính đạo hàm", en: "Steps 3 to 5 — Properties, load case, derivatives" },
+          {
+            type: "table",
+            head: [{ vi: "Đặc trưng", en: "Property" }, { vi: "Nguồn tra", en: "Source" }, { vi: "Ghi chú", en: "Note" }],
+            rows: [
+              [{ vi: "J, Cw", en: "J, Cw" }, { vi: "AISC Manual — Dimensions &amp; Properties", en: "AISC Manual — Dimensions &amp; Properties" }, { vi: "Mọi tiết diện", en: "All sections" }],
+              [{ vi: "W_no", en: "W_no" }, { vi: "DG9 Appendix A — Table A.1", en: "DG9 Appendix A — Table A.1" }, { vi: "W-shape: tại mép cánh", en: "W-shape: at the flange tip" }],
+              [{ vi: "S_w", en: "S_w" }, { vi: "DG9 Appendix A — Table A.1", en: "DG9 Appendix A — Table A.1" }, { vi: "Tại điểm cần kiểm tra", en: "At the point being checked" }],
+              [{ vi: "Q_f, Q_w", en: "Q_f, Q_w" }, { vi: "DG9 Appendix A — Table A.1", en: "DG9 Appendix A — Table A.1" }, { vi: "Cánh và bụng W-shape", en: "W-shape flange and web" }]
+            ]
+          },
+          { vi: "Tính a = √(E·Cw / G·J) và tỷ số λ = L/a, chọn Case trong 12 trường hợp của DG9, rồi tính bốn đại lượng tại vị trí nguy hiểm.", en: "Compute a = √(E·Cw / G·J) and λ = L/a, pick the Case from the 12 in DG9, then evaluate four quantities at the critical location." },
+          {
+            type: "list", items: [
+              { vi: "<b>θ</b> — góc xoắn, dùng kiểm tra <b>điều kiện sử dụng</b>.", en: "<b>θ</b> — angle of twist, used for the <b>serviceability</b> check." },
+              { vi: "<b>θ'</b> — cho ứng suất cắt St. Venant τ_t.", en: "<b>θ'</b> — gives the St. Venant shear stress τ_t." },
+              { vi: "<b>θ''</b> — cho ứng suất pháp do vênh σ_w.", en: "<b>θ''</b> — gives the warping normal stress σ_w." },
+              { vi: "<b>θ'''</b> — cho ứng suất cắt do vênh τ_w.", en: "<b>θ'''</b> — gives the warping shear stress τ_w." }
+            ]
+          },
+          { type: "subhead", vi: "Bước 6 — Tính ba loại ứng suất xoắn", en: "Step 6 — Compute the three torsional stresses" },
+          {
+            type: "code",
+            vi: "τ_t = G · t · θ'              tính cho phần tử DÀY NHẤT\nσ_w = E · W_no · θ''          nguy hiểm nhất tại mép ngoài cánh\nτ_w = E · S_w · θ''' / t      thường tại giao cánh–bụng",
+            en: "τ_t = G · t · θ'              use the THICKEST element\nσ_w = E · W_no · θ''          governs at the outer flange tip\nτ_w = E · S_w · θ''' / t      usually at the flange–web junction"
+          }
+        ]
+      },
+      {
+        heading: { vi: "12. Tổ hợp ứng suất và kiểm tra theo AISC 360", en: "12. Combining stresses and checking to AISC 360" },
+        body: [
+          { vi: "Ứng suất tổng tại một điểm là <b>tổng đại số</b> của mọi thành phần tác dụng tại chính điểm đó.", en: "The total stress at a point is the <b>algebraic sum</b> of every component acting at that same point." },
+          {
+            type: "code",
+            vi: "Ứng suất pháp tổng:  f_n = f_bx + f_by + σ_w + f_a\nỨng suất cắt tổng :  f_v = f_vx + f_vy + τ_t + τ_w\n\nf_bx, f_by = uốn trục mạnh, trục yếu      f_a  = kéo/nén dọc trục\nf_vx, f_vy = cắt theo hai trục",
+            en: "Total normal stress:  f_n = f_bx + f_by + σ_w + f_a\nTotal shear stress :  f_v = f_vx + f_vy + τ_t + τ_w\n\nf_bx, f_by = major- and minor-axis bending   f_a  = axial\nf_vx, f_vy = shear on each axis"
+          },
+          { type: "tip", vi: "<b>Quan trọng:</b> các thành phần phải được tổ hợp <b>tại cùng một điểm</b> trên tiết diện. Đừng cộng trị tuyệt đối một cách mù quáng — phải xét <b>dấu</b> (kéo hay nén, chiều ứng suất cắt).", en: "<b>Critical:</b> components must be combined <b>at the same point</b> on the section. Do not blindly add absolute values — respect the <b>signs</b> (tension or compression, direction of shear)." },
+          {
+            type: "table",
+            head: [{ vi: "Kiểm tra", en: "Check" }, { vi: "Công thức", en: "Formula" }, { vi: "φ (LRFD)", en: "φ (LRFD)" }],
+            rows: [
+              [{ vi: "Ứng suất pháp", en: "Normal stress" }, { vi: "f_n ≤ φ · F_y", en: "f_n ≤ φ · F_y" }, { vi: "0,90", en: "0.90" }],
+              [{ vi: "Ứng suất cắt", en: "Shear stress" }, { vi: "f_v ≤ φ · 0,6·F_y", en: "f_v ≤ φ · 0.6·F_y" }, { vi: "1,00", en: "1.00" }],
+              [{ vi: "Von Mises", en: "Von Mises" }, { vi: "√(f_n² + 3·f_v²) ≤ φ · F_y", en: "√(f_n² + 3·f_v²) ≤ φ · F_y" }, { vi: "0,90", en: "0.90" }]
+            ]
+          },
+          { type: "tip", vi: "Von Mises cho kết quả <b>bớt bảo thủ</b> hơn kiểm tra riêng lẻ, nhưng DG9 khuyến nghị kiểm tra riêng lẻ cho đơn giản — chỉ dùng Von Mises khi cần tối ưu.", en: "Von Mises is <b>less conservative</b> than separate checks, but DG9 recommends the separate checks for simplicity — reach for Von Mises only when optimising." },
+          { type: "subhead", vi: "Tiết diện kín (HSS) — phương trình tương tác H3-6", en: "Closed sections (HSS) — the H3-6 interaction equation" },
+          {
+            type: "code",
+            vi: "( P_r/P_c + M_rx/M_cx + M_ry/M_cy ) + ( V_r/V_c + T_r/T_c )² ≤ 1,0\n\nV_r/V_c lấy giá trị LỚN HƠN giữa hai trục.\n\nCường độ xoắn danh định:  T_n = F_cr · C\n  HSS chữ nhật:  C ≈ 2·(B−t)·(H−t)·t\n  HSS tròn    :  C = π·(D−t)²·t / 2",
+            en: "( P_r/P_c + M_rx/M_cx + M_ry/M_cy ) + ( V_r/V_c + T_r/T_c )² ≤ 1.0\n\nTake the LARGER of the two axes for V_r/V_c.\n\nNominal torsional strength:  T_n = F_cr · C\n  Rectangular HSS:  C ≈ 2·(B−t)·(H−t)·t\n  Round HSS      :  C = π·(D−t)²·t / 2"
+          },
+          {
+            type: "table",
+            head: [{ vi: "Tỷ số h/t", en: "Ratio h/t" }, { vi: "Trạng thái giới hạn", en: "Limit state" }, { vi: "F_cr", en: "F_cr" }],
+            rows: [
+              [{ vi: "h/t ≤ 2,45·√(E/F_y)", en: "h/t ≤ 2.45·√(E/F_y)" }, { vi: "Chảy dẻo", en: "Yielding" }, { vi: "0,6·F_y", en: "0.6·F_y" }],
+              [{ vi: "2,45·√(E/F_y) &lt; h/t ≤ 3,07·√(E/F_y)", en: "2.45·√(E/F_y) &lt; h/t ≤ 3.07·√(E/F_y)" }, { vi: "Oằn không đàn hồi", en: "Inelastic buckling" }, { vi: "0,6·F_y · 2,45·√(E/F_y) / (h/t)", en: "0.6·F_y · 2.45·√(E/F_y) / (h/t)" }],
+              [{ vi: "h/t &gt; 3,07·√(E/F_y)", en: "h/t &gt; 3.07·√(E/F_y)" }, { vi: "Oằn đàn hồi", en: "Elastic buckling" }, { vi: "0,458·π²·E / (h/t)²", en: "0.458·π²·E / (h/t)²" }]
+            ]
+          },
+          { type: "subhead", vi: "Tiết diện hở — kiểm tra tại nhiều điểm", en: "Open sections — check several points" },
+          { vi: "AISC 360 <b>không</b> cho phương trình tương tác đơn giản như HSS. Phải tính ứng suất tổng rồi so với cường độ tại <b>từng điểm</b>, ít nhất bốn điểm trên tiết diện.", en: "AISC 360 gives <b>no</b> simple interaction equation for open sections. Compute the total stress and compare with the capacity <b>point by point</b> — at least four points on the section." },
+          {
+            type: "table",
+            head: [{ vi: "Điểm", en: "Point" }, { vi: "Ứng suất pháp", en: "Normal stress" }, { vi: "Ứng suất cắt", en: "Shear stress" }],
+            rows: [
+              [{ vi: "<b>A</b> — mép ngoài cánh trên", en: "<b>A</b> — top flange tip" }, { vi: "f_bx + σ_w", en: "f_bx + σ_w" }, { vi: "τ_t (nhỏ)", en: "τ_t (small)" }],
+              [{ vi: "<b>B</b> — giao cánh–bụng", en: "<b>B</b> — flange–web junction" }, { vi: "f_bx", en: "f_bx" }, { vi: "τ_t + τ_w + f_vy", en: "τ_t + τ_w + f_vy" }],
+              [{ vi: "<b>C</b> — giữa bụng", en: "<b>C</b> — mid-web" }, { vi: "0", en: "0" }, { vi: "f_vy + τ_t", en: "f_vy + τ_t" }],
+              [{ vi: "<b>D</b> — mép ngoài cánh dưới", en: "<b>D</b> — bottom flange tip" }, { vi: "f_bx ∓ σ_w", en: "f_bx ∓ σ_w" }, { vi: "τ_t", en: "τ_t" }]
+            ]
+          },
+          { type: "tip", vi: "<b>Điểm A thường nguy hiểm nhất</b> — nơi ứng suất pháp do uốn và ứng suất pháp do vênh cộng <b>cùng dấu</b>.", en: "<b>Point A usually governs</b> — it is where bending normal stress and warping normal stress add with the <b>same sign</b>." }
+        ]
+      },
+      {
+        heading: { vi: "13. Công thức cho các trường hợp tải phổ biến", en: "13. Formulas for the common loading cases" },
+        body: [
+          { type: "subhead", vi: "Case 1 — Pinned–Pinned, T tập trung giữa nhịp", en: "Case 1 — Pinned–Pinned, concentrated T at midspan" },
+          { vi: "Đây là trường hợp <b>phổ biến nhất</b> trong thực hành. Điều kiện biên: θ = 0 và θ'' = 0 tại cả hai đầu.", en: "The <b>most common</b> case in practice. Boundary conditions: θ = 0 and θ'' = 0 at both ends." },
+          {
+            type: "code",
+            vi: "Với 0 ≤ z ≤ L/2:\n\n  θ(z)    = T/(G·J) · [ z/2 − (a/2)·sinh(z/a)/cosh(L/2a) ]\n  θ'(z)   = T/(2·G·J) · [ 1 − cosh(z/a)/cosh(L/2a) ]\n  θ''(z)  = −T/(2·G·J·a) · sinh(z/a)/cosh(L/2a)\n  θ'''(z) = −T/(2·G·J·a²) · cosh(z/a)/cosh(L/2a)\n\nCực trị tại giữa nhịp:\n  θ_max  = T/(2·G·J) · [ L/2 − a·tanh(L/2a) ]\n  θ'_max = T/(2·G·J) · [ 1 − 1/cosh(L/2a) ]",
+            en: "For 0 ≤ z ≤ L/2:\n\n  θ(z)    = T/(G·J) · [ z/2 − (a/2)·sinh(z/a)/cosh(L/2a) ]\n  θ'(z)   = T/(2·G·J) · [ 1 − cosh(z/a)/cosh(L/2a) ]\n  θ''(z)  = −T/(2·G·J·a) · sinh(z/a)/cosh(L/2a)\n  θ'''(z) = −T/(2·G·J·a²) · cosh(z/a)/cosh(L/2a)\n\nExtreme values at midspan:\n  θ_max  = T/(2·G·J) · [ L/2 − a·tanh(L/2a) ]\n  θ'_max = T/(2·G·J) · [ 1 − 1/cosh(L/2a) ]"
+          },
+          { type: "subhead", vi: "Case 3 — Pinned–Pinned, t phân bố đều toàn nhịp", en: "Case 3 — Pinned–Pinned, uniform t over the full span" },
+          { vi: "Trường hợp của <b>dầm biên chịu tải tường</b>.", en: "This is the <b>spandrel beam carrying a wall load</b>." },
+          {
+            type: "code",
+            vi: "θ'(z)   = t/(G·J) · [ (L−2z)/2 + a·sinh((L−2z)/2a)/cosh(L/2a) ]\nθ''(z)  = t/(G·J) · [ −1 + cosh((L−2z)/2a)/cosh(L/2a) ]\nθ'''(z) = t/(G·J·a) · sinh((L−2z)/2a)/cosh(L/2a)",
+            en: "θ'(z)   = t/(G·J) · [ (L−2z)/2 + a·sinh((L−2z)/2a)/cosh(L/2a) ]\nθ''(z)  = t/(G·J) · [ −1 + cosh((L−2z)/2a)/cosh(L/2a) ]\nθ'''(z) = t/(G·J·a) · sinh((L−2z)/2a)/cosh(L/2a)"
+          },
+          { type: "subhead", vi: "Case 9 — Fixed–Free (console), T tại đầu tự do", en: "Case 9 — Fixed–Free (cantilever), T at the free end" },
+          {
+            type: "code",
+            vi: "θ'(z)   =  T/(G·J) · [ 1 − cosh((L−z)/a)/cosh(L/a) ]\nθ''(z)  =  T/(G·J·a) · sinh((L−z)/a)/cosh(L/a)\nθ'''(z) = −T/(G·J·a²) · cosh((L−z)/a)/cosh(L/a)\n\nCực trị:  θ và θ' lớn nhất tại z = L (đầu tự do)\n          θ'' và θ''' lớn nhất tại z = 0 (gối ngàm)",
+            en: "θ'(z)   =  T/(G·J) · [ 1 − cosh((L−z)/a)/cosh(L/a) ]\nθ''(z)  =  T/(G·J·a) · sinh((L−z)/a)/cosh(L/a)\nθ'''(z) = −T/(G·J·a²) · cosh((L−z)/a)/cosh(L/a)\n\nExtremes:  θ and θ' peak at z = L (free end)\n           θ'' and θ''' peak at z = 0 (fixed support)"
+          },
+          { type: "tip", vi: "Công thức đầy đủ cho <b>Case 5 (Fixed–Fixed)</b> khá dài. Trong thực hành nên <b>lập trình vào bảng tính</b> thay vì tra biểu đồ.", en: "The full formula for <b>Case 5 (Fixed–Fixed)</b> is long. In practice, <b>program it into a spreadsheet</b> rather than reading charts." }
+        ]
+      },
+      {
+        heading: { vi: "14. Ví dụ 1 — W-shape chịu tải lệch tâm", en: "14. Worked example 1 — W-shape under an eccentric load" },
+        body: [
+          {
+            type: "code",
+            vi: "Cấu kiện    : W16×26  (A992, F_y = 50 ksi)\nNhịp        : L = 20 ft = 240 in\nTải         : P = 10 kips giữa nhịp, lệch tâm e = 6 in\nĐiều kiện biên: Pinned–Pinned (vênh tự do hai đầu)",
+            en: "Member        : W16×26  (A992, F_y = 50 ksi)\nSpan          : L = 20 ft = 240 in\nLoad          : P = 10 kips at midspan, eccentricity e = 6 in\nEnd conditions: Pinned–Pinned (free warping both ends)"
+          },
+          { vi: "Mô-men xoắn thiết kế: <b>T = P × e = 10 × 6 = 60 kip-in</b> → dùng Case 1.", en: "Design torque: <b>T = P × e = 10 × 6 = 60 kip-in</b> → use Case 1." },
+          {
+            type: "table",
+            head: [{ vi: "Đặc trưng", en: "Property" }, { vi: "W16×26", en: "W16×26" }, { vi: "Đơn vị", en: "Unit" }],
+            rows: [
+              [{ vi: "J", en: "J" }, { vi: "0,262", en: "0.262" }, { vi: "in⁴", en: "in⁴" }],
+              [{ vi: "C_w", en: "C_w" }, { vi: "456", en: "456" }, { vi: "in⁶", en: "in⁶" }],
+              [{ vi: "W_no", en: "W_no" }, { vi: "15,5", en: "15.5" }, { vi: "in²", en: "in²" }],
+              [{ vi: "S_w", en: "S_w" }, { vi: "5,35", en: "5.35" }, { vi: "in⁴", en: "in⁴" }],
+              [{ vi: "t_f / t_w", en: "t_f / t_w" }, { vi: "0,345 / 0,250", en: "0.345 / 0.250" }, { vi: "in", en: "in" }]
+            ]
+          },
+          {
+            type: "code",
+            vi: "a = √( 29.000 × 456 / (11.200 × 0,262) ) = √4.507 = 67,1 in\nL/a = 240 / 67,1 = 3,58\nL/2a = 1,789     cosh(1,789) = 3,121     tanh(1,789) = 0,946\n\nθ_max = 60/(2 × 11.200 × 0,262) × [ 120 − 67,1 × 0,946 ]\n      = 0,01022 × 56,5 = 0,578 rad",
+            en: "a = √( 29,000 × 456 / (11,200 × 0.262) ) = √4,507 = 67.1 in\nL/a = 240 / 67.1 = 3.58\nL/2a = 1.789     cosh(1.789) = 3.121     tanh(1.789) = 0.946\n\nθ_max = 60/(2 × 11,200 × 0.262) × [ 120 − 67.1 × 0.946 ]\n      = 0.01022 × 56.5 = 0.578 rad"
+          },
+          { type: "tip", vi: "<b>Góc xoắn 0,578 rad ≈ 33° — quá lớn.</b> Giới hạn thường dùng là θ ≤ 0,02–0,05 rad (1°–3°). Tiết diện W16×26 <b>không đủ</b> cho tải xoắn này.", en: "<b>A twist of 0.578 rad ≈ 33° is far too large.</b> The usual limit is θ ≤ 0.02–0.05 rad (1°–3°). W16×26 is <b>not adequate</b> for this torque." },
+          { type: "subhead", vi: "Thử tiết diện nặng hơn: W16×50", en: "Try a heavier section: W16×50" },
+          {
+            type: "code",
+            vi: "W16×50:  J = 1,52 in⁴    C_w = 2.340 in⁶\n\na = √( 29.000 × 2.340 / (11.200 × 1,52) ) = √3.986 = 63,1 in\nL/2a = 1,902     tanh(1,902) = 0,956\n\nθ_max = 60/(2 × 11.200 × 1,52) × [ 120 − 63,1 × 0,956 ]\n      = 0,001762 × 59,7 = 0,105 rad  ≈ 6°",
+            en: "W16×50:  J = 1.52 in⁴    C_w = 2,340 in⁶\n\na = √( 29,000 × 2,340 / (11,200 × 1.52) ) = √3,986 = 63.1 in\nL/2a = 1.902     tanh(1.902) = 0.956\n\nθ_max = 60/(2 × 11,200 × 1.52) × [ 120 − 63.1 × 0.956 ]\n      = 0.001762 × 59.7 = 0.105 rad  ≈ 6°"
+          },
+          { type: "tip", vi: "<b>Bài học:</b> tăng khối lượng tiết diện gần gấp đôi (26 → 50 lb/ft) chỉ giảm góc xoắn từ 33° xuống 6° — vẫn chưa đạt. Tiết diện hở <b>rất yếu</b> khi chịu xoắn; hãy cân nhắc HSS hoặc giảm độ lệch tâm <b>trước khi</b> cố tăng kích thước W-shape.", en: "<b>The lesson:</b> nearly doubling the weight (26 → 50 lb/ft) only cuts the twist from 33° to 6° — still not acceptable. Open sections are <b>very weak</b> in torsion; consider an HSS or reducing the eccentricity <b>before</b> upsizing a W-shape." }
+        ]
+      },
+      {
+        heading: { vi: "15. Ví dụ 2 — HSS, cách tiếp cận đơn giản hơn nhiều", en: "15. Worked example 2 — HSS, a far simpler route" },
+        body: [
+          {
+            type: "code",
+            vi: "Cấu kiện : HSS 8×6×3/8  (A500 Gr.C, F_y = 50 ksi)\nNhịp     : L = 20 ft\nTải      : P = 10 kips giữa nhịp, lệch tâm e = 6 in\nTổ hợp thêm: M_x = 50 kip-ft, V = 10 kips\n\nT_r = P × e = 60 kip-in",
+            en: "Member  : HSS 8×6×3/8  (A500 Gr.C, F_y = 50 ksi)\nSpan    : L = 20 ft\nLoad    : P = 10 kips at midspan, eccentricity e = 6 in\nAlso    : M_x = 50 kip-ft, V = 10 kips\n\nT_r = P × e = 60 kip-in"
+          },
+          { type: "tip", vi: "<b>So sánh J:</b> W16×50 có J = 1,52 in⁴; HSS 8×6×3/8 có J = <b>86,2 in⁴</b> — gấp <b>57 lần</b>.", en: "<b>Compare J:</b> W16×50 has J = 1.52 in⁴; HSS 8×6×3/8 has J = <b>86.2 in⁴</b> — <b>57 times</b> more." },
+          {
+            type: "code",
+            vi: "h/t = 20,0    so với    2,45·√(E/F_y) = 2,45·√(29.000/50) = 59,0\n→ 20,0 nhỏ hơn 59,0  →  trạng thái giới hạn: CHẢY DẺO\n\nF_cr = 0,6 × 50 = 30 ksi\nT_n  = F_cr × C = 30 × 72,7 = 2.181 kip-in\nT_c  = φ × T_n = 0,90 × 2.181 = 1.963 kip-in   (LRFD)\n\nT_r / T_c = 60 / 1.963 = 0,031  ≤  0,20   →  BỎ QUA XOẮN",
+            en: "h/t = 20.0    versus    2.45·√(E/F_y) = 2.45·√(29,000/50) = 59.0\n→ 20.0 is below 59.0  →  limit state: YIELDING\n\nF_cr = 0.6 × 50 = 30 ksi\nT_n  = F_cr × C = 30 × 72.7 = 2,181 kip-in\nT_c  = φ × T_n = 0.90 × 2,181 = 1,963 kip-in   (LRFD)\n\nT_r / T_c = 60 / 1,963 = 0.031  ≤  0.20   →  TORSION NEGLECTED"
+          },
+          { type: "subhead", vi: "Tham khảo: nếu vẫn chạy phương trình H3-6", en: "For reference: running H3-6 anyway" },
+          {
+            type: "code",
+            vi: "M_rx = 600 kip-in     M_cx = 0,90 × 50 × 21,3 = 958,5 kip-in\nV_r  = 10 kips        V_c  ≈ 150,8 kips\n\n( 0 + 600/958,5 + 0 ) + ( 10/150,8 + 60/1.963 )²\n= 0,626 + (0,066 + 0,031)² = 0,626 + 0,0094 = 0,635  ≤  1,0   ✓",
+            en: "M_rx = 600 kip-in     M_cx = 0.90 × 50 × 21.3 = 958.5 kip-in\nV_r  = 10 kips        V_c  ≈ 150.8 kips\n\n( 0 + 600/958.5 + 0 ) + ( 10/150.8 + 60/1,963 )²\n= 0.626 + (0.066 + 0.031)² = 0.626 + 0.0094 = 0.635  ≤  1.0   ✓"
+          },
+          { type: "tip", vi: "<b>Kết luận hai ví dụ:</b> cùng một mô-men xoắn T = 60 kip-in, W-shape xoắn quá mức phải loại, còn HSS xử lý nhẹ nhàng với tỷ số chỉ <b>3,1%</b> và tổng mức sử dụng 63,5%.", en: "<b>Conclusion from both examples:</b> for the identical torque T = 60 kip-in, the W-shape twists unacceptably while the HSS copes easily at a ratio of just <b>3.1%</b>, with 63.5% overall utilisation." }
+        ]
+      },
+      {
+        heading: { vi: "16. AISC so với Eurocode (SCI P385)", en: "16. AISC versus Eurocode (SCI P385)" },
+        body: [
+          {
+            type: "table",
+            head: [{ vi: "Khía cạnh", en: "Aspect" }, { vi: "AISC (DG9)", en: "AISC (DG9)" }, { vi: "Eurocode (SCI P385)", en: "Eurocode (SCI P385)" }],
+            rows: [
+              [{ vi: "Tiêu chuẩn gốc", en: "Base code" }, { vi: "AISC 360, DG9", en: "AISC 360, DG9" }, { vi: "EN 1993-1-1", en: "EN 1993-1-1" }],
+              [{ vi: "Hệ số sức kháng", en: "Resistance factors" }, { vi: "φ = 0,90 (uốn), 1,00 (cắt)", en: "φ = 0.90 (bending), 1.00 (shear)" }, { vi: "γ_M0 = γ_M1 = 1,00", en: "γ_M0 = γ_M1 = 1.00" }],
+              [{ vi: "Xoắn vênh", en: "Warping torsion" }, { vi: "Tính trực tiếp σ_w, τ_w", en: "Direct σ_w, τ_w" }, { vi: "Qua bimoment B", en: "Via the bimoment B" }],
+              [{ vi: "Tiết diện kín", en: "Closed sections" }, { vi: "Phương trình H3-6", en: "Equation H3-6" }, { vi: "τ_t,Ed / (f_y/√3) ≤ 1,0", en: "τ_t,Ed / (f_y/√3) ≤ 1.0" }]
+            ]
+          },
+          { type: "subhead", vi: "Khái niệm bimoment của SCI P385", en: "The bimoment concept in SCI P385" },
+          {
+            type: "code",
+            vi: "B   = E · C_w · θ''            (bimoment)\nσ_w = B · W_no / C_w\n\nTương tác uốn – xoắn (đơn giản hoá, tiết diện hở):\n  M_y,Ed / M_y,Rd + σ_w,Ed / (f_y/γ_M0) ≤ 1,0",
+            en: "B   = E · C_w · θ''            (bimoment)\nσ_w = B · W_no / C_w\n\nBending–torsion interaction (simplified, open sections):\n  M_y,Ed / M_y,Rd + σ_w,Ed / (f_y/γ_M0) ≤ 1.0"
+          },
+          { type: "tip", vi: "<b>Hai phương pháp cho kết quả tương đương</b> khi cùng điều kiện biên và tải trọng — cả hai đều dựa trên phương trình vi phân xoắn Vlasov. SCI P385 trình bày gọn hơn; AISC DG9 cho phép tính chi tiết tại từng điểm trên tiết diện.", en: "<b>The two methods agree</b> for the same boundary conditions and loading — both rest on the Vlasov torsion differential equation. SCI P385 is more compact; AISC DG9 lets you work point by point across the section." }
+        ]
+      },
+      {
+        heading: { vi: "17. Chiến lược thiết kế & sáu cái bẫy", en: "17. Design strategy and six traps" },
+        body: [
+          { type: "subhead", vi: "Thứ tự ưu tiên khi gặp xoắn", en: "Priority order when torsion appears" },
+          {
+            type: "list", items: [
+              { vi: "<b>1. Loại bỏ xoắn</b> — đặt tải qua tâm cắt, thêm giằng ngang, thiết kế liên kết sao cho phản lực đi qua tâm cắt. Đây luôn là lựa chọn tốt nhất.", en: "<b>1. Eliminate it</b> — put the load through the shear center, add lateral bracing, detail connections so reactions pass through the shear center. Always the best option." },
+              { vi: "<b>2. Giảm thiểu xoắn</b> — giảm độ lệch tâm, tăng số điểm giằng, dùng sàn liên hợp (bản bê tông ngăn vênh cánh trên).", en: "<b>2. Minimise it</b> — cut the eccentricity, add bracing points, use a composite slab (the concrete restrains warping of the top flange)." },
+              { vi: "<b>3. Chuyển sang HSS</b> — nếu xoắn đáng kể và không loại bỏ được. Tính toán đơn giản hơn nhiều vì bỏ qua được vênh.", en: "<b>3. Switch to HSS</b> — if torsion is significant and unavoidable. The calculation is far simpler because warping drops out." },
+              { vi: "<b>4. Phân tích đầy đủ tiết diện hở</b> — chỉ khi bắt buộc phải dùng W-shape hoặc Channel.", en: "<b>4. Full open-section analysis</b> — only when a W-shape or Channel is mandatory." }
+            ]
+          },
+          { type: "subhead", vi: "Sáu cái bẫy hay gặp", en: "Six traps that catch engineers out" },
+          {
+            type: "table",
+            head: [{ vi: "Bẫy", en: "Trap" }, { vi: "Vì sao sai", en: "Why it bites" }],
+            rows: [
+              [{ vi: "<b>1.</b> Bỏ qua tâm cắt của Channel", en: "<b>1.</b> Ignoring a Channel's shear center" }, { vi: "Tâm cắt nằm ngoài bản bụng — tải qua trọng tâm <b>vẫn</b> sinh xoắn.", en: "It lies outside the web — a load through the centroid <b>still</b> twists it." }],
+              [{ vi: "<b>2.</b> Lẫn lộn liên kết xoắn và liên kết vênh", en: "<b>2.</b> Confusing torsional and warping restraint" }, { vi: "Clip angle ngăn xoắn nhưng <b>không</b> ngăn vênh. Không chắc thì lấy Pinned.", en: "A clip angle restrains twist but <b>not</b> warping. When unsure, assume Pinned." }],
+              [{ vi: "<b>3.</b> Quên kiểm tra góc xoắn", en: "<b>3.</b> Forgetting the twist check" }, { vi: "Chỉ kiểm ứng suất mà bỏ θ. Xoắn quá mức gây rung, hỏng cladding và kính.", en: "Checking stress but not θ. Excessive twist causes vibration and damages cladding and glazing." }],
+              [{ vi: "<b>4.</b> Quên Errata của DG9", en: "<b>4.</b> Missing the DG9 errata" }, { vi: "Bản in ban đầu có nhiều lỗi công thức, biểu đồ và nhãn Case. Luôn tra Errata mới nhất.", en: "Early printings contain formula, chart and Case-label errors. Always check the current errata." }],
+              [{ vi: "<b>5.</b> Dùng thẳng kết quả xoắn của phần mềm khung", en: "<b>5.</b> Taking frame-software torque at face value" }, { vi: "T từ SAP2000/STAAD <b>chưa kể vênh</b> — chỉ là St. Venant. Phải tự tính σ_w, τ_w.", en: "T from SAP2000/STAAD <b>excludes warping</b> — it is St. Venant only. You must compute σ_w and τ_w yourself." }],
+              [{ vi: "<b>6.</b> Tổ hợp ứng suất sai vị trí", en: "<b>6.</b> Combining stresses at different points" }, { vi: "Uốn lớn nhất ở cánh, vênh lớn nhất ở mép cánh, cắt lớn nhất ở bụng — <b>không</b> được cộng các cực trị khác chỗ.", en: "Bending peaks at the flange, warping at the flange tip, shear in the web — you may <b>not</b> add extremes from different locations." }]
+            ]
+          },
+          { type: "subhead", vi: "Chọn W-shape nào nếu buộc phải dùng?", en: "Which W-shape if you must use one?" },
+          {
+            type: "list", items: [
+              { vi: "<b>Cánh rộng và dày</b> làm tăng cả J lẫn Cw — tốt hơn hẳn.", en: "<b>Wide, thick flanges</b> raise both J and Cw — clearly better." },
+              { vi: "<b>Bụng dày</b> làm tăng J.", en: "<b>A thick web</b> raises J." },
+              { vi: "<b>Chiều cao lớn</b> tăng Cw nhưng giảm J — phải cân nhắc.", en: "<b>Greater depth</b> raises Cw but lowers J — a trade-off." },
+              { vi: "Ưu tiên dòng cánh rộng (W14, W12); tránh tiết diện mảnh như W24×55, W21×44 vì J rất nhỏ.", en: "Prefer wide-flange series (W14, W12); avoid slender sections such as W24×55 or W21×44 — their J is tiny." }
+            ]
+          }
+        ]
+      },
+      {
+        heading: { vi: "18. Checklist thiết kế xoắn", en: "18. Torsion design checklist" },
+        body: [
+          {
+            type: "checklist", items: [
+              { vi: "Tải có đi qua tâm cắt không? Nếu có thì không có xoắn.", en: "Does the load pass through the shear center? If so, there is no torsion." },
+              { vi: "Tính T = P × e với vị trí tâm cắt đã xác định đúng.", en: "Compute T = P × e using a correctly located shear center." },
+              { vi: "Kiểm tra T_r/T_c ≤ 0,20 — nếu đạt thì dừng, bỏ qua xoắn.", en: "Check T_r/T_c ≤ 0.20 — if satisfied, stop; torsion is negligible." },
+              { vi: "Chọn loại tiết diện: HSS nếu xoắn đáng kể.", en: "Choose the section type: HSS if torsion is significant." },
+              { vi: "Tra J, Cw, W_no, S_w từ AISC Manual và DG9 Appendix A.", en: "Look up J, Cw, W_no, S_w from the AISC Manual and DG9 Appendix A." },
+              { vi: "Tính a = √(E·Cw / G·J) và tỷ số L/a.", en: "Compute a = √(E·Cw / G·J) and L/a." },
+              { vi: "Xác định điều kiện biên: Fixed, Pinned hay Free.", en: "Determine the end conditions: Fixed, Pinned or Free." },
+              { vi: "Chọn Case tải trong 12 trường hợp của DG9 Appendix B.", en: "Select the load Case from the 12 in DG9 Appendix B." },
+              { vi: "Tính θ, θ', θ'', θ''' tại vị trí nguy hiểm.", en: "Evaluate θ, θ', θ'', θ''' at the critical location." },
+              { vi: "Tính τ_t, σ_w, τ_w.", en: "Compute τ_t, σ_w and τ_w." },
+              { vi: "Tổ hợp f_n và f_v tại ít nhất bốn điểm trên tiết diện.", en: "Combine f_n and f_v at no fewer than four points on the section." },
+              { vi: "Kiểm tra f_n ≤ φ·F_y và f_v ≤ φ·0,6·F_y.", en: "Check f_n ≤ φ·F_y and f_v ≤ φ·0.6·F_y." },
+              { vi: "Kiểm tra góc xoắn θ so với giới hạn sử dụng.", en: "Check the twist θ against the serviceability limit." },
+              { vi: "Với HSS: kiểm tra phương trình H3-6 ≤ 1,0.", en: "For HSS: check equation H3-6 ≤ 1.0." }
+            ]
+          }
+        ]
+      },
+      {
+        heading: { vi: "19. Bảng tra nhanh", en: "19. Quick reference tables" },
+        body: [
+          {
+            type: "code",
+            vi: "HẰNG SỐ VẬT LIỆU (thép)\n  E = 29.000 ksi = 200.000 MPa\n  G = 11.200 ksi =  77.200 MPa\n  ν = 0,30\n\nGIỚI HẠN LRFD\n  Ứng suất pháp : f_n ≤ 0,90 · F_y\n  Ứng suất cắt  : f_v ≤ 1,00 · 0,6·F_y\n  Von Mises     : √(f_n² + 3f_v²) ≤ 0,90 · F_y",
+            en: "MATERIAL CONSTANTS (steel)\n  E = 29,000 ksi = 200,000 MPa\n  G = 11,200 ksi =  77,200 MPa\n  ν = 0.30\n\nLRFD LIMITS\n  Normal stress : f_n ≤ 0.90 · F_y\n  Shear stress  : f_v ≤ 1.00 · 0.6·F_y\n  Von Mises     : √(f_n² + 3f_v²) ≤ 0.90 · F_y"
+          },
+          { type: "subhead", vi: "J, Cw và a cho một số W-shape thường dùng", en: "J, Cw and a for common W-shapes" },
+          {
+            type: "table",
+            head: [{ vi: "Tiết diện", en: "Section" }, { vi: "J (in⁴)", en: "J (in⁴)" }, { vi: "Cw (in⁶)", en: "Cw (in⁶)" }, { vi: "W_no (in²)", en: "W_no (in²)" }, { vi: "a (in)", en: "a (in)" }],
+            rows: [
+              [{ vi: "W8×31", en: "W8×31" }, { vi: "0,536", en: "0.536" }, { vi: "212", en: "212" }, { vi: "12,2", en: "12.2" }, { vi: "32,0", en: "32.0" }],
+              [{ vi: "W10×49", en: "W10×49" }, { vi: "1,39", en: "1.39" }, { vi: "620", en: "620" }, { vi: "16,5", en: "16.5" }, { vi: "34,0", en: "34.0" }],
+              [{ vi: "W12×50", en: "W12×50" }, { vi: "1,71", en: "1.71" }, { vi: "1.880", en: "1,880" }, { vi: "25,0", en: "25.0" }, { vi: "53,3", en: "53.3" }],
+              [{ vi: "W14×48", en: "W14×48" }, { vi: "1,45", en: "1.45" }, { vi: "2.240", en: "2,240" }, { vi: "27,2", en: "27.2" }, { vi: "63,2", en: "63.2" }],
+              [{ vi: "W14×90", en: "W14×90" }, { vi: "4,06", en: "4.06" }, { vi: "4.990", en: "4,990" }, { vi: "33,0", en: "33.0" }, { vi: "56,4", en: "56.4" }],
+              [{ vi: "W16×26", en: "W16×26" }, { vi: "0,262", en: "0.262" }, { vi: "456", en: "456" }, { vi: "15,5", en: "15.5" }, { vi: "67,1", en: "67.1" }],
+              [{ vi: "W16×50", en: "W16×50" }, { vi: "1,52", en: "1.52" }, { vi: "2.340", en: "2,340" }, { vi: "23,6", en: "23.6" }, { vi: "63,1", en: "63.1" }],
+              [{ vi: "W21×44", en: "W21×44" }, { vi: "0,770", en: "0.770" }, { vi: "2.110", en: "2,110" }, { vi: "24,5", en: "24.5" }, { vi: "84,2", en: "84.2" }],
+              [{ vi: "W24×55", en: "W24×55" }, { vi: "1,18", en: "1.18" }, { vi: "3.870", en: "3,870" }, { vi: "29,1", en: "29.1" }, { vi: "92,0", en: "92.0" }]
+            ]
+          },
+          { type: "subhead", vi: "Channel và HSS", en: "Channels and HSS" },
+          {
+            type: "table",
+            head: [{ vi: "Tiết diện", en: "Section" }, { vi: "J (in⁴)", en: "J (in⁴)" }, { vi: "Cw (in⁶) / C (in³)", en: "Cw (in⁶) / C (in³)" }, { vi: "Ghi chú", en: "Note" }],
+            rows: [
+              [{ vi: "C10×15.3", en: "C10×15.3" }, { vi: "0,209", en: "0.209" }, { vi: "54,8", en: "54.8" }, { vi: "e₀ = 0,634 in", en: "e₀ = 0.634 in" }],
+              [{ vi: "C15×33.9", en: "C15×33.9" }, { vi: "0,904", en: "0.904" }, { vi: "349", en: "349" }, { vi: "e₀ = 0,788 in", en: "e₀ = 0.788 in" }],
+              [{ vi: "HSS 8×6×3/8", en: "HSS 8×6×3/8" }, { vi: "86,2", en: "86.2" }, { vi: "C = 72,7", en: "C = 72.7" }, { vi: "Phổ biến", en: "Common" }],
+              [{ vi: "HSS 12×8×1/2", en: "HSS 12×8×1/2" }, { vi: "353", en: "353" }, { vi: "C = 265", en: "C = 265" }, { vi: "Rất mạnh", en: "Very strong" }]
+            ]
+          },
+          { type: "tip", vi: "Giá trị <b>a</b> tính theo a = √(E·Cw / G·J) với E = 29.000 ksi và G = 11.200 ksi. J, Cw, W_no tham khảo AISC Manual và DG9 Appendix A.", en: "The <b>a</b> values follow a = √(E·Cw / G·J) with E = 29,000 ksi and G = 11,200 ksi. J, Cw and W_no are from the AISC Manual and DG9 Appendix A." }
+        ]
+      },
+      {
+        heading: { vi: "20. Bảy khuyến nghị then chốt", en: "20. Seven key recommendations" },
+        body: [
+          {
+            type: "list", items: [
+              { vi: "<b>Ưu tiên loại bỏ xoắn bằng cấu tạo</b> trước khi bắt tay vào tính toán.", en: "<b>Try to detail the torsion away</b> before you start calculating." },
+              { vi: "<b>Xoắn đáng kể thì dùng tiết diện kín (HSS)</b> — đơn giản và hiệu quả hơn hẳn.", en: "<b>If torsion is significant, use a closed section (HSS)</b> — simpler and far more effective." },
+              { vi: "<b>Xác định chính xác tâm cắt</b>, đặc biệt với Channel.", en: "<b>Locate the shear center precisely</b>, especially for Channels." },
+              { vi: "<b>Xác định đúng điều kiện biên</b> — Fixed hay Pinned ảnh hưởng rất lớn đến kết quả.", en: "<b>Get the end conditions right</b> — Fixed versus Pinned changes the answer dramatically." },
+              { vi: "<b>Luôn kiểm tra góc xoắn θ</b> bên cạnh ứng suất.", en: "<b>Always check the twist θ</b> alongside the stresses." },
+              { vi: "<b>Tổ hợp ứng suất tại cùng một điểm</b> — không cộng các cực trị ở khác vị trí.", en: "<b>Combine stresses at the same point</b> — never add extremes from different locations." },
+              { vi: "<b>Kiểm tra Errata của DG9</b> trước khi dùng bất kỳ công thức nào.", en: "<b>Check the DG9 errata</b> before trusting any formula." }
+            ]
+          },
+          { type: "tip", vi: "<b>Xem lại Phần 1</b> — <a href='article-torsion-steel-part-1-vi.html'>Lý thuyết nền tảng & đặc trưng tiết diện</a>: phân loại tiết diện hở/kín, tâm cắt, hai cơ chế kháng xoắn, điều kiện biên và 12 trường hợp tải.", en: "<b>Back to Part 1</b> — <a href='article-torsion-steel-part-1.html'>theory and section properties</a>: open versus closed sections, the shear center, the two resisting mechanisms, boundary conditions and the 12 loading cases." }
+        ]
+      }
+    ],
+    footnote: {
+      vi: "Bài viết thuộc series “Hướng dẫn thiết kế kết cấu công trình công nghiệp” — Roberto Structural. Nội dung mang tính hướng dẫn kỹ thuật; kỹ sư chịu trách nhiệm kiểm tra và hiệu chỉnh theo điều kiện cụ thể của dự án và tiêu chuẩn áp dụng. Tiêu chuẩn thay đổi theo thời gian — luôn kiểm tra phiên bản mới nhất, kể cả Errata của AISC Design Guide 9.",
+      en: "Part of the “Industrial structural design guide” series by Roberto Structural. The content is technical guidance only; the engineer remains responsible for verifying and adapting it to each project and the governing code. Codes change — always check the current edition, including the AISC Design Guide 9 errata."
+    }
+  },
+
+  /* ===================== No. 09 — Torsion, part 1 of 2 ===================== */
+  {
+    id: "torsion-steel-part-1",
+    no: "09",
+    category: { vi: "Kết cấu thép", en: "Steel Structures" },
+    date: "2026-08-13",
+    readmin: 16,
+    title: {
+      vi: "Phân tích xoắn cho cấu kiện thép — Phần 1: Lý thuyết nền tảng & đặc trưng tiết diện",
+      en: "Torsional Analysis of Structural Steel Members — Part 1: Theory & Section Properties"
+    },
+    excerpt: {
+      vi: "Vì sao SAP2000 và STAAD không trả về ứng suất xoắn, tâm cắt là gì, hai cơ chế St. Venant và vênh khác nhau ra sao, và những đặc trưng tiết diện cần tra trước khi tính.",
+      en: "Why SAP2000 and STAAD never report torsional stresses, what the shear center is, how St. Venant and warping torsion differ, and the section properties you need before any calculation."
+    },
+    cover: "Resource/articles/07-torsion/cover_part1.webp",
+    sections: [
+      {
+        heading: { vi: "1. Vì sao xoắn là bài toán bị né tránh?", en: "1. Why torsion is the check everyone avoids" },
+        body: [
+          { vi: "Trong thiết kế kết cấu thép, kiểm tra xoắn từ lâu là một <b>vùng xám</b> mà đa số kỹ sư né tránh. Có hai nguyên nhân rất cụ thể.", en: "In steel design, the torsion check has long been a <b>grey area</b> most engineers avoid. There are two concrete reasons." },
+          { type: "subhead", vi: "Phần mềm phân tích phổ biến không hỗ trợ đầy đủ", en: "Common analysis software does not support it" },
+          {
+            type: "list", items: [
+              { vi: "SAP2000, ETABS, STAAD.Pro mô hình cấu kiện dạng thanh với <b>6 bậc tự do</b> tại mỗi nút.", en: "SAP2000, ETABS and STAAD.Pro model members as beam elements with <b>6 degrees of freedom</b> per node." },
+              { vi: "Bậc tự do thứ 7 — <b>vênh (warping)</b> — bị bỏ qua hoàn toàn.", en: "The 7th degree of freedom — <b>warping</b> — is ignored entirely." },
+              { vi: "Hệ quả: phần mềm chỉ trả về mô-men xoắn tổng T, <b>không</b> tính ứng suất xoắn chi tiết.", en: "Consequence: the software returns only the total torque T, and <b>never</b> the detailed torsional stresses." }
+            ]
+          },
+          { type: "subhead", vi: "Kỹ sư phải tự tính tay", en: "The engineer must calculate by hand" },
+          {
+            type: "list", items: [
+              { vi: "Quá trình phức tạp, phải tra nhiều bảng và biểu đồ.", en: "The process is involved, requiring several tables and charts." },
+              { vi: "Công thức dùng đạo hàm bậc 1, 2, 3 của góc xoắn — khó tiếp cận với kỹ sư thực hành.", en: "The formulas use the 1st, 2nd and 3rd derivatives of the twist angle — hard to approach in practice." },
+              { vi: "Chưa có tài liệu tiếng Việt nào hướng dẫn chi tiết từng bước.", en: "No step-by-step guide exists that truly serves the practising engineer." }
+            ]
+          },
+          { type: "tip", vi: "<b>Hậu quả thực tế:</b> nhiều kỹ sư chọn cách né xoắn bằng cách tăng tiết diện hoặc thêm giằng — lãng phí vật liệu. Hoặc bỏ qua hẳn kiểm tra xoắn — tiềm ẩn rủi ro an toàn.", en: "<b>Real consequence:</b> many engineers dodge torsion by oversizing members or adding bracing — wasting material. Others skip the check altogether — creating a safety risk." },
+          { vi: "Bài viết này hệ thống hoá lý thuyết xoắn, cung cấp quy trình thiết kế từng bước, bao phủ cả AISC (Design Guide 9) lẫn Eurocode 3 (SCI P385), kèm ví dụ tính toán chi tiết ở Phần 2.", en: "This article systematises torsion theory, gives a step-by-step design procedure, covers both AISC (Design Guide 9) and Eurocode 3 (SCI P385), and includes fully worked examples in Part 2." },
+          { type: "tip", vi: "<b>Tài liệu tham chiếu chính:</b> AISC Design Guide 9 <i>Torsional Analysis of Structural Steel Members</i> (2nd Ed.) · SCI P385 <i>Design of Steel Beams in Torsion</i> · AISC 360-22 Chương H3.", en: "<b>Primary references:</b> AISC Design Guide 9 <i>Torsional Analysis of Structural Steel Members</i> (2nd Ed.) · SCI P385 <i>Design of Steel Beams in Torsion</i> · AISC 360-22 Chapter H3." }
+        ]
+      },
+      {
+        heading: { vi: "2. Phân loại tiết diện — tiền đề quan trọng nhất", en: "2. Section classification — the most critical premise" },
+        body: [
+          { vi: "Đây là phân loại <b>quyết định toàn bộ phương pháp phân tích</b>. Làm sai bước này thì mọi tính toán phía sau đều sai hướng.", en: "This classification <b>determines the entire analysis approach</b>. Get it wrong and everything downstream is wrong." },
+          {
+            type: "figure", src: "Resource/articles/07-torsion/open_vs_closed.webp",
+            caption: { vi: "<b>Hình 1.</b> So sánh ứng xử xoắn giữa tiết diện hở và tiết diện kín.", en: "<b>Figure 1.</b> Torsional behaviour compared — open versus closed sections." }
+          },
+          { type: "subhead", vi: "Tiết diện hở", en: "Open sections" },
+          {
+            type: "list", items: [
+              { vi: "<b>Ví dụ:</b> W-shape (I), Channel (C/MC), Angle (L), Tee (WT/MT/ST).", en: "<b>Examples:</b> W-shapes (I-beams), Channels (C/MC), Angles (L), Tees (WT/MT/ST)." },
+              { vi: "Độ cứng xoắn <b>rất thấp</b> — hằng số xoắn J nhỏ.", en: "Torsional stiffness is <b>very low</b> — small torsional constant J." },
+              { vi: "Khi bị xoắn, tiết diện <b>vênh</b>: các phần tử phẳng dịch ra ngoài mặt phẳng ban đầu.", en: "When twisted the section <b>warps</b>: planar elements displace out of their original plane." },
+              { vi: "Xoắn vênh <b>chiếm ưu thế</b>, sinh ứng suất pháp lớn tại mép cánh.", en: "Warping torsion <b>dominates</b>, generating large normal stresses at the flange tips." }
+            ]
+          },
+          { type: "subhead", vi: "Tiết diện kín", en: "Closed sections" },
+          {
+            type: "list", items: [
+              { vi: "<b>Ví dụ:</b> HSS chữ nhật, HSS tròn (pipe), box section.", en: "<b>Examples:</b> rectangular HSS, round HSS (pipe), box sections." },
+              { vi: "Độ cứng xoắn <b>rất cao</b> — gấp 100 đến 1000 lần tiết diện hở tương đương.", en: "Torsional stiffness is <b>very high</b> — 100 to 1,000 times that of a comparable open section." },
+              { vi: "Dòng ứng suất cắt khép kín quanh chu vi; St. Venant chiếm ưu thế hoàn toàn.", en: "A closed shear flow runs around the perimeter; St. Venant torsion dominates completely." },
+              { vi: "Xoắn vênh thường <b>bỏ qua được</b>.", en: "Warping torsion is generally <b>negligible</b>." }
+            ]
+          },
+          {
+            type: "table",
+            head: [{ vi: "Đặc trưng", en: "Property" }, { vi: "Tiết diện hở", en: "Open sections" }, { vi: "Tiết diện kín", en: "Closed sections" }],
+            rows: [
+              [{ vi: "Hằng số xoắn J", en: "Torsional constant J" }, { vi: "Nhỏ", en: "Small" }, { vi: "Rất lớn (100–1000×)", en: "Very large (100–1,000×)" }],
+              [{ vi: "Hằng số vênh Cw", en: "Warping constant Cw" }, { vi: "Lớn, quan trọng", en: "Large, significant" }, { vi: "Nhỏ, thường bỏ qua", en: "Small, usually neglected" }],
+              [{ vi: "Cơ chế chịu xoắn chính", en: "Primary mechanism" }, { vi: "Xoắn vênh", en: "Warping torsion" }, { vi: "St. Venant", en: "St. Venant" }],
+              [{ vi: "Ứng suất pháp do xoắn", en: "Normal stress from torsion" }, { vi: "Có, thường lớn", en: "Present, often large" }, { vi: "Rất nhỏ, bỏ qua", en: "Very small, neglected" }],
+              [{ vi: "Mức độ phức tạp", en: "Computational complexity" }, { vi: "<b>Cao</b>", en: "<b>High</b>" }, { vi: "<b>Thấp</b>", en: "<b>Low</b>" }],
+              [{ vi: "Khi có xoắn lớn", en: "Under high torsion" }, { vi: "Hạn chế dùng", en: "Limit use" }, { vi: "<b>Ưu tiên</b>", en: "<b>Preferred</b>" }]
+            ]
+          },
+          { type: "tip", vi: "<b>Quy tắc vàng:</b> nếu xoắn đáng kể, <b>ưu tiên tiết diện kín (HSS)</b>. Buộc phải dùng tiết diện hở thì phải phân tích xoắn vênh đầy đủ.", en: "<b>Golden rule:</b> if torsion is significant, <b>prefer closed sections (HSS)</b>. If an open section is unavoidable, a full warping analysis is required." }
+        ]
+      },
+      {
+        heading: { vi: "3. Tâm cắt — khái niệm cốt lõi", en: "3. The shear center — the core concept" },
+        body: [
+          { vi: "<b>Tâm cắt</b> là điểm trên tiết diện mà tải ngang đi qua đó thì cấu kiện chỉ chịu uốn, <b>không bị xoắn</b>. Tải đặt lệch tâm cắt sinh mô-men xoắn T = P × e, với e là độ lệch tâm.", en: "The <b>shear center</b> is the point through which a transverse load must act to cause bending <b>without twisting</b>. A load offset from it induces a torque T = P × e, where e is the eccentricity." },
+          {
+            type: "figure", src: "Resource/articles/07-torsion/shear_center_locations.webp",
+            caption: { vi: "<b>Hình 2.</b> Vị trí tâm cắt của các dạng tiết diện thường gặp.", en: "<b>Figure 2.</b> Shear center locations for common cross-section types." }
+          },
+          {
+            type: "table",
+            head: [{ vi: "Loại tiết diện", en: "Section type" }, { vi: "Vị trí tâm cắt", en: "Shear center location" }],
+            rows: [
+              [{ vi: "<b>W-shape</b> — đối xứng kép", en: "<b>W-shape</b> — doubly symmetric" }, { vi: "Trùng trọng tâm", en: "Coincides with the centroid" }],
+              [{ vi: "<b>Channel</b> — đối xứng đơn", en: "<b>Channel</b> — singly symmetric" }, { vi: "Nằm <b>ngoài bản bụng</b>, phía cánh, cách bụng e₀", en: "<b>Outside the web</b>, on the flange side, at distance e₀" }],
+              [{ vi: "<b>HSS</b> chữ nhật / tròn", en: "<b>HSS</b> rectangular / round" }, { vi: "Trùng trọng tâm", en: "Coincides with the centroid" }],
+              [{ vi: "<b>Angle</b> (L)", en: "<b>Angle</b> (L)" }, { vi: "Tại góc giao hai cánh", en: "At the corner where the legs meet" }],
+              [{ vi: "<b>Tee</b> (WT/MT/ST)", en: "<b>Tee</b> (WT/MT/ST)" }, { vi: "Trên trục đối xứng, gần giao cánh–bụng", en: "On the axis of symmetry, near the flange–web junction" }]
+            ]
+          },
+          { type: "tip", vi: "<b>Lưu ý quan trọng:</b> với tiết diện Channel, ngay cả khi tải đặt <b>đúng trọng tâm</b>, cấu kiện vẫn bị xoắn — vì tâm cắt nằm ngoài bản bụng. Đây là bẫy hay gặp nhất.", en: "<b>Important:</b> for a Channel, even a load applied exactly at the <b>centroid</b> still twists the member — the shear center lies outside the web. This is the single most common trap." },
+          { type: "subhead", vi: "Công thức tâm cắt cho Channel", en: "Shear center formula for Channels" },
+          {
+            type: "code",
+            vi: "e₀ = 3·b_f²·t_f / ( h·t_w + 6·b_f·t_f )\n\nb_f = chiều rộng cánh        t_f = chiều dày cánh\nh   = chiều cao bản bụng     t_w = chiều dày bản bụng",
+            en: "e₀ = 3·b_f²·t_f / ( h·t_w + 6·b_f·t_f )\n\nb_f = flange width        t_f = flange thickness\nh   = clear web depth     t_w = web thickness"
+          },
+          { type: "tip", vi: "<b>Tra nhanh:</b> giá trị e₀ cho tiết diện tiêu chuẩn có sẵn trong AISC Steel Construction Manual, bảng “Dimensions and Properties”.", en: "<b>Quick reference:</b> e₀ for standard sections is tabulated in the AISC Steel Construction Manual, “Dimensions and Properties”." }
+        ]
+      },
+      {
+        heading: { vi: "4. Phân rã tải lệch tâm", en: "4. Decomposing an eccentric load" },
+        body: [
+          { vi: "Khi tải không đi qua tâm cắt, ta phân rã thành hai thành phần độc lập rồi cộng tác dụng.", en: "When a load misses the shear center, decompose it into two independent components and superpose." },
+          {
+            type: "figure", src: "Resource/articles/07-torsion/load_decomposition.webp",
+            caption: { vi: "<b>Hình 3.</b> Tải lệch tâm = uốn thuần qua tâm cắt + xoắn thuần.", en: "<b>Figure 3.</b> Eccentric load = pure bending through the shear center + pure torsion." }
+          },
+          {
+            type: "code",
+            vi: "Mô-men xoắn tập trung:   T = P × e\nMô-men xoắn phân bố:     t = w × e     (trên đơn vị chiều dài)\n\nP = tải tập trung (kN)      w = tải phân bố (kN/m)\ne = độ lệch tâm tới tâm cắt",
+            en: "Concentrated torque:   T = P × e\nDistributed torque:    t = w × e     (per unit length)\n\nP = concentrated load (kN)   w = distributed load (kN/m)\ne = eccentricity to the shear center"
+          },
+          { type: "subhead", vi: "Bốn trường hợp thực tế thường gặp", en: "Four scenarios you will actually meet" },
+          {
+            type: "figure", src: "Resource/articles/07-torsion/practical_applications.webp",
+            caption: { vi: "<b>Hình 4.</b> Các trường hợp xoắn thường gặp trong kết cấu thép.", en: "<b>Figure 4.</b> Common sources of torsion in steel structures." }
+          },
+          {
+            type: "list", items: [
+              { vi: "<b>Dầm biên (spandrel):</b> tải tường và cladding đặt lệch trên cánh dầm.", en: "<b>Spandrel beam:</b> wall and cladding loads applied eccentrically on the flange." },
+              { vi: "<b>Dầm cầu trục:</b> tải bánh xe trên ray lệch khỏi tâm cắt. Giải pháp phổ biến là hàn Channel lên cánh trên (channel cap).", en: "<b>Crane runway beam:</b> wheel loads on the rail offset from the shear center. The usual fix is a channel cap welded to the top flange." },
+              { vi: "<b>Console chịu tải lệch:</b> bất lợi nhất, vì đầu tự do không có liên kết nào cản xoắn.", en: "<b>Cantilever with eccentric load:</b> the worst case — the free end has no restraint at all." },
+              { vi: "<b>Dầm chịu tải không đối xứng:</b> sàn chỉ đặt một phía, hoặc liên kết dầm phụ lệch tâm.", en: "<b>Asymmetrically loaded beam:</b> slab on one side only, or eccentric secondary-beam connections." }
+            ]
+          }
+        ]
+      },
+      {
+        heading: { vi: "5. Hai cơ chế chịu xoắn", en: "5. The two torsional resistance mechanisms" },
+        body: [
+          { vi: "Mô-men xoắn ngoại lực được cân bằng bởi hai cơ chế nội lực khác hẳn nhau về bản chất.", en: "The applied torque is resisted by two mechanisms that are physically quite different." },
+          {
+            type: "code", vi: "T = T_sv + T_w\n\nT_sv = xoắn thuần (St. Venant)     T_w = xoắn vênh (warping)",
+            en: "T = T_sv + T_w\n\nT_sv = pure (St. Venant) torsion     T_w = warping torsion"
+          },
+          { type: "subhead", vi: "5.1. Xoắn thuần — St. Venant", en: "5.1. Pure torsion — St. Venant" },
+          {
+            type: "list", items: [
+              { vi: "Tiết diện xoay quanh trục dọc mà <b>giữ nguyên hình dạng phẳng</b>.", en: "The section rotates about its longitudinal axis while <b>staying planar</b>." },
+              { vi: "Kháng lại bằng <b>ứng suất cắt</b>, biến thiên tuyến tính qua chiều dày bản thành.", en: "Resisted by <b>shear stress</b> varying linearly through the wall thickness." },
+              { vi: "Ứng suất lớn nhất ở <b>phần tử dày nhất</b>, hướng song song mép phần tử.", en: "Peak stress in the <b>thickest element</b>, directed parallel to its edge." },
+              { vi: "Chiếm ưu thế ở tiết diện kín. Ở tiết diện hở J nhỏ nên thường <b>không</b> phải thành phần nguy hiểm nhất.", en: "Dominates in closed sections. In open sections J is small, so this is usually <b>not</b> the governing component." }
+            ]
+          },
+          {
+            type: "code", vi: "T_sv = G·J·θ'\nτ_t  = G·t·θ'\n\nG = mô-đun cắt = 11.200 ksi = 77.200 MPa\nJ = hằng số xoắn St. Venant\nθ' = đạo hàm bậc 1 của góc xoắn theo trục dọc z",
+            en: "T_sv = G·J·θ'\nτ_t  = G·t·θ'\n\nG = shear modulus = 11,200 ksi = 77,200 MPa\nJ = St. Venant torsional constant\nθ' = 1st derivative of the twist angle along z"
+          },
+          { type: "subhead", vi: "5.2. Xoắn vênh — Warping", en: "5.2. Warping torsion" },
+          {
+            type: "list", items: [
+              { vi: "Khi tiết diện xoắn, cánh và bụng có xu hướng <b>dịch ra ngoài mặt phẳng</b> ban đầu — đó là vênh.", en: "As the section twists, flanges and web tend to <b>displace out of plane</b> — that is warping." },
+              { vi: "Nếu vênh bị <b>ngăn cản</b> (liên kết ngàm, tính liên tục), sẽ sinh ứng suất bổ sung.", en: "If warping is <b>restrained</b> (fixed connections, continuity), extra stresses develop." },
+              { vi: "Sinh ra hai loại ứng suất: <b>ứng suất pháp</b> σ_w và <b>ứng suất cắt</b> τ_w.", en: "It produces two stress types: <b>normal stress</b> σ_w and <b>shear stress</b> τ_w." }
+            ]
+          },
+          {
+            type: "code", vi: "T_w = −E·C_w·θ'''\nσ_w = E·W_no·θ''\nτ_w = E·S_w·θ''' / t\n\nE   = mô-đun đàn hồi = 29.000 ksi = 200.000 MPa\nC_w = hằng số vênh          W_no = hàm vênh chuẩn hoá\nS_w = mô-men tĩnh vênh      t = chiều dày phần tử",
+            en: "T_w = −E·C_w·θ'''\nσ_w = E·W_no·θ''\nτ_w = E·S_w·θ''' / t\n\nE   = modulus of elasticity = 29,000 ksi = 200,000 MPa\nC_w = warping constant        W_no = normalized warping function\nS_w = warping statical moment  t = element thickness"
+          },
+          { type: "tip", vi: "<b>Ứng suất pháp do vênh σ_w thường là thành phần nguy hiểm nhất</b> khi phân tích tiết diện hở. Nó phân bố giống uốn quanh trục yếu — kéo/nén tại mép cánh.", en: "<b>Warping normal stress σ_w is usually the governing component</b> for open sections. It distributes like weak-axis bending — tension/compression at the flange tips." },
+          {
+            type: "figure", src: "Resource/articles/07-torsion/stress_distribution.webp",
+            caption: { vi: "<b>Hình 5.</b> Phân bố ba loại ứng suất xoắn trên tiết diện I.", en: "<b>Figure 5.</b> Distribution of the three torsional stress types on an I-section." }
+          },
+          {
+            type: "table",
+            head: [{ vi: "Loại ứng suất", en: "Stress type" }, { vi: "Ký hiệu", en: "Symbol" }, { vi: "Vị trí lớn nhất", en: "Location of maximum" }],
+            rows: [
+              [{ vi: "Cắt St. Venant", en: "St. Venant shear" }, { vi: "τ_t", en: "τ_t" }, { vi: "Phần tử dày nhất, thường là cánh", en: "Thickest element, usually the flange" }],
+              [{ vi: "Pháp do vênh", en: "Warping normal" }, { vi: "σ_w", en: "σ_w" }, { vi: "Mép ngoài cánh", en: "Flange tip" }],
+              [{ vi: "Cắt do vênh", en: "Warping shear" }, { vi: "τ_w", en: "τ_w" }, { vi: "Giao cánh–bụng", en: "Flange–web junction" }]
+            ]
+          }
+        ]
+      },
+      {
+        heading: { vi: "6. Đặc trưng tiết diện cần tra", en: "6. Section properties you must look up" },
+        body: [
+          {
+            type: "table",
+            head: [{ vi: "Ký hiệu", en: "Symbol" }, { vi: "Tên gọi", en: "Name" }, { vi: "Ý nghĩa", en: "Meaning" }],
+            rows: [
+              [{ vi: "<b>J</b>", en: "<b>J</b>" }, { vi: "Hằng số xoắn St. Venant", en: "St. Venant torsional constant" }, { vi: "Khả năng kháng xoắn thuần", en: "Resistance to pure torsion" }],
+              [{ vi: "<b>C_w</b>", en: "<b>C_w</b>" }, { vi: "Hằng số vênh", en: "Warping constant" }, { vi: "Khả năng kháng xoắn vênh", en: "Resistance to warping torsion" }],
+              [{ vi: "<b>W_no</b>", en: "<b>W_no</b>" }, { vi: "Hàm vênh chuẩn hoá", en: "Normalized warping function" }, { vi: "Tính σ_w tại một điểm", en: "Gives σ_w at a point" }],
+              [{ vi: "<b>S_w</b>", en: "<b>S_w</b>" }, { vi: "Mô-men tĩnh vênh", en: "Warping statical moment" }, { vi: "Tính τ_w tại một điểm", en: "Gives τ_w at a point" }],
+              [{ vi: "<b>a</b>", en: "<b>a</b>" }, { vi: "Đặc trưng xoắn tổng hợp", en: "Torsional property" }, { vi: "a = √(E·Cw / G·J), đơn vị chiều dài", en: "a = √(E·Cw / G·J), in length units" }],
+              [{ vi: "<b>e₀</b>", en: "<b>e₀</b>" }, { vi: "Độ lệch tâm cắt", en: "Shear center eccentricity" }, { vi: "Khoảng cách tâm cắt tới trọng tâm", en: "Shear center to centroid distance" }]
+            ]
+          },
+          {
+            type: "code", vi: "Tiết diện hở, gần đúng:   J ≈ (1/3)·Σ b_i·t_i³\nW-shape đối xứng kép:     C_w = I_y·h₀² / 4        (h₀ = d − t_f)\nĐặc trưng tổng hợp:       a  = √( E·C_w / (G·J) )",
+            en: "Open section, approximate:  J ≈ (1/3)·Σ b_i·t_i³\nDoubly symmetric W-shape:   C_w = I_y·h₀² / 4        (h₀ = d − t_f)\nCombined property:          a  = √( E·C_w / (G·J) )"
+          },
+          { type: "tip", vi: "<b>Đừng dùng công thức gần đúng của J để thiết kế.</b> Nó bỏ qua bán kính lượn (fillet); giá trị trong AISC Manual đã kể đến và chính xác hơn — <b>luôn dùng giá trị tra bảng</b>.", en: "<b>Do not design with the approximate J.</b> It ignores the fillets; the AISC Manual values account for them and are more accurate — <b>always use the tabulated value</b>." },
+          { type: "subhead", vi: "Ý nghĩa của tỷ số L/a", en: "What the L/a ratio tells you" },
+          {
+            type: "list", items: [
+              { vi: "<b>L/a nhỏ</b> → xoắn vênh chiếm ưu thế.", en: "<b>Small L/a</b> → warping torsion dominates." },
+              { vi: "<b>L/a lớn</b> → xoắn St. Venant chiếm ưu thế.", en: "<b>Large L/a</b> → St. Venant torsion dominates." },
+              { vi: "Vùng chuyển tiếp khoảng <b>L/a ≈ 1 đến 5</b>.", en: "Transition zone is roughly <b>L/a ≈ 1 to 5</b>." }
+            ]
+          },
+          {
+            type: "table",
+            head: [{ vi: "Nguồn tra cứu", en: "Source" }, { vi: "Nội dung", en: "Content" }],
+            rows: [
+              [{ vi: "<b>AISC Steel Construction Manual</b> — Dimensions and Properties", en: "<b>AISC Steel Construction Manual</b> — Dimensions and Properties" }, { vi: "J, Cw cho W, M, S, HP, C, MC, WT, MT, ST, L", en: "J, Cw for W, M, S, HP, C, MC, WT, MT, ST, L" }],
+              [{ vi: "<b>AISC Design Guide 9</b> — Appendix A", en: "<b>AISC Design Guide 9</b> — Appendix A" }, { vi: "W_no, S_w, Q_f, Q_w cho tiết diện phổ biến", en: "W_no, S_w, Q_f, Q_w for common sections" }],
+              [{ vi: "<b>SCI P385</b> — Appendix", en: "<b>SCI P385</b> — Appendix" }, { vi: "Đặc trưng xoắn cho tiết diện Eurocode (UB, UC, PFC)", en: "Torsional properties for Eurocode sections (UB, UC, PFC)" }]
+            ]
+          }
+        ]
+      },
+      {
+        heading: { vi: "7. Điều kiện biên — yếu tố quyết định kết quả", en: "7. Boundary conditions — what really drives the answer" },
+        body: [
+          { vi: "Ứng xử xoắn <b>cực kỳ nhạy</b> với điều kiện biên hai đầu. Phải phân biệt hai loại liên kết khác nhau: liên kết <b>xoắn</b> ngăn xoay quanh trục dọc (ảnh hưởng θ), và liên kết <b>vênh</b> ngăn cánh dịch ngoài mặt phẳng (ảnh hưởng θ').", en: "Torsional behaviour is <b>extremely sensitive</b> to end conditions. Two distinct restraints matter: <b>torsional</b> restraint prevents rotation about the axis (affects θ), and <b>warping</b> restraint prevents the flanges moving out of plane (affects θ')." },
+          {
+            type: "figure", src: "Resource/articles/07-torsion/boundary_conditions.webp",
+            caption: { vi: "<b>Hình 6.</b> Ba dạng điều kiện biên xoắn điển hình.", en: "<b>Figure 6.</b> The three typical torsional boundary conditions." }
+          },
+          {
+            type: "table",
+            head: [{ vi: "Liên kết thực tế", en: "Practical connection" }, { vi: "Xoắn (θ)", en: "Torsion (θ)" }, { vi: "Vênh (θ')", en: "Warping (θ')" }, { vi: "Mô hình", en: "Model" }],
+            rows: [
+              [{ vi: "Clip angle / fin plate", en: "Clip angle / fin plate" }, { vi: "θ = 0", en: "θ = 0" }, { vi: "θ'' = 0", en: "θ'' = 0" }, { vi: "<b>Pinned</b>", en: "<b>Pinned</b>" }],
+              [{ vi: "Bản đầu mỏng (flush)", en: "Thin end plate (flush)" }, { vi: "θ = 0", en: "θ = 0" }, { vi: "θ'' = 0", en: "θ'' = 0" }, { vi: "<b>Pinned</b>", en: "<b>Pinned</b>" }],
+              [{ vi: "Bản đầu dày / mở rộng", en: "Thick / extended end plate" }, { vi: "θ = 0", en: "θ = 0" }, { vi: "θ' = 0", en: "θ' = 0" }, { vi: "<b>Fixed</b>", en: "<b>Fixed</b>" }],
+              [{ vi: "Cánh hàn trực tiếp vào cột", en: "Flange welded to column" }, { vi: "θ = 0", en: "θ = 0" }, { vi: "θ' = 0", en: "θ' = 0" }, { vi: "<b>Fixed</b>", en: "<b>Fixed</b>" }],
+              [{ vi: "Sàn BTCT liên hợp", en: "Composite concrete slab" }, { vi: "θ = 0", en: "θ = 0" }, { vi: "≈ θ' = 0", en: "≈ θ' = 0" }, { vi: "<b>≈ Fixed</b> (cánh trên)", en: "<b>≈ Fixed</b> (top flange)" }],
+              [{ vi: "Đầu console tự do", en: "Free cantilever tip" }, { vi: "θ ≠ 0", en: "θ ≠ 0" }, { vi: "θ' ≠ 0", en: "θ' ≠ 0" }, { vi: "<b>Free</b>", en: "<b>Free</b>" }]
+            ]
+          },
+          {
+            type: "list", items: [
+              { vi: "<b>Fixed–Fixed</b> cho ứng suất và góc xoắn <b>nhỏ nhất</b> — tiết kiệm vật liệu nhất.", en: "<b>Fixed–Fixed</b> gives the <b>smallest</b> stresses and twist — the most material-efficient." },
+              { vi: "<b>Pinned–Pinned</b> cho kết quả lớn hơn đáng kể.", en: "<b>Pinned–Pinned</b> gives significantly larger values." },
+              { vi: "<b>Fixed–Free (console)</b> cho kết quả <b>lớn nhất</b> — bất lợi nhất.", en: "<b>Fixed–Free (cantilever)</b> gives the <b>largest</b> — the most unfavourable." }
+            ]
+          },
+          { type: "tip", vi: "<b>Khuyến nghị:</b> với dầm chịu xoắn đáng kể, nên thiết kế liên kết <b>ngàm vênh</b> để giảm ứng suất. Nếu không chắc về mức độ ngàm vênh, <b>lấy Pinned</b> — bảo thủ hơn.", en: "<b>Recommendation:</b> for beams under significant torsion, detail <b>warping-fixed</b> connections to cut stresses. If the degree of warping fixity is uncertain, <b>assume Pinned</b> — it is conservative." }
+        ]
+      },
+      {
+        heading: { vi: "8. Phương trình vi phân chủ đạo & 12 trường hợp tải", en: "8. The governing equation and the 12 loading cases" },
+        body: [
+          {
+            type: "code", vi: "Cân bằng nội – ngoại lực:   T = G·J·θ' − E·C_w·θ'''\n\nDạng chuẩn:                 θ''' − (1/a²)·θ' = −T / (E·C_w)\nvới                         a² = E·C_w / (G·J)",
+            en: "Internal–external equilibrium:  T = G·J·θ' − E·C_w·θ'''\n\nStandard form:                  θ''' − (1/a²)·θ' = −T / (E·C_w)\nwhere                           a² = E·C_w / (G·J)"
+          },
+          { vi: "Đây là phương trình vi phân bậc 3 theo θ' (bậc 4 theo θ). AISC Design Guide 9 cung cấp <b>nghiệm đóng cho 12 trường hợp tải</b> tiêu biểu, gọi là Case 1–12.", en: "This is a 3rd-order differential equation in θ' (4th-order in θ). AISC Design Guide 9 gives <b>closed-form solutions for 12 representative loading cases</b>, referred to as Cases 1–12." },
+          {
+            type: "table",
+            head: [{ vi: "Case", en: "Case" }, { vi: "Điều kiện biên", en: "Boundary condition" }, { vi: "Loại tải", en: "Load type" }, { vi: "Ghi chú", en: "Note" }],
+            rows: [
+              [{ vi: "<b>1</b>", en: "<b>1</b>" }, { vi: "Pinned – Pinned", en: "Pinned – Pinned" }, { vi: "T tập trung giữa nhịp", en: "Concentrated T at midspan" }, { vi: "Phổ biến nhất", en: "Most common" }],
+              [{ vi: "<b>2</b>", en: "<b>2</b>" }, { vi: "Pinned – Pinned", en: "Pinned – Pinned" }, { vi: "T tập trung vị trí bất kỳ", en: "Concentrated T anywhere" }, { vi: "Tổng quát hơn Case 1", en: "More general than Case 1" }],
+              [{ vi: "<b>3</b>", en: "<b>3</b>" }, { vi: "Pinned – Pinned", en: "Pinned – Pinned" }, { vi: "t phân bố đều toàn nhịp", en: "Uniform t over full span" }, { vi: "Dầm biên chịu tải tường", en: "Spandrel with wall load" }],
+              [{ vi: "<b>4</b>", en: "<b>4</b>" }, { vi: "Pinned – Pinned", en: "Pinned – Pinned" }, { vi: "t phân bố nửa nhịp", en: "Uniform t over half span" }, { vi: "Tải không đối xứng", en: "Asymmetric loading" }],
+              [{ vi: "<b>5</b>", en: "<b>5</b>" }, { vi: "Fixed – Fixed", en: "Fixed – Fixed" }, { vi: "T tập trung giữa nhịp", en: "Concentrated T at midspan" }, { vi: "Ứng suất giảm so với Case 1", en: "Lower stress than Case 1" }],
+              [{ vi: "<b>6–8</b>", en: "<b>6–8</b>" }, { vi: "Fixed – Fixed", en: "Fixed – Fixed" }, { vi: "Các dạng tải khác", en: "Other load patterns" }, { vi: "Case 7 tối ưu cho dầm biên", en: "Case 7 is best for spandrels" }],
+              [{ vi: "<b>9</b>", en: "<b>9</b>" }, { vi: "Fixed – Free", en: "Fixed – Free" }, { vi: "T tập trung tại đầu tự do", en: "Concentrated T at free end" }, { vi: "Console tiêu biểu", en: "Typical cantilever" }],
+              [{ vi: "<b>10–12</b>", en: "<b>10–12</b>" }, { vi: "Fixed – Free", en: "Fixed – Free" }, { vi: "Các dạng tải khác", en: "Other load patterns" }, { vi: "—", en: "—" }]
+            ]
+          },
+          { type: "subhead", vi: "Quy trình dùng bảng nghiệm", en: "How to use the solution tables" },
+          {
+            type: "checklist", items: [
+              { vi: "Xác định Case phù hợp từ điều kiện biên và loại tải.", en: "Identify the Case from the boundary conditions and load type." },
+              { vi: "Tính a = √(E·Cw / G·J) và tỷ số L/a.", en: "Compute a = √(E·Cw / G·J) and the ratio L/a." },
+              { vi: "Tra biểu đồ hoặc giải phương trình để có θ, θ', θ'', θ''' tại vị trí cần.", en: "Read the charts or evaluate the equations for θ, θ', θ'', θ''' at the location of interest." },
+              { vi: "Tính ứng suất từ các đạo hàm vừa có.", en: "Compute the stresses from those derivatives." }
+            ]
+          },
+          { type: "tip", vi: "<b>Mẹo thực hành:</b> tra biểu đồ dễ sai số nội suy. Nên <b>lập trình công thức vào bảng tính</b> — các phương trình ở Appendix B của DG9 hoàn toàn công thức hoá được.", en: "<b>Practical tip:</b> reading charts invites interpolation error. <b>Program the formulas into a spreadsheet</b> — the equations in DG9 Appendix B can be fully formulised." }
+        ]
+      },
+      {
+        heading: { vi: "9. Khi nào được phép đơn giản hoá?", en: "9. When may you simplify?" },
+        body: [
+          { type: "tip", vi: "Theo <b>AISC 360 Mục H3</b>: nếu <b>T_r / T_c ≤ 0,20</b> thì tác dụng của xoắn <b>có thể bỏ qua</b>. T_r là cường độ xoắn yêu cầu, T_c là cường độ xoắn khả dụng.", en: "Per <b>AISC 360 Section H3</b>: if <b>T_r / T_c ≤ 0.20</b>, torsional effects <b>may be neglected</b>. T_r is the required torsional strength, T_c the available torsional strength." },
+          { type: "subhead", vi: "Bỏ qua xoắn vênh khi nào?", en: "When may warping torsion be neglected?" },
+          {
+            type: "list", items: [
+              { vi: "<b>Tiết diện kín (HSS, box):</b> gần như luôn bỏ qua được — St. Venant chiếm ưu thế.", en: "<b>Closed sections (HSS, box):</b> almost always — St. Venant dominates." },
+              { vi: "<b>Tiết diện hở với L/a rất lớn:</b> St. Venant bắt đầu chiếm ưu thế, nhưng vẫn nên kiểm tra.", en: "<b>Open sections with very large L/a:</b> St. Venant starts to dominate, but still worth checking." },
+              { vi: "<b>Angle, Tee:</b> độ cứng vênh vốn đã nhỏ.", en: "<b>Angles and Tees:</b> warping stiffness is inherently small." }
+            ]
+          },
+          { vi: "Chiều ngược lại — bỏ qua St. Venant — chỉ đúng với tiết diện hở có L/a rất nhỏ, và <b>rất ít gặp trong thực tế</b>.", en: "The reverse — neglecting St. Venant — only holds for open sections with very small L/a, and is <b>rare in practice</b>." },
+          {
+            type: "figure", src: "Resource/articles/07-torsion/design_flowchart.webp",
+            caption: { vi: "<b>Hình 7.</b> Sơ đồ quyết định cho bài toán phân tích xoắn.", en: "<b>Figure 7.</b> Decision flowchart for a torsion analysis." }
+          }
+        ]
+      },
+      {
+        heading: { vi: "10. Tổng kết Phần 1", en: "10. Part 1 summary" },
+        body: [
+          {
+            type: "list", items: [
+              { vi: "<b>Phân loại tiết diện</b> là bước đầu tiên — hở hay kín quyết định toàn bộ phương pháp.", en: "<b>Section classification</b> comes first — open or closed decides the whole method." },
+              { vi: "<b>Tâm cắt</b> là khái niệm cốt lõi — mọi tải lệch tâm cắt đều sinh xoắn.", en: "<b>The shear center</b> is the core concept — any load eccentric to it induces torsion." },
+              { vi: "Hai cơ chế kháng xoắn: <b>St. Venant</b> (ứng suất cắt) và <b>vênh</b> (pháp + cắt).", en: "Two resisting mechanisms: <b>St. Venant</b> (shear) and <b>warping</b> (normal + shear)." },
+              { vi: "<b>Ứng suất pháp do vênh</b> thường là thành phần nguy hiểm nhất ở tiết diện hở.", en: "<b>Warping normal stress</b> is usually the governing component in open sections." },
+              { vi: "<b>Điều kiện biên</b> ảnh hưởng cực lớn — phải xác định chính xác, không đoán.", en: "<b>Boundary conditions</b> matter enormously — determine them, do not guess." },
+              { vi: "<b>12 trường hợp tải</b> của Design Guide 9 bao phủ hầu hết tình huống thực tế.", en: "The <b>12 loading cases</b> in Design Guide 9 cover most real situations." },
+              { vi: "<b>a = √(E·Cw / G·J)</b> là tham số then chốt liên kết hai cơ chế.", en: "<b>a = √(E·Cw / G·J)</b> is the key parameter linking the two mechanisms." }
+            ]
+          },
+          { type: "tip", vi: "<b>Đọc tiếp Phần 2</b> — <a href='article-torsion-steel-part-2-vi.html'>Quy trình thiết kế, ví dụ tính toán & kiểm tra theo tiêu chuẩn</a>: quy trình 7 bước, công thức chi tiết cho từng Case, hai ví dụ tính đầy đủ (W-shape và HSS), so sánh AISC với Eurocode, và sáu cái bẫy thường gặp.", en: "<b>Continue to Part 2</b> — <a href='article-torsion-steel-part-2.html'>design procedure, worked examples and code checks</a>: the 7-step procedure, detailed formulas per Case, two complete worked examples (W-shape and HSS), AISC versus Eurocode, and six common traps." }
+        ]
+      }
+    ],
+    footnote: {
+      vi: "Bài viết thuộc series “Hướng dẫn thiết kế kết cấu công trình công nghiệp” — Roberto Structural. Nội dung mang tính hướng dẫn kỹ thuật; kỹ sư chịu trách nhiệm kiểm tra và hiệu chỉnh theo điều kiện cụ thể của dự án và tiêu chuẩn áp dụng.",
+      en: "Part of the “Industrial structural design guide” series by Roberto Structural. The content is technical guidance only; the engineer remains responsible for verifying and adapting it to the specific conditions of each project and the governing code."
+    }
+  },
   /* ============================== No. 08 ==============================
      Pipe Rack gồm 2 phần. Part 2 đặt TRƯỚC Part 1 trong mảng là CỐ Ý:
      articles.js lấy prev = ARTICLES[idx+1] (bài cũ hơn) và next = ARTICLES[idx-1]
@@ -1967,7 +2645,7 @@ window.ARTICLES = [
     category: { vi: "Mô hình & Phân tích", en: "Modelling & Analysis" },
     /* Tương tự bài DAM — thêm nhóm Kết cấu BTCT. */
     categories: [{ vi: "Mô hình & Phân tích", en: "Modelling & Analysis" },
-                 { vi: "Kết cấu BTCT", en: "Reinforced Concrete" }],
+    { vi: "Kết cấu BTCT", en: "Reinforced Concrete" }],
     date: "2026-08-04",
     readmin: 22,
     title: {
@@ -2497,7 +3175,7 @@ window.ARTICLES = [
     /* Bài dựng mô hình nhưng nội dung là thép — cho hiện ở cả nhóm Kết cấu thép.
        `category` ở trên vẫn là nhóm chính hiện trên thẻ; `categories` chỉ dùng để lọc. */
     categories: [{ vi: "Mô hình & Phân tích", en: "Modelling & Analysis" },
-                 { vi: "Kết cấu thép", en: "Steel Structures" }],
+    { vi: "Kết cấu thép", en: "Steel Structures" }],
     date: "2026-08-03",
     readmin: 18,
     title: {

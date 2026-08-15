@@ -47,9 +47,7 @@ window.DRAWINGS = [
     },
     contents: [
       { vi: "Bảng tra theo tiết diện cột", en: "Table by column section" },
-      { vi: "Bố trí lỗ bu-lông neo", en: "Anchor-bolt hole layout" },
-      { vi: "Bản đệm (plate washer)", en: "Plate washer" },
-      { vi: "Bệ bê tông", en: "Concrete pedestal" }
+      { vi: "Chi tiết điển hình", en: "Typical details" }
     ],
     format: "DWG",
     count: { vi: "4 nhóm tiết diện", en: "4 section groups" },
@@ -68,9 +66,7 @@ window.DRAWINGS = [
     },
     contents: [
       { vi: "Bảng tra theo tiết diện dầm", en: "Table by beam section" },
-      { vi: "Bu-lông cường độ cao M20", en: "M20 high-strength bolts" },
-      { vi: "Bản mã dày 10", en: "10 mm gusset plate" },
-      { vi: "Cắt vát bụng dầm (scallop)", en: "Web scallop" }
+      { vi: "Chi tiết điển hình", en: "Typical details" }
     ],
     format: "DWG",
     count: { vi: "2 nhóm tiết diện", en: "2 section groups" },
@@ -88,10 +84,8 @@ window.DRAWINGS = [
       en: "Double-bevel full-penetration groove welds, with the welding symbols for butt joints and T-joints."
     },
     contents: [
-      { vi: "Hàn rãnh vát hai phía", en: "Double-bevel groove weld" },
-      { vi: "Ngấu hoàn toàn (full penetration)", en: "Full penetration" },
-      { vi: "Ký hiệu mối nối đối đầu", en: "Butt-joint symbol" },
-      { vi: "Ký hiệu mối nối chữ T", en: "T-joint symbol" }
+      { vi: "Chi tiết mối hàn điển hình", en: "Typical weld details" },
+      { vi: "Ký hiệu hàn", en: "Welding symbols" }
     ],
     format: "DWG",
     count: { vi: "2 dạng mối nối", en: "2 joint types" },
@@ -109,10 +103,8 @@ window.DRAWINGS = [
       en: "Reinforced concrete slab on steel decking: two beam-to-column pin connection types, shear studs, joint filler and sealant."
     },
     contents: [
-      { vi: "Liên kết khớp dầm–cột kiểu A", en: "Beam–column pin connection type A" },
-      { vi: "Liên kết khớp dầm–cột kiểu B", en: "Beam–column pin connection type B" },
-      { vi: "Đinh chống cắt", en: "Shear studs" },
-      { vi: "Khe nối & mát-tít chèn", en: "Joint filler & sealant" }
+      { vi: "Chi tiết sàn deck điển hình", en: "Typical deck slab details" },
+      { vi: "Chi tiết liên kết dầm–cột", en: "Beam–column connection details" }
     ],
     format: "DWG",
     count: { vi: "2 kiểu liên kết", en: "2 connection types" },
@@ -130,11 +122,8 @@ window.DRAWINGS = [
       en: "DN32/DN25 pipe handrail with posts, toe plate and grating, including the field splice details."
     },
     contents: [
-      { vi: "Tay vịn trên & giữa", en: "Top & mid rail" },
-      { vi: "Cột lan can", en: "Handrail post" },
-      { vi: "Tấm chắn chân", en: "Toe plate" },
-      { vi: "Sàn grating", en: "Grating" },
-      { vi: "Mối nối tại hiện trường", en: "Field splice" }
+      { vi: "Chi tiết lan can điển hình", en: "Typical handrail details" },
+      { vi: "Chi tiết grating điển hình", en: "Typical grating details" }
     ],
     format: "DWG",
     count: { vi: "Lan can & grating", en: "Handrail & grating" },
@@ -152,11 +141,8 @@ window.DRAWINGS = [
       en: "Vertical caged ladder with safety gate, including sections at the base of the cage and at the support."
     },
     contents: [
-      { vi: "Thang & bậc leo", en: "Ladder & rungs" },
-      { vi: "Lồng bảo hiểm", en: "Safety cage" },
-      { vi: "Cổng an toàn", en: "Safety gate" },
-      { vi: "Mặt cắt chân lồng", en: "Section at cage base" },
-      { vi: "Chi tiết gối đỡ", en: "Support detail" }
+      { vi: "Chi tiết thang leo điển hình", en: "Typical ladder details" },
+      { vi: "Chi tiết lồng bảo hiểm", en: "Safety cage details" }
     ],
     format: "DWG",
     count: { vi: "Thang & lồng", en: "Ladder & cage" },
@@ -175,10 +161,8 @@ window.DRAWINGS = [
       en: "Four typical anchor-bolt types for column bases and equipment pedestals, with nuts, washers and plate washers."
     },
     contents: [
-      { vi: "Bốn kiểu TYPE-1 đến TYPE-4", en: "Four types: TYPE-1 to TYPE-4" },
-      { vi: "Ê-cu & vòng đệm", en: "Nuts & washers" },
-      { vi: "Bản đệm", en: "Plate washer" },
-      { vi: "Chiều dài neo", en: "Embedment length" }
+      { vi: "Chi tiết bu-lông neo điển hình", en: "Typical anchor bolt details" },
+      { vi: "Biểu đồ tra khả năng chịu lực", en: "Capacity interaction chart" }
     ],
     format: "DWG",
     count: { vi: "4 kiểu", en: "4 types" },
@@ -196,10 +180,7 @@ window.DRAWINGS = [
       en: "Tie arrangement around the anchor-bolt group, two types by hoop diameter, with a 25 mm grout bed."
     },
     contents: [
-      { vi: "Kiểu 1 — đai D10", en: "Type 1 — D10 hoops" },
-      { vi: "Kiểu 2 — đai D13 trở lên", en: "Type 2 — D13 hoops or bigger" },
-      { vi: "Vữa rót dày 25 mm", en: "25 mm grout" },
-      { vi: "Thanh giằng", en: "Tie bars" }
+      { vi: "Chi tiết bố trí cốt thép điển hình", en: "Typical rebar arrangement" }
     ],
     format: "DWG",
     count: { vi: "2 kiểu đai", en: "2 hoop types" },
@@ -218,10 +199,7 @@ window.DRAWINGS = [
       en: "Isolated equipment foundation: concrete pedestal, pedestal reinforcement, hairpin bars and concrete cover."
     },
     contents: [
-      { vi: "Bệ & móng", en: "Pedestal & footing" },
-      { vi: "Cốt thép bệ", en: "Pedestal reinforcement" },
-      { vi: "Thanh hairpin", en: "Hairpin bars" },
-      { vi: "Lớp bê tông bảo vệ", en: "Concrete cover" }
+      { vi: "Chi tiết móng thiết bị điển hình", en: "Typical equipment foundation details" }
     ],
     format: "DWG",
     count: { vi: "Mặt cắt & cốt thép", en: "Section & rebar" },
@@ -240,10 +218,7 @@ window.DRAWINGS = [
       en: "Four light-duty concrete paving joints: free edge, construction joint, expansion joint and contraction joint."
     },
     contents: [
-      { vi: "Mép tự do", en: "Free edge" },
-      { vi: "Khe thi công", en: "Construction joint" },
-      { vi: "Khe co giãn", en: "Expansion joint" },
-      { vi: "Khe co ngót", en: "Contraction joint" }
+      { vi: "Chi tiết khe nối điển hình", en: "Typical joint details" }
     ],
     format: "DWG",
     count: { vi: "4 loại khe", en: "4 joint types" },
