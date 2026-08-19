@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     GENERATED FILE — DO NOT EDIT BY HAND.
+     Produced by scripts/build-pages.mjs from assets/js/*-data.js.
+     Edit the data file, then re-run:  node scripts/build-pages.mjs
+     ============================================================ -->
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thiết kế kháng chấn cho kết cấu thép — Phần 1: Nền tảng lý thuyết &amp; triết lý thiết kế — Roberto Structural</title>
+<meta name="description" content="Northridge 1994 đã thay đổi toàn bộ ngành thép như thế nào, triết lý capacity design, bảy hệ kết cấu kháng chấn cùng hệ số R, và vì sao thép A36 không nên…" />
+<link rel="canonical" href="https://robertostructural.com/article-seismic-steel-part-1-vi.html" />
+<link rel="alternate" hreflang="en" href="https://robertostructural.com/article-seismic-steel-part-1.html" />
+<link rel="alternate" hreflang="vi" href="https://robertostructural.com/article-seismic-steel-part-1-vi.html" />
+<link rel="alternate" hreflang="x-default" href="https://robertostructural.com/article-seismic-steel-part-1.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Roberto Structural" />
+<meta property="og:locale" content="vi_VN" />
+<meta property="og:title" content="Thiết kế kháng chấn cho kết cấu thép — Phần 1: Nền tảng lý thuyết &amp; triết lý thiết kế — Roberto Structural" />
+<meta property="og:description" content="Northridge 1994 đã thay đổi toàn bộ ngành thép như thế nào, triết lý capacity design, bảy hệ kết cấu kháng chấn cùng hệ số R, và vì sao thép A36 không nên…" />
+<meta property="og:url" content="https://robertostructural.com/article-seismic-steel-part-1-vi.html" />
+<meta property="og:image" content="https://robertostructural.com/Resource/articles/08-seismic-steel/cover_1.webp" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Thiết kế kháng chấn cho kết cấu thép — Phần 1: Nền tảng lý thuyết &amp; triết lý thiết kế — Roberto Structural" />
+<meta name="twitter:description" content="Northridge 1994 đã thay đổi toàn bộ ngành thép như thế nào, triết lý capacity design, bảy hệ kết cấu kháng chấn cùng hệ số R, và vì sao thép A36 không nên…" />
+<meta name="twitter:image" content="https://robertostructural.com/Resource/articles/08-seismic-steel/cover_1.webp" />
+<meta property="article:published_time" content="2026-08-15" />
+<link rel="icon" type="image/x-icon" href="Logo/rbt.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+<!-- The pre-rendered body below carries .reveal, which starts at opacity:0 and is
+     switched on by IntersectionObserver. With JS off that would hide the very
+     content we just baked in, so undo the animation in that case. -->
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body data-page="insights">
+
+<header id="site-header">
+<div class="container nav">
+  <a class="brand" href="index-vi.html" data-rs-page="index">
+    <img src="Logo/Roberto_1.webp" alt="Roberto Structural logo" />
+    <b>Roberto<br>Structural</b>
+  </a>
+  <nav class="nav-links">
+    <a href="insights-vi.html" data-nav="insights" data-rs-page="insights" data-vi="Bài viết" data-en="Insights">Bài viết</a>
+    <a href="tools-vi.html" data-nav="tools" data-rs-page="tools" data-vi="Phần mềm" data-en="Software">Phần mềm</a>
+    <a href="drawings-vi.html" data-nav="drawings" data-rs-page="drawings" data-vi="Bản vẽ" data-en="Drawings">Bản vẽ</a>
+    <a href="index-vi.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a>
+    <a href="index-vi.html#contact" data-rs-page="index" data-rs-hash="#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a>
+  </nav>
+  <div class="nav-right">
+    <div class="lang">
+      <button data-lang="vi">VI</button>
+      <button data-lang="en">EN</button>
+    </div>
+    <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</div></header>
+
+<main id="article-root">
+  <section class="page-hero page-hero--img page-hero--detail"><div class="container">
+    <p class="breadcrumb"><a href="index-vi.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a> / <a href="insights-vi.html" data-vi="Bài viết" data-en="Insights">Bài viết</a> / <span>No. 11</span></p>
+    <p class="eyebrow" data-vi="Kết cấu thép" data-en="Steel Structures">Kết cấu thép</p>
+    <h1 data-vi="Thiết kế kháng chấn cho kết cấu thép — Phần 1: Nền tảng lý thuyết & triết lý thiết kế" data-en="Seismic Design for Steel Structures — Part 1: Theoretical Foundations & Design Philosophy">Thiết kế kháng chấn cho kết cấu thép — Phần 1: Nền tảng lý thuyết &amp; triết lý thiết kế</h1>
+    <div class="art-meta">
+      <span>Structural Notes · No. 11</span>
+      <span class="acard-dot">·</span>
+      <span data-date="2026-08-15">15 thg 8, 2026</span>
+      <span class="acard-dot">·</span>
+      <span>17 min read</span>
+    </div>
+  </div></section>
+
+  <section class="section" style="padding-top:clamp(2rem,5vw,3.5rem)"><div class="container">
+    <article class="prose">
+      
+        <h2 class="reveal" data-vi="1. Bài học từ Northridge 1994" data-en="1. Lessons from Northridge 1994">1. Bài học từ Northridge 1994</h2>
+        <p class="reveal" data-vi="Ngày <b>17/01/1994</b>, trận động đất <b>Northridge</b> (M 6,7) tại Los Angeles đã làm sụp đổ niềm tin của giới kỹ sư vào khung thép chịu mô-men hàn (WSMF)." data-en="On <b>17 January 1994</b> the <b>Northridge</b> earthquake (M 6.7) in Los Angeles shattered the profession's confidence in welded steel moment frames (WSMF).">Ngày <b>17/01/1994</b>, trận động đất <b>Northridge</b> (M 6,7) tại Los Angeles đã làm sụp đổ niềm tin của giới kỹ sư vào khung thép chịu mô-men hàn (WSMF).</p><h3 class="prose-sub reveal" data-vi="Trước Northridge" data-en="Before Northridge">Trước Northridge</h3><ul class="prose-list reveal"><li data-vi="Khung thép hàn được xem là <b>tiêu chuẩn vàng</b> cho kháng chấn." data-en="Welded steel moment frames were regarded as the <b>gold standard</b> for seismic resistance.">Khung thép hàn được xem là <b>tiêu chuẩn vàng</b> cho kháng chấn.</li><li data-vi="Liên kết dầm–cột dùng mối hàn CJP tại cánh dầm." data-en="Beam-to-column connections used CJP welds at the beam flanges.">Liên kết dầm–cột dùng mối hàn CJP tại cánh dầm.</li><li data-vi="Kỹ sư tin rằng hệ này có khả năng biến dạng dẻo tốt." data-en="Engineers believed the system had excellent ductile deformation capacity.">Kỹ sư tin rằng hệ này có khả năng biến dạng dẻo tốt.</li></ul><h3 class="prose-sub reveal" data-vi="Sau Northridge — phát hiện gây chấn động" data-en="After Northridge — the shock">Sau Northridge — phát hiện gây chấn động</h3><ul class="prose-list reveal"><li data-vi="Hàng trăm liên kết dầm–cột bị <b>nứt giòn</b> tại mối hàn." data-en="Hundreds of beam-to-column connections suffered <b>brittle fracture</b> at the welds.">Hàng trăm liên kết dầm–cột bị <b>nứt giòn</b> tại mối hàn.</li><li data-vi="Vết nứt khởi đầu từ mối hàn CJP tại cánh dầm dưới, lan vào cánh cột." data-en="Cracks initiated at the CJP weld of the bottom flange and propagated into the column flange.">Vết nứt khởi đầu từ mối hàn CJP tại cánh dầm dưới, lan vào cánh cột.</li><li data-vi="Nhiều kết cấu hư hại mà <b>không hề có dấu hiệu biến dạng dẻo</b> — đúng thứ mà thiết kế trông cậy vào." data-en="Many structures were damaged with <b>no sign of ductile deformation</b> — the very thing the design relied on.">Nhiều kết cấu hư hại mà <b>không hề có dấu hiệu biến dạng dẻo</b> — đúng thứ mà thiết kế trông cậy vào.</li></ul><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="#" data-en="#">#</th><th data-vi="Nguyên nhân gốc rễ" data-en="Root cause">Nguyên nhân gốc rễ</th><th data-vi="Giải thích" data-en="Explanation">Giải thích</th></tr></thead>
+      <tbody><tr><td data-vi="1" data-en="1">1</td><td data-vi="<b>Kim loại hàn kém dai</b>" data-en="<b>Low-toughness weld metal</b>"><b>Kim loại hàn kém dai</b></td><td data-vi="Que hàn E70T-4 có độ dai va đập (CVN) rất thấp" data-en="E70T-4 electrodes had very low Charpy V-Notch toughness">Que hàn E70T-4 có độ dai va đập (CVN) rất thấp</td></tr><tr><td data-vi="2" data-en="2">2</td><td data-vi="<b>Thanh đỡ hàn</b>" data-en="<b>Weld backing bars</b>"><b>Thanh đỡ hàn</b></td><td data-vi="Tạo khuyết tật tại gốc mối hàn, thành điểm khởi đầu nứt" data-en="Created root defects that became crack initiation points">Tạo khuyết tật tại gốc mối hàn, thành điểm khởi đầu nứt</td></tr><tr><td data-vi="3" data-en="3">3</td><td data-vi="<b>Tập trung ứng suất</b>" data-en="<b>Stress concentration</b>"><b>Tập trung ứng suất</b></td><td data-vi="Biến dạng dẻo xảy ra ngay tại mặt cột — nơi ứng suất cao nhất" data-en="Plastic deformation occurred right at the column face — the peak-stress location">Biến dạng dẻo xảy ra ngay tại mặt cột — nơi ứng suất cao nhất</td></tr><tr><td data-vi="4" data-en="4">4</td><td data-vi="<b>Cường độ thực cao hơn thiết kế</b>" data-en="<b>Actual strength above design</b>"><b>Cường độ thực cao hơn thiết kế</b></td><td data-vi="Thép A36 thực tế có Fy cao hơn nhiều giá trị danh nghĩa, làm tăng lực truyền vào liên kết" data-en="A36 steel had Fy well above nominal, raising the force delivered into the connection">Thép A36 thực tế có Fy cao hơn nhiều giá trị danh nghĩa, làm tăng lực truyền vào liên kết</td></tr><tr><td data-vi="5" data-en="5">5</td><td data-vi="<b>Kiểm soát chất lượng yếu</b>" data-en="<b>Poor quality control</b>"><b>Kiểm soát chất lượng yếu</b></td><td data-vi="Kiểm tra hàn không phát hiện được khuyết tật tiềm ẩn" data-en="Weld inspection failed to catch latent defects">Kiểm tra hàn không phát hiện được khuyết tật tiềm ẩn</td></tr></tbody>
+    </table></div><aside class="prose-tip reveal" data-vi="<b>Bước ngoặt:</b> FEMA tài trợ chương trình <b>SAC Joint Venture</b> — nghiên cứu lớn nhất lịch sử kết cấu thép. Kết quả: FEMA 350, khái niệm <b>Prequalified Connections</b>, và thay đổi triết lý cốt lõi — <b>dịch khớp dẻo ra khỏi mặt cột</b>." data-en="<b>The turning point:</b> FEMA funded the <b>SAC Joint Venture</b>, the largest research programme in the history of structural steel. It produced FEMA 350, the concept of <b>prequalified connections</b>, and one central shift in philosophy — <b>move the plastic hinge away from the column face</b>."><b>Bước ngoặt:</b> FEMA tài trợ chương trình <b>SAC Joint Venture</b> — nghiên cứu lớn nhất lịch sử kết cấu thép. Kết quả: FEMA 350, khái niệm <b>Prequalified Connections</b>, và thay đổi triết lý cốt lõi — <b>dịch khớp dẻo ra khỏi mặt cột</b>.</aside><h3 class="prose-sub reveal" data-vi="Vì sao chuyện này liên quan đến vùng động đất yếu" data-en="Why this matters in low-seismicity regions">Vì sao chuyện này liên quan đến vùng động đất yếu</h3><ul class="prose-list reveal"><li data-vi="Việt Nam nằm trong <b>vùng động đất yếu đến trung bình</b> theo TCVN 9386." data-en="Vietnam sits in a <b>low to moderate</b> seismic zone under TCVN 9386.">Việt Nam nằm trong <b>vùng động đất yếu đến trung bình</b> theo TCVN 9386.</li><li data-vi="Nhiều dự án công nghiệp — nhà máy, pipe rack — lại áp dụng tiêu chuẩn Mỹ (AISC/ASCE)." data-en="Yet many industrial projects — plants, pipe racks — are designed to US codes (AISC/ASCE).">Nhiều dự án công nghiệp — nhà máy, pipe rack — lại áp dụng tiêu chuẩn Mỹ (AISC/ASCE).</li><li data-vi="Hiểu đúng giúp chọn hệ kết cấu <b>phù hợp và kinh tế</b>, tránh cả thiết kế quá mức lẫn thiếu an toàn." data-en="Understanding this lets you pick a system that is <b>appropriate and economical</b>, avoiding both over-design and unsafe detailing.">Hiểu đúng giúp chọn hệ kết cấu <b>phù hợp và kinh tế</b>, tránh cả thiết kế quá mức lẫn thiếu an toàn.</li></ul>
+        
+      
+        <h2 class="reveal" data-vi="2. Triết lý capacity design" data-en="2. The capacity design philosophy">2. Triết lý capacity design</h2>
+        <aside class="prose-tip reveal" data-vi="<b>Ý tưởng cốt lõi:</b> chọn trước vị trí cho phép chảy dẻo (fuse), rồi thiết kế tất cả phần tử còn lại đủ mạnh để <b>không bị phá hoại trước fuse</b>." data-en="<b>The core idea:</b> pre-select where yielding is permitted (the fuses), then design every other element strong enough that it <b>cannot fail before the fuse does</b>."><b>Ý tưởng cốt lõi:</b> chọn trước vị trí cho phép chảy dẻo (fuse), rồi thiết kế tất cả phần tử còn lại đủ mạnh để <b>không bị phá hoại trước fuse</b>.</aside><figure class="art-fig reveal">
+      <img src="Resource/articles/08-seismic-steel/capacity_design.webp" alt="Figure 1. Capacity design — separating the yielding elements from the protected ones." loading="lazy" onclick="rsArtZoom(this)"/>
+      <figcaption data-vi="<b>Hình 1.</b> Triết lý capacity design — phân định phần tử chảy dẻo và phần tử được bảo vệ." data-en="<b>Figure 1.</b> Capacity design — separating the yielding elements from the protected ones."><b>Hình 1.</b> Triết lý capacity design — phân định phần tử chảy dẻo và phần tử được bảo vệ.</figcaption>
+    </figure><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="Nhóm" data-en="Group">Nhóm</th><th data-vi="Vai trò" data-en="Role">Vai trò</th><th data-vi="Ví dụ" data-en="Examples">Ví dụ</th><th data-vi="Yêu cầu" data-en="Requirement">Yêu cầu</th></tr></thead>
+      <tbody><tr><td data-vi="<b>Fuse</b> (cầu chì)" data-en="<b>Fuse</b>"><b>Fuse</b> (cầu chì)</td><td data-vi="Chảy dẻo, hấp thụ năng lượng" data-en="Yields and dissipates energy">Chảy dẻo, hấp thụ năng lượng</td><td data-vi="Khớp dẻo tại dầm, link beam (EBF), thanh giằng (CBF)" data-en="Beam plastic hinges, EBF link beams, CBF braces">Khớp dẻo tại dầm, link beam (EBF), thanh giằng (CBF)</td><td data-vi="Biến dạng dẻo lớn và ổn định" data-en="Large, stable inelastic deformation">Biến dạng dẻo lớn và ổn định</td></tr><tr><td data-vi="<b>Protected</b> (được bảo vệ)" data-en="<b>Protected</b>"><b>Protected</b> (được bảo vệ)</td><td data-vi="Giữ đàn hồi" data-en="Stays elastic">Giữ đàn hồi</td><td data-vi="Cột, liên kết, mối hàn, bản nối" data-en="Columns, connections, welds, gusset plates">Cột, liên kết, mối hàn, bản nối</td><td data-vi="Cường độ vượt khả năng cực hạn của fuse" data-en="Strength above the ultimate capacity of the fuse">Cường độ vượt khả năng cực hạn của fuse</td></tr></tbody>
+    </table></div><h3 class="prose-sub reveal" data-vi="Nguyên tắc cột mạnh — dầm yếu" data-en="Strong column — weak beam">Nguyên tắc cột mạnh — dầm yếu</h3><p class="reveal" data-vi="Đây là nguyên tắc <b>quan trọng nhất</b> trong thiết kế khung kháng chấn. Khớp dẻo phải hình thành ở <b>dầm</b> trước. Nếu cột chảy dẻo trước sẽ sinh cơ chế <b>sụp đổ tầng mềm</b> — phá hoại toàn bộ công trình." data-en="This is the <b>single most important</b> rule in seismic frame design. Plastic hinges must form in the <b>beams</b> first. If the columns yield first you get a <b>soft-storey collapse mechanism</b> — total failure.">Đây là nguyên tắc <b>quan trọng nhất</b> trong thiết kế khung kháng chấn. Khớp dẻo phải hình thành ở <b>dầm</b> trước. Nếu cột chảy dẻo trước sẽ sinh cơ chế <b>sụp đổ tầng mềm</b> — phá hoại toàn bộ công trình.</p><pre class="prose-code reveal"><code data-vi="ΣM*pc  ≥  ΣM*pb
+
+ΣM*pc = tổng mô-men khả năng của CỘT tại nút (có xét lực dọc)
+ΣM*pb = tổng mô-men tại khớp dẻo của DẦM (dùng cường độ kỳ vọng)" data-en="ΣM*pc  ≥  ΣM*pb
+
+ΣM*pc = sum of COLUMN moment capacities at the joint (allowing for axial load)
+ΣM*pb = sum of BEAM plastic-hinge moments (using expected strength)">ΣM*pc  ≥  ΣM*pb
+
+ΣM*pc = tổng mô-men khả năng của CỘT tại nút (có xét lực dọc)
+ΣM*pb = tổng mô-men tại khớp dẻo của DẦM (dùng cường độ kỳ vọng)</code></pre><h3 class="prose-sub reveal" data-vi="Cường độ kỳ vọng và mô-men khớp dẻo" data-en="Expected strength and the plastic hinge moment">Cường độ kỳ vọng và mô-men khớp dẻo</h3><p class="reveal" data-vi="Thép thực tế <b>luôn</b> có Fy cao hơn giá trị danh nghĩa. Khi thiết kế phần tử được bảo vệ, phải dùng cường độ kỳ vọng của fuse — nếu không, phần tử bảo vệ sẽ không thật sự mạnh hơn fuse." data-en="Real steel <b>always</b> yields above its nominal Fy. When designing a protected element you must use the expected strength of the fuse — otherwise the protected element is not genuinely stronger than the fuse.">Thép thực tế <b>luôn</b> có Fy cao hơn giá trị danh nghĩa. Khi thiết kế phần tử được bảo vệ, phải dùng cường độ kỳ vọng của fuse — nếu không, phần tử bảo vệ sẽ không thật sự mạnh hơn fuse.</p><pre class="prose-code reveal"><code data-vi="Fye = Ry × Fy        (cường độ chảy kỳ vọng)
+Fue = Rt × Fu        (cường độ kéo kỳ vọng)
+
+Mô-men tại khớp dẻo:
+  Mpr = Cpr × Ry × Fy × Ze
+
+Cpr = hệ số biến cứng, AISC khuyến nghị 1,1
+Ze  = mô-đun chống uốn dẻo tại vị trí khớp dẻo" data-en="Fye = Ry × Fy        (expected yield strength)
+Fue = Rt × Fu        (expected tensile strength)
+
+Plastic hinge moment:
+  Mpr = Cpr × Ry × Fy × Ze
+
+Cpr = strain-hardening factor, AISC recommends 1.1
+Ze  = plastic section modulus at the hinge location">Fye = Ry × Fy        (cường độ chảy kỳ vọng)
+Fue = Rt × Fu        (cường độ kéo kỳ vọng)
+
+Mô-men tại khớp dẻo:
+  Mpr = Cpr × Ry × Fy × Ze
+
+Cpr = hệ số biến cứng, AISC khuyến nghị 1,1
+Ze  = mô-đun chống uốn dẻo tại vị trí khớp dẻo</code></pre><aside class="prose-tip reveal" data-vi="<b>Ý nghĩa thực tế của Mpr:</b> đó là <b>mô-men lớn nhất</b> dầm có thể sinh ra khi chảy dẻo. Mọi thứ nối vào dầm — cột, liên kết, mối hàn — đều phải chịu được lực sinh từ Mpr, chứ không phải từ mô-men thiết kế." data-en="<b>What Mpr really means:</b> it is the <b>largest moment the beam can ever deliver</b> once it yields. Everything attached to that beam — column, connection, welds — must survive the forces from Mpr, not from the design moment."><b>Ý nghĩa thực tế của Mpr:</b> đó là <b>mô-men lớn nhất</b> dầm có thể sinh ra khi chảy dẻo. Mọi thứ nối vào dầm — cột, liên kết, mối hàn — đều phải chịu được lực sinh từ Mpr, chứ không phải từ mô-men thiết kế.</aside>
+        
+      
+        <h2 class="reveal" data-vi="3. Bảy hệ kết cấu kháng chấn và hệ số thiết kế" data-en="3. The seven seismic systems and their design coefficients">3. Bảy hệ kết cấu kháng chấn và hệ số thiết kế</h2>
+        <figure class="art-fig reveal">
+      <img src="Resource/articles/08-seismic-steel/r_factor_comparison.webp" alt="Figure 2. Design coefficients compared across the seismic force-resisting systems." loading="lazy" onclick="rsArtZoom(this)"/>
+      <figcaption data-vi="<b>Hình 2.</b> So sánh hệ số thiết kế giữa các hệ kết cấu kháng chấn." data-en="<b>Figure 2.</b> Design coefficients compared across the seismic force-resisting systems."><b>Hình 2.</b> So sánh hệ số thiết kế giữa các hệ kết cấu kháng chấn.</figcaption>
+    </figure><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="Hệ kết cấu" data-en="System">Hệ kết cấu</th><th data-vi="R" data-en="R">R</th><th data-vi="Ω₀" data-en="Ω₀">Ω₀</th><th data-vi="Cd" data-en="Cd">Cd</th><th data-vi="Phần tử fuse" data-en="Fuse element">Phần tử fuse</th></tr></thead>
+      <tbody><tr><td data-vi="<b>SMF</b> — khung mô-men đặc biệt" data-en="<b>SMF</b> — special moment frame"><b>SMF</b> — khung mô-men đặc biệt</td><td data-vi="8" data-en="8">8</td><td data-vi="3" data-en="3">3</td><td data-vi="5,5" data-en="5.5">5,5</td><td data-vi="Khớp dẻo tại dầm" data-en="Beam plastic hinge">Khớp dẻo tại dầm</td></tr><tr><td data-vi="<b>IMF</b> — khung mô-men trung gian" data-en="<b>IMF</b> — intermediate moment frame"><b>IMF</b> — khung mô-men trung gian</td><td data-vi="4,5" data-en="4.5">4,5</td><td data-vi="3" data-en="3">3</td><td data-vi="4" data-en="4">4</td><td data-vi="Khớp dẻo tại dầm" data-en="Beam plastic hinge">Khớp dẻo tại dầm</td></tr><tr><td data-vi="<b>OMF</b> — khung mô-men thường" data-en="<b>OMF</b> — ordinary moment frame"><b>OMF</b> — khung mô-men thường</td><td data-vi="3,5" data-en="3.5">3,5</td><td data-vi="3" data-en="3">3</td><td data-vi="3" data-en="3">3</td><td data-vi="Khớp dẻo tại dầm" data-en="Beam plastic hinge">Khớp dẻo tại dầm</td></tr><tr><td data-vi="<b>SCBF</b> — giằng đồng tâm đặc biệt" data-en="<b>SCBF</b> — special concentrically braced"><b>SCBF</b> — giằng đồng tâm đặc biệt</td><td data-vi="6" data-en="6">6</td><td data-vi="2" data-en="2">2</td><td data-vi="5" data-en="5">5</td><td data-vi="Thanh giằng kéo/nén" data-en="Braces in tension/compression">Thanh giằng kéo/nén</td></tr><tr><td data-vi="<b>OCBF</b> — giằng đồng tâm thường" data-en="<b>OCBF</b> — ordinary concentrically braced"><b>OCBF</b> — giằng đồng tâm thường</td><td data-vi="3,25" data-en="3.25">3,25</td><td data-vi="2" data-en="2">2</td><td data-vi="3,25" data-en="3.25">3,25</td><td data-vi="Thanh giằng" data-en="Braces">Thanh giằng</td></tr><tr><td data-vi="<b>EBF</b> — giằng lệch tâm" data-en="<b>EBF</b> — eccentrically braced"><b>EBF</b> — giằng lệch tâm</td><td data-vi="8" data-en="8">8</td><td data-vi="2" data-en="2">2</td><td data-vi="4" data-en="4">4</td><td data-vi="Link beam" data-en="Link beam">Link beam</td></tr><tr><td data-vi="<b>BRBF</b> — giằng chống mất ổn định" data-en="<b>BRBF</b> — buckling-restrained braced"><b>BRBF</b> — giằng chống mất ổn định</td><td data-vi="8" data-en="8">8</td><td data-vi="2" data-en="2">2</td><td data-vi="5" data-en="5">5</td><td data-vi="Lõi BRB" data-en="BRB core">Lõi BRB</td></tr></tbody>
+    </table></div><h3 class="prose-sub reveal" data-vi="Ba hệ số này nói lên điều gì" data-en="What the three coefficients mean">Ba hệ số này nói lên điều gì</h3><ul class="prose-list reveal"><li data-vi="<b>R — hệ số điều chỉnh phản ứng:</b> cho phép giảm lực thiết kế dựa trên khả năng dẻo. R càng lớn thì lực thiết kế càng nhỏ, <b>nhưng yêu cầu chi tiết hoá càng nghiêm ngặt</b>. Đây là một sự đánh đổi, không phải quà tặng." data-en="<b>R — response modification:</b> lets you reduce the design force in exchange for ductility. A higher R means smaller design forces <b>but far stricter detailing</b>. It is a trade, not a gift."><b>R — hệ số điều chỉnh phản ứng:</b> cho phép giảm lực thiết kế dựa trên khả năng dẻo. R càng lớn thì lực thiết kế càng nhỏ, <b>nhưng yêu cầu chi tiết hoá càng nghiêm ngặt</b>. Đây là một sự đánh đổi, không phải quà tặng.</li><li data-vi="<b>Ω₀ — hệ số siêu cường độ:</b> khuếch đại lực thiết kế cho một số phần tử đặc biệt (cột, liên kết, collector) để chúng không hỏng trước khi fuse đạt cực hạn." data-en="<b>Ω₀ — overstrength:</b> amplifies the design force for particular elements (columns, connections, collectors) so they do not fail before the fuse reaches its ultimate capacity."><b>Ω₀ — hệ số siêu cường độ:</b> khuếch đại lực thiết kế cho một số phần tử đặc biệt (cột, liên kết, collector) để chúng không hỏng trước khi fuse đạt cực hạn.</li><li data-vi="<b>Cd — hệ số khuếch đại chuyển vị:</b> phân tích đàn hồi cho δxe, chuyển vị thực là δx = Cd × δxe / Ie. Dùng để kiểm tra drift." data-en="<b>Cd — deflection amplification:</b> elastic analysis gives δxe; the real drift is δx = Cd × δxe / Ie. This is what the drift check uses."><b>Cd — hệ số khuếch đại chuyển vị:</b> phân tích đàn hồi cho δxe, chuyển vị thực là δx = Cd × δxe / Ie. Dùng để kiểm tra drift.</li></ul><h3 class="prose-sub reveal" data-vi="Khung chịu mô-men — ba cấp độ" data-en="Moment frames — three tiers">Khung chịu mô-men — ba cấp độ</h3><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="" data-en=""></th><th data-vi="SMF" data-en="SMF">SMF</th><th data-vi="IMF" data-en="IMF">IMF</th><th data-vi="OMF" data-en="OMF">OMF</th></tr></thead>
+      <tbody><tr><td data-vi="Khả năng drift" data-en="Drift capacity">Khả năng drift</td><td data-vi="0,04 rad" data-en="0.04 rad">0,04 rad</td><td data-vi="0,02 rad" data-en="0.02 rad">0,02 rad</td><td data-vi="0,02 rad" data-en="0.02 rad">0,02 rad</td></tr><tr><td data-vi="Cột mạnh – dầm yếu" data-en="Strong column – weak beam">Cột mạnh – dầm yếu</td><td data-vi="<b>Bắt buộc</b>" data-en="<b>Required</b>"><b>Bắt buộc</b></td><td data-vi="Bắt buộc" data-en="Required">Bắt buộc</td><td data-vi="Không yêu cầu" data-en="Not required">Không yêu cầu</td></tr><tr><td data-vi="Giới hạn b/t" data-en="b/t limits">Giới hạn b/t</td><td data-vi="λhd" data-en="λhd">λhd</td><td data-vi="λmd" data-en="λmd">λmd</td><td data-vi="λp" data-en="λp">λp</td></tr><tr><td data-vi="Liên kết" data-en="Connections">Liên kết</td><td data-vi="Prequalified (AISC 358)" data-en="Prequalified (AISC 358)">Prequalified (AISC 358)</td><td data-vi="Đã thử nghiệm" data-en="Tested / qualified">Đã thử nghiệm</td><td data-vi="Linh hoạt" data-en="Flexible">Linh hoạt</td></tr><tr><td data-vi="Giới hạn chiều cao" data-en="Height limit">Giới hạn chiều cao</td><td data-vi="Không" data-en="None">Không</td><td data-vi="Có" data-en="Yes">Có</td><td data-vi="Chặt" data-en="Tight">Chặt</td></tr><tr><td data-vi="SDC phù hợp" data-en="Suitable SDC">SDC phù hợp</td><td data-vi="D, E, F" data-en="D, E, F">D, E, F</td><td data-vi="C, D" data-en="C, D">C, D</td><td data-vi="A, B, C" data-en="A, B, C">A, B, C</td></tr></tbody>
+    </table></div><h3 class="prose-sub reveal" data-vi="Khung giằng — đồng tâm, lệch tâm và BRBF" data-en="Braced frames — concentric, eccentric and BRBF">Khung giằng — đồng tâm, lệch tâm và BRBF</h3><ul class="prose-list reveal"><li data-vi="<b>CBF (đồng tâm):</b> trục thanh giằng đi qua tâm nút; hấp thụ năng lượng qua chảy kéo và mất ổn định nén. <b>Cấm dùng K-brace</b> ở cả hai cấp SCBF và OCBF." data-en="<b>CBF (concentric):</b> brace axes pass through the joint; energy is dissipated by tension yielding and compression buckling. <b>K-braces are prohibited</b> in both SCBF and OCBF."><b>CBF (đồng tâm):</b> trục thanh giằng đi qua tâm nút; hấp thụ năng lượng qua chảy kéo và mất ổn định nén. <b>Cấm dùng K-brace</b> ở cả hai cấp SCBF và OCBF.</li><li data-vi="<b>EBF (lệch tâm):</b> trục thanh giằng <b>không</b> qua tâm nút, tạo ra đoạn dầm ngắn gọi là link beam. Link chảy dẻo, thanh giằng và dầm ngoài link giữ đàn hồi. R = 8 như SMF nhưng <b>cứng hơn nhiều</b>." data-en="<b>EBF (eccentric):</b> the brace axis deliberately misses the joint, creating a short <b>link beam</b>. The link yields while the brace and outer beam stay elastic. R = 8 like an SMF but <b>far stiffer</b>."><b>EBF (lệch tâm):</b> trục thanh giằng <b>không</b> qua tâm nút, tạo ra đoạn dầm ngắn gọi là link beam. Link chảy dẻo, thanh giằng và dầm ngoài link giữ đàn hồi. R = 8 như SMF nhưng <b>cứng hơn nhiều</b>.</li><li data-vi="<b>BRBF:</b> thanh giằng bọc trong ống thép hoặc bê tông nên không mất ổn định khi nén — chảy dẻo đều cả hai chiều, hấp thụ năng lượng rất hiệu quả. Chi tiết hoá <b>đơn giản hơn SCBF</b>." data-en="<b>BRBF:</b> the brace is encased so it cannot buckle in compression — it yields symmetrically both ways, dissipating energy very efficiently. Detailing is <b>simpler than SCBF</b>."><b>BRBF:</b> thanh giằng bọc trong ống thép hoặc bê tông nên không mất ổn định khi nén — chảy dẻo đều cả hai chiều, hấp thụ năng lượng rất hiệu quả. Chi tiết hoá <b>đơn giản hơn SCBF</b>.</li></ul><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="Loại link (EBF)" data-en="Link type (EBF)">Loại link (EBF)</th><th data-vi="Chiều dài" data-en="Length">Chiều dài</th><th data-vi="Cơ chế" data-en="Mechanism">Cơ chế</th><th data-vi="Góc xoay cho phép" data-en="Rotation capacity">Góc xoay cho phép</th></tr></thead>
+      <tbody><tr><td data-vi="<b>Link ngắn</b> (cắt)" data-en="<b>Short link</b> (shear)"><b>Link ngắn</b> (cắt)</td><td data-vi="e ≤ 1,6·Mp/Vp" data-en="e ≤ 1.6·Mp/Vp">e ≤ 1,6·Mp/Vp</td><td data-vi="Chảy cắt" data-en="Shear yielding">Chảy cắt</td><td data-vi="γp = 0,08 rad" data-en="γp = 0.08 rad">γp = 0,08 rad</td></tr><tr><td data-vi="Trung gian" data-en="Intermediate">Trung gian</td><td data-vi="1,6 &lt; e/(Mp/Vp) &lt; 2,6" data-en="1.6 &lt; e/(Mp/Vp) &lt; 2.6">1,6 &lt; e/(Mp/Vp) &lt; 2,6</td><td data-vi="Hỗn hợp" data-en="Combined">Hỗn hợp</td><td data-vi="Nội suy" data-en="Interpolate">Nội suy</td></tr><tr><td data-vi="<b>Link dài</b> (uốn)" data-en="<b>Long link</b> (flexural)"><b>Link dài</b> (uốn)</td><td data-vi="e ≥ 2,6·Mp/Vp" data-en="e ≥ 2.6·Mp/Vp">e ≥ 2,6·Mp/Vp</td><td data-vi="Chảy uốn" data-en="Flexural yielding">Chảy uốn</td><td data-vi="γp = 0,02 rad" data-en="γp = 0.02 rad">γp = 0,02 rad</td></tr></tbody>
+    </table></div><aside class="prose-tip reveal" data-vi="<b>Ưu tiên link ngắn (shear link)</b> — khả năng hấp thụ năng lượng tốt nhất, γp = 0,08 rad, gấp bốn lần link dài." data-en="<b>Prefer short shear links</b> — they dissipate the most energy, γp = 0.08 rad, four times a long link."><b>Ưu tiên link ngắn (shear link)</b> — khả năng hấp thụ năng lượng tốt nhất, γp = 0,08 rad, gấp bốn lần link dài.</aside>
+        
+      
+        <h2 class="reveal" data-vi="4. Xác định lực động đất thiết kế" data-en="4. Determining the design seismic force">4. Xác định lực động đất thiết kế</h2>
+        <h3 class="prose-sub reveal" data-vi="Sáu bước theo ASCE 7" data-en="The six ASCE 7 steps">Sáu bước theo ASCE 7</h3><pre class="prose-code reveal"><code data-vi="1. Tra bản đồ địa chấn → Ss (chu kỳ 0,2s) và S1 (chu kỳ 1,0s)
+
+2. Hệ số nền theo Site Class A→F:
+     SMS = Fa × Ss          SM1 = Fv × S1
+
+3. Gia tốc phổ thiết kế:
+     SDS = 2/3 × SMS        SD1 = 2/3 × SM1
+
+4. Seismic Design Category (SDC) từ SDS, SD1 và Risk Category
+
+5. Hệ số phản ứng:
+     Cs = SDS / (R / Ie)
+     không lớn hơn  SD1 / [ T × (R / Ie) ]     khi T ≤ TL
+     không nhỏ hơn  0,044 × SDS × Ie  ≥  0,01
+
+6. Lực cắt đáy:
+     V = Cs × W            W = tổng trọng lượng tính toán" data-en="1. Read the seismic maps → Ss (0.2s period) and S1 (1.0s period)
+
+2. Site coefficients for Site Class A→F:
+     SMS = Fa × Ss          SM1 = Fv × S1
+
+3. Design spectral accelerations:
+     SDS = 2/3 × SMS        SD1 = 2/3 × SM1
+
+4. Seismic Design Category (SDC) from SDS, SD1 and Risk Category
+
+5. Seismic response coefficient:
+     Cs = SDS / (R / Ie)
+     not more than  SD1 / [ T × (R / Ie) ]     when T ≤ TL
+     not less than  0.044 × SDS × Ie  ≥  0.01
+
+6. Base shear:
+     V = Cs × W            W = total effective seismic weight">1. Tra bản đồ địa chấn → Ss (chu kỳ 0,2s) và S1 (chu kỳ 1,0s)
+
+2. Hệ số nền theo Site Class A→F:
+     SMS = Fa × Ss          SM1 = Fv × S1
+
+3. Gia tốc phổ thiết kế:
+     SDS = 2/3 × SMS        SD1 = 2/3 × SM1
+
+4. Seismic Design Category (SDC) từ SDS, SD1 và Risk Category
+
+5. Hệ số phản ứng:
+     Cs = SDS / (R / Ie)
+     không lớn hơn  SD1 / [ T × (R / Ie) ]     khi T ≤ TL
+     không nhỏ hơn  0,044 × SDS × Ie  ≥  0,01
+
+6. Lực cắt đáy:
+     V = Cs × W            W = tổng trọng lượng tính toán</code></pre><aside class="prose-tip reveal" data-vi="<b>SDC quyết định hệ kết cấu nào được phép dùng</b> — không phải kỹ sư tự chọn. Đây là điều dễ bỏ sót khi chuyển từ thiết kế thông thường sang thiết kế kháng chấn." data-en="<b>The SDC dictates which systems you are allowed to use</b> — it is not the engineer's free choice. This is easy to miss when moving from ordinary to seismic design."><b>SDC quyết định hệ kết cấu nào được phép dùng</b> — không phải kỹ sư tự chọn. Đây là điều dễ bỏ sót khi chuyển từ thiết kế thông thường sang thiết kế kháng chấn.</aside><h3 class="prose-sub reveal" data-vi="ASCE 7 so với TCVN 9386" data-en="ASCE 7 versus TCVN 9386">ASCE 7 so với TCVN 9386</h3><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="Đặc điểm" data-en="Feature">Đặc điểm</th><th data-vi="ASCE 7 (Mỹ)" data-en="ASCE 7 (US)">ASCE 7 (Mỹ)</th><th data-vi="TCVN 9386 / EC8" data-en="TCVN 9386 / EC8">TCVN 9386 / EC8</th></tr></thead>
+      <tbody><tr><td data-vi="Tham số chính" data-en="Primary parameter">Tham số chính</td><td data-vi="Ss, S1 (gia tốc phổ)" data-en="Ss, S1 (spectral acceleration)">Ss, S1 (gia tốc phổ)</td><td data-vi="agR (gia tốc nền đỉnh)" data-en="agR (peak ground acceleration)">agR (gia tốc nền đỉnh)</td></tr><tr><td data-vi="Phổ thiết kế" data-en="Design spectrum">Phổ thiết kế</td><td data-vi="Từ SDS, SD1" data-en="From SDS, SD1">Từ SDS, SD1</td><td data-vi="Phổ đàn hồi × 1/q" data-en="Elastic spectrum × 1/q">Phổ đàn hồi × 1/q</td></tr><tr><td data-vi="Hệ số giảm lực" data-en="Force reduction">Hệ số giảm lực</td><td data-vi="R" data-en="R">R</td><td data-vi="q (behaviour factor)" data-en="q (behaviour factor)">q (behaviour factor)</td></tr><tr><td data-vi="Chu kỳ lặp" data-en="Return period">Chu kỳ lặp</td><td data-vi="2475 năm (MCE) rồi ×2/3" data-en="2,475 years (MCE) then ×2/3">2475 năm (MCE) rồi ×2/3</td><td data-vi="475 năm" data-en="475 years">475 năm</td></tr><tr><td data-vi="Phân vùng" data-en="Zoning">Phân vùng</td><td data-vi="Bản đồ USGS" data-en="USGS maps">Bản đồ USGS</td><td data-vi="Bản đồ theo tỉnh" data-en="Province-level maps">Bản đồ theo tỉnh</td></tr></tbody>
+    </table></div><h3 class="prose-sub reveal" data-vi="Đặc thù Việt Nam" data-en="The Vietnamese context">Đặc thù Việt Nam</h3><ul class="prose-list reveal"><li data-vi="agR dao động từ <b>0,0432g</b> (vùng rất yếu) đến <b>0,1086g</b> (Điện Biên, Lai Châu)." data-en="agR ranges from <b>0.0432g</b> in the quietest zones to <b>0.1086g</b> in Điện Biên and Lai Châu.">agR dao động từ <b>0,0432g</b> (vùng rất yếu) đến <b>0,1086g</b> (Điện Biên, Lai Châu).</li><li data-vi="Phần lớn lãnh thổ có agR &lt; 0,08g — <b>vùng động đất yếu đến rất yếu</b>." data-en="Most of the country sits below agR = 0.08g — <b>low to very low seismicity</b>.">Phần lớn lãnh thổ có agR &lt; 0,08g — <b>vùng động đất yếu đến rất yếu</b>.</li><li data-vi="Dự án FDI thường yêu cầu tiêu chuẩn Mỹ, nên cần quy đổi từ PGA sang tham số ASCE." data-en="Foreign-invested projects usually demand US codes, so a PGA-to-ASCE conversion is needed.">Dự án FDI thường yêu cầu tiêu chuẩn Mỹ, nên cần quy đổi từ PGA sang tham số ASCE.</li></ul><pre class="prose-code reveal"><code data-vi="Quy đổi sơ bộ:  SDS ≈ 2/3 × Fa × (2,5 × agR)
+
+  agR = 0,08g, Site Class D  →  SDS ≈ 0,21g  →  SDC B
+                                 dùng được OMF hoặc OCBF
+
+  agR > 0,10g, Site Class D  →  SDS ≈ 0,27g  →  SDC C
+                                 cần IMF hoặc SCBF trở lên" data-en="Rough conversion:  SDS ≈ 2/3 × Fa × (2.5 × agR)
+
+  agR = 0.08g, Site Class D  →  SDS ≈ 0.21g  →  SDC B
+                                 OMF or OCBF is acceptable
+
+  agR > 0.10g, Site Class D  →  SDS ≈ 0.27g  →  SDC C
+                                 IMF or SCBF and above required">Quy đổi sơ bộ:  SDS ≈ 2/3 × Fa × (2,5 × agR)
+
+  agR = 0,08g, Site Class D  →  SDS ≈ 0,21g  →  SDC B
+                                 dùng được OMF hoặc OCBF
+
+  agR > 0,10g, Site Class D  →  SDS ≈ 0,27g  →  SDC C
+                                 cần IMF hoặc SCBF trở lên</code></pre><aside class="prose-tip reveal" data-vi="<b>Quy đổi trên chỉ để ước lượng sơ bộ.</b> Dự án thật cần phân tích địa chấn chuyên sâu (PSHA) cho từng vị trí — đừng dùng con số này làm căn cứ thiết kế cuối cùng." data-en="<b>Treat that conversion as a first estimate only.</b> A real project needs a site-specific probabilistic seismic hazard analysis — do not use these numbers as the final design basis."><b>Quy đổi trên chỉ để ước lượng sơ bộ.</b> Dự án thật cần phân tích địa chấn chuyên sâu (PSHA) cho từng vị trí — đừng dùng con số này làm căn cứ thiết kế cuối cùng.</aside><h3 class="prose-sub reveal" data-vi="Kiểm tra chuyển vị (drift)" data-en="The drift check">Kiểm tra chuyển vị (drift)</h3><pre class="prose-code reveal"><code data-vi="δx = Cd × δxe / Ie
+
+Giới hạn theo Risk Category:
+  I, II  →  0,020 × hsx
+  III    →  0,015 × hsx
+  IV     →  0,010 × hsx      (hsx = chiều cao tầng)" data-en="δx = Cd × δxe / Ie
+
+Limits by Risk Category:
+  I, II  →  0.020 × hsx
+  III    →  0.015 × hsx
+  IV     →  0.010 × hsx      (hsx = storey height)">δx = Cd × δxe / Ie
+
+Giới hạn theo Risk Category:
+  I, II  →  0,020 × hsx
+  III    →  0,015 × hsx
+  IV     →  0,010 × hsx      (hsx = chiều cao tầng)</code></pre><figure class="art-fig reveal">
+      <img src="Resource/articles/08-seismic-steel/drift_plastic_hinge.webp" alt="Figure 3. Drift angle and the formation of the plastic hinge." loading="lazy" onclick="rsArtZoom(this)"/>
+      <figcaption data-vi="<b>Hình 3.</b> Góc drift và sự hình thành khớp dẻo." data-en="<b>Figure 3.</b> Drift angle and the formation of the plastic hinge."><b>Hình 3.</b> Góc drift và sự hình thành khớp dẻo.</figcaption>
+    </figure>
+        
+      
+        <h2 class="reveal" data-vi="5. Yêu cầu vật liệu — vì sao A36 không phù hợp" data-en="5. Material requirements — why A36 is the wrong steel">5. Yêu cầu vật liệu — vì sao A36 không phù hợp</h2>
+        <p class="reveal" data-vi="Thép sản xuất hàng loạt có cường độ chảy thực thường <b>cao hơn 20–50%</b> so với giá trị danh nghĩa. Thép A36 danh nghĩa Fy = 248 MPa, thực tế thường đạt 300–380 MPa." data-en="Mass-produced steel typically yields <b>20–50% above</b> its nominal value. A36 is nominally Fy = 248 MPa but routinely tests at 300–380 MPa.">Thép sản xuất hàng loạt có cường độ chảy thực thường <b>cao hơn 20–50%</b> so với giá trị danh nghĩa. Thép A36 danh nghĩa Fy = 248 MPa, thực tế thường đạt 300–380 MPa.</p><aside class="prose-tip reveal" data-vi="<b>Trước Northridge hiện tượng này bị bỏ qua.</b> Hậu quả: dầm mạnh hơn thiết kế, truyền lực lớn hơn vào liên kết, rồi nứt giòn. Đây chính là nguyên nhân số 4 trong bảng ở mục 1." data-en="<b>Before Northridge this was simply ignored.</b> The result: beams stronger than designed, delivering larger forces into the connections, and brittle fracture. This is root cause #4 in the table above."><b>Trước Northridge hiện tượng này bị bỏ qua.</b> Hậu quả: dầm mạnh hơn thiết kế, truyền lực lớn hơn vào liên kết, rồi nứt giòn. Đây chính là nguyên nhân số 4 trong bảng ở mục 1.</aside><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="Loại thép" data-en="Steel grade">Loại thép</th><th data-vi="Fy (MPa)" data-en="Fy (MPa)">Fy (MPa)</th><th data-vi="Ry" data-en="Ry">Ry</th><th data-vi="Rt" data-en="Rt">Rt</th></tr></thead>
+      <tbody><tr><td data-vi="ASTM A36" data-en="ASTM A36">ASTM A36</td><td data-vi="248" data-en="248">248</td><td data-vi="<b>1,5</b>" data-en="<b>1.5</b>"><b>1,5</b></td><td data-vi="1,2" data-en="1.2">1,2</td></tr><tr><td data-vi="ASTM A572 Gr.50" data-en="ASTM A572 Gr.50">ASTM A572 Gr.50</td><td data-vi="345" data-en="345">345</td><td data-vi="1,1" data-en="1.1">1,1</td><td data-vi="1,1" data-en="1.1">1,1</td></tr><tr><td data-vi="<b>ASTM A992</b>" data-en="<b>ASTM A992</b>"><b>ASTM A992</b></td><td data-vi="345" data-en="345">345</td><td data-vi="<b>1,1</b>" data-en="<b>1.1</b>"><b>1,1</b></td><td data-vi="1,1" data-en="1.1">1,1</td></tr><tr><td data-vi="ASTM A500 Gr.B (HSS)" data-en="ASTM A500 Gr.B (HSS)">ASTM A500 Gr.B (HSS)</td><td data-vi="317" data-en="317">317</td><td data-vi="1,4" data-en="1.4">1,4</td><td data-vi="1,3" data-en="1.3">1,3</td></tr><tr><td data-vi="ASTM A500 Gr.C (HSS)" data-en="ASTM A500 Gr.C (HSS)">ASTM A500 Gr.C (HSS)</td><td data-vi="345" data-en="345">345</td><td data-vi="1,3" data-en="1.3">1,3</td><td data-vi="1,2" data-en="1.2">1,2</td></tr><tr><td data-vi="ASTM A913 Gr.50/S75" data-en="ASTM A913 Gr.50/S75">ASTM A913 Gr.50/S75</td><td data-vi="345" data-en="345">345</td><td data-vi="1,1" data-en="1.1">1,1</td><td data-vi="1,1" data-en="1.1">1,1</td></tr></tbody>
+    </table></div><aside class="prose-tip reveal" data-vi="<b>A992 ra đời chính là để khắc phục vấn đề của A36.</b> Nó bị ràng buộc hai điều kiện: Fy ≤ 448 MPa <b>và</b> Fy/Fu ≤ 0,85. Còn A36 có Ry = 1,5 — quá cao, <b>nên tránh dùng cho kết cấu kháng chấn quan trọng</b>." data-en="<b>A992 exists precisely to fix the A36 problem.</b> It carries two constraints: Fy ≤ 448 MPa <b>and</b> Fy/Fu ≤ 0.85. A36 has Ry = 1.5 — far too high — and <b>should be avoided in critical seismic elements</b>."><b>A992 ra đời chính là để khắc phục vấn đề của A36.</b> Nó bị ràng buộc hai điều kiện: Fy ≤ 448 MPa <b>và</b> Fy/Fu ≤ 0,85. Còn A36 có Ry = 1,5 — quá cao, <b>nên tránh dùng cho kết cấu kháng chấn quan trọng</b>.</aside><h3 class="prose-sub reveal" data-vi="Khi nào dùng Ry × Fy, khi nào dùng Fy danh nghĩa" data-en="When to use Ry × Fy and when to use nominal Fy">Khi nào dùng Ry × Fy, khi nào dùng Fy danh nghĩa</h3><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="Dùng cường độ kỳ vọng Ry × Fy" data-en="Use expected strength Ry × Fy">Dùng cường độ kỳ vọng Ry × Fy</th><th data-vi="Dùng Fy danh nghĩa" data-en="Use nominal Fy">Dùng Fy danh nghĩa</th></tr></thead>
+      <tbody><tr><td data-vi="Tính mô-men khớp dẻo Mpr" data-en="Computing the plastic hinge moment Mpr">Tính mô-men khớp dẻo Mpr</td><td data-vi="Thiết kế bản thân phần tử fuse" data-en="Designing the fuse element itself">Thiết kế bản thân phần tử fuse</td></tr><tr><td data-vi="Thiết kế liên kết chịu lực từ dầm hoặc giằng" data-en="Designing connections that receive fuse forces">Thiết kế liên kết chịu lực từ dầm hoặc giằng</td><td data-vi="Tính tỷ số khả năng chịu lực thông thường" data-en="Ordinary capacity-ratio checks">Tính tỷ số khả năng chịu lực thông thường</td></tr><tr><td data-vi="Kiểm tra cột mạnh – dầm yếu" data-en="The strong column – weak beam check">Kiểm tra cột mạnh – dầm yếu</td><td data-vi="—" data-en="—">—</td></tr><tr><td data-vi="Thiết kế gusset plate cho CBF" data-en="Designing CBF gusset plates">Thiết kế gusset plate cho CBF</td><td data-vi="—" data-en="—">—</td></tr></tbody>
+    </table></div><h3 class="prose-sub reveal" data-vi="Độ dai va đập CVN" data-en="CVN toughness">Độ dai va đập CVN</h3><ul class="prose-list reveal"><li data-vi="Mối hàn <b>demand-critical</b> phải đạt <b>CVN ≥ 27J tại −29°C</b>." data-en="<b>Demand-critical</b> welds must achieve <b>CVN ≥ 27J at −29°C</b>.">Mối hàn <b>demand-critical</b> phải đạt <b>CVN ≥ 27J tại −29°C</b>.</li><li data-vi="Dùng vật liệu hàn có độ dai cao — chính que hàn kém dai đã gây ra Northridge." data-en="Use high-toughness filler metal — low-toughness electrodes were what caused Northridge.">Dùng vật liệu hàn có độ dai cao — chính que hàn kém dai đã gây ra Northridge.</li><li data-vi="<b>Loại bỏ thanh đỡ hàn</b> sau khi hàn CJP tại cánh dầm dưới." data-en="<b>Remove the backing bar</b> after CJP welding at the bottom beam flange."><b>Loại bỏ thanh đỡ hàn</b> sau khi hàn CJP tại cánh dầm dưới.</li></ul>
+        
+      
+        <h2 class="reveal" data-vi="6. Giới hạn tỷ số b/t" data-en="6. Width-to-thickness limits">6. Giới hạn tỷ số b/t</h2>
+        <p class="reveal" data-vi="Khi thép chảy dẻo với biến dạng lớn, cánh hoặc bụng có nguy cơ <b>mất ổn định cục bộ</b>. Mất ổn định sớm nghĩa là mất khả năng chịu lực trước khi kịp hấp thụ năng lượng — đúng thứ mà thiết kế kháng chấn trông cậy vào. Vì vậy phần tử kháng chấn cần tỷ số b/t <b>nhỏ hơn</b> thiết kế thông thường." data-en="Under large inelastic strains the flange or web can <b>buckle locally</b>. Early buckling means losing capacity before any energy is absorbed — precisely what seismic design depends on. Hence seismic elements need <b>tighter</b> b/t ratios than ordinary design.">Khi thép chảy dẻo với biến dạng lớn, cánh hoặc bụng có nguy cơ <b>mất ổn định cục bộ</b>. Mất ổn định sớm nghĩa là mất khả năng chịu lực trước khi kịp hấp thụ năng lượng — đúng thứ mà thiết kế kháng chấn trông cậy vào. Vì vậy phần tử kháng chấn cần tỷ số b/t <b>nhỏ hơn</b> thiết kế thông thường.</p><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="Cấp độ" data-en="Level">Cấp độ</th><th data-vi="Ký hiệu" data-en="Symbol">Ký hiệu</th><th data-vi="Áp dụng cho" data-en="Applies to">Áp dụng cho</th></tr></thead>
+      <tbody><tr><td data-vi="<b>Dẻo cao</b>" data-en="<b>Highly ductile</b>"><b>Dẻo cao</b></td><td data-vi="λhd" data-en="λhd">λhd</td><td data-vi="Dầm SMF, giằng SCBF, link EBF" data-en="SMF beams, SCBF braces, EBF links">Dầm SMF, giằng SCBF, link EBF</td></tr><tr><td data-vi="<b>Dẻo vừa</b>" data-en="<b>Moderately ductile</b>"><b>Dẻo vừa</b></td><td data-vi="λmd" data-en="λmd">λmd</td><td data-vi="Dầm IMF, cột SCBF" data-en="IMF beams, SCBF columns">Dầm IMF, cột SCBF</td></tr><tr><td data-vi="<b>Chắc</b>" data-en="<b>Compact</b>"><b>Chắc</b></td><td data-vi="λp" data-en="λp">λp</td><td data-vi="OMF và thiết kế thông thường" data-en="OMF and ordinary design">OMF và thiết kế thông thường</td></tr></tbody>
+    </table></div><pre class="prose-code reveal"><code data-vi="CÁNH (phần tử không được gia cường)
+  I-shape:   λhd = 0,32·√(E/Fy)    λmd = 0,40·√(E/Fy)    λp = 0,38·√(E/Fy)
+  HSS    :   λhd = 0,65·√(E/Fy)    λmd = 0,76·√(E/Fy)    λp = 1,12·√(E/Fy)
+
+BỤNG (phần tử được gia cường)
+  Chịu uốn :  λhd = 2,57·√(E/Fy)   λmd = 3,76·√(E/Fy)
+  Tổ hợp   :  λhd = 1,57·√(E/Fy)
+  Thành HSS:  λhd = 0,65·√(E/Fy)   λmd = 0,76·√(E/Fy)" data-en="FLANGE (unstiffened element)
+  I-shape:   λhd = 0.32·√(E/Fy)    λmd = 0.40·√(E/Fy)    λp = 0.38·√(E/Fy)
+  HSS    :   λhd = 0.65·√(E/Fy)    λmd = 0.76·√(E/Fy)    λp = 1.12·√(E/Fy)
+
+WEB (stiffened element)
+  Flexure  :  λhd = 2.57·√(E/Fy)   λmd = 3.76·√(E/Fy)
+  Combined :  λhd = 1.57·√(E/Fy)
+  HSS wall :  λhd = 0.65·√(E/Fy)   λmd = 0.76·√(E/Fy)">CÁNH (phần tử không được gia cường)
+  I-shape:   λhd = 0,32·√(E/Fy)    λmd = 0,40·√(E/Fy)    λp = 0,38·√(E/Fy)
+  HSS    :   λhd = 0,65·√(E/Fy)    λmd = 0,76·√(E/Fy)    λp = 1,12·√(E/Fy)
+
+BỤNG (phần tử được gia cường)
+  Chịu uốn :  λhd = 2,57·√(E/Fy)   λmd = 3,76·√(E/Fy)
+  Tổ hợp   :  λhd = 1,57·√(E/Fy)
+  Thành HSS:  λhd = 0,65·√(E/Fy)   λmd = 0,76·√(E/Fy)</code></pre><h3 class="prose-sub reveal" data-vi="Con số cụ thể với Fy = 345 MPa" data-en="Actual numbers for Fy = 345 MPa">Con số cụ thể với Fy = 345 MPa</h3><div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="Phần tử" data-en="Element">Phần tử</th><th data-vi="λhd" data-en="λhd">λhd</th><th data-vi="λmd" data-en="λmd">λmd</th><th data-vi="λp" data-en="λp">λp</th></tr></thead>
+      <tbody><tr><td data-vi="Cánh I-shape (bf/2tf)" data-en="I-shape flange (bf/2tf)">Cánh I-shape (bf/2tf)</td><td data-vi="<b>7,70</b>" data-en="<b>7.70</b>"><b>7,70</b></td><td data-vi="<b>9,63</b>" data-en="<b>9.63</b>"><b>9,63</b></td><td data-vi="9,15" data-en="9.15">9,15</td></tr><tr><td data-vi="Bụng chịu uốn (h/tw)" data-en="Web in flexure (h/tw)">Bụng chịu uốn (h/tw)</td><td data-vi="<b>61,8</b>" data-en="<b>61.8</b>"><b>61,8</b></td><td data-vi="<b>90,5</b>" data-en="<b>90.5</b>"><b>90,5</b></td><td data-vi="—" data-en="—">—</td></tr></tbody>
+    </table></div><h3 class="prose-sub reveal" data-vi="Kiểm thử hai tiết diện thật" data-en="Two sections checked">Kiểm thử hai tiết diện thật</h3><pre class="prose-code reveal"><code data-vi="W21×62  (Fy = 345 MPa)
+  bf/2tf = 7,53   ≤  λhd = 7,70   →  ĐẠT cho SMF
+  h/tw   = 46,9   ≤  λhd = 61,8   →  ĐẠT cho SMF
+
+W14×48  (Fy = 345 MPa)
+  bf/2tf = 6,75   ≤  λhd = 7,70   →  ĐẠT cho SMF
+  h/tw   = 33,6   ≤  λhd = 61,8   →  ĐẠT cho SMF" data-en="W21×62  (Fy = 345 MPa)
+  bf/2tf = 7.53   ≤  λhd = 7.70   →  OK for SMF
+  h/tw   = 46.9   ≤  λhd = 61.8   →  OK for SMF
+
+W14×48  (Fy = 345 MPa)
+  bf/2tf = 6.75   ≤  λhd = 7.70   →  OK for SMF
+  h/tw   = 33.6   ≤  λhd = 61.8   →  OK for SMF">W21×62  (Fy = 345 MPa)
+  bf/2tf = 7,53   ≤  λhd = 7,70   →  ĐẠT cho SMF
+  h/tw   = 46,9   ≤  λhd = 61,8   →  ĐẠT cho SMF
+
+W14×48  (Fy = 345 MPa)
+  bf/2tf = 6,75   ≤  λhd = 7,70   →  ĐẠT cho SMF
+  h/tw   = 33,6   ≤  λhd = 61,8   →  ĐẠT cho SMF</code></pre><aside class="prose-tip reveal" data-vi="<b>Mẹo chọn tiết diện:</b> profile nhóm W cánh rộng thường đạt λhd. Tiết diện nặng dễ đạt hơn tiết diện nhẹ cùng chiều cao. Riêng <b>HSS phải kiểm rất kỹ</b> — nhiều profile không đạt λhd. Nếu dùng liên kết RBS, b/t tại vùng cắt giảm nên yêu cầu có thể nới lỏng." data-en="<b>Section-picking tips:</b> wide-flange W profiles usually satisfy λhd. Heavier sections pass more easily than light ones of the same depth. <b>HSS needs careful checking</b> — many profiles fail λhd. With an RBS connection the reduced zone has a smaller b/t, so the requirement can relax."><b>Mẹo chọn tiết diện:</b> profile nhóm W cánh rộng thường đạt λhd. Tiết diện nặng dễ đạt hơn tiết diện nhẹ cùng chiều cao. Riêng <b>HSS phải kiểm rất kỹ</b> — nhiều profile không đạt λhd. Nếu dùng liên kết RBS, b/t tại vùng cắt giảm nên yêu cầu có thể nới lỏng.</aside>
+        
+      
+        <h2 class="reveal" data-vi="7. Tóm tắt Phần 1" data-en="7. Part 1 summary">7. Tóm tắt Phần 1</h2>
+        <div class="table-wrap reveal"><table class="prose-table">
+      <thead><tr><th data-vi="Chủ đề" data-en="Topic">Chủ đề</th><th data-vi="Điểm then chốt" data-en="Key point">Điểm then chốt</th></tr></thead>
+      <tbody><tr><td data-vi="<b>Northridge</b>" data-en="<b>Northridge</b>"><b>Northridge</b></td><td data-vi="Nứt giòn mối hàn đã thay đổi toàn bộ triết lý thiết kế" data-en="Brittle weld fracture rewrote the entire design philosophy">Nứt giòn mối hàn đã thay đổi toàn bộ triết lý thiết kế</td></tr><tr><td data-vi="<b>Capacity design</b>" data-en="<b>Capacity design</b>"><b>Capacity design</b></td><td data-vi="Chọn trước fuse, rồi làm mọi thứ khác mạnh hơn fuse" data-en="Pre-select the fuse, then make everything else stronger than it">Chọn trước fuse, rồi làm mọi thứ khác mạnh hơn fuse</td></tr><tr><td data-vi="<b>Cột mạnh – dầm yếu</b>" data-en="<b>Strong column – weak beam</b>"><b>Cột mạnh – dầm yếu</b></td><td data-vi="ΣM*pc ≥ ΣM*pb, dùng Ry × Fy" data-en="ΣM*pc ≥ ΣM*pb, using Ry × Fy">ΣM*pc ≥ ΣM*pb, dùng Ry × Fy</td></tr><tr><td data-vi="<b>R, Ω₀, Cd</b>" data-en="<b>R, Ω₀, Cd</b>"><b>R, Ω₀, Cd</b></td><td data-vi="R giảm lực, Ω₀ khuếch đại cục bộ, Cd khuếch đại chuyển vị" data-en="R cuts force, Ω₀ amplifies locally, Cd amplifies drift">R giảm lực, Ω₀ khuếch đại cục bộ, Cd khuếch đại chuyển vị</td></tr><tr><td data-vi="<b>Hệ kết cấu</b>" data-en="<b>Systems</b>"><b>Hệ kết cấu</b></td><td data-vi="SMF/EBF/BRBF có R = 8, SCBF R = 6, OMF R = 3,5" data-en="SMF/EBF/BRBF at R = 8, SCBF at 6, OMF at 3.5">SMF/EBF/BRBF có R = 8, SCBF R = 6, OMF R = 3,5</td></tr><tr><td data-vi="<b>Vật liệu</b>" data-en="<b>Material</b>"><b>Vật liệu</b></td><td data-vi="Dùng A992 (Ry = 1,1), tránh A36 (Ry = 1,5)" data-en="Use A992 (Ry = 1.1), avoid A36 (Ry = 1.5)">Dùng A992 (Ry = 1,1), tránh A36 (Ry = 1,5)</td></tr><tr><td data-vi="<b>b/t</b>" data-en="<b>b/t</b>"><b>b/t</b></td><td data-vi="λhd cho SMF/SCBF/EBF, λmd cho IMF, λp cho OMF" data-en="λhd for SMF/SCBF/EBF, λmd for IMF, λp for OMF">λhd cho SMF/SCBF/EBF, λmd cho IMF, λp cho OMF</td></tr><tr><td data-vi="<b>Việt Nam</b>" data-en="<b>Vietnam</b>"><b>Việt Nam</b></td><td data-vi="Phần lớn agR &lt; 0,08g → SDC B–C → OMF/OCBF thường đủ" data-en="Mostly agR &lt; 0.08g → SDC B–C → OMF/OCBF usually suffices">Phần lớn agR &lt; 0,08g → SDC B–C → OMF/OCBF thường đủ</td></tr></tbody>
+    </table></div><aside class="prose-tip reveal" data-vi="<b>Đọc tiếp Phần 2</b> — <a href='article-seismic-steel-part-2-vi.html'>Hướng dẫn thiết kế chi tiết và ứng dụng thực tế</a>: SMF sáu bước, liên kết RBS và end-plate, gusset plate cho SCBF, link beam cho EBF, và khuyến nghị cụ thể cho từng loại công trình tại Việt Nam." data-en="<b>Continue to Part 2</b> — <a href='article-seismic-steel-part-2.html'>detailed design guidance and practice</a>: the six-step SMF procedure, RBS and end-plate connections, SCBF gusset plates, EBF link beams, and concrete recommendations by building type."><b>Đọc tiếp Phần 2</b> — <a href='article-seismic-steel-part-2-vi.html'>Hướng dẫn thiết kế chi tiết và ứng dụng thực tế</a>: SMF sáu bước, liên kết RBS và end-plate, gusset plate cho SCBF, link beam cho EBF, và khuyến nghị cụ thể cho từng loại công trình tại Việt Nam.</aside>
+        
+      
+      <p class="art-note reveal" data-vi="Tài liệu tham chiếu: FEMA 350 · AISC 341-22 · ASCE 7-22 · AISC 358-22 · TCVN 9386:2012. Bài viết thuộc series “Hướng dẫn thiết kế kết cấu công trình công nghiệp” — Roberto Structural. Nội dung mang tính hướng dẫn kỹ thuật; kỹ sư chịu trách nhiệm kiểm tra và hiệu chỉnh theo điều kiện cụ thể của từng dự án và tiêu chuẩn áp dụng." data-en="References: FEMA 350 · AISC 341-22 · ASCE 7-22 · AISC 358-22 · TCVN 9386:2012. Part of the “Industrial structural design guide” series by Roberto Structural. The content is technical guidance only; the engineer remains responsible for verifying and adapting it to each project and the governing code.">Tài liệu tham chiếu: FEMA 350 · AISC 341-22 · ASCE 7-22 · AISC 358-22 · TCVN 9386:2012. Bài viết thuộc series “Hướng dẫn thiết kế kết cấu công trình công nghiệp” — Roberto Structural. Nội dung mang tính hướng dẫn kỹ thuật; kỹ sư chịu trách nhiệm kiểm tra và hiệu chỉnh theo điều kiện cụ thể của từng dự án và tiêu chuẩn áp dụng.</p>
+
+      <div class="art-share reveal">
+        <span data-vi="Chia sẻ bài viết" data-en="Share this article">Chia sẻ bài viết</span>
+        <div class="art-share-btns">
+          <a href="#" onclick="return rsShare('facebook')" aria-label="Share on Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+          </a>
+          <a href="#" onclick="return rsShare('linkedin')" aria-label="Share on LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+          <a href="#" onclick="return rsShare('copy')" aria-label="Copy link" title="Copy link">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <nav class="art-nav">
+      <a class="art-nav-item" href="article-torsion-steel-part-2-vi.html"><span data-vi="← Bài trước" data-en="← Previous">← Bài trước</span><b data-vi="Phân tích xoắn cho cấu kiện thép — Phần 2: Quy trình thiết kế, ví dụ tính toán & kiểm tra theo tiêu chuẩn" data-en="Torsional Analysis of Structural Steel Members — Part 2: Design Procedure, Worked Examples & Code Checks">Phân tích xoắn cho cấu kiện thép — Phần 2: Quy trình thiết kế, ví dụ tính toán &amp; kiểm tra theo tiêu chuẩn</b></a>
+      <a class="art-nav-item art-nav-next" href="article-seismic-steel-part-2-vi.html"><span data-vi="Bài sau →" data-en="Next →">Bài sau →</span><b data-vi="Thiết kế kháng chấn cho kết cấu thép — Phần 2: Hướng dẫn thiết kế chi tiết & ứng dụng thực tế" data-en="Seismic Design for Steel Structures — Part 2: Detailed Design Guidance & Practical Application">Thiết kế kháng chấn cho kết cấu thép — Phần 2: Hướng dẫn thiết kế chi tiết &amp; ứng dụng thực tế</b></a>
+    </nav>
+
+    <div style="text-align:center;margin-top:3rem">
+      <a class="btn btn-ghost" href="insights-vi.html" data-vi="Xem tất cả bài viết" data-en="View all articles">Xem tất cả bài viết</a>
+    </div>
+  </div></section></main>
+
+<footer id="site-footer">
+<div class="container">
+  <div class="foot-grid">
+    <div>
+      <h4>Roberto Structural</h4>
+      <p style="color:var(--steel-light);font-size:.9rem;max-width:34ch"><span data-vi="Kiến tạo lõi kỹ thuật kết cấu công nghiệp nặng." data-en="Engineering the Core of Heavy Industry.">Kiến tạo lõi kỹ thuật kết cấu công nghiệp nặng.</span></p>
+      <a href="mailto:robertostructural@gmail.com" style="display:inline-block;margin-top:.9rem;font-size:.9rem;color:var(--steel-light)">robertostructural@gmail.com</a>
+    </div>
+    <div>
+      <h4 data-vi="Liên kết" data-en="Links">Liên kết</h4>
+      <a href="index-vi.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a>
+      <a href="insights-vi.html" data-rs-page="insights" data-vi="Bài viết" data-en="Insights">Bài viết</a>
+      <a href="tools-vi.html" data-rs-page="tools" data-vi="Phần mềm" data-en="Software">Phần mềm</a>
+      <a href="drawings-vi.html" data-rs-page="drawings" data-vi="Bản vẽ" data-en="Drawings">Bản vẽ</a>
+    </div>
+    <div>
+      <h4 data-vi="Lĩnh vực" data-en="Sectors">Lĩnh vực</h4>
+      <a href="index-vi.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Công nghiệp nặng" data-en="Heavy Industry">Công nghiệp nặng</a>
+      <a href="index-vi.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Công nghiệp nhẹ" data-en="Light Industry">Công nghiệp nhẹ</a>
+      <a href="index-vi.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Lọc hóa dầu" data-en="Petrochemical">Lọc hóa dầu</a>
+      <a href="index-vi.html#about" data-rs-page="index" data-rs-hash="#about" data-vi="Năng lượng" data-en="Energy">Năng lượng</a>
+    </div>
+    <!-- Trước đây là ô "Nhận bản tin" với form onsubmit="return false" — bấm Gửi
+         không làm gì cả, chưa bao giờ được đấu nối. Đấu vào Formspree thì phải mở
+         form thứ BA (hai form hiện có đều đã có việc riêng và giới hạn 50 lượt/tháng
+         mỗi form), mà chưa có kế hoạch gửi bản tin thật. Nên đổi thành nút theo dõi
+         hai kênh Roberto đang thật sự hoạt động. Icon gộp về đây, gỡ khỏi cột 1 để
+         khỏi hiện hai lần trong cùng một footer. -->
+    <div>
+      <h4 data-vi="Theo dõi" data-en="Follow">Theo dõi</h4>
+      <p style="font-size:.9rem;color:var(--steel-light)" data-vi="Nhận thông báo khi có Tool mới." data-en="Get notified about new Tools.">Nhận thông báo khi có Tool mới.</p>
+      <div class="social">
+        <a href="https://www.facebook.com/RobertoStructural" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@RobertoStructural" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.09 0 12 0 12s0 3.91.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.91 24 12 24 12s0-3.91-.5-5.8zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">© <span id="yr"></span> Roberto Structural · <span data-vi="Đã đăng ký bản quyền" data-en="All rights reserved">Đã đăng ký bản quyền</span></div>
+</div></footer>
+
+<script>window.RS_PAGE_ID = "seismic-steel-part-1"; window.RS_PAGE_LANG = "vi";</script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/lightbox.js"></script>
+<script src="assets/js/articles-data.js"></script>
+<script src="assets/js/articles.js"></script>
+</body>
+</html>

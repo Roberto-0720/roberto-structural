@@ -31,6 +31,506 @@ window.ARTICLE_CATEGORIES = [
 
 window.ARTICLES = [
 
+  /* ================== No. 12 — Seismic steel design, part 2 of 2 ================== */
+  {
+    id: "seismic-steel-part-2",
+    no: "12",
+    category: { vi: "Kết cấu thép", en: "Steel Structures" },
+    date: "2026-08-15",
+    readmin: 22,
+    title: {
+      vi: "Thiết kế kháng chấn cho kết cấu thép — Phần 2: Hướng dẫn thiết kế chi tiết & ứng dụng thực tế",
+      en: "Seismic Design for Steel Structures — Part 2: Detailed Design Guidance & Practical Application"
+    },
+    excerpt: {
+      vi: "Quy trình SMF sáu bước, chín loại liên kết đã thẩm định, thiết kế RBS và gusset plate từng bước, link beam cho EBF, cùng khuyến nghị cụ thể theo vùng động đất Việt Nam.",
+      en: "The six-step SMF procedure, nine prequalified connection types, step-by-step RBS and gusset plate design, EBF link beams, and concrete recommendations by seismic zone."
+    },
+    cover: "Resource/articles/08-seismic-steel/cover_2.webp",
+    sections: [
+      {
+        heading: { vi: "7. SMF — quy trình sáu bước", en: "7. SMF — the six-step procedure" },
+        body: [
+          { vi: "Special Moment Frame là hệ dẻo nhất và cũng đòi hỏi chi tiết hoá nghiêm ngặt nhất: R = 8 nên lực thiết kế nhỏ nhất, nhưng đổi lại liên kết phải chịu được drift <b>0,04 rad</b> — biến dạng dẻo rất lớn.", en: "The special moment frame is the most ductile system and the most demanding to detail: R = 8 gives the smallest design forces, but in exchange the connections must survive <b>0.04 rad</b> of drift — very large inelastic deformation." },
+          { type: "subhead", vi: "Bước 1 — Chọn tiết diện dầm", en: "Step 1 — Choose the beam section" },
+          { type: "list", items: [
+            { vi: "Đủ cường độ cho tổ hợp kháng chấn, nhưng <b>drift thường mới là tiêu chí quyết định</b>.", en: "Strong enough for the seismic combination — but <b>drift usually governs</b>, not strength." },
+            { vi: "Cánh bf/2tf ≤ 0,32·√(E/Fy) và bụng h/tw ≤ 2,57·√(E/Fy) — tức là λhd.", en: "Flange bf/2tf ≤ 0.32·√(E/Fy) and web h/tw ≤ 2.57·√(E/Fy) — the λhd limits." },
+            { vi: "<b>Zbf ≥ 0,7 × Zb</b> — cánh phải đóng góp đủ khả năng chịu uốn, loại trừ dầm có bụng quá lớn so với cánh.", en: "<b>Zbf ≥ 0.7 × Zb</b> — the flanges must carry enough of the bending capacity, ruling out sections with an oversized web." }
+          ]},
+          { type: "code",
+            vi: "GIẰNG NGANG cho dầm SMF\n  Khoảng cách tối đa:  Lb ≤ 0,095 × ry × E / Fy\n  Phải có giằng tại vị trí khớp dẻo dự kiến\n  Giằng CẢ HAI cánh, trên và dưới\n  Lực giằng ≥ 2% cường độ cánh   (6% khi gần vùng RBS)",
+            en: "LATERAL BRACING for SMF beams\n  Maximum spacing:  Lb ≤ 0.095 × ry × E / Fy\n  A brace is required at every expected plastic hinge\n  Brace BOTH flanges, top and bottom\n  Brace force ≥ 2% of the flange strength   (6% near an RBS)" },
+          { type: "subhead", vi: "Bước 2 — Chọn tiết diện cột", en: "Step 2 — Choose the column section" },
+          { type: "list", items: [
+            { vi: "Theo thẩm định của FEMA 350, chỉ dùng <b>W12 và W14</b>.", en: "FEMA 350 prequalification covers <b>W12 and W14 only</b>." },
+            { vi: "b/t ≤ λhd khi ΣM*pc/ΣM*pb &lt; 2,0; ngược lại dùng λmd.", en: "b/t ≤ λhd when ΣM*pc/ΣM*pb &lt; 2.0; otherwise λmd applies." }
+          ]},
+          { type: "code",
+            vi: "Tổ hợp lực dọc khuếch đại cho cột:\n  Pu = 1,0D + 0,5L + Ω₀ × QE      (nén)\n  Pu = 0,9D − Ω₀ × QE             (kéo)\n\nKhông cần lớn hơn lực truyền từ 1,25 × khả năng cực hạn\ncủa dầm hoặc giằng kề bên.\n\nNGOẠI LỆ: nếu fa < 0,3·Fy dưới tổ hợp kháng chấn thì\nkhông cần kiểm tra lực dọc khuếch đại.",
+            en: "Amplified axial combination for columns:\n  Pu = 1.0D + 0.5L + Ω₀ × QE      (compression)\n  Pu = 0.9D − Ω₀ × QE             (tension)\n\nNeed not exceed the force delivered by 1.25 × the ultimate\ncapacity of the adjoining beams or braces.\n\nEXCEPTION: if fa < 0.3·Fy under the seismic combination,\nthe amplified axial check is not required." },
+          { type: "subhead", vi: "Bước 3 — Kiểm tra cột mạnh – dầm yếu", en: "Step 3 — The strong column – weak beam check" },
+          { type: "code",
+            vi: "ΣM*pc / ΣM*pb  ≥  1,0\n\nCỘT:  M*pc = Zc × (Fyc − Puc/Ag)\n        Zc  = mô-đun dẻo cột\n        Puc = lực dọc trong cột dưới tổ hợp kháng chấn\n        Cộng cho cả cột trên và cột dưới tại nút\n\nDẦM:  M*pb = Mpr + Vp × sh\n        Mpr = Cpr × Ry × Fy × Ze\n        Vp  = lực cắt tại khớp dẻo (tải trọng + 2·Mpr/L')\n        sh  = khoảng cách từ mặt cột đến khớp dẻo\n        Cộng cho dầm trái và dầm phải tại nút",
+            en: "ΣM*pc / ΣM*pb  ≥  1.0\n\nCOLUMN:  M*pc = Zc × (Fyc − Puc/Ag)\n          Zc  = column plastic modulus\n          Puc = column axial load under the seismic combination\n          Sum the column above and below the joint\n\nBEAM:    M*pb = Mpr + Vp × sh\n          Mpr = Cpr × Ry × Fy × Ze\n          Vp  = shear at the hinge (gravity + 2·Mpr/L')\n          sh  = distance from column face to the hinge\n          Sum the left and right beams at the joint" },
+          { type: "tip", vi: "<b>Ngoại lệ:</b> không cần kiểm tra tại nút thuộc tầng mái, hoặc khi Pu &lt; 0,1 × Py trong mọi tổ hợp.", en: "<b>Exception:</b> the check is waived at roof-level joints, or where Pu &lt; 0.1 × Py in every combination." },
+          { type: "subhead", vi: "Bước 4 — Thiết kế panel zone", en: "Step 4 — Design the panel zone" },
+          { vi: "Panel zone là vùng bụng cột ngay tại nút. Khi dầm hai bên có mô-men ngược chiều, vùng này chịu lực cắt rất lớn — dễ bị bỏ sót vì nó không phải một cấu kiện riêng.", en: "The panel zone is the column web right at the joint. When the beams either side carry opposing moments this zone takes a very large shear — easy to overlook because it is not a separate member." },
+          { type: "figure", src: "Resource/articles/08-seismic-steel/panel_zone.webp",
+            caption: { vi: "<b>Hình 1.</b> Lực tác dụng lên panel zone tại nút dầm–cột.", en: "<b>Figure 1.</b> Forces acting on the panel zone at a beam-to-column joint." } },
+          { type: "code",
+            vi: "Lực cắt trong panel zone:\n  Vpz = ΣMf / (db − tbf) − Vcol\n\nCường độ cắt (AISC 360 §J10.6):\n  φRn = 0,60 × Fy × dc × tp × [ 1 + 3·bcf·tcf² / (db·dc·tp) ]\n\n  tp = tổng chiều dày bụng cột + doubler plate\n  dc = chiều cao cột giữa hai cánh\n  bcf, tcf = bề rộng và chiều dày cánh cột\n\nChống mất ổn định bụng (riêng SMF):\n  tp ≥ (dz + wz) / 90",
+            en: "Panel zone shear:\n  Vpz = ΣMf / (db − tbf) − Vcol\n\nShear strength (AISC 360 §J10.6):\n  φRn = 0.60 × Fy × dc × tp × [ 1 + 3·bcf·tcf² / (db·dc·tp) ]\n\n  tp = total column web thickness plus doubler plate\n  dc = column depth between flanges\n  bcf, tcf = column flange width and thickness\n\nWeb buckling check (SMF only):\n  tp ≥ (dz + wz) / 90" },
+          { type: "subhead", vi: "Bước 5 và 6 — Bản liên tục và nối cột", en: "Steps 5 and 6 — Continuity plates and column splices" },
+          { type: "list", items: [
+            { vi: "<b>Bản liên tục</b> cần khi lực tập trung từ cánh dầm vượt khả năng cánh cột — cụ thể khi Pbf &gt; 1,8 × Fy × bf,cột × tf,cột.", en: "<b>Continuity plates</b> are needed when the concentrated flange force exceeds the column flange capacity — specifically when Pbf &gt; 1.8 × Fy × bf,col × tf,col." },
+            { vi: "Với SMF, chiều dày bản liên tục ≥ chiều dày cánh dầm. Hàn CJP vào cánh cột, hàn góc vào bụng cột, xuyên qua toàn bộ bề rộng cánh cột.", en: "For SMF the plate must be at least as thick as the beam flange. CJP weld to the column flange, fillet weld to the web, across the full flange width." },
+            { vi: "<b>Nối cột</b> đặt ở giữa 1/3 chiều cao tầng và cách mặt trên dầm ít nhất 1,0 m. Phải chịu được <b>lực kéo</b> do mô-men lật, cường độ cắt ≥ cột tầng trên, cường độ uốn ≥ 50% khả năng uốn cột tầng trên.", en: "<b>Column splices</b> go in the middle third of the storey, at least 1.0 m above the beam. They must resist <b>tension</b> from overturning, match the shear capacity of the column above, and provide at least 50% of its flexural capacity." }
+          ]}
+        ]
+      },
+      {
+        heading: { vi: "8. Liên kết dầm–cột kháng chấn", en: "8. Seismic beam-to-column connections" },
+        body: [
+          { vi: "Sau Northridge, FEMA 350 và AISC 358 xây dựng hệ thống <b>liên kết đã thẩm định</b> — những loại đã qua thí nghiệm nên được phép dùng mà không cần thử nghiệm thêm. Đây là thay đổi lớn nhất về mặt thực hành.", en: "After Northridge, FEMA 350 and AISC 358 established a set of <b>prequalified connections</b> — types already tested, so they may be used without further testing. This is the single biggest practical change." },
+          { type: "table",
+            head: [{ vi: "Loại liên kết", en: "Connection" }, { vi: "Ký hiệu", en: "Code" }, { vi: "Hệ cho phép", en: "Systems" }, { vi: "Đặc điểm", en: "Character" }],
+            rows: [
+              [{ vi: "Cánh hàn – bụng bu-lông", en: "Welded flange – bolted web" }, { vi: "WUF-B", en: "WUF-B" }, { vi: "OMF", en: "OMF" }, { vi: "Đơn giản nhất", en: "Simplest" }],
+              [{ vi: "Cánh hàn – bụng hàn", en: "Welded flange – welded web" }, { vi: "WUF-W", en: "WUF-W" }, { vi: "OMF, SMF", en: "OMF, SMF" }, { vi: "Hàn toàn bộ", en: "Fully welded" }],
+              [{ vi: "<b>Tiết diện dầm thu nhỏ</b>", en: "<b>Reduced beam section</b>" }, { vi: "<b>RBS</b>", en: "<b>RBS</b>" }, { vi: "<b>OMF, SMF</b>", en: "<b>OMF, SMF</b>" }, { vi: "<b>Phổ biến nhất</b>", en: "<b>Most common</b>" }],
+              [{ vi: "End plate không gia cường", en: "Bolted unstiffened end plate" }, { vi: "BUEP", en: "BUEP" }, { vi: "OMF, SMF", en: "OMF, SMF" }, { vi: "End plate mỏng", en: "Thin end plate" }],
+              [{ vi: "End plate có gia cường", en: "Bolted stiffened end plate" }, { vi: "BSEP", en: "BSEP" }, { vi: "OMF, SMF", en: "OMF, SMF" }, { vi: "Cho dầm lớn", en: "For deeper beams" }],
+              [{ vi: "Bản cánh bu-lông", en: "Bolted flange plates" }, { vi: "BFP", en: "BFP" }, { vi: "OMF, SMF", en: "OMF, SMF" }, { vi: "Bản nối bu-lông", en: "Bolted plates" }],
+              [{ vi: "Bản cánh hàn", en: "Welded flange plate" }, { vi: "WFP", en: "WFP" }, { vi: "OMF, SMF", en: "OMF, SMF" }, { vi: "Bản cánh bổ sung", en: "Added flange plate" }]
+            ]},
+          { type: "subhead", vi: "RBS — loại phổ biến nhất, thiết kế sáu bước", en: "RBS — the most common type, in six steps" },
+          { vi: "Nguyên lý rất trực tiếp: <b>cắt bớt cánh dầm</b> ở gần cột để giảm cường độ cục bộ, buộc khớp dẻo hình thành tại vùng cắt thay vì tại mặt cột. Chính là hiện thực hoá bài học lớn nhất của Northridge.", en: "The principle is blunt: <b>cut away part of the beam flange</b> near the column so the local capacity drops and the plastic hinge forms in the cut zone instead of at the column face. This is the main Northridge lesson made physical." },
+          { type: "figure", src: "Resource/articles/08-seismic-steel/rbs_connection.webp",
+            caption: { vi: "<b>Hình 2.</b> Chi tiết liên kết RBS — kích thước vùng cắt a, b, c.", en: "<b>Figure 2.</b> RBS connection detail — the cut dimensions a, b and c." } },
+          { type: "code",
+            vi: "1. Kích thước vùng cắt\n     a = (0,50 ~ 0,75) × bf      khoảng cách từ mặt cột đến đầu vùng cắt\n     b = (0,65 ~ 0,85) × db      chiều dài vùng cắt\n     c ≤ 0,25 × bf               chiều sâu cắt mỗi bên\n\n2. Mô-đun dẻo tại vùng cắt\n     ZRBS = Zb − 2 × c × tbf × (db − tbf)\n\n3. Mô-men tại khớp dẻo\n     Mpr = Cpr × Ry × Fy × ZRBS        với Cpr = 1,1\n\n4. Lực cắt tại khớp dẻo\n     Vp = 2·Mpr / L' + Vtĩnh tải       L' = L − 2·sh\n\n5. Mô-men tại mặt cột\n     Mf = Mpr + Vp × sh                sh = a + b/2\n\n6. Kiểm tra\n     Mf ≤ φd × Ry × Fy × Zb     (dầm không chảy tại mặt cột)\n     Cột mạnh – dầm yếu, dùng M*pb = Mf\n     Panel zone, dùng Mf",
+            en: "1. Cut geometry\n     a = (0.50 ~ 0.75) × bf      column face to start of the cut\n     b = (0.65 ~ 0.85) × db      length of the cut\n     c ≤ 0.25 × bf               depth of cut each side\n\n2. Plastic modulus at the reduced zone\n     ZRBS = Zb − 2 × c × tbf × (db − tbf)\n\n3. Plastic hinge moment\n     Mpr = Cpr × Ry × Fy × ZRBS        with Cpr = 1.1\n\n4. Shear at the hinge\n     Vp = 2·Mpr / L' + Vgravity        L' = L − 2·sh\n\n5. Moment at the column face\n     Mf = Mpr + Vp × sh                sh = a + b/2\n\n6. Checks\n     Mf ≤ φd × Ry × Fy × Zb     (no yielding at the column face)\n     Strong column – weak beam, using M*pb = Mf\n     Panel zone, using Mf" },
+          { type: "table",
+            head: [{ vi: "Giới hạn thẩm định", en: "Prequalification limit" }, { vi: "SMF", en: "SMF" }, { vi: "OMF", en: "OMF" }],
+            rows: [
+              [{ vi: "Chiều cao dầm tối đa", en: "Maximum beam depth" }, { vi: "W36", en: "W36" }, { vi: "W36", en: "W36" }],
+              [{ vi: "Chiều dày cánh tối đa", en: "Maximum flange thickness" }, { vi: "44 mm", en: "44 mm" }, { vi: "44 mm", en: "44 mm" }],
+              [{ vi: "Cột", en: "Column" }, { vi: "W12, W14", en: "W12, W14" }, { vi: "Không giới hạn", en: "Unrestricted" }],
+              [{ vi: "Tỷ số nhịp/chiều cao tối thiểu", en: "Minimum span-to-depth" }, { vi: "7", en: "7" }, { vi: "5", en: "5" }]
+            ]},
+          { type: "tip", vi: "<b>Yêu cầu gia công thường bị xem nhẹ:</b> cắt nhiệt với độ nhám ≤ 500 μin, <b>mài theo chiều dọc cánh</b> chứ không mài ngang, bo tròn các góc để giảm tập trung ứng suất, và <b>không gắn stud shear connector trong vùng bảo vệ</b>. Làm ẩu ở đây thì cả thiết kế RBS mất tác dụng.", en: "<b>The fabrication requirements are widely underestimated:</b> flame cut to ≤ 500 μin roughness, <b>grind along the flange</b> not across it, round every corner to reduce stress concentration, and <b>never attach shear studs inside the protected zone</b>. Sloppy work here defeats the whole RBS concept." },
+          { type: "subhead", vi: "Liên kết end plate — phù hợp pipe rack", en: "End plate connections — a good fit for pipe racks" },
+          { type: "list", items: [
+            { vi: "<b>BUEP 4 bu-lông không gia cường:</b> dầm ≤ W30 cho OMF, ≤ W24 cho SMF. End plate thép A36, bu-lông A325 hoặc A490 siết trước.", en: "<b>BUEP, 4 bolts unstiffened:</b> beams up to W30 for OMF, W24 for SMF. A36 end plate, pretensioned A325 or A490 bolts." },
+            { vi: "<b>BSEP 8 bu-lông có gia cường:</b> cho dầm lớn hơn, có bản gia cường tại cánh trên và dưới, end plate dày hơn.", en: "<b>BSEP, 8 bolts stiffened:</b> for deeper beams, with stiffeners at both flanges and a thicker end plate." },
+            { vi: "Khoảng cách khớp dẻo: <b>sh = dc/2 + tpl + db/3</b>.", en: "Hinge location: <b>sh = dc/2 + tpl + db/3</b>." }
+          ]},
+          { type: "tip", vi: "<b>Cover plate</b> là hướng ngược lại của RBS: thay vì cắt bớt dầm, hàn thêm bản gia cường lên cánh gần cột để tăng cường độ cục bộ, đẩy khớp dẻo ra xa. Dùng được cho mọi kích thước dầm, nhưng đoạn dầm côngxon hàn sẵn vào cột dài hơn nên <b>khó vận chuyển</b>.", en: "<b>Cover plates</b> are the mirror image of RBS: instead of removing beam material, weld reinforcing plates onto the flanges near the column to raise the local capacity and push the hinge outward. It suits any beam size, but the pre-welded stub is longer and <b>awkward to transport</b>." }
+        ]
+      },
+      {
+        heading: { vi: "9. SCBF — thiết kế gusset plate", en: "9. SCBF — designing the gusset plate" },
+        body: [
+          { vi: "Trong khung giằng đồng tâm, thanh giằng chịu kéo <b>chảy dẻo</b> còn thanh giằng chịu nén <b>mất ổn định</b> — cả hai đều hấp thụ năng lượng. Sau khi mất ổn định, thanh nén mất cường độ và lực được tái phân bố.", en: "In a concentrically braced frame the tension brace <b>yields</b> while the compression brace <b>buckles</b> — both dissipate energy. Once buckled, the compression brace sheds load and forces redistribute." },
+          { type: "table",
+            head: [{ vi: "Thông số thanh giằng", en: "Brace parameter" }, { vi: "Yêu cầu", en: "Requirement" }],
+            rows: [
+              [{ vi: "Độ mảnh KL/r", en: "Slenderness KL/r" }, { vi: "≤ 200", en: "≤ 200" }],
+              [{ vi: "b/t cánh và bụng", en: "b/t flange and web" }, { vi: "≤ λhd", en: "≤ λhd" }],
+              [{ vi: "K ngoài mặt phẳng", en: "K out-of-plane" }, { vi: "1,0", en: "1.0" }],
+              [{ vi: "K trong mặt phẳng", en: "K in-plane" }, { vi: "0,65", en: "0.65" }],
+              [{ vi: "Phân bố lực kéo", en: "Tension share" }, { vi: "30% đến 70% tổng lực ngang", en: "30% to 70% of the storey shear" }]
+            ]},
+          { type: "tip", vi: "<b>K-brace bị cấm hoàn toàn</b> trong cả SCBF lẫn OCBF. Lý do rất cụ thể: khi thanh giằng chảy hoặc mất ổn định, chênh lệch lực tạo ra một lực ngang tác dụng vào <b>giữa chiều cao cột</b> — cột không được thiết kế cho tình huống đó và có thể gãy.", en: "<b>K-braces are outright prohibited</b> in both SCBF and OCBF. The reason is concrete: when one brace yields or buckles, the force imbalance applies a transverse load at <b>mid-height of the column</b> — which the column was never designed for and may fail under." },
+          { type: "figure", src: "Resource/articles/08-seismic-steel/gusset_plate.webp",
+            caption: { vi: "<b>Hình 3.</b> Thiết kế bản nối — vùng Whitmore, khoảng hở 2tg và gia cường mép tự do.", en: "<b>Figure 3.</b> Gusset plate design — the Whitmore section, the 2tg offset and free-edge stiffening." } },
+          { vi: "Bản nối là phần tử <b>quan trọng nhất</b> trong liên kết giằng. Thiết kế sai thì cả hệ mất khả năng kháng chấn, dù thanh giằng có đúng đến đâu.", en: "The gusset plate is the <b>most critical</b> element in a braced connection. Get it wrong and the system loses its seismic capacity no matter how correct the braces are." },
+          { type: "code",
+            vi: "NGUYÊN TẮC 1 — Cường độ thiết kế theo cường độ KỲ VỌNG của giằng\n  Pu = Ry × Fy × Ag\n\nNGUYÊN TẮC 2 — Vùng Whitmore\n  Góc lan 30° từ mỗi bên liên kết\n  Lw = 2 × Lconn × tan(30°) + wgiằng\n\nNGUYÊN TẮC 3 — Khoảng hở 2tg  (đặc trưng của SCBF)\n  Đầu thanh giằng cách mép bản nối ít nhất 2 × tg\n  Khoảng hở này cho bản nối UỐN DẺO khi giằng mất ổn định\n  ngoài mặt phẳng. Không có nó, bản nối gãy giòn.\n\nNGUYÊN TẮC 4 — Gia cường mép tự do  (Astaneh-Asl 1998)\n  Lfg = 0,75 × tg × √(E / Fy)\n  Mép tự do dài hơn giá trị này phải hàn bản gia cường đứng.\n\nNGUYÊN TẮC 5 — Mặt cắt thực (liên kết bu-lông)\n  Ae ≥ (Ry × Fy / Fu) × 1,2 × Ag",
+            en: "PRINCIPLE 1 — Design for the EXPECTED brace strength\n  Pu = Ry × Fy × Ag\n\nPRINCIPLE 2 — Whitmore section\n  30° spread from each side of the connection\n  Lw = 2 × Lconn × tan(30°) + wbrace\n\nPRINCIPLE 3 — The 2tg offset  (characteristic of SCBF)\n  Keep the brace end at least 2 × tg clear of the gusset edge.\n  This clearance lets the gusset FLEX when the brace buckles\n  out of plane. Without it the gusset fractures in a brittle way.\n\nPRINCIPLE 4 — Free-edge stiffening  (Astaneh-Asl 1998)\n  Lfg = 0.75 × tg × √(E / Fy)\n  A free edge longer than this needs a welded stiffener.\n\nPRINCIPLE 5 — Net section (bolted connections)\n  Ae ≥ (Ry × Fy / Fu) × 1.2 × Ag" },
+          { type: "tip", vi: "<b>Khoảng hở 2tg là chi tiết dễ bị bỏ nhất</b> và cũng là chi tiết quyết định. Người vẽ thấy khoảng hở đó thừa nên hay cho thanh giằng chạm sát mép bản nối — đúng lúc động đất, bản nối không uốn được và gãy giòn.", en: "<b>The 2tg offset is the detail most often dropped</b> and the one that decides the outcome. A detailer sees the gap as wasted space and runs the brace up to the gusset edge — and in an earthquake the gusset cannot flex, so it fractures." },
+          { type: "subhead", vi: "Cấu hình V và chữ V ngược — yêu cầu riêng", en: "V and inverted-V configurations — extra rules" },
+          { type: "list", items: [
+            { vi: "Dầm phải <b>liên tục</b> giữa hai cột, không được cắt tại điểm nối giằng.", en: "The beam must be <b>continuous</b> between columns, not spliced at the brace intersection." },
+            { vi: "Dầm phải chịu được tải D + L <b>khi không có thanh giằng</b> — tức là giả thiết giằng đã hỏng.", en: "The beam must carry D + L <b>with the braces removed</b> — that is, assuming the braces have failed." },
+            { vi: "Kiểm tra <b>lực mất cân bằng</b>: giằng kéo chảy dẻo ở Ry·Fy·Ag trong khi giằng nén chỉ còn 0,3·Pn — chênh lệch đó tác dụng lên dầm.", en: "Check the <b>unbalanced force</b>: the tension brace yields at Ry·Fy·Ag while the compression brace retains only 0.3·Pn — the difference loads the beam." },
+            { vi: "Giằng ngang tại <b>cả hai cánh</b> dầm ở điểm nối giằng, lực giằng ≥ 2% cường độ cánh.", en: "Brace <b>both flanges</b> of the beam at the intersection, with a brace force of at least 2% of the flange strength." }
+          ]}
+        ]
+      },
+      {
+        heading: { vi: "10. EBF — thiết kế link beam", en: "10. EBF — designing the link beam" },
+        body: [
+          { vi: "EBF gộp được ưu điểm của cả hai họ: thanh giằng cho <b>độ cứng</b> của khung giằng, còn link beam cho <b>độ dẻo</b> của khung mô-men. Link được thiết kế như một cầu chì có kiểm soát.", en: "The EBF combines both families: the braces give the <b>stiffness</b> of a braced frame while the link gives the <b>ductility</b> of a moment frame. The link is engineered as a controlled fuse." },
+          { type: "figure", src: "Resource/articles/08-seismic-steel/ebf_link_beam.webp",
+            caption: { vi: "<b>Hình 4.</b> Phân loại link beam theo chiều dài và cơ chế chảy dẻo.", en: "<b>Figure 4.</b> Link beam classification by length and yielding mechanism." } },
+          { type: "code",
+            vi: "BƯỚC 1 — Chiều dài link\n  Vp = 0,6 × Fy × (d − 2tf) × tw\n  Mp = Fy × Zx\n\n  Link cắt (tốt nhất):  e ≤ 1,6 × Mp/Vp      γp = 0,08 rad\n  Trung gian         :  1,6 < e·Vp/Mp < 2,6   nội suy\n  Link uốn (kém nhất):  e ≥ 2,6 × Mp/Vp      γp = 0,02 rad\n\nBƯỚC 2 — Tiết diện link\n  Vật liệu Fy ≤ 345 MPa\n  Bụng phải là tấm ĐƠN: không doubler, không khoan lỗ, không nối\n  b/t cánh và bụng ≤ λhd\n\nBƯỚC 3 — Góc xoay link\n  γp = (L/e) × θ        θ = Cd × θe / Ie",
+            en: "STEP 1 — Link length\n  Vp = 0.6 × Fy × (d − 2tf) × tw\n  Mp = Fy × Zx\n\n  Shear link (best) :  e ≤ 1.6 × Mp/Vp      γp = 0.08 rad\n  Intermediate      :  1.6 < e·Vp/Mp < 2.6   interpolate\n  Flexural (weakest):  e ≥ 2.6 × Mp/Vp      γp = 0.02 rad\n\nSTEP 2 — Link section\n  Material Fy ≤ 345 MPa\n  The web must be a SOLID plate: no doubler, no holes, no splice\n  Flange and web b/t ≤ λhd\n\nSTEP 3 — Link rotation\n  γp = (L/e) × θ        θ = Cd × θe / Ie" },
+          { type: "subhead", vi: "Bước 4 — Sườn gia cường trong link", en: "Step 4 — Link stiffeners" },
+          { type: "list", items: [
+            { vi: "<b>Sườn suốt chiều cao bụng</b> tại cả hai đầu link, nơi nối với thanh giằng.", en: "<b>Full-depth web stiffeners</b> at both ends of the link where the braces frame in." },
+            { vi: "Sườn trung gian với link cắt (e ≤ 1,6·Mp/Vp): khoảng cách ≤ 30·tw − d/5.", en: "Intermediate stiffeners for a shear link (e ≤ 1.6·Mp/Vp): spacing ≤ 30·tw − d/5." },
+            { vi: "Với 1,6 &lt; e·Vp/Mp ≤ 2,6: khoảng cách ≤ 52·tw − d/5.", en: "For 1.6 &lt; e·Vp/Mp ≤ 2.6: spacing ≤ 52·tw − d/5." },
+            { vi: "Với e &gt; 2,6·Mp/Vp: <b>không cần</b> sườn trung gian.", en: "For e &gt; 2.6·Mp/Vp: intermediate stiffeners are <b>not required</b>." },
+            { vi: "Chiều dày sườn ≥ 10 mm hoặc bằng tw, lấy giá trị lớn hơn.", en: "Stiffener thickness ≥ 10 mm or tw, whichever is greater." }
+          ]},
+          { type: "tip", vi: "<b>Giằng ngang tại hai đầu link cần lực bằng 6% cường độ cánh</b> — gấp ba lần mức 2% của dầm thông thường. Đây là con số hay bị chép nhầm từ quy định của dầm sang.", en: "<b>Lateral bracing at the link ends must develop 6% of the flange strength</b> — three times the 2% used for ordinary beams. This figure is frequently copied across from the ordinary-beam rule by mistake." },
+          { type: "code",
+            vi: "THANH GIẰNG VÀ DẦM NGOÀI LINK — phần tử được bảo vệ\n  Lực thiết kế = 1,25 × Ry × Vn(link)\n\n  Giằng      : b/t ≤ λhd\n  Dầm ngoài  : giằng ngang khoảng cách ≤ 20·bf/√Fy",
+            en: "BRACE AND BEAM OUTSIDE THE LINK — protected elements\n  Design force = 1.25 × Ry × Vn(link)\n\n  Brace        : b/t ≤ λhd\n  Outer beam   : lateral bracing at ≤ 20·bf/√Fy" },
+          { type: "table",
+            head: [{ vi: "Cấu hình EBF", en: "EBF configuration" }, { vi: "Đánh giá", en: "Assessment" }],
+            rows: [
+              [{ vi: "D-brace — một giằng, link ở đầu", en: "D-brace — one brace, link at the end" }, { vi: "Đơn giản, ít yêu cầu cho liên kết dầm–cột", en: "Simple, undemanding on the beam-column connection" }],
+              [{ vi: "<b>V-brace — hai giằng, link ở giữa</b>", en: "<b>V-brace — two braces, link at mid-span</b>" }, { vi: "<b>Khuyến nghị</b> — cân đối nhất", en: "<b>Recommended</b> — the best balance" }],
+              [{ vi: "K-brace", en: "K-brace" }, { vi: "<b>CẤM</b> — không dùng trong EBF", en: "<b>PROHIBITED</b> in EBF" }]
+            ]}
+        ]
+      },
+      {
+        heading: { vi: "11. OMF — khi nào đủ dùng", en: "11. OMF — when it is enough" },
+        body: [
+          { vi: "OMF dùng cho SDC A, B, C. R = 3,5 nên lực thiết kế lớn hơn SMF, nhưng đổi lại <b>chi tiết hoá đơn giản hơn rất nhiều</b>. Với phần lớn công trình công nghiệp ở vùng động đất yếu, đây mới là lựa chọn hợp lý.", en: "OMF applies in SDC A, B and C. R = 3.5 means larger design forces than an SMF, but in exchange <b>the detailing is far simpler</b>. For most industrial buildings in low-seismicity zones this is the sensible choice." },
+          { type: "table",
+            head: [{ vi: "Yêu cầu", en: "Requirement" }, { vi: "SMF", en: "SMF" }, { vi: "OMF", en: "OMF" }],
+            rows: [
+              [{ vi: "Cột mạnh – dầm yếu", en: "Strong column – weak beam" }, { vi: "Bắt buộc", en: "Required" }, { vi: "<b>Không yêu cầu</b>", en: "<b>Not required</b>" }],
+              [{ vi: "Giới hạn b/t", en: "b/t limit" }, { vi: "λhd", en: "λhd" }, { vi: "λp (compact)", en: "λp (compact)" }],
+              [{ vi: "Giằng ngang", en: "Lateral bracing" }, { vi: "0,095·ry·E/Fy", en: "0.095·ry·E/Fy" }, { vi: "0,17·ry·E/Fy", en: "0.17·ry·E/Fy" }],
+              [{ vi: "Liên kết", en: "Connection" }, { vi: "Thẩm định theo AISC 358", en: "Prequalified per AISC 358" }, { vi: "Chỉ cần đạt 0,02 rad", en: "Only needs to reach 0.02 rad" }],
+              [{ vi: "Mất ổn định panel zone", en: "Panel zone buckling" }, { vi: "Phải kiểm tra", en: "Must be checked" }, { vi: "<b>Không yêu cầu</b>", en: "<b>Not required</b>" }],
+              [{ vi: "Nối cột", en: "Column splice" }, { vi: "CJP, 50% Mpn", en: "CJP, 50% Mpn" }, { vi: "Đơn giản hơn", en: "Simpler" }]
+            ]},
+          { type: "code",
+            vi: "Mô-men thiết kế tại liên kết:\n  Mf = min( 1,1 × Ry × Mp ,  mô-men từ tổ hợp khuếch đại )\n\nLực cắt thiết kế:\n  Vu = min( 2 × 1,1 × Ry × Mp / Ln + V(1,2D+0,5L) ,\n            Vu từ tổ hợp khuếch đại )",
+            en: "Design moment at the connection:\n  Mf = min( 1.1 × Ry × Mp ,  moment from the amplified combination )\n\nDesign shear:\n  Vu = min( 2 × 1.1 × Ry × Mp / Ln + V(1.2D+0.5L) ,\n            Vu from the amplified combination )" },
+          { type: "tip", vi: "Liên kết truyền thống — hàn CJP cánh cộng bu-lông bụng — <b>vẫn dùng được cho OMF</b> nếu chứng minh đạt 0,02 rad. Không phải cứ nói tới kháng chấn là bắt buộc dùng RBS.", en: "The traditional connection — CJP-welded flanges plus a bolted web — <b>remains acceptable for OMF</b> provided it demonstrates 0.02 rad. Seismic design does not automatically mean RBS." }
+        ]
+      },
+      {
+        heading: { vi: "12. Áp dụng cho Việt Nam", en: "12. Applying this in Vietnam" },
+        body: [
+          { type: "list", items: [
+            { vi: "Phần lớn kết cấu thép công nghiệp tại Việt Nam <b>chưa được thiết kế kháng chấn</b> đúng cách.", en: "Most industrial steelwork in Vietnam has <b>not been designed for seismic action</b> properly." },
+            { vi: "TCVN 9386:2012 chưa được áp dụng rộng rãi cho kết cấu thép.", en: "TCVN 9386:2012 is not yet widely applied to steel structures." },
+            { vi: "Dự án FDI yêu cầu AISC/ASCE nhưng kỹ sư còn thiếu kinh nghiệm kháng chấn.", en: "Foreign-invested projects demand AISC/ASCE while local experience with seismic detailing is still thin." },
+            { vi: "Capacity design và liên kết thẩm định vẫn là khái niệm <b>rất mới</b>.", en: "Capacity design and prequalified connections remain <b>very new</b> concepts here." }
+          ]},
+          { type: "table",
+            head: [{ vi: "Vùng", en: "Zone" }, { vi: "agR (g)", en: "agR (g)" }, { vi: "SDC ước tính", en: "Estimated SDC" }, { vi: "Hệ khuyến nghị", en: "Recommended system" }],
+            rows: [
+              [{ vi: "Rất yếu", en: "Very low" }, { vi: "&lt; 0,04", en: "&lt; 0.04" }, { vi: "A", en: "A" }, { vi: "Không cần kháng chấn đặc biệt", en: "No special seismic design" }],
+              [{ vi: "Yếu", en: "Low" }, { vi: "0,04 – 0,08", en: "0.04 – 0.08" }, { vi: "B", en: "B" }, { vi: "OMF hoặc OCBF", en: "OMF or OCBF" }],
+              [{ vi: "Trung bình", en: "Moderate" }, { vi: "0,08 – 0,12", en: "0.08 – 0.12" }, { vi: "C", en: "C" }, { vi: "IMF, SCBF hoặc EBF", en: "IMF, SCBF or EBF" }],
+              [{ vi: "Cao", en: "High" }, { vi: "&gt; 0,12", en: "&gt; 0.12" }, { vi: "D", en: "D" }, { vi: "SMF, SCBF, EBF, BRBF", en: "SMF, SCBF, EBF, BRBF" }]
+            ]},
+          { type: "tip", vi: "<b>Phần lớn miền Nam</b> có agR &lt; 0,04g → SDC A → không cần thiết kế kháng chấn đặc biệt. <b>Miền Trung và Bắc</b> ở khoảng 0,04–0,10g → SDC B–C → cần ít nhất OMF/OCBF. <b>Tây Bắc</b> (Điện Biên, Lai Châu) vượt 0,10g → cần IMF/SCBF trở lên.", en: "<b>Most of the south</b> sits below agR = 0.04g → SDC A → no special seismic design. <b>Central and northern regions</b> run 0.04–0.10g → SDC B–C → at least OMF/OCBF. <b>The northwest</b> (Điện Biên, Lai Châu) exceeds 0.10g → IMF/SCBF or better." },
+          { type: "subhead", vi: "Khuyến nghị theo loại công trình", en: "Recommendations by building type" },
+          { type: "table",
+            head: [{ vi: "Loại công trình", en: "Building type" }, { vi: "Hệ và liên kết nên dùng", en: "System and connection" }],
+            rows: [
+              [{ vi: "<b>Nhà xưởng 1–2 tầng</b>", en: "<b>Single or two-storey plant</b>" }, { vi: "OMF hoặc OCBF là đủ ở phần lớn vùng. Liên kết BUEP hoặc WUF-B. Chi tiết hoá đơn giản, kinh tế.", en: "OMF or OCBF suffices in most zones. BUEP or WUF-B connections. Simple and economical detailing." }],
+              [{ vi: "<b>Pipe rack / kết cấu module</b>", en: "<b>Pipe rack / modular structure</b>" }, { vi: "Kết cấu không gian, không có sàn cứng. OCBF phổ biến nhất, liên kết end plate. Lưu ý: OMF cho pipe rack <b>rất khó đặt giằng ngang</b> nên nên xem xét SCBF.", en: "Open frames with no rigid diaphragm. OCBF is most common, with end-plate connections. Note: an OMF pipe rack is <b>very hard to brace laterally</b>, so consider SCBF." }],
+              [{ vi: "<b>Nhà thép trên 5 tầng</b>", en: "<b>Steel buildings above 5 storeys</b>" }, { vi: "Vùng agR &gt; 0,08g phải dùng IMF hoặc SMF. Cân nhắc hệ kép (SMF + SCBF) để có cả cứng lẫn dẻo. Liên kết RBS khuyến nghị cho SMF.", en: "Above agR = 0.08g an IMF or SMF is required. Consider a dual system (SMF + SCBF) for both stiffness and ductility. RBS connections are recommended for SMF." }],
+              [{ vi: "<b>Thép tạo hình nguội</b>", en: "<b>Cold-formed steel</b>" }, { vi: "AISC 341 <b>không áp dụng</b>. Dùng AISI S400.", en: "AISC 341 <b>does not apply</b>. Use AISI S400 instead." }]
+            ]},
+          { type: "figure", src: "Resource/articles/08-seismic-steel/design_flowchart.webp",
+            caption: { vi: "<b>Hình 5.</b> Quy trình thiết kế kháng chấn — tóm tắt toàn bộ.", en: "<b>Figure 5.</b> The seismic design workflow, end to end." } }
+        ]
+      },
+      {
+        heading: { vi: "13. Checklist thiết kế kháng chấn", en: "13. Seismic design checklist" },
+        body: [
+          { type: "checklist", items: [
+            { vi: "Xác định Ss, S1 (hoặc agR) từ bản đồ USGS / TCVN — ASCE 7 Ch.11.", en: "Establish Ss, S1 (or agR) from USGS / TCVN maps — ASCE 7 Ch.11." },
+            { vi: "Phân loại nền đất Site Class A–F — ASCE 7 Ch.20.", en: "Classify the site, Site Class A–F — ASCE 7 Ch.20." },
+            { vi: "Tính SDS, SD1 và xác định SDC — ASCE 7 Ch.11.", en: "Compute SDS, SD1 and determine the SDC — ASCE 7 Ch.11." },
+            { vi: "Chọn hệ SFRS cùng R, Ω₀, Cd — ASCE 7 Bảng 12.2-1.", en: "Select the SFRS with its R, Ω₀, Cd — ASCE 7 Table 12.2-1." },
+            { vi: "Tính lực cắt đáy V = Cs × W — ASCE 7 §12.8.", en: "Compute base shear V = Cs × W — ASCE 7 §12.8." },
+            { vi: "Phân tích kết cấu bằng ELF hoặc modal — ASCE 7 §12.8–12.9.", en: "Analyse by ELF or modal methods — ASCE 7 §12.8–12.9." },
+            { vi: "Kiểm tra drift δx = Cd × δxe / Ie — ASCE 7 §12.12.", en: "Check drift δx = Cd × δxe / Ie — ASCE 7 §12.12." },
+            { vi: "Chọn tiết diện đạt b/t ≤ λhd / λmd / λp — AISC 341 Bảng D1.1.", en: "Choose sections meeting b/t ≤ λhd / λmd / λp — AISC 341 Table D1.1." },
+            { vi: "Kiểm tra cột mạnh – dầm yếu ΣM*pc ≥ ΣM*pb — AISC 341 §E3.4a.", en: "Verify strong column – weak beam, ΣM*pc ≥ ΣM*pb — AISC 341 §E3.4a." },
+            { vi: "Tính Mpr = Cpr × Ry × Fy × Ze — AISC 341 / FEMA 350.", en: "Compute Mpr = Cpr × Ry × Fy × Ze — AISC 341 / FEMA 350." },
+            { vi: "Kiểm tra panel zone φRn ≥ Vpz — AISC 360 §J10.6.", en: "Check the panel zone, φRn ≥ Vpz — AISC 360 §J10.6." },
+            { vi: "Bố trí bản liên tục — AISC 341 §E3.6f.", en: "Detail the continuity plates — AISC 341 §E3.6f." },
+            { vi: "Chọn loại liên kết đã thẩm định — AISC 358; thiết kế chi tiết theo FEMA 350 Ch.3.", en: "Select a prequalified connection — AISC 358; detail it per FEMA 350 Ch.3." },
+            { vi: "Thiết kế nối cột: hàn CJP, đúng vị trí, đủ cường độ — AISC 341 §D2.5.", en: "Design the column splice: CJP welds, correct location, adequate strength — AISC 341 §D2.5." },
+            { vi: "Với CBF: kiểm gusset plate — khoảng hở 2tg, Whitmore, Lfg — AISC 341 §F2.", en: "For CBF: check the gusset — 2tg offset, Whitmore, Lfg — AISC 341 §F2." },
+            { vi: "Với EBF: kiểm link beam — e, γp, sườn gia cường — AISC 341 §F3.", en: "For EBF: check the link — e, γp, stiffeners — AISC 341 §F3." },
+            { vi: "Đánh dấu vùng bảo vệ, không gắn phụ kiện vào đó — AISC 341 §I2.", en: "Mark the protected zones and attach nothing to them — AISC 341 §I2." },
+            { vi: "Mối hàn demand-critical đạt yêu cầu CVN — AISC 341 §A3.4.", en: "Demand-critical welds meet the CVN requirement — AISC 341 §A3.4." },
+            { vi: "Kế hoạch QA/QC cho kiểm tra hàn và bu-lông — FEMA 353.", en: "Put a QA/QC plan in place for weld and bolt inspection — FEMA 353." }
+          ]}
+        ]
+      },
+      {
+        heading: { vi: "14. Ba điều đọng lại", en: "14. Three things worth keeping" },
+        body: [
+          { vi: "Thiết kế kháng chấn không chỉ là tính lực rồi kiểm tra tiết diện. Nó là một <b>triết lý</b>: chọn trước nơi cho phép hư hại, rồi bảo vệ toàn bộ phần còn lại.", en: "Seismic design is not merely computing forces and checking sections. It is a <b>philosophy</b>: choose in advance where damage is permitted, then protect everything else." },
+          { type: "list", items: [
+            { vi: "<b>Capacity design</b> — luôn thiết kế phần tử được bảo vệ mạnh hơn <b>cường độ kỳ vọng</b> của fuse, không phải mạnh hơn giá trị danh nghĩa.", en: "<b>Capacity design</b> — always make the protected element stronger than the <b>expected</b> strength of the fuse, not its nominal value." },
+            { vi: "<b>Chi tiết quyết định sống còn</b> — liên kết, mối hàn, gusset plate mới là thứ quyết định kết cấu có hoạt động đúng như thiết kế hay không. Northridge sụp đổ ở chi tiết, không ở tính toán.", en: "<b>Detailing decides the outcome</b> — connections, welds and gusset plates determine whether the structure behaves as designed. Northridge failed in the details, not in the analysis." },
+            { vi: "<b>Phù hợp mới là tối ưu</b> — không phải lúc nào cũng cần SMF. Với vùng động đất yếu như phần lớn Việt Nam, OMF hay OCBF vừa đủ an toàn vừa kinh tế.", en: "<b>Appropriate beats maximal</b> — an SMF is not always needed. In low-seismicity regions like most of Vietnam, an OMF or OCBF is both safe and economical." }
+          ]},
+          { type: "tip", vi: "<b>Xem lại Phần 1</b> — <a href='article-seismic-steel-part-1-vi.html'>Nền tảng lý thuyết và triết lý thiết kế</a>: bài học Northridge, capacity design, bảy hệ kết cấu cùng hệ số R, yêu cầu vật liệu và giới hạn b/t.", en: "<b>Back to Part 1</b> — <a href='article-seismic-steel-part-1.html'>theoretical foundations and design philosophy</a>: the Northridge lesson, capacity design, the seven systems and their R factors, material requirements and b/t limits." }
+        ]
+      }
+    ],
+    footnote: {
+      vi: "Tài liệu tham chiếu: FEMA 350 · AISC 341-22 · ASCE 7-22 · AISC 358-22 · TCVN 9386:2012 · Astaneh-Asl (1998) <i>Seismic Behavior and Design of Gusset Plates</i>. Bài viết thuộc series “Hướng dẫn thiết kế kết cấu công trình công nghiệp” — Roberto Structural. Nội dung mang tính hướng dẫn kỹ thuật; kỹ sư chịu trách nhiệm kiểm tra và hiệu chỉnh theo điều kiện cụ thể của từng dự án và tiêu chuẩn áp dụng.",
+      en: "References: FEMA 350 · AISC 341-22 · ASCE 7-22 · AISC 358-22 · TCVN 9386:2012 · Astaneh-Asl (1998) <i>Seismic Behavior and Design of Gusset Plates</i>. Part of the “Industrial structural design guide” series by Roberto Structural. The content is technical guidance only; the engineer remains responsible for verifying and adapting it to each project and the governing code."
+    }
+  },
+
+  /* ================== No. 11 — Seismic steel design, part 1 of 2 ================== */
+  {
+    id: "seismic-steel-part-1",
+    no: "11",
+    category: { vi: "Kết cấu thép", en: "Steel Structures" },
+    date: "2026-08-15",
+    readmin: 17,
+    title: {
+      vi: "Thiết kế kháng chấn cho kết cấu thép — Phần 1: Nền tảng lý thuyết & triết lý thiết kế",
+      en: "Seismic Design for Steel Structures — Part 1: Theoretical Foundations & Design Philosophy"
+    },
+    excerpt: {
+      vi: "Northridge 1994 đã thay đổi toàn bộ ngành thép như thế nào, triết lý capacity design, bảy hệ kết cấu kháng chấn cùng hệ số R, và vì sao thép A36 không nên dùng cho kết cấu kháng chấn.",
+      en: "How Northridge 1994 rewrote steel design, the capacity design philosophy, the seven seismic force-resisting systems and their R factors, and why A36 steel is the wrong choice for seismic work."
+    },
+    cover: "Resource/articles/08-seismic-steel/cover_1.webp",
+    sections: [
+      {
+        heading: { vi: "1. Bài học từ Northridge 1994", en: "1. Lessons from Northridge 1994" },
+        body: [
+          { vi: "Ngày <b>17/01/1994</b>, trận động đất <b>Northridge</b> (M 6,7) tại Los Angeles đã làm sụp đổ niềm tin của giới kỹ sư vào khung thép chịu mô-men hàn (WSMF).", en: "On <b>17 January 1994</b> the <b>Northridge</b> earthquake (M 6.7) in Los Angeles shattered the profession's confidence in welded steel moment frames (WSMF)." },
+          { type: "subhead", vi: "Trước Northridge", en: "Before Northridge" },
+          { type: "list", items: [
+            { vi: "Khung thép hàn được xem là <b>tiêu chuẩn vàng</b> cho kháng chấn.", en: "Welded steel moment frames were regarded as the <b>gold standard</b> for seismic resistance." },
+            { vi: "Liên kết dầm–cột dùng mối hàn CJP tại cánh dầm.", en: "Beam-to-column connections used CJP welds at the beam flanges." },
+            { vi: "Kỹ sư tin rằng hệ này có khả năng biến dạng dẻo tốt.", en: "Engineers believed the system had excellent ductile deformation capacity." }
+          ]},
+          { type: "subhead", vi: "Sau Northridge — phát hiện gây chấn động", en: "After Northridge — the shock" },
+          { type: "list", items: [
+            { vi: "Hàng trăm liên kết dầm–cột bị <b>nứt giòn</b> tại mối hàn.", en: "Hundreds of beam-to-column connections suffered <b>brittle fracture</b> at the welds." },
+            { vi: "Vết nứt khởi đầu từ mối hàn CJP tại cánh dầm dưới, lan vào cánh cột.", en: "Cracks initiated at the CJP weld of the bottom flange and propagated into the column flange." },
+            { vi: "Nhiều kết cấu hư hại mà <b>không hề có dấu hiệu biến dạng dẻo</b> — đúng thứ mà thiết kế trông cậy vào.", en: "Many structures were damaged with <b>no sign of ductile deformation</b> — the very thing the design relied on." }
+          ]},
+          { type: "table",
+            head: [{ vi: "#", en: "#" }, { vi: "Nguyên nhân gốc rễ", en: "Root cause" }, { vi: "Giải thích", en: "Explanation" }],
+            rows: [
+              [{ vi: "1", en: "1" }, { vi: "<b>Kim loại hàn kém dai</b>", en: "<b>Low-toughness weld metal</b>" }, { vi: "Que hàn E70T-4 có độ dai va đập (CVN) rất thấp", en: "E70T-4 electrodes had very low Charpy V-Notch toughness" }],
+              [{ vi: "2", en: "2" }, { vi: "<b>Thanh đỡ hàn</b>", en: "<b>Weld backing bars</b>" }, { vi: "Tạo khuyết tật tại gốc mối hàn, thành điểm khởi đầu nứt", en: "Created root defects that became crack initiation points" }],
+              [{ vi: "3", en: "3" }, { vi: "<b>Tập trung ứng suất</b>", en: "<b>Stress concentration</b>" }, { vi: "Biến dạng dẻo xảy ra ngay tại mặt cột — nơi ứng suất cao nhất", en: "Plastic deformation occurred right at the column face — the peak-stress location" }],
+              [{ vi: "4", en: "4" }, { vi: "<b>Cường độ thực cao hơn thiết kế</b>", en: "<b>Actual strength above design</b>" }, { vi: "Thép A36 thực tế có Fy cao hơn nhiều giá trị danh nghĩa, làm tăng lực truyền vào liên kết", en: "A36 steel had Fy well above nominal, raising the force delivered into the connection" }],
+              [{ vi: "5", en: "5" }, { vi: "<b>Kiểm soát chất lượng yếu</b>", en: "<b>Poor quality control</b>" }, { vi: "Kiểm tra hàn không phát hiện được khuyết tật tiềm ẩn", en: "Weld inspection failed to catch latent defects" }]
+            ]},
+          { type: "tip", vi: "<b>Bước ngoặt:</b> FEMA tài trợ chương trình <b>SAC Joint Venture</b> — nghiên cứu lớn nhất lịch sử kết cấu thép. Kết quả: FEMA 350, khái niệm <b>Prequalified Connections</b>, và thay đổi triết lý cốt lõi — <b>dịch khớp dẻo ra khỏi mặt cột</b>.", en: "<b>The turning point:</b> FEMA funded the <b>SAC Joint Venture</b>, the largest research programme in the history of structural steel. It produced FEMA 350, the concept of <b>prequalified connections</b>, and one central shift in philosophy — <b>move the plastic hinge away from the column face</b>." },
+          { type: "subhead", vi: "Vì sao chuyện này liên quan đến vùng động đất yếu", en: "Why this matters in low-seismicity regions" },
+          { type: "list", items: [
+            { vi: "Việt Nam nằm trong <b>vùng động đất yếu đến trung bình</b> theo TCVN 9386.", en: "Vietnam sits in a <b>low to moderate</b> seismic zone under TCVN 9386." },
+            { vi: "Nhiều dự án công nghiệp — nhà máy, pipe rack — lại áp dụng tiêu chuẩn Mỹ (AISC/ASCE).", en: "Yet many industrial projects — plants, pipe racks — are designed to US codes (AISC/ASCE)." },
+            { vi: "Hiểu đúng giúp chọn hệ kết cấu <b>phù hợp và kinh tế</b>, tránh cả thiết kế quá mức lẫn thiếu an toàn.", en: "Understanding this lets you pick a system that is <b>appropriate and economical</b>, avoiding both over-design and unsafe detailing." }
+          ]}
+        ]
+      },
+      {
+        heading: { vi: "2. Triết lý capacity design", en: "2. The capacity design philosophy" },
+        body: [
+          { type: "tip", vi: "<b>Ý tưởng cốt lõi:</b> chọn trước vị trí cho phép chảy dẻo (fuse), rồi thiết kế tất cả phần tử còn lại đủ mạnh để <b>không bị phá hoại trước fuse</b>.", en: "<b>The core idea:</b> pre-select where yielding is permitted (the fuses), then design every other element strong enough that it <b>cannot fail before the fuse does</b>." },
+          { type: "figure", src: "Resource/articles/08-seismic-steel/capacity_design.webp",
+            caption: { vi: "<b>Hình 1.</b> Triết lý capacity design — phân định phần tử chảy dẻo và phần tử được bảo vệ.", en: "<b>Figure 1.</b> Capacity design — separating the yielding elements from the protected ones." } },
+          { type: "table",
+            head: [{ vi: "Nhóm", en: "Group" }, { vi: "Vai trò", en: "Role" }, { vi: "Ví dụ", en: "Examples" }, { vi: "Yêu cầu", en: "Requirement" }],
+            rows: [
+              [{ vi: "<b>Fuse</b> (cầu chì)", en: "<b>Fuse</b>" }, { vi: "Chảy dẻo, hấp thụ năng lượng", en: "Yields and dissipates energy" }, { vi: "Khớp dẻo tại dầm, link beam (EBF), thanh giằng (CBF)", en: "Beam plastic hinges, EBF link beams, CBF braces" }, { vi: "Biến dạng dẻo lớn và ổn định", en: "Large, stable inelastic deformation" }],
+              [{ vi: "<b>Protected</b> (được bảo vệ)", en: "<b>Protected</b>" }, { vi: "Giữ đàn hồi", en: "Stays elastic" }, { vi: "Cột, liên kết, mối hàn, bản nối", en: "Columns, connections, welds, gusset plates" }, { vi: "Cường độ vượt khả năng cực hạn của fuse", en: "Strength above the ultimate capacity of the fuse" }]
+            ]},
+          { type: "subhead", vi: "Nguyên tắc cột mạnh — dầm yếu", en: "Strong column — weak beam" },
+          { vi: "Đây là nguyên tắc <b>quan trọng nhất</b> trong thiết kế khung kháng chấn. Khớp dẻo phải hình thành ở <b>dầm</b> trước. Nếu cột chảy dẻo trước sẽ sinh cơ chế <b>sụp đổ tầng mềm</b> — phá hoại toàn bộ công trình.", en: "This is the <b>single most important</b> rule in seismic frame design. Plastic hinges must form in the <b>beams</b> first. If the columns yield first you get a <b>soft-storey collapse mechanism</b> — total failure." },
+          { type: "code",
+            vi: "ΣM*pc  ≥  ΣM*pb\n\nΣM*pc = tổng mô-men khả năng của CỘT tại nút (có xét lực dọc)\nΣM*pb = tổng mô-men tại khớp dẻo của DẦM (dùng cường độ kỳ vọng)",
+            en: "ΣM*pc  ≥  ΣM*pb\n\nΣM*pc = sum of COLUMN moment capacities at the joint (allowing for axial load)\nΣM*pb = sum of BEAM plastic-hinge moments (using expected strength)" },
+          { type: "subhead", vi: "Cường độ kỳ vọng và mô-men khớp dẻo", en: "Expected strength and the plastic hinge moment" },
+          { vi: "Thép thực tế <b>luôn</b> có Fy cao hơn giá trị danh nghĩa. Khi thiết kế phần tử được bảo vệ, phải dùng cường độ kỳ vọng của fuse — nếu không, phần tử bảo vệ sẽ không thật sự mạnh hơn fuse.", en: "Real steel <b>always</b> yields above its nominal Fy. When designing a protected element you must use the expected strength of the fuse — otherwise the protected element is not genuinely stronger than the fuse." },
+          { type: "code",
+            vi: "Fye = Ry × Fy        (cường độ chảy kỳ vọng)\nFue = Rt × Fu        (cường độ kéo kỳ vọng)\n\nMô-men tại khớp dẻo:\n  Mpr = Cpr × Ry × Fy × Ze\n\nCpr = hệ số biến cứng, AISC khuyến nghị 1,1\nZe  = mô-đun chống uốn dẻo tại vị trí khớp dẻo",
+            en: "Fye = Ry × Fy        (expected yield strength)\nFue = Rt × Fu        (expected tensile strength)\n\nPlastic hinge moment:\n  Mpr = Cpr × Ry × Fy × Ze\n\nCpr = strain-hardening factor, AISC recommends 1.1\nZe  = plastic section modulus at the hinge location" },
+          { type: "tip", vi: "<b>Ý nghĩa thực tế của Mpr:</b> đó là <b>mô-men lớn nhất</b> dầm có thể sinh ra khi chảy dẻo. Mọi thứ nối vào dầm — cột, liên kết, mối hàn — đều phải chịu được lực sinh từ Mpr, chứ không phải từ mô-men thiết kế.", en: "<b>What Mpr really means:</b> it is the <b>largest moment the beam can ever deliver</b> once it yields. Everything attached to that beam — column, connection, welds — must survive the forces from Mpr, not from the design moment." }
+        ]
+      },
+      {
+        heading: { vi: "3. Bảy hệ kết cấu kháng chấn và hệ số thiết kế", en: "3. The seven seismic systems and their design coefficients" },
+        body: [
+          { type: "figure", src: "Resource/articles/08-seismic-steel/r_factor_comparison.webp",
+            caption: { vi: "<b>Hình 2.</b> So sánh hệ số thiết kế giữa các hệ kết cấu kháng chấn.", en: "<b>Figure 2.</b> Design coefficients compared across the seismic force-resisting systems." } },
+          { type: "table",
+            head: [{ vi: "Hệ kết cấu", en: "System" }, { vi: "R", en: "R" }, { vi: "Ω₀", en: "Ω₀" }, { vi: "Cd", en: "Cd" }, { vi: "Phần tử fuse", en: "Fuse element" }],
+            rows: [
+              [{ vi: "<b>SMF</b> — khung mô-men đặc biệt", en: "<b>SMF</b> — special moment frame" }, { vi: "8", en: "8" }, { vi: "3", en: "3" }, { vi: "5,5", en: "5.5" }, { vi: "Khớp dẻo tại dầm", en: "Beam plastic hinge" }],
+              [{ vi: "<b>IMF</b> — khung mô-men trung gian", en: "<b>IMF</b> — intermediate moment frame" }, { vi: "4,5", en: "4.5" }, { vi: "3", en: "3" }, { vi: "4", en: "4" }, { vi: "Khớp dẻo tại dầm", en: "Beam plastic hinge" }],
+              [{ vi: "<b>OMF</b> — khung mô-men thường", en: "<b>OMF</b> — ordinary moment frame" }, { vi: "3,5", en: "3.5" }, { vi: "3", en: "3" }, { vi: "3", en: "3" }, { vi: "Khớp dẻo tại dầm", en: "Beam plastic hinge" }],
+              [{ vi: "<b>SCBF</b> — giằng đồng tâm đặc biệt", en: "<b>SCBF</b> — special concentrically braced" }, { vi: "6", en: "6" }, { vi: "2", en: "2" }, { vi: "5", en: "5" }, { vi: "Thanh giằng kéo/nén", en: "Braces in tension/compression" }],
+              [{ vi: "<b>OCBF</b> — giằng đồng tâm thường", en: "<b>OCBF</b> — ordinary concentrically braced" }, { vi: "3,25", en: "3.25" }, { vi: "2", en: "2" }, { vi: "3,25", en: "3.25" }, { vi: "Thanh giằng", en: "Braces" }],
+              [{ vi: "<b>EBF</b> — giằng lệch tâm", en: "<b>EBF</b> — eccentrically braced" }, { vi: "8", en: "8" }, { vi: "2", en: "2" }, { vi: "4", en: "4" }, { vi: "Link beam", en: "Link beam" }],
+              [{ vi: "<b>BRBF</b> — giằng chống mất ổn định", en: "<b>BRBF</b> — buckling-restrained braced" }, { vi: "8", en: "8" }, { vi: "2", en: "2" }, { vi: "5", en: "5" }, { vi: "Lõi BRB", en: "BRB core" }]
+            ]},
+          { type: "subhead", vi: "Ba hệ số này nói lên điều gì", en: "What the three coefficients mean" },
+          { type: "list", items: [
+            { vi: "<b>R — hệ số điều chỉnh phản ứng:</b> cho phép giảm lực thiết kế dựa trên khả năng dẻo. R càng lớn thì lực thiết kế càng nhỏ, <b>nhưng yêu cầu chi tiết hoá càng nghiêm ngặt</b>. Đây là một sự đánh đổi, không phải quà tặng.", en: "<b>R — response modification:</b> lets you reduce the design force in exchange for ductility. A higher R means smaller design forces <b>but far stricter detailing</b>. It is a trade, not a gift." },
+            { vi: "<b>Ω₀ — hệ số siêu cường độ:</b> khuếch đại lực thiết kế cho một số phần tử đặc biệt (cột, liên kết, collector) để chúng không hỏng trước khi fuse đạt cực hạn.", en: "<b>Ω₀ — overstrength:</b> amplifies the design force for particular elements (columns, connections, collectors) so they do not fail before the fuse reaches its ultimate capacity." },
+            { vi: "<b>Cd — hệ số khuếch đại chuyển vị:</b> phân tích đàn hồi cho δxe, chuyển vị thực là δx = Cd × δxe / Ie. Dùng để kiểm tra drift.", en: "<b>Cd — deflection amplification:</b> elastic analysis gives δxe; the real drift is δx = Cd × δxe / Ie. This is what the drift check uses." }
+          ]},
+          { type: "subhead", vi: "Khung chịu mô-men — ba cấp độ", en: "Moment frames — three tiers" },
+          { type: "table",
+            head: [{ vi: "", en: "" }, { vi: "SMF", en: "SMF" }, { vi: "IMF", en: "IMF" }, { vi: "OMF", en: "OMF" }],
+            rows: [
+              [{ vi: "Khả năng drift", en: "Drift capacity" }, { vi: "0,04 rad", en: "0.04 rad" }, { vi: "0,02 rad", en: "0.02 rad" }, { vi: "0,02 rad", en: "0.02 rad" }],
+              [{ vi: "Cột mạnh – dầm yếu", en: "Strong column – weak beam" }, { vi: "<b>Bắt buộc</b>", en: "<b>Required</b>" }, { vi: "Bắt buộc", en: "Required" }, { vi: "Không yêu cầu", en: "Not required" }],
+              [{ vi: "Giới hạn b/t", en: "b/t limits" }, { vi: "λhd", en: "λhd" }, { vi: "λmd", en: "λmd" }, { vi: "λp", en: "λp" }],
+              [{ vi: "Liên kết", en: "Connections" }, { vi: "Prequalified (AISC 358)", en: "Prequalified (AISC 358)" }, { vi: "Đã thử nghiệm", en: "Tested / qualified" }, { vi: "Linh hoạt", en: "Flexible" }],
+              [{ vi: "Giới hạn chiều cao", en: "Height limit" }, { vi: "Không", en: "None" }, { vi: "Có", en: "Yes" }, { vi: "Chặt", en: "Tight" }],
+              [{ vi: "SDC phù hợp", en: "Suitable SDC" }, { vi: "D, E, F", en: "D, E, F" }, { vi: "C, D", en: "C, D" }, { vi: "A, B, C", en: "A, B, C" }]
+            ]},
+          { type: "subhead", vi: "Khung giằng — đồng tâm, lệch tâm và BRBF", en: "Braced frames — concentric, eccentric and BRBF" },
+          { type: "list", items: [
+            { vi: "<b>CBF (đồng tâm):</b> trục thanh giằng đi qua tâm nút; hấp thụ năng lượng qua chảy kéo và mất ổn định nén. <b>Cấm dùng K-brace</b> ở cả hai cấp SCBF và OCBF.", en: "<b>CBF (concentric):</b> brace axes pass through the joint; energy is dissipated by tension yielding and compression buckling. <b>K-braces are prohibited</b> in both SCBF and OCBF." },
+            { vi: "<b>EBF (lệch tâm):</b> trục thanh giằng <b>không</b> qua tâm nút, tạo ra đoạn dầm ngắn gọi là link beam. Link chảy dẻo, thanh giằng và dầm ngoài link giữ đàn hồi. R = 8 như SMF nhưng <b>cứng hơn nhiều</b>.", en: "<b>EBF (eccentric):</b> the brace axis deliberately misses the joint, creating a short <b>link beam</b>. The link yields while the brace and outer beam stay elastic. R = 8 like an SMF but <b>far stiffer</b>." },
+            { vi: "<b>BRBF:</b> thanh giằng bọc trong ống thép hoặc bê tông nên không mất ổn định khi nén — chảy dẻo đều cả hai chiều, hấp thụ năng lượng rất hiệu quả. Chi tiết hoá <b>đơn giản hơn SCBF</b>.", en: "<b>BRBF:</b> the brace is encased so it cannot buckle in compression — it yields symmetrically both ways, dissipating energy very efficiently. Detailing is <b>simpler than SCBF</b>." }
+          ]},
+          { type: "table",
+            head: [{ vi: "Loại link (EBF)", en: "Link type (EBF)" }, { vi: "Chiều dài", en: "Length" }, { vi: "Cơ chế", en: "Mechanism" }, { vi: "Góc xoay cho phép", en: "Rotation capacity" }],
+            rows: [
+              [{ vi: "<b>Link ngắn</b> (cắt)", en: "<b>Short link</b> (shear)" }, { vi: "e ≤ 1,6·Mp/Vp", en: "e ≤ 1.6·Mp/Vp" }, { vi: "Chảy cắt", en: "Shear yielding" }, { vi: "γp = 0,08 rad", en: "γp = 0.08 rad" }],
+              [{ vi: "Trung gian", en: "Intermediate" }, { vi: "1,6 &lt; e/(Mp/Vp) &lt; 2,6", en: "1.6 &lt; e/(Mp/Vp) &lt; 2.6" }, { vi: "Hỗn hợp", en: "Combined" }, { vi: "Nội suy", en: "Interpolate" }],
+              [{ vi: "<b>Link dài</b> (uốn)", en: "<b>Long link</b> (flexural)" }, { vi: "e ≥ 2,6·Mp/Vp", en: "e ≥ 2.6·Mp/Vp" }, { vi: "Chảy uốn", en: "Flexural yielding" }, { vi: "γp = 0,02 rad", en: "γp = 0.02 rad" }]
+            ]},
+          { type: "tip", vi: "<b>Ưu tiên link ngắn (shear link)</b> — khả năng hấp thụ năng lượng tốt nhất, γp = 0,08 rad, gấp bốn lần link dài.", en: "<b>Prefer short shear links</b> — they dissipate the most energy, γp = 0.08 rad, four times a long link." }
+        ]
+      },
+      {
+        heading: { vi: "4. Xác định lực động đất thiết kế", en: "4. Determining the design seismic force" },
+        body: [
+          { type: "subhead", vi: "Sáu bước theo ASCE 7", en: "The six ASCE 7 steps" },
+          { type: "code",
+            vi: "1. Tra bản đồ địa chấn → Ss (chu kỳ 0,2s) và S1 (chu kỳ 1,0s)\n\n2. Hệ số nền theo Site Class A→F:\n     SMS = Fa × Ss          SM1 = Fv × S1\n\n3. Gia tốc phổ thiết kế:\n     SDS = 2/3 × SMS        SD1 = 2/3 × SM1\n\n4. Seismic Design Category (SDC) từ SDS, SD1 và Risk Category\n\n5. Hệ số phản ứng:\n     Cs = SDS / (R / Ie)\n     không lớn hơn  SD1 / [ T × (R / Ie) ]     khi T ≤ TL\n     không nhỏ hơn  0,044 × SDS × Ie  ≥  0,01\n\n6. Lực cắt đáy:\n     V = Cs × W            W = tổng trọng lượng tính toán",
+            en: "1. Read the seismic maps → Ss (0.2s period) and S1 (1.0s period)\n\n2. Site coefficients for Site Class A→F:\n     SMS = Fa × Ss          SM1 = Fv × S1\n\n3. Design spectral accelerations:\n     SDS = 2/3 × SMS        SD1 = 2/3 × SM1\n\n4. Seismic Design Category (SDC) from SDS, SD1 and Risk Category\n\n5. Seismic response coefficient:\n     Cs = SDS / (R / Ie)\n     not more than  SD1 / [ T × (R / Ie) ]     when T ≤ TL\n     not less than  0.044 × SDS × Ie  ≥  0.01\n\n6. Base shear:\n     V = Cs × W            W = total effective seismic weight" },
+          { type: "tip", vi: "<b>SDC quyết định hệ kết cấu nào được phép dùng</b> — không phải kỹ sư tự chọn. Đây là điều dễ bỏ sót khi chuyển từ thiết kế thông thường sang thiết kế kháng chấn.", en: "<b>The SDC dictates which systems you are allowed to use</b> — it is not the engineer's free choice. This is easy to miss when moving from ordinary to seismic design." },
+          { type: "subhead", vi: "ASCE 7 so với TCVN 9386", en: "ASCE 7 versus TCVN 9386" },
+          { type: "table",
+            head: [{ vi: "Đặc điểm", en: "Feature" }, { vi: "ASCE 7 (Mỹ)", en: "ASCE 7 (US)" }, { vi: "TCVN 9386 / EC8", en: "TCVN 9386 / EC8" }],
+            rows: [
+              [{ vi: "Tham số chính", en: "Primary parameter" }, { vi: "Ss, S1 (gia tốc phổ)", en: "Ss, S1 (spectral acceleration)" }, { vi: "agR (gia tốc nền đỉnh)", en: "agR (peak ground acceleration)" }],
+              [{ vi: "Phổ thiết kế", en: "Design spectrum" }, { vi: "Từ SDS, SD1", en: "From SDS, SD1" }, { vi: "Phổ đàn hồi × 1/q", en: "Elastic spectrum × 1/q" }],
+              [{ vi: "Hệ số giảm lực", en: "Force reduction" }, { vi: "R", en: "R" }, { vi: "q (behaviour factor)", en: "q (behaviour factor)" }],
+              [{ vi: "Chu kỳ lặp", en: "Return period" }, { vi: "2475 năm (MCE) rồi ×2/3", en: "2,475 years (MCE) then ×2/3" }, { vi: "475 năm", en: "475 years" }],
+              [{ vi: "Phân vùng", en: "Zoning" }, { vi: "Bản đồ USGS", en: "USGS maps" }, { vi: "Bản đồ theo tỉnh", en: "Province-level maps" }]
+            ]},
+          { type: "subhead", vi: "Đặc thù Việt Nam", en: "The Vietnamese context" },
+          { type: "list", items: [
+            { vi: "agR dao động từ <b>0,0432g</b> (vùng rất yếu) đến <b>0,1086g</b> (Điện Biên, Lai Châu).", en: "agR ranges from <b>0.0432g</b> in the quietest zones to <b>0.1086g</b> in Điện Biên and Lai Châu." },
+            { vi: "Phần lớn lãnh thổ có agR &lt; 0,08g — <b>vùng động đất yếu đến rất yếu</b>.", en: "Most of the country sits below agR = 0.08g — <b>low to very low seismicity</b>." },
+            { vi: "Dự án FDI thường yêu cầu tiêu chuẩn Mỹ, nên cần quy đổi từ PGA sang tham số ASCE.", en: "Foreign-invested projects usually demand US codes, so a PGA-to-ASCE conversion is needed." }
+          ]},
+          { type: "code",
+            vi: "Quy đổi sơ bộ:  SDS ≈ 2/3 × Fa × (2,5 × agR)\n\n  agR = 0,08g, Site Class D  →  SDS ≈ 0,21g  →  SDC B\n                                 dùng được OMF hoặc OCBF\n\n  agR > 0,10g, Site Class D  →  SDS ≈ 0,27g  →  SDC C\n                                 cần IMF hoặc SCBF trở lên",
+            en: "Rough conversion:  SDS ≈ 2/3 × Fa × (2.5 × agR)\n\n  agR = 0.08g, Site Class D  →  SDS ≈ 0.21g  →  SDC B\n                                 OMF or OCBF is acceptable\n\n  agR > 0.10g, Site Class D  →  SDS ≈ 0.27g  →  SDC C\n                                 IMF or SCBF and above required" },
+          { type: "tip", vi: "<b>Quy đổi trên chỉ để ước lượng sơ bộ.</b> Dự án thật cần phân tích địa chấn chuyên sâu (PSHA) cho từng vị trí — đừng dùng con số này làm căn cứ thiết kế cuối cùng.", en: "<b>Treat that conversion as a first estimate only.</b> A real project needs a site-specific probabilistic seismic hazard analysis — do not use these numbers as the final design basis." },
+          { type: "subhead", vi: "Kiểm tra chuyển vị (drift)", en: "The drift check" },
+          { type: "code", vi: "δx = Cd × δxe / Ie\n\nGiới hạn theo Risk Category:\n  I, II  →  0,020 × hsx\n  III    →  0,015 × hsx\n  IV     →  0,010 × hsx      (hsx = chiều cao tầng)",
+            en: "δx = Cd × δxe / Ie\n\nLimits by Risk Category:\n  I, II  →  0.020 × hsx\n  III    →  0.015 × hsx\n  IV     →  0.010 × hsx      (hsx = storey height)" },
+          { type: "figure", src: "Resource/articles/08-seismic-steel/drift_plastic_hinge.webp",
+            caption: { vi: "<b>Hình 3.</b> Góc drift và sự hình thành khớp dẻo.", en: "<b>Figure 3.</b> Drift angle and the formation of the plastic hinge." } }
+        ]
+      },
+      {
+        heading: { vi: "5. Yêu cầu vật liệu — vì sao A36 không phù hợp", en: "5. Material requirements — why A36 is the wrong steel" },
+        body: [
+          { vi: "Thép sản xuất hàng loạt có cường độ chảy thực thường <b>cao hơn 20–50%</b> so với giá trị danh nghĩa. Thép A36 danh nghĩa Fy = 248 MPa, thực tế thường đạt 300–380 MPa.", en: "Mass-produced steel typically yields <b>20–50% above</b> its nominal value. A36 is nominally Fy = 248 MPa but routinely tests at 300–380 MPa." },
+          { type: "tip", vi: "<b>Trước Northridge hiện tượng này bị bỏ qua.</b> Hậu quả: dầm mạnh hơn thiết kế, truyền lực lớn hơn vào liên kết, rồi nứt giòn. Đây chính là nguyên nhân số 4 trong bảng ở mục 1.", en: "<b>Before Northridge this was simply ignored.</b> The result: beams stronger than designed, delivering larger forces into the connections, and brittle fracture. This is root cause #4 in the table above." },
+          { type: "table",
+            head: [{ vi: "Loại thép", en: "Steel grade" }, { vi: "Fy (MPa)", en: "Fy (MPa)" }, { vi: "Ry", en: "Ry" }, { vi: "Rt", en: "Rt" }],
+            rows: [
+              [{ vi: "ASTM A36", en: "ASTM A36" }, { vi: "248", en: "248" }, { vi: "<b>1,5</b>", en: "<b>1.5</b>" }, { vi: "1,2", en: "1.2" }],
+              [{ vi: "ASTM A572 Gr.50", en: "ASTM A572 Gr.50" }, { vi: "345", en: "345" }, { vi: "1,1", en: "1.1" }, { vi: "1,1", en: "1.1" }],
+              [{ vi: "<b>ASTM A992</b>", en: "<b>ASTM A992</b>" }, { vi: "345", en: "345" }, { vi: "<b>1,1</b>", en: "<b>1.1</b>" }, { vi: "1,1", en: "1.1" }],
+              [{ vi: "ASTM A500 Gr.B (HSS)", en: "ASTM A500 Gr.B (HSS)" }, { vi: "317", en: "317" }, { vi: "1,4", en: "1.4" }, { vi: "1,3", en: "1.3" }],
+              [{ vi: "ASTM A500 Gr.C (HSS)", en: "ASTM A500 Gr.C (HSS)" }, { vi: "345", en: "345" }, { vi: "1,3", en: "1.3" }, { vi: "1,2", en: "1.2" }],
+              [{ vi: "ASTM A913 Gr.50/S75", en: "ASTM A913 Gr.50/S75" }, { vi: "345", en: "345" }, { vi: "1,1", en: "1.1" }, { vi: "1,1", en: "1.1" }]
+            ]},
+          { type: "tip", vi: "<b>A992 ra đời chính là để khắc phục vấn đề của A36.</b> Nó bị ràng buộc hai điều kiện: Fy ≤ 448 MPa <b>và</b> Fy/Fu ≤ 0,85. Còn A36 có Ry = 1,5 — quá cao, <b>nên tránh dùng cho kết cấu kháng chấn quan trọng</b>.", en: "<b>A992 exists precisely to fix the A36 problem.</b> It carries two constraints: Fy ≤ 448 MPa <b>and</b> Fy/Fu ≤ 0.85. A36 has Ry = 1.5 — far too high — and <b>should be avoided in critical seismic elements</b>." },
+          { type: "subhead", vi: "Khi nào dùng Ry × Fy, khi nào dùng Fy danh nghĩa", en: "When to use Ry × Fy and when to use nominal Fy" },
+          { type: "table",
+            head: [{ vi: "Dùng cường độ kỳ vọng Ry × Fy", en: "Use expected strength Ry × Fy" }, { vi: "Dùng Fy danh nghĩa", en: "Use nominal Fy" }],
+            rows: [
+              [{ vi: "Tính mô-men khớp dẻo Mpr", en: "Computing the plastic hinge moment Mpr" }, { vi: "Thiết kế bản thân phần tử fuse", en: "Designing the fuse element itself" }],
+              [{ vi: "Thiết kế liên kết chịu lực từ dầm hoặc giằng", en: "Designing connections that receive fuse forces" }, { vi: "Tính tỷ số khả năng chịu lực thông thường", en: "Ordinary capacity-ratio checks" }],
+              [{ vi: "Kiểm tra cột mạnh – dầm yếu", en: "The strong column – weak beam check" }, { vi: "—", en: "—" }],
+              [{ vi: "Thiết kế gusset plate cho CBF", en: "Designing CBF gusset plates" }, { vi: "—", en: "—" }]
+            ]},
+          { type: "subhead", vi: "Độ dai va đập CVN", en: "CVN toughness" },
+          { type: "list", items: [
+            { vi: "Mối hàn <b>demand-critical</b> phải đạt <b>CVN ≥ 27J tại −29°C</b>.", en: "<b>Demand-critical</b> welds must achieve <b>CVN ≥ 27J at −29°C</b>." },
+            { vi: "Dùng vật liệu hàn có độ dai cao — chính que hàn kém dai đã gây ra Northridge.", en: "Use high-toughness filler metal — low-toughness electrodes were what caused Northridge." },
+            { vi: "<b>Loại bỏ thanh đỡ hàn</b> sau khi hàn CJP tại cánh dầm dưới.", en: "<b>Remove the backing bar</b> after CJP welding at the bottom beam flange." }
+          ]}
+        ]
+      },
+      {
+        heading: { vi: "6. Giới hạn tỷ số b/t", en: "6. Width-to-thickness limits" },
+        body: [
+          { vi: "Khi thép chảy dẻo với biến dạng lớn, cánh hoặc bụng có nguy cơ <b>mất ổn định cục bộ</b>. Mất ổn định sớm nghĩa là mất khả năng chịu lực trước khi kịp hấp thụ năng lượng — đúng thứ mà thiết kế kháng chấn trông cậy vào. Vì vậy phần tử kháng chấn cần tỷ số b/t <b>nhỏ hơn</b> thiết kế thông thường.", en: "Under large inelastic strains the flange or web can <b>buckle locally</b>. Early buckling means losing capacity before any energy is absorbed — precisely what seismic design depends on. Hence seismic elements need <b>tighter</b> b/t ratios than ordinary design." },
+          { type: "table",
+            head: [{ vi: "Cấp độ", en: "Level" }, { vi: "Ký hiệu", en: "Symbol" }, { vi: "Áp dụng cho", en: "Applies to" }],
+            rows: [
+              [{ vi: "<b>Dẻo cao</b>", en: "<b>Highly ductile</b>" }, { vi: "λhd", en: "λhd" }, { vi: "Dầm SMF, giằng SCBF, link EBF", en: "SMF beams, SCBF braces, EBF links" }],
+              [{ vi: "<b>Dẻo vừa</b>", en: "<b>Moderately ductile</b>" }, { vi: "λmd", en: "λmd" }, { vi: "Dầm IMF, cột SCBF", en: "IMF beams, SCBF columns" }],
+              [{ vi: "<b>Chắc</b>", en: "<b>Compact</b>" }, { vi: "λp", en: "λp" }, { vi: "OMF và thiết kế thông thường", en: "OMF and ordinary design" }]
+            ]},
+          { type: "code",
+            vi: "CÁNH (phần tử không được gia cường)\n  I-shape:   λhd = 0,32·√(E/Fy)    λmd = 0,40·√(E/Fy)    λp = 0,38·√(E/Fy)\n  HSS    :   λhd = 0,65·√(E/Fy)    λmd = 0,76·√(E/Fy)    λp = 1,12·√(E/Fy)\n\nBỤNG (phần tử được gia cường)\n  Chịu uốn :  λhd = 2,57·√(E/Fy)   λmd = 3,76·√(E/Fy)\n  Tổ hợp   :  λhd = 1,57·√(E/Fy)\n  Thành HSS:  λhd = 0,65·√(E/Fy)   λmd = 0,76·√(E/Fy)",
+            en: "FLANGE (unstiffened element)\n  I-shape:   λhd = 0.32·√(E/Fy)    λmd = 0.40·√(E/Fy)    λp = 0.38·√(E/Fy)\n  HSS    :   λhd = 0.65·√(E/Fy)    λmd = 0.76·√(E/Fy)    λp = 1.12·√(E/Fy)\n\nWEB (stiffened element)\n  Flexure  :  λhd = 2.57·√(E/Fy)   λmd = 3.76·√(E/Fy)\n  Combined :  λhd = 1.57·√(E/Fy)\n  HSS wall :  λhd = 0.65·√(E/Fy)   λmd = 0.76·√(E/Fy)" },
+          { type: "subhead", vi: "Con số cụ thể với Fy = 345 MPa", en: "Actual numbers for Fy = 345 MPa" },
+          { type: "table",
+            head: [{ vi: "Phần tử", en: "Element" }, { vi: "λhd", en: "λhd" }, { vi: "λmd", en: "λmd" }, { vi: "λp", en: "λp" }],
+            rows: [
+              [{ vi: "Cánh I-shape (bf/2tf)", en: "I-shape flange (bf/2tf)" }, { vi: "<b>7,70</b>", en: "<b>7.70</b>" }, { vi: "<b>9,63</b>", en: "<b>9.63</b>" }, { vi: "9,15", en: "9.15" }],
+              [{ vi: "Bụng chịu uốn (h/tw)", en: "Web in flexure (h/tw)" }, { vi: "<b>61,8</b>", en: "<b>61.8</b>" }, { vi: "<b>90,5</b>", en: "<b>90.5</b>" }, { vi: "—", en: "—" }]
+            ]},
+          { type: "subhead", vi: "Kiểm thử hai tiết diện thật", en: "Two sections checked" },
+          { type: "code",
+            vi: "W21×62  (Fy = 345 MPa)\n  bf/2tf = 7,53   ≤  λhd = 7,70   →  ĐẠT cho SMF\n  h/tw   = 46,9   ≤  λhd = 61,8   →  ĐẠT cho SMF\n\nW14×48  (Fy = 345 MPa)\n  bf/2tf = 6,75   ≤  λhd = 7,70   →  ĐẠT cho SMF\n  h/tw   = 33,6   ≤  λhd = 61,8   →  ĐẠT cho SMF",
+            en: "W21×62  (Fy = 345 MPa)\n  bf/2tf = 7.53   ≤  λhd = 7.70   →  OK for SMF\n  h/tw   = 46.9   ≤  λhd = 61.8   →  OK for SMF\n\nW14×48  (Fy = 345 MPa)\n  bf/2tf = 6.75   ≤  λhd = 7.70   →  OK for SMF\n  h/tw   = 33.6   ≤  λhd = 61.8   →  OK for SMF" },
+          { type: "tip", vi: "<b>Mẹo chọn tiết diện:</b> profile nhóm W cánh rộng thường đạt λhd. Tiết diện nặng dễ đạt hơn tiết diện nhẹ cùng chiều cao. Riêng <b>HSS phải kiểm rất kỹ</b> — nhiều profile không đạt λhd. Nếu dùng liên kết RBS, b/t tại vùng cắt giảm nên yêu cầu có thể nới lỏng.", en: "<b>Section-picking tips:</b> wide-flange W profiles usually satisfy λhd. Heavier sections pass more easily than light ones of the same depth. <b>HSS needs careful checking</b> — many profiles fail λhd. With an RBS connection the reduced zone has a smaller b/t, so the requirement can relax." }
+        ]
+      },
+      {
+        heading: { vi: "7. Tóm tắt Phần 1", en: "7. Part 1 summary" },
+        body: [
+          { type: "table",
+            head: [{ vi: "Chủ đề", en: "Topic" }, { vi: "Điểm then chốt", en: "Key point" }],
+            rows: [
+              [{ vi: "<b>Northridge</b>", en: "<b>Northridge</b>" }, { vi: "Nứt giòn mối hàn đã thay đổi toàn bộ triết lý thiết kế", en: "Brittle weld fracture rewrote the entire design philosophy" }],
+              [{ vi: "<b>Capacity design</b>", en: "<b>Capacity design</b>" }, { vi: "Chọn trước fuse, rồi làm mọi thứ khác mạnh hơn fuse", en: "Pre-select the fuse, then make everything else stronger than it" }],
+              [{ vi: "<b>Cột mạnh – dầm yếu</b>", en: "<b>Strong column – weak beam</b>" }, { vi: "ΣM*pc ≥ ΣM*pb, dùng Ry × Fy", en: "ΣM*pc ≥ ΣM*pb, using Ry × Fy" }],
+              [{ vi: "<b>R, Ω₀, Cd</b>", en: "<b>R, Ω₀, Cd</b>" }, { vi: "R giảm lực, Ω₀ khuếch đại cục bộ, Cd khuếch đại chuyển vị", en: "R cuts force, Ω₀ amplifies locally, Cd amplifies drift" }],
+              [{ vi: "<b>Hệ kết cấu</b>", en: "<b>Systems</b>" }, { vi: "SMF/EBF/BRBF có R = 8, SCBF R = 6, OMF R = 3,5", en: "SMF/EBF/BRBF at R = 8, SCBF at 6, OMF at 3.5" }],
+              [{ vi: "<b>Vật liệu</b>", en: "<b>Material</b>" }, { vi: "Dùng A992 (Ry = 1,1), tránh A36 (Ry = 1,5)", en: "Use A992 (Ry = 1.1), avoid A36 (Ry = 1.5)" }],
+              [{ vi: "<b>b/t</b>", en: "<b>b/t</b>" }, { vi: "λhd cho SMF/SCBF/EBF, λmd cho IMF, λp cho OMF", en: "λhd for SMF/SCBF/EBF, λmd for IMF, λp for OMF" }],
+              [{ vi: "<b>Việt Nam</b>", en: "<b>Vietnam</b>" }, { vi: "Phần lớn agR &lt; 0,08g → SDC B–C → OMF/OCBF thường đủ", en: "Mostly agR &lt; 0.08g → SDC B–C → OMF/OCBF usually suffices" }]
+            ]},
+          { type: "tip", vi: "<b>Đọc tiếp Phần 2</b> — <a href='article-seismic-steel-part-2-vi.html'>Hướng dẫn thiết kế chi tiết và ứng dụng thực tế</a>: SMF sáu bước, liên kết RBS và end-plate, gusset plate cho SCBF, link beam cho EBF, và khuyến nghị cụ thể cho từng loại công trình tại Việt Nam.", en: "<b>Continue to Part 2</b> — <a href='article-seismic-steel-part-2.html'>detailed design guidance and practice</a>: the six-step SMF procedure, RBS and end-plate connections, SCBF gusset plates, EBF link beams, and concrete recommendations by building type." }
+        ]
+      }
+    ],
+    footnote: {
+      vi: "Tài liệu tham chiếu: FEMA 350 · AISC 341-22 · ASCE 7-22 · AISC 358-22 · TCVN 9386:2012. Bài viết thuộc series “Hướng dẫn thiết kế kết cấu công trình công nghiệp” — Roberto Structural. Nội dung mang tính hướng dẫn kỹ thuật; kỹ sư chịu trách nhiệm kiểm tra và hiệu chỉnh theo điều kiện cụ thể của từng dự án và tiêu chuẩn áp dụng.",
+      en: "References: FEMA 350 · AISC 341-22 · ASCE 7-22 · AISC 358-22 · TCVN 9386:2012. Part of the “Industrial structural design guide” series by Roberto Structural. The content is technical guidance only; the engineer remains responsible for verifying and adapting it to each project and the governing code."
+    }
+  },
+
   /* ===================== No. 10 — Torsion, part 2 of 2 ===================== */
   {
     id: "torsion-steel-part-2",
