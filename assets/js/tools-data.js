@@ -234,14 +234,16 @@ window.TOOLS = [
       vi: "Thiết kế bản thép chôn sẵn trong bê tông: bố trí chốt neo, kiểm tra kéo – cắt – tổ hợp và các dạng phá hoại bê tông theo ACI 318.",
       en: "Design of plates cast into concrete: stud layout, tension–shear–interaction checks and concrete failure modes per ACI 318."
     },
-    version: "1.0", size: "—", updated: "2026-08", os: WIN, host: "General",
+    version: "1.1", size: "—", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 100000, productCode: "EMBPLATE", status: "ready",
     thumb: PIC + "web_description_11/01.webp",
     screenshots: [PIC + "web_description_11/01.webp", PIC + "web_description_11/02.webp", PIC + "web_description_11/03.webp", PIC + "web_description_11/04.webp"],
     features: [
+      { vi: "Kết nối trực tiếp <b>mô hình SAP2000</b> để lấy nội lực tự động", en: "Connects to the <b>SAP2000 model</b> to pull member forces automatically" },
+      { vi: "<b>13 dạng tấm chôn sẵn</b> điển hình theo tiêu chuẩn, ký hiệu A–T", en: "<b>13 standard embedded-plate types</b>, designated A–T" },
       { vi: "Bố trí chốt neo (stud) theo lưới, kiểm tra khoảng cách", en: "Configurable stud layout with spacing and distance checks" },
       { vi: "Kiểm tra chốt neo chịu <b>kéo, cắt và tổ hợp kéo–cắt</b>", en: "Stud checks in <b>tension, shear and tension–shear interaction</b>" },
-      { vi: "Các dạng phá hoại bê tông: <b> (breakout), (pullout), (blow-out)</b>", en: "Concrete failure modes: <b>breakout, pullout and side-face blow-out</b>" },
+      { vi: "Các dạng phá hoại bê tông: <b>nứt vỡ hình nón (breakout), kéo tuột (pullout), nổ hông (side-face blow-out)</b>", en: "Concrete failure modes: <b>breakout, pullout and side-face blow-out</b>" },
       { vi: "Kiểm tra bề dày bản thép chịu uốn cục bộ dưới tải trọng đặt", en: "Plate thickness check for local bending under the applied load" },
       { vi: "Xuất báo cáo tính toán", en: "Exports a calculation report" },
       { vi: "Đơn vị SI (kN, m, mm)", en: "SI units (kN, m, mm)" }
@@ -442,13 +444,24 @@ window.TOOLS = [
     category: CAT_FDN,
     name: { vi: "Thiết kế móng bát giác cho thiết bị", en: "Octagonal Equipment Foundation Design" },
     tagline: {
-      vi: "Thiết kế móng bát giác cho bồn/thiết bị đứng: kiểm tra ổn định, áp lực đáy móng và cốt thép đài móng.",
-      en: "Design of octagonal foundations for vertical vessels: stability, base pressure and mat reinforcement."
+      vi: "Thiết kế móng bát giác cho bồn, tháp và thiết bị đứng: ổn định, áp lực nền, cốt thép bệ và đài móng, kèm phương án móng cọc — theo PIP STE03350, ASCE 7-22 và ACI 318-25.",
+      en: "Octagonal foundations for vertical tanks, vessels and stacks: stability, bearing, pedestal and footing reinforcement, plus a piled option — per PIP STE03350, ASCE 7-22 and ACI 318-25."
     },
-    version: "1.0", size: "—", updated: "—", os: WIN, host: "SAP2000",
-    priceVnd: 50000, productCode: "OCTAGONEQ", status: "soon",
-    thumb: "", screenshots: [], features: [], requirements: REQ_SAP,
-    download: "", checksum: "", virustotal: ""
+    version: "1.0", size: "—", updated: "2026-09", os: WIN, host: "General",
+    priceVnd: 50000, productCode: "OCTAGONEQ", status: "ready",
+    thumb: PIC + "web_description_14/01.webp",
+    screenshots: [PIC + "web_description_14/01.webp", PIC + "web_description_14/02.webp", PIC + "web_description_14/03.webp", PIC + "web_description_14/04.webp", PIC + "web_description_14/05.webp"],
+    features: [
+      { vi: "Kiểm tra <b>lật, trượt, tỷ số ổn định</b> và <b>áp lực nền</b> theo PIP STE03350", en: "<b>Overturning, sliding, stability ratio</b> and <b>bearing pressure</b> per PIP STE03350" },
+      { vi: "Nhập trực tiếp tải bồn: rỗng – vận hành – thử nước, gió và động đất", en: "Direct entry of vessel loads: empty, operating and test weights, wind and seismic" },
+      { vi: "Tổ hợp tải <b>ASCE 7-22</b> (LRFD và ASD), bảng tổ hợp chỉnh sửa được, có xét đẩy nổi", en: "<b>ASCE 7-22</b> combinations (LRFD and ASD) in an editable table, with buoyancy" },
+      { vi: "Thiết kế <b>cốt thép bệ</b>: thép dọc, đai, ép mặt tại chân bệ", en: "<b>Pedestal reinforcement</b>: vertical bars, ties and bearing at the base" },
+      { vi: "Thiết kế <b>đài móng</b>: cắt một phương, chọc thủng, uốn, chiều dài neo", en: "<b>Footing design</b>: one-way and punching shear, flexure, development length" },
+      { vi: "Phương án <b>móng cọc</b>: bố trí cọc theo vòng tròn, sức chịu tải từng cọc, thiết kế đài cọc", en: "<b>Piled option</b>: piles on a circle, per-pile capacity and pile-cap design" },
+      { vi: "Lưu / mở dự án, xuất báo cáo Excel", en: "Save / open projects and export an Excel report" },
+      { vi: "Đơn vị SI (kN, m)", en: "SI units (kN, m)" }
+    ],
+    requirements: REQ_STD, download: "", checksum: "", virustotal: ""
   },
   {
     id: "staad-unbraced-length",
