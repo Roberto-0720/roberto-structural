@@ -147,6 +147,24 @@ function renderPurchase() {
        <tr><td data-vi="Hệ điều hành" data-en="OS">OS</td><td>${pesc(t.os)}</td></tr>
        <tr><td ${pbi(licenceRow)}>${pesc(licenceRow.en)}</td><td ${pbi(licenceVal)}>${pesc(licenceVal.en)}</td></tr>`;
 
+  // A product may replace the free "Note" field with a REQUIRED pick-list
+  // (`orderPick` in tools-data.js). SteelCAD uses it for the AutoCAD version:
+  // each AutoCAD generation needs its own plug-in package, and the order e-mail
+  // must say which one to send. The same hint is also shown ABOVE step 1 —
+  // asking only in step 2 would tell an AutoCAD LT / 2025 user after they paid.
+  const pick = !isDraw && t.orderPick ? t.orderPick : null;
+  const pickWarn = pick
+    ? { vi: '⚠ Trước khi chuyển khoản: ' + pick.hint.vi, en: '⚠ Before you pay: ' + pick.hint.en }
+    : null;
+  const extraField = pick
+    ? `<div class="fld"><label for="oPick" ${pbi(pick.label)}>${pesc(pick.label.en)}</label>
+         <select id="oPick">
+           <option value="" data-vi="— Chọn phiên bản —" data-en="— Select a version —">— Select a version —</option>
+           ${pick.options.map((o, i) => `<option value="${i}">${pesc(o.label)}</option>`).join('')}
+         </select>
+         <small class="fld-hint" ${pbi(pick.hint)}>${pesc(pick.hint.en)}</small></div>`
+    : `<div class="fld"><label data-vi="Ghi chú (tuỳ chọn)" data-en="Note (optional)">Note (optional)</label><input id="oNote" type="text" placeholder=""/></div>`;
+
   root.innerHTML = `
   <section class="page-hero"><div class="container">
     <p class="breadcrumb"><a href="${window.RS_URL.page('index')}" data-vi="Trang chủ" data-en="Home">Home</a> / ${catalogCrumb} / <span data-vi="Thanh toán" data-en="Purchase">Purchase</span></p>
@@ -160,6 +178,7 @@ function renderPurchase() {
 
       <!-- ================= LEFT: how to pay ================= -->
       <div>
+        ${pickWarn ? `<p class="warn" ${pbi(pickWarn)}>${pesc(pickWarn.en)}</p>` : ''}
         <ol class="steps">
           <li class="step reveal">
             <div class="step-no">1</div>
@@ -209,7 +228,7 @@ function renderPurchase() {
                 <div class="fld"><label data-vi="Họ tên" data-en="Full name">Full name</label><input id="oName" type="text" placeholder="Nguyễn Văn A"/></div>
                 <div class="fld"><label data-vi="Email nhận bản quyền" data-en="E-mail for the licence">E-mail for the licence</label><input id="oEmail" type="email" placeholder="ban@congty.com"/></div>
                 <div class="fld"><label data-vi="Mã đơn (nội dung đã chuyển khoản)" data-en="Order reference (your transfer note)">Order reference (your transfer note)</label><input id="oRef" type="text" value="${pesc(transferNote)}"/></div>
-                <div class="fld"><label data-vi="Ghi chú (tuỳ chọn)" data-en="Note (optional)">Note (optional)</label><input id="oNote" type="text" placeholder=""/></div>
+                ${extraField}
                 <button class="btn btn-primary btn-block" onclick="rsSubmitOrder('${pesc(t.id)}')" data-vi="Gửi thông tin đơn hàng" data-en="Submit order">Submit order</button>
                 <p class="muted small" ${pbi(step2Note)}>${pesc(step2Note.en)}</p>
               </div>
@@ -294,6 +313,7 @@ window.rsCopy = function (text) {
 
 // Keeps the last attempt so the fallback panel can re-send / copy / mailto it.
 let RS_lastOrder = null;
+let RS_lastPick = null;    // the product's orderPick, so the fallback text can name it
 
 function rsOrderText(o) {
   return [
@@ -303,6 +323,9 @@ function rsOrderText(o) {
     'Số tiền / Amount   : ' + o.amount_vnd,
     'Họ tên / Name      : ' + o.customer_name,
     'Email              : ' + o.email,
+    ...(RS_lastPick && o[RS_lastPick.key]
+      ? [RS_lastPick.label.vi + ' : ' + o[RS_lastPick.key] + '  →  gửi ' + o.send_package]
+      : []),
     'Ghi chú / Note     : ' + (o.note || '-'),
     'Thời điểm / Time   : ' + o.ordered_at
   ].join('\n');
@@ -338,7 +361,9 @@ window.rsSubmitOrder = async function (toolId) {
   const name = (document.getElementById('oName').value || '').trim();
   const email = (document.getElementById('oEmail').value || '').trim();
   const ref = (document.getElementById('oRef').value || '').trim();
-  const note = (document.getElementById('oNote').value || '').trim();
+  // #oNote does not exist when the product swapped it for an orderPick list.
+  const noteEl = document.getElementById('oNote');
+  const note = noteEl ? (noteEl.value || '').trim() : '';
   const vi = window.RS.lang === 'vi';
 
   if (!name) { alert(vi ? 'Vui lòng nhập họ tên.' : 'Please enter your name.'); return; }
@@ -346,6 +371,20 @@ window.rsSubmitOrder = async function (toolId) {
 
   const found = findProduct(toolId);
   const t = found ? found.item : {};
+
+  const pick = found && found.kind !== 'drawing' && t.orderPick ? t.orderPick : null;
+  let picked = null;
+  if (pick) {
+    const sel = document.getElementById('oPick');
+    if (!sel || sel.value === '') {
+      alert(vi ? 'Vui lòng chọn: ' + pick.label.vi : 'Please select: ' + pick.label.en);
+      if (sel) sel.focus();
+      return;
+    }
+    picked = pick.options[Number(sel.value)];
+  }
+  RS_lastPick = pick;
+
   // Drawings have no licence "productCode" — fall back to the id itself so
   // Roberto can still tell which GitHub Release link to send (see
   // _LicenseSystem/DrawingDownloadLinks.md).
@@ -353,7 +392,8 @@ window.rsSubmitOrder = async function (toolId) {
   const when = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Ho_Chi_Minh', hour12: false });
 
   const payload = {
-    _subject: `ĐƠN HÀNG ${ref} — ${t.name ? t.name.en : toolId}`,
+    // The version goes in the subject too, so it is readable straight from the inbox list.
+    _subject: `ĐƠN HÀNG ${ref} — ${t.name ? t.name.en : toolId}` + (picked ? ` — ${picked.label}` : ''),
     type: 'ORDER',
     customer_name: name,
     email,
@@ -361,6 +401,7 @@ window.rsSubmitOrder = async function (toolId) {
     product_code: code,
     amount_vnd: t.priceVnd || '',
     order_ref: ref,
+    ...(picked ? { [pick.key]: picked.label, send_package: picked.send } : {}),
     note,
     ordered_at: when + ' (GMT+7)',
     page: location.href

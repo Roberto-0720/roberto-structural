@@ -496,8 +496,10 @@ footer a:hover{color:var(--accent)}
 .pay-qr{width:100%;max-width:190px;margin:.9rem auto 0;display:block;border-radius:8px;border:1px solid var(--silver)}
 .fld{display:flex;flex-direction:column;gap:.32rem;margin-bottom:.8rem}
 .fld label{font-size:.84rem;color:var(--steel);font-weight:600}
-.fld input{padding:.7rem .9rem;border:1px solid var(--silver);border-radius:8px;font-family:var(--ff-body);font-size:.95rem}
-.fld input:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
+.fld input,.fld select{padding:.7rem .9rem;border:1px solid var(--silver);border-radius:8px;font-family:var(--ff-body);font-size:.95rem}
+.fld select{background:#fff;color:var(--charcoal);cursor:pointer}
+.fld input:focus,.fld select:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
+.fld-hint{font-size:.8rem;color:var(--steel);line-height:1.45}
 .order-thanks{background:var(--accent-soft);border:1px solid var(--accent);border-radius:12px;padding:1.4rem;text-align:center}
 .order-thanks h3{color:var(--accent);margin-bottom:.5rem}
 /* Order could not be delivered — must read as a warning, never as success. */

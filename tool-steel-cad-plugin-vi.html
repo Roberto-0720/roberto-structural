@@ -9,7 +9,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>SteelCAD — Plugin vẽ kết cấu cho AutoCAD — Roberto Structural</title>
-<meta name="description" content="Plugin .NET cho AutoCAD giúp vẽ cấu kiện thép thông minh: mỗi dầm là một đối tượng có 7 grip, đổi được 4 kiểu hình chiếu và 6 dạng tiết diện — kèm module…" />
+<meta name="description" content="Plugin AutoCAD triển khai bản vẽ thép và BTCT bằng cấu kiện thông minh — và tự sinh mặt bằng, mặt đứng, mặt cắt thẳng từ mô hình SAP2000." />
 <link rel="canonical" href="https://robertostructural.com/tool-steel-cad-plugin-vi.html" />
 <link rel="alternate" hreflang="en" href="https://robertostructural.com/tool-steel-cad-plugin.html" />
 <link rel="alternate" hreflang="vi" href="https://robertostructural.com/tool-steel-cad-plugin-vi.html" />
@@ -18,12 +18,12 @@
 <meta property="og:site_name" content="Roberto Structural" />
 <meta property="og:locale" content="vi_VN" />
 <meta property="og:title" content="SteelCAD — Plugin vẽ kết cấu cho AutoCAD — Roberto Structural" />
-<meta property="og:description" content="Plugin .NET cho AutoCAD giúp vẽ cấu kiện thép thông minh: mỗi dầm là một đối tượng có 7 grip, đổi được 4 kiểu hình chiếu và 6 dạng tiết diện — kèm module…" />
+<meta property="og:description" content="Plugin AutoCAD triển khai bản vẽ thép và BTCT bằng cấu kiện thông minh — và tự sinh mặt bằng, mặt đứng, mặt cắt thẳng từ mô hình SAP2000." />
 <meta property="og:url" content="https://robertostructural.com/tool-steel-cad-plugin-vi.html" />
 <meta property="og:image" content="https://robertostructural.com/Resource/tools/web_description_07/01.webp" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="SteelCAD — Plugin vẽ kết cấu cho AutoCAD — Roberto Structural" />
-<meta name="twitter:description" content="Plugin .NET cho AutoCAD giúp vẽ cấu kiện thép thông minh: mỗi dầm là một đối tượng có 7 grip, đổi được 4 kiểu hình chiếu và 6 dạng tiết diện — kèm module…" />
+<meta name="twitter:description" content="Plugin AutoCAD triển khai bản vẽ thép và BTCT bằng cấu kiện thông minh — và tự sinh mặt bằng, mặt đứng, mặt cắt thẳng từ mô hình SAP2000." />
 <meta name="twitter:image" content="https://robertostructural.com/Resource/tools/web_description_07/01.webp" />
 <link rel="icon" type="image/x-icon" href="Logo/rbt.ico" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -64,7 +64,7 @@
     <p class="breadcrumb"><a href="index-vi.html" data-vi="Trang chủ" data-en="Home">Trang chủ</a> / <a href="tools-vi.html" data-vi="Phần mềm" data-en="Software">Phần mềm</a> / <span>SteelCAD — Plugin vẽ kết cấu cho AutoCAD</span></p>
     <p class="eyebrow" data-vi="Kết cấu thép" data-en="Steel Structural Design">Kết cấu thép</p>
     <h1 data-vi="SteelCAD — Plugin vẽ kết cấu cho AutoCAD" data-en="SteelCAD Plugin for AutoCAD">SteelCAD — Plugin vẽ kết cấu cho AutoCAD</h1>
-    <p data-vi="Plugin .NET cho AutoCAD giúp vẽ cấu kiện thép thông minh: mỗi dầm là một đối tượng có 7 grip, đổi được 4 kiểu hình chiếu và 6 dạng tiết diện — kèm module ghi chú bản vẽ, module BTCT và bulông neo." data-en="A .NET plugin for AutoCAD that draws parametric steel members: each beam is a smart object with 7 grips, 4 switchable view types and 6 section shapes — plus drawing-markup, RC detailing and anchor-bolt modules.">Plugin .NET cho AutoCAD giúp vẽ cấu kiện thép thông minh: mỗi dầm là một đối tượng có 7 grip, đổi được 4 kiểu hình chiếu và 6 dạng tiết diện — kèm module ghi chú bản vẽ, module BTCT và bulông neo.</p>
+    <p data-vi="Plugin AutoCAD triển khai bản vẽ thép và BTCT bằng cấu kiện thông minh — và tự sinh mặt bằng, mặt đứng, mặt cắt thẳng từ mô hình SAP2000." data-en="An AutoCAD plug-in for steel and RC detailing with smart members — and plans, elevations and sections generated straight from a SAP2000 model.">Plugin AutoCAD triển khai bản vẽ thép và BTCT bằng cấu kiện thông minh — và tự sinh mặt bằng, mặt đứng, mặt cắt thẳng từ mô hình SAP2000.</p>
   </div></section>
 
   <section class="section" style="padding-top:clamp(2rem,5vw,3.5rem)"><div class="container">
@@ -75,27 +75,27 @@
           <img class="main-img" id="mainImg" src="Resource/tools/web_description_07/01.webp" alt="SteelCAD — Plugin vẽ kết cấu cho AutoCAD" onclick="rsOpenShot()" title="Bấm để phóng to | Click to zoom"/>
           <span class="gallery-zoom">⤢</span>
           <div class="thumbs">
-            <img src="Resource/tools/web_description_07/01.webp" class="active" onclick="rsSwapShot(this,0)" alt="screenshot 1"/><img src="Resource/tools/web_description_07/02.webp" class="" onclick="rsSwapShot(this,1)" alt="screenshot 2"/><img src="Resource/tools/web_description_07/03.webp" class="" onclick="rsSwapShot(this,2)" alt="screenshot 3"/><img src="Resource/tools/web_description_07/04.webp" class="" onclick="rsSwapShot(this,3)" alt="screenshot 4"/>
+            <img src="Resource/tools/web_description_07/01.webp" class="active" onclick="rsSwapShot(this,0)" alt="screenshot 1"/><img src="Resource/tools/web_description_07/02.webp" class="" onclick="rsSwapShot(this,1)" alt="screenshot 2"/><img src="Resource/tools/web_description_07/03.webp" class="" onclick="rsSwapShot(this,2)" alt="screenshot 3"/><img src="Resource/tools/web_description_07/04.webp" class="" onclick="rsSwapShot(this,3)" alt="screenshot 4"/><img src="Resource/tools/web_description_07/05.webp" class="" onclick="rsSwapShot(this,4)" alt="screenshot 5"/><img src="Resource/tools/web_description_07/06.webp" class="" onclick="rsSwapShot(this,5)" alt="screenshot 6"/><img src="Resource/tools/web_description_07/07.webp" class="" onclick="rsSwapShot(this,6)" alt="screenshot 7"/><img src="Resource/tools/web_description_07/08.webp" class="" onclick="rsSwapShot(this,7)" alt="screenshot 8"/>
           </div>
         </div>
 
         
         <p class="block-title" data-vi="Tính năng chính" data-en="Key features">Tính năng chính</p>
         <ul class="feat-list">
-          <li data-vi="<b>Cấu kiện thép tham số</b>: 7 grip, đổi tiết diện/nhãn/cắt vát" data-en="<b>Parametric steel members</b>: 7 grips; change section/label/cuts">&lt;b&gt;Cấu kiện thép tham số&lt;/b&gt;: 7 grip, đổi tiết diện/nhãn/cắt vát</li><li data-vi="<b>4 kiểu hình chiếu</b> chuyển đổi tức thì: Mặt bằng, Mặt đứng, Mặt cắt" data-en="<b>4 view types</b> switched instantly: Plan, Elevation, Section">&lt;b&gt;4 kiểu hình chiếu&lt;/b&gt; chuyển đổi tức thì: Mặt bằng, Mặt đứng, Mặt cắt</li><li data-vi="<b>6 dạng tiết diện</b>: H/W/I, Box, Pipe, T, C…" data-en="<b>6 section shapes</b>: H/W/I, Box, Pipe, T, C…">&lt;b&gt;6 dạng tiết diện&lt;/b&gt;: H/W/I, Box, Pipe, T, C…</li><li data-vi="Moment Connection, Working Line, nhãn tiết diện đầy đủ/rút gọn" data-en="Moment connections, working-line control, full/short section labels">Moment Connection, Working Line, nhãn tiết diện đầy đủ/rút gọn</li><li data-vi="<b>Module ghi chú bản vẽ</b>: liên kết, lưới trục, ghi chú, ký hiệu mặt cắt" data-en="<b>Markup module</b>: connections, grids, notes, section symbols">&lt;b&gt;Module ghi chú bản vẽ&lt;/b&gt;: liên kết, lưới trục, ghi chú, ký hiệu mặt cắt</li><li data-vi="<b>Module bê tông cốt thép</b>: cột, dầm, móng và mặt cắt đứng móng" data-en="<b>RC drawing module</b>: columns, beams, foundations and foundation elevations">&lt;b&gt;Module bê tông cốt thép&lt;/b&gt;: cột, dầm, móng và mặt cắt đứng móng</li><li data-vi="<b>Bulông neo</b> (STEELBOLT) cho chi tiết chân cột" data-en="<b>Anchor bolts</b> (STEELBOLT) for base-plate details">&lt;b&gt;Bulông neo&lt;/b&gt; (STEELBOLT) cho chi tiết chân cột</li><li data-vi="<b>Bảng điều khiển</b> (palette) — chọn tiết diện, tỉ lệ bản vẽ, chiều cao chữ, kiểu chữ" data-en="<b>Dockable palette</b> — section browser, drawing scale, text height, text style">&lt;b&gt;Bảng điều khiển&lt;/b&gt; (palette) — chọn tiết diện, tỉ lệ bản vẽ, chiều cao chữ, kiểu chữ</li>
+          <li data-vi="<b>SAP Link</b>: tự sinh mặt bằng, mặt đứng, mặt cắt từ mô hình SAP2000, kèm lưới trục, kích thước và cao độ" data-en="<b>SAP Link</b>: plans, elevations and sections generated from the SAP2000 model, with grids, dimensions and levels">&lt;b&gt;SAP Link&lt;/b&gt;: tự sinh mặt bằng, mặt đứng, mặt cắt từ mô hình SAP2000, kèm lưới trục, kích thước và cao độ</li><li data-vi="<b>Cập nhật khi mô hình đổi</b> (SAPUPDATE) — chỉ sửa phần cần, giữ nguyên phần đã chỉnh tay" data-en="<b>Update on model change</b> (SAPUPDATE) — only what changed, your manual edits kept">&lt;b&gt;Cập nhật khi mô hình đổi&lt;/b&gt; (SAPUPDATE) — chỉ sửa phần cần, giữ nguyên phần đã chỉnh tay</li><li data-vi="Mặt cắt tuỳ chọn trên mặt bằng, giới hạn theo hai điểm và khoảng cao độ" data-en="Custom sections cut on a plan, bounded by two points and a level range">Mặt cắt tuỳ chọn trên mặt bằng, giới hạn theo hai điểm và khoảng cao độ</li><li data-vi="<b>Beam thông minh</b>: mỗi cấu kiện mang sẵn tiết diện, điểm làm việc, đoạn cắt, nhãn, liên kết moment — sửa bằng grip, không vẽ lại" data-en="<b>Smart members</b> carrying section, working points, cuts, label and moment ends — edited by grips, never redrawn">&lt;b&gt;Beam thông minh&lt;/b&gt;: mỗi cấu kiện mang sẵn tiết diện, điểm làm việc, đoạn cắt, nhãn, liên kết moment — sửa bằng grip, không vẽ lại</li><li data-vi="H, C, L, T, hộp, ống — 4 kiểu thể hiện, tự cắt đầu cấu kiện tại gối" data-en="H, C, L, T, box and pipe — 4 view types, ends trimmed to supports automatically">H, C, L, T, hộp, ống — 4 kiểu thể hiện, tự cắt đầu cấu kiện tại gối</li><li data-vi="Thư viện <b>~2.950 tiết diện</b>, mở rộng được" data-en="Library of <b>~2,950 sections</b>, extendable">Thư viện &lt;b&gt;~2.950 tiết diện&lt;/b&gt;, mở rộng được</li><li data-vi="Sửa hàng loạt, sao chép thuộc tính, bảng thống kê MARK / SIZE / QTY" data-en="Batch edit, match properties, MARK / SIZE / QTY member list">Sửa hàng loạt, sao chép thuộc tính, bảng thống kê MARK / SIZE / QTY</li><li data-vi="<b>BTCT</b>: mặt cắt cột, dầm, móng và bu-lông neo" data-en="<b>RC</b>: column, beam and footing sections, anchor bolts">&lt;b&gt;BTCT&lt;/b&gt;: mặt cắt cột, dầm, móng và bu-lông neo</li><li data-vi="Ký hiệu: liên kết, trục, ghi chú, mặt cắt, tên chi tiết" data-en="Markup: connections, grids, notes, section marks, titles">Ký hiệu: liên kết, trục, ghi chú, mặt cắt, tên chi tiết</li>
         </ul>
 
         <p class="block-title" data-vi="Yêu cầu hệ thống" data-en="System requirements">Yêu cầu hệ thống</p>
-        <p class="lead" style="margin-top:.3rem" data-vi="Windows / AutoCAD" data-en="Windows / AutoCAD">Windows / AutoCAD</p>
+        <p class="lead" style="margin-top:.3rem" data-vi="Windows 64-bit, AutoCAD bản đầy đủ 2015–2024 (không hỗ trợ AutoCAD LT). SAP Link cần SAP2000 cài trên cùng máy." data-en="64-bit Windows, full AutoCAD 2015–2024 (AutoCAD LT not supported). SAP Link needs SAP2000 on the same computer.">Windows 64-bit, AutoCAD bản đầy đủ 2015–2024 (không hỗ trợ AutoCAD LT). SAP Link cần SAP2000 cài trên cùng máy.</p>
       </div>
 
       <aside>
         <div class="buybox">
-          <div class="price">50.000 ₫ <small data-vi="· bản quyền vĩnh viễn" data-en="· perpetual licence">· bản quyền vĩnh viễn</small></div>
+          <div class="price">100.000 ₫ <small data-vi="· bản quyền vĩnh viễn" data-en="· perpetual licence">· bản quyền vĩnh viễn</small></div>
           <table class="spec">
-            <tr><td data-vi="Phiên bản" data-en="Version">Phiên bản</td><td>v1.0</td></tr>
+            <tr><td data-vi="Phiên bản" data-en="Version">Phiên bản</td><td>v2.0</td></tr>
             
-            <tr><td data-vi="Yêu cầu" data-en="Requires">Yêu cầu</td><td>AutoCAD</td></tr>
+            <tr><td data-vi="Yêu cầu" data-en="Requires">Yêu cầu</td><td>AutoCAD / SAP2000</td></tr>
             <tr><td data-vi="Hệ điều hành" data-en="OS">Hệ điều hành</td><td>Windows</td></tr>
           </table>
 

@@ -313,6 +313,11 @@ Sửa `assets/js/tools-data.js` — copy một khối, điền:
 - `priceVnd > 0` → trả phí (**bắt buộc** `download: ""`)
 - `status: "soon"` → hiện "In development", khoá nút
 - Thứ tự hiển thị tự sắp: miễn phí → rẻ → đắt → đang phát triển
+- `orderPick` (tuỳ chọn) → trên trang thanh toán, ô "Ghi chú" được **thay bằng một ô chọn
+  bắt buộc**. Giá trị khách chọn và tên gói cần gửi (`send`) đi thẳng vào email Formspree
+  báo đơn, kể cả vào tiêu đề email. `hint` còn được hiện **phía trên bước 1**, để khách thấy
+  trước khi chuyển khoản. Hiện chỉ SteelCAD dùng (hỏi phiên bản AutoCAD, vì mỗi đời AutoCAD
+  cần một bộ cài riêng); xem khối đó trong `tools-data.js` làm mẫu. Bản vẽ không dùng.
 
 ### Thêm bài viết
 Sửa `assets/js/articles-data.js`, chèn lên **đầu** mảng. Mỗi mục `body` là một khối:
@@ -749,7 +754,7 @@ lý do đầy đủ ghi trong khối chú thích ngay tại chỗ đã gỡ. Tó
 - Nó là plugin **.NET** (7 file DLL), mà bộ nhúng bản quyền chỉ có mẫu cho PyQt5 / Tkinter /
   customtkinter / PySide6 — **không có gì cho C#**.
 - .NET dịch ngược bằng ILSpy ra gần như mã gốc → bảo vệ còn **yếu hơn** 11 tool Python.
-- Giá còn 50.000₫ (trước 350.000₫), không đáng bỏ vài ngày.
+- Giá 100.000₫ (từ 2026-09; trước đó 50.000₫, ban đầu 350.000₫), không đáng bỏ vài ngày.
 - Răn đe mạnh nhất của các tool kia là **in tên người mua lên báo cáo** — SteelCAD chỉ vẽ
   đối tượng trong AutoCAD, không xuất báo cáo, nên lớp răn đe đó vốn đã không áp dụng được.
 

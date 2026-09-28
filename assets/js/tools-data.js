@@ -108,24 +108,55 @@ window.TOOLS = [
     category: CAT_STEEL,
     name: { vi: "SteelCAD — Plugin vẽ kết cấu cho AutoCAD", en: "SteelCAD Plugin for AutoCAD" },
     tagline: {
-      vi: "Plugin .NET cho AutoCAD giúp vẽ cấu kiện thép thông minh: mỗi dầm là một đối tượng có 7 grip, đổi được 4 kiểu hình chiếu và 6 dạng tiết diện — kèm module ghi chú bản vẽ, module BTCT và bulông neo.",
-      en: "A .NET plugin for AutoCAD that draws parametric steel members: each beam is a smart object with 7 grips, 4 switchable view types and 6 section shapes — plus drawing-markup, RC detailing and anchor-bolt modules."
+      vi: "Plugin AutoCAD triển khai bản vẽ thép và BTCT bằng cấu kiện thông minh — và tự sinh mặt bằng, mặt đứng, mặt cắt thẳng từ mô hình SAP2000.",
+      en: "An AutoCAD plug-in for steel and RC detailing with smart members — and plans, elevations and sections generated straight from a SAP2000 model."
     },
-    version: "1.0", size: "—", updated: "2026-08", os: WIN, host: "AutoCAD",
-    priceVnd: 50000, productCode: "STEELCAD", status: "ready",
+    version: "2.0", size: "—", updated: "2026-09", os: WIN, host: "AutoCAD / SAP2000",
+    priceVnd: 100000, productCode: "STEELCAD", status: "ready",
     thumb: PIC + "web_description_07/01.webp",
-    screenshots: [PIC + "web_description_07/01.webp", PIC + "web_description_07/02.webp", PIC + "web_description_07/03.webp", PIC + "web_description_07/04.webp"],
+    screenshots: [PIC + "web_description_07/01.webp", PIC + "web_description_07/02.webp", PIC + "web_description_07/03.webp", PIC + "web_description_07/04.webp", PIC + "web_description_07/05.webp", PIC + "web_description_07/06.webp", PIC + "web_description_07/07.webp", PIC + "web_description_07/08.webp"],
     features: [
-      { vi: "<b>Cấu kiện thép tham số</b>: 7 grip, đổi tiết diện/nhãn/cắt vát", en: "<b>Parametric steel members</b>: 7 grips; change section/label/cuts" },
-      { vi: "<b>4 kiểu hình chiếu</b> chuyển đổi tức thì: Mặt bằng, Mặt đứng, Mặt cắt", en: "<b>4 view types</b> switched instantly: Plan, Elevation, Section" },
-      { vi: "<b>6 dạng tiết diện</b>: H/W/I, Box, Pipe, T, C…", en: "<b>6 section shapes</b>: H/W/I, Box, Pipe, T, C…" },
-      { vi: "Moment Connection, Working Line, nhãn tiết diện đầy đủ/rút gọn", en: "Moment connections, working-line control, full/short section labels" },
-      { vi: "<b>Module ghi chú bản vẽ</b>: liên kết, lưới trục, ghi chú, ký hiệu mặt cắt", en: "<b>Markup module</b>: connections, grids, notes, section symbols" },
-      { vi: "<b>Module bê tông cốt thép</b>: cột, dầm, móng và mặt cắt đứng móng", en: "<b>RC drawing module</b>: columns, beams, foundations and foundation elevations" },
-      { vi: "<b>Bulông neo</b> (STEELBOLT) cho chi tiết chân cột", en: "<b>Anchor bolts</b> (STEELBOLT) for base-plate details" },
-      { vi: "<b>Bảng điều khiển</b> (palette) — chọn tiết diện, tỉ lệ bản vẽ, chiều cao chữ, kiểu chữ", en: "<b>Dockable palette</b> — section browser, drawing scale, text height, text style" }
+      { vi: "<b>SAP Link</b>: tự sinh mặt bằng, mặt đứng, mặt cắt từ mô hình SAP2000, kèm lưới trục, kích thước và cao độ", en: "<b>SAP Link</b>: plans, elevations and sections generated from the SAP2000 model, with grids, dimensions and levels" },
+      { vi: "<b>Cập nhật khi mô hình đổi</b> (SAPUPDATE) — chỉ sửa phần cần, giữ nguyên phần đã chỉnh tay", en: "<b>Update on model change</b> (SAPUPDATE) — only what changed, your manual edits kept" },
+      { vi: "Mặt cắt tuỳ chọn trên mặt bằng, giới hạn theo hai điểm và khoảng cao độ", en: "Custom sections cut on a plan, bounded by two points and a level range" },
+      { vi: "<b>Beam thông minh</b>: mỗi cấu kiện mang sẵn tiết diện, điểm làm việc, đoạn cắt, nhãn, liên kết moment — sửa bằng grip, không vẽ lại", en: "<b>Smart members</b> carrying section, working points, cuts, label and moment ends — edited by grips, never redrawn" },
+      { vi: "H, C, L, T, hộp, ống — 4 kiểu thể hiện, tự cắt đầu cấu kiện tại gối", en: "H, C, L, T, box and pipe — 4 view types, ends trimmed to supports automatically" },
+      { vi: "Thư viện <b>~2.950 tiết diện</b>, mở rộng được", en: "Library of <b>~2,950 sections</b>, extendable" },
+      { vi: "Sửa hàng loạt, sao chép thuộc tính, bảng thống kê MARK / SIZE / QTY", en: "Batch edit, match properties, MARK / SIZE / QTY member list" },
+      { vi: "<b>BTCT</b>: mặt cắt cột, dầm, móng và bu-lông neo", en: "<b>RC</b>: column, beam and footing sections, anchor bolts" },
+      { vi: "Ký hiệu: liên kết, trục, ghi chú, mặt cắt, tên chi tiết", en: "Markup: connections, grids, notes, section marks, titles" }
     ],
-    requirements: REQ_CAD, download: "", checksum: "", virustotal: ""
+    requirements: {
+      vi: "Windows 64-bit, AutoCAD bản đầy đủ 2015–2024 (không hỗ trợ AutoCAD LT). SAP Link cần SAP2000 cài trên cùng máy.",
+      en: "64-bit Windows, full AutoCAD 2015–2024 (AutoCAD LT not supported). SAP Link needs SAP2000 on the same computer."
+    },
+    /* Hỏi bắt buộc trên form đặt hàng, THAY cho ô "Ghi chú" (xem purchase.js).
+       Mỗi đời AutoCAD cần một bộ cài riêng — bảng khớp lấy từ mục 2 "User manual.docx"
+       của tool. `send` là tên thư mục bộ cài cần gửi; nó được ghi thẳng vào email
+       Formspree báo đơn, Roberto khỏi phải tra. Chỉ liệt kê bản ĐƯỢC hỗ trợ: AutoCAD
+       LT và 2025 trở lên không có trong danh sách, và `hint` cảnh báo khách trước
+       khi chuyển khoản. Có bộ cài cho đời AutoCAD mới thì thêm một dòng ở đây. */
+    orderPick: {
+      key: "autocad_version",
+      label: { vi: "Phiên bản AutoCAD của bạn", en: "Your AutoCAD version" },
+      hint: {
+        vi: "Chỉ hỗ trợ AutoCAD bản đầy đủ 2015–2024 — chưa hỗ trợ AutoCAD LT và bản 2025 trở lên. Xem phiên bản trong AutoCAD: Help ▸ About.",
+        en: "Full AutoCAD 2015–2024 only — AutoCAD LT and 2025 or newer are not supported yet. Check yours in AutoCAD: Help ▸ About."
+      },
+      options: [
+        { label: "AutoCAD 2024", send: "SteelCadPlugin-acad2023" },
+        { label: "AutoCAD 2023", send: "SteelCadPlugin-acad2023" },
+        { label: "AutoCAD 2022", send: "SteelCadPlugin-acad2022" },
+        { label: "AutoCAD 2021", send: "SteelCadPlugin-acad2020" },
+        { label: "AutoCAD 2020", send: "SteelCadPlugin-acad2020" },
+        { label: "AutoCAD 2019", send: "SteelCadPlugin-acad2018" },
+        { label: "AutoCAD 2018", send: "SteelCadPlugin-acad2018" },
+        { label: "AutoCAD 2017", send: "SteelCadPlugin-acad2015" },
+        { label: "AutoCAD 2016", send: "SteelCadPlugin-acad2015" },
+        { label: "AutoCAD 2015", send: "SteelCadPlugin-acad2015" }
+      ]
+    },
+    download: "", checksum: "", virustotal: ""
   },
 
   /* ---- 08 ---- */
