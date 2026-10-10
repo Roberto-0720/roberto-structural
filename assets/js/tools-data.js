@@ -62,8 +62,8 @@ window.TOOLS = [
       en: "Connects live to a running SAP2000 model, pulls concrete frame design results and turns them into a complete rebar schedule per member group — with live OK/NG checking and a polished Excel report."
     },
     version: "1.0", size: "~34 MB", updated: "2026-08", os: WIN, host: "SAP2000",
-    priceVnd: 100000, productCode: "RCSAP", status: "ready",
-    thumb: PIC + "web_description_01/01.webp",
+    priceVnd: 250000, productCode: "RCSAP", status: "ready",
+    thumb: PIC + "web_description_01/00_cover.webp",
     screenshots: [PIC + "web_description_01/01.webp", PIC + "web_description_01/02.webp", PIC + "web_description_01/03.webp", PIC + "web_description_01/04.webp"],
     features: [
       { vi: "Kết nối trực tiếp SAP2000", en: "Live SAP2000 connection" },
@@ -86,8 +86,8 @@ window.TOOLS = [
       en: "Steel beam deflection check using the 3D chord-rotation method, connected live to SAP2000. Automatic cantilever detection and Physical-Member grouping."
     },
     version: "2.5", size: "~23 MB", updated: "2026-08", os: WIN, host: "SAP2000",
-    priceVnd: 100000, productCode: "DEFLECT", status: "ready",
-    thumb: PIC + "web_description_03/01.webp",
+    priceVnd: 200000, productCode: "DEFLECT", status: "ready",
+    thumb: PIC + "web_description_03/00_cover.webp",
     screenshots: [PIC + "web_description_03/01.webp", PIC + "web_description_03/02.webp"],
     features: [
       { vi: "<b>Kiểm tra tương đối</b> L/δ theo phương pháp chord rotation 3D", en: "<b>Relative check</b> L/δ by the 3D chord-rotation method" },
@@ -112,8 +112,8 @@ window.TOOLS = [
       en: "An AutoCAD plug-in for steel and RC detailing with smart members — and plans, elevations and sections generated straight from a SAP2000 model."
     },
     version: "2.0", size: "—", updated: "2026-09", os: WIN, host: "AutoCAD / SAP2000",
-    priceVnd: 100000, productCode: "STEELCAD", status: "ready",
-    thumb: PIC + "web_description_07/01.webp",
+    priceVnd: 250000, productCode: "STEELCAD", status: "ready",
+    thumb: PIC + "web_description_07/00_cover.webp",
     screenshots: [PIC + "web_description_07/01.webp", PIC + "web_description_07/02.webp", PIC + "web_description_07/03.webp", PIC + "web_description_07/04.webp", PIC + "web_description_07/05.webp", PIC + "web_description_07/06.webp", PIC + "web_description_07/07.webp", PIC + "web_description_07/08.webp"],
     features: [
       { vi: "<b>SAP Link</b>: tự sinh mặt bằng, mặt đứng, mặt cắt từ mô hình SAP2000, kèm lưới trục, kích thước và cao độ", en: "<b>SAP Link</b>: plans, elevations and sections generated from the SAP2000 model, with grids, dimensions and levels" },
@@ -169,7 +169,7 @@ window.TOOLS = [
       en: "Analysis and design of underhung monorail beams per AISC 9th Edition ASD and CMAA Specification No. 74 (2004)."
     },
     version: "1.2", size: "~45 MB", updated: "2026-08", os: WIN, host: "General",
-    priceVnd: 50000, productCode: "MONORAIL", status: "ready",
+    priceVnd: 100000, productCode: "MONORAIL", status: "ready",
     thumb: PIC + "web_description_08/01.webp",
     screenshots: [PIC + "web_description_08/01.webp", PIC + "web_description_08/02.webp", PIC + "web_description_08/03.webp", PIC + "web_description_08/04.webp"],
     features: [
@@ -194,7 +194,7 @@ window.TOOLS = [
       en: "Design of crane runway girders: vertical, lateral and longitudinal crane load combinations, biaxial bending with torsion, stability and serviceability deflection checks."
     },
     version: "3.0", size: "—", updated: "2026-08", os: WIN, host: "General",
-    priceVnd: 50000, productCode: "CRANEGIRDER", status: "ready",
+    priceVnd: 100000, productCode: "CRANEGIRDER", status: "ready",
     thumb: PIC + "web_description_06/01.webp",
     screenshots: [PIC + "web_description_06/01.webp", PIC + "web_description_06/03.webp"],
     features: [
@@ -217,8 +217,8 @@ window.TOOLS = [
       en: "Checks pile capacity against Long-term / Wind / Seismic combination groups, plus differential settlement between every pile pair. Reactions taken live from SAP2000."
     },
     version: "1.2", size: "—", updated: "2026-08", os: WIN, host: "SAP2000",
-    priceVnd: 125000, productCode: "PILECAP", status: "ready",
-    thumb: PIC + "web_description_04/01.webp",
+    priceVnd: 200000, productCode: "PILECAP", status: "ready",
+    thumb: PIC + "web_description_04/00_cover.webp",
     screenshots: [PIC + "web_description_04/01.webp", PIC + "web_description_04/02.webp", PIC + "web_description_04/03.webp", PIC + "web_description_04/04.webp", PIC + "web_description_04/05.webp"],
     features: [
       { vi: "<b>Nhập dữ liệu tự động</b>", en: "<b>Automatic data input</b>" },
@@ -241,8 +241,8 @@ window.TOOLS = [
       en: "Wind design loads for ground-supported vertical tanks, vessels and stacks per ASCE 7-22 Chapter 29."
     },
     version: "2.1", size: "—", updated: "2026-08", os: WIN, host: "General",
-    priceVnd: 50000, productCode: "WINDTANK", status: "ready",
-    thumb: PIC + "web_description_09/01.webp",
+    priceVnd: 100000, productCode: "WINDTANK", status: "ready",
+    thumb: PIC + "web_description_09/00_cover.webp",
     screenshots: [PIC + "web_description_09/01.webp", PIC + "web_description_09/02.webp"],
     features: [
       { vi: "Theo <b>ASCE 7-22 Chương 29</b> cho kết cấu dạng trụ", en: "Per <b>ASCE 7-22 Chapter 29</b> for cylindrical structures" },
@@ -267,7 +267,7 @@ window.TOOLS = [
     },
     version: "1.1", size: "—", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 100000, productCode: "EMBPLATE", status: "ready",
-    thumb: PIC + "web_description_11/01.webp",
+    thumb: PIC + "web_description_11/00_cover.webp",
     screenshots: [PIC + "web_description_11/01.webp", PIC + "web_description_11/02.webp", PIC + "web_description_11/03.webp", PIC + "web_description_11/04.webp"],
     features: [
       { vi: "Kết nối trực tiếp <b>mô hình SAP2000</b> để lấy nội lực tự động", en: "Connects to the <b>SAP2000 model</b> to pull member forces automatically" },
@@ -316,8 +316,8 @@ window.TOOLS = [
       en: "Storey-drift check for structures"
     },
     version: "2.3", size: "~23 MB", updated: "2026-08", os: WIN, host: "SAP2000",
-    priceVnd: 50000, productCode: "SIDESWAY", status: "ready",
-    thumb: PIC + "web_description_02/01.webp",
+    priceVnd: 100000, productCode: "SIDESWAY", status: "ready",
+    thumb: PIC + "web_description_02/00_cover.webp",
     screenshots: [PIC + "web_description_02/01.webp", PIC + "web_description_02/02.webp"],
     features: [
       { vi: "Tự gom nút theo trục cột", en: "Auto-group joints by column line" },
@@ -372,7 +372,7 @@ window.TOOLS = [
     },
     version: "2.1", size: "—", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 0, productCode: "SEISTANK", status: "ready",
-    thumb: PIC + "web_description_10/01.webp",
+    thumb: PIC + "web_description_10/00_cover.webp",
     screenshots: [PIC + "web_description_10/01.webp", PIC + "web_description_10/02.webp"],
     features: [
       { vi: "Theo <b>ASCE 7-22 Chương 15 §15.7.6</b> và <b>API 650 Phụ lục E</b>", en: "Per <b>ASCE 7-22 Chapter 15 §15.7.6</b> and <b>API 650 Appendix E</b>" },
@@ -398,7 +398,7 @@ window.TOOLS = [
     },
     version: "2.3", size: "—", updated: "2026-08", os: WIN, host: "SAP2000",
     priceVnd: 125000, productCode: "BASEPLATE", status: "ready",
-    thumb: PIC + "web_description_13/01.webp",
+    thumb: PIC + "web_description_13/00_cover.webp",
     screenshots: [
       PIC + "web_description_13/01.webp", PIC + "web_description_13/02.webp", PIC + "web_description_13/03.webp",
       PIC + "web_description_13/04.webp", PIC + "web_description_13/05.webp", PIC + "web_description_13/06.webp"
@@ -447,14 +447,27 @@ window.TOOLS = [
   {
     id: "shallow-foundation-stability",
     category: CAT_FDN,
-    name: { vi: "Kiểm tra ổn định móng nông", en: "Shallow Foundation Stability" },
+    name: { vi: "Thiết kế móng nông", en: "Shallow Foundation Design" },
     tagline: {
-      vi: "Kiểm tra ổn định móng nông: sức chịu tải nền, kiểm tra lật, trượt và áp lực đáy móng.",
-      en: "Stability checks for shallow foundations: bearing capacity, overturning, sliding and base pressure."
+      vi: "Thiết kế móng đơn, móng kết hợp và móng bè trên nền đất dưới các cột của mô hình SAP2000 hoặc STAAD.Pro: kiểm tra lật, trượt, đẩy nổi, áp lực nền trên mọi tổ hợp SLS và thiết kế đài móng, cổ móng theo ACI 318-14 trên mọi tổ hợp ULS.",
+      en: "Isolated, combined and mat footings on soil under the columns of a SAP2000 or STAAD.Pro model: overturning, sliding, uplift and bearing on every SLS combination, plus footing and pedestal design to ACI 318-14 on every ULS one."
     },
-    version: "2.1", size: "—", updated: "—", os: WIN, host: "SAP2000",
-    priceVnd: 0, productCode: "SHALLOWFDN", status: "soon",
-    thumb: "", screenshots: [], features: [], requirements: REQ_SAP,
+    version: "3.0", size: "—", updated: "2026-10", os: WIN, host: "SAP2000 / STAAD.Pro",
+    priceVnd: 250000, productCode: "SHALLOWFDN", status: "ready",
+    thumb: PIC + "web_description_16/000_cover.webp",
+    screenshots: ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010"].map(n => PIC + "web_description_16/" + n + ".webp"),
+    features: [
+      { vi: "Đọc trực tiếp mô hình <b>SAP2000</b>/<b>STAAD.Pro</b> đang mở", en: "Reads model directly from open <b>SAP2000</b>/<b>STAAD.Pro</b> model" },
+      { vi: "Chọn cột để tạo <b>móng đơn</b>, chọn nhiều cột để tạo <b>móng kết hợp / móng bè</b>", en: "Click a column for an <b>isolated footing</b>, select several columns for a <b>combined footing / mat</b>" },
+      { vi: "Tự động đề xuất kích thước và xem kết quả cập nhật tức thì", en: "Automatically proposes dimensions and see results update live" },
+      { vi: "Kiểm tra SLS: <b>lật, trượt, đẩy nổi, áp lực nền</b>", en: "SLS checks: <b>overturning, sliding, uplift, gross bearing</b>" },
+      { vi: "Sức chịu tải cho phép <b>dài hạn / gió / động đất</b>, có xét mực nước ngầm", en: "Allowable bearing (<b>long term/wind/seismic</b>), with groundwater buoyancy" },
+      { vi: "Thiết kế đài theo <b>ACI 318-14</b>: kiểm tra cắt, cốt thép chịu uốn", en: "ULS footing design to <b>ACI 318-14</b>: one-way shear, bending reinforcement" },
+      { vi: "Thiết kế <b>cổ móng</b>", en: "<b>Pedestal design</b>" },
+      { vi: "Thép thanh hệ mét D hoặc ASTM A615M (#)", en: "Metric D bars or ASTM A615M (#) bars" },
+      { vi: "Lưu dự án một file .json (mở lại không cần SAP2000), xuất báo cáo Excel", en: "Saves the project to one .json (reopens without SAP2000) and exports Excel report" }
+    ],
+    requirements: { vi: "Windows / SAP2000 hoặc STAAD.Pro", en: "Windows / SAP2000 or STAAD.Pro" },
     download: "", checksum: "", virustotal: ""
   },
   {
@@ -466,7 +479,7 @@ window.TOOLS = [
       en: "Pile-cap design with load distribution to the pile group, cap flexure and punching-shear checks."
     },
     version: "2.1", size: "—", updated: "—", os: WIN, host: "SAP2000",
-    priceVnd: 100000, productCode: "PILEDFDN", status: "soon",
+    priceVnd: 250000, productCode: "PILEDFDN", status: "soon",
     thumb: "", screenshots: [], features: [], requirements: REQ_SAP,
     download: "", checksum: "", virustotal: ""
   },
@@ -479,7 +492,7 @@ window.TOOLS = [
       en: "Octagonal foundations for vertical tanks, vessels and stacks: stability, bearing, pedestal and footing reinforcement, plus a piled option — per PIP STE03350, ASCE 7-22 and ACI 318-25."
     },
     version: "1.0", size: "—", updated: "2026-09", os: WIN, host: "General",
-    priceVnd: 50000, productCode: "OCTAGONEQ", status: "ready",
+    priceVnd: 250000, productCode: "OCTAGONEQ", status: "ready",
     thumb: PIC + "web_description_14/01.webp",
     screenshots: [PIC + "web_description_14/01.webp", PIC + "web_description_14/02.webp", PIC + "web_description_14/03.webp", PIC + "web_description_14/04.webp", PIC + "web_description_14/05.webp"],
     features: [
@@ -495,29 +508,27 @@ window.TOOLS = [
     requirements: REQ_STD, download: "", checksum: "", virustotal: ""
   },
   {
-    id: "staad-unbraced-length",
+    id: "unbraced-length-calculator",
     category: CAT_LOAD,
-    name: { vi: "Tính chiều dài tính toán (STAAD.Pro)", en: "STAAD Unbraced Length Calculator" },
+    name: { vi: "Tính chiều dài không giằng (SAP2000 / STAAD.Pro)", en: "Unbraced Length Calculator" },
     tagline: {
-      vi: "Xác định chiều dài không giằng và hệ số chiều dài tính toán cho cấu kiện trong mô hình STAAD.Pro.",
-      en: "Determines unbraced lengths and effective-length factors for members in a STAAD.Pro model."
+      vi: "Phân loại phần tử, gom cấu kiện thật (Physical Member) và tính chiều dài không giằng trục mạnh, trục yếu, LTB cho kết cấu thép trong mô hình SAP2000 hoặc STAAD.Pro. Dùng cho mô hình có các phần tử thanh được chia thật tại các nút giao nhau.",
+      en: "Classifies elements, groups them into physical members and computes major, minor and LTB unbraced lengths for the steel members of a SAP2000 or STAAD.Pro model. For models whose frame members are actually split at the intersection nodes."
     },
-    version: "2.1", size: "—", updated: "—", os: WIN, host: "STAAD.Pro",
-    priceVnd: 50000, productCode: "STAADUL", status: "soon",
-    thumb: "", screenshots: [], features: [], requirements: REQ_STAAD,
-    download: "", checksum: "", virustotal: ""
-  },
-  {
-    id: "sap-unbraced-length",
-    category: CAT_LOAD,
-    name: { vi: "Tính chiều dài tính toán (SAP2000)", en: "SAP Unbraced Length Calculator" },
-    tagline: {
-      vi: "Xác định chiều dài không giằng và gán tham số thiết kế cho cấu kiện trong mô hình SAP2000.",
-      en: "Determines unbraced lengths and assigns design parameters for members in a SAP2000 model."
-    },
-    version: "2.0", size: "—", updated: "—", os: WIN, host: "SAP2000",
-    priceVnd: 50000, productCode: "SAPUL", status: "soon",
-    thumb: "", screenshots: [], features: [], requirements: REQ_SAP,
+    version: "3.0", size: "—", updated: "2026-10", os: WIN, host: "SAP2000 / STAAD.Pro",
+    priceVnd: 125000, productCode: "ULC", status: "ready",
+    thumb: PIC + "web_description_15/00_cover.webp",
+    screenshots: ["01", "02", "03", "04", "05"].map(n => PIC + "web_description_15/" + n + ".webp"),
+    features: [
+      { vi: "Quan trọng: dùng cho mô hình có các phần tử thanh được chia thật tại các nút giao nhau — điểm giằng được xác định tại các nút đó", en: "Important: for models whose frame members are actually split at the intersection nodes — brace points are found at those nodes" },
+      { vi: "Một công cụ cho cả SAP2000 (kết nối mô hình đang mở) và STAAD.Pro (đọc file .std)", en: "One tool for both SAP2000 (live link to the open model) and STAAD.Pro (reads the .std file)" },
+      { vi: "Tự phân loại cột, dầm, giằng ngang, giằng đứng, console; sửa tay ngay trong bảng", en: "Classifies columns, beams, horizontal and vertical bracing and cantilevers; edit any of it in the table" },
+      { vi: "Gom phần tử thành Physical Member; với STAAD.Pro có thể dùng lại DEFINE PMEMBER sẵn có", en: "Groups elements into physical members; for STAAD.Pro an existing DEFINE PMEMBER can be reused" },
+      { vi: "SAP2000: tính XLMajor / XLMinor / XLLTB và ghi tỷ số thẳng vào Steel Design Overwrites", en: "SAP2000: computes XLMajor / XLMinor / XLLTB and writes the ratios straight into the Steel Design Overwrites" },
+      { vi: "STAAD.Pro: tính LZ / LY / UNB / UNT và xuất sẵn các lệnh để dán vào mô hình", en: "STAAD.Pro: computes LZ / LY / UNB / UNT and writes ready-to-paste commands" },
+      { vi: "Quy tắc điểm giằng chỉnh được trong Settings, riêng cho từng chương trình", en: "Brace-point rules editable in Settings, separately for each program" }
+    ],
+    requirements: { vi: "Windows / SAP2000 v17+ hoặc STAAD.Pro", en: "Windows / SAP2000 v17+ or STAAD.Pro" },
     download: "", checksum: "", virustotal: ""
   },
   {

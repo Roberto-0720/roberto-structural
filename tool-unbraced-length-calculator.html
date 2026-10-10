@@ -8,24 +8,23 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>STAAD Unbraced Length Calculator — Roberto Structural</title>
-<meta name="description" content="Determines unbraced lengths and effective-length factors for members in a STAAD.Pro model." />
-<link rel="canonical" href="https://robertostructural.com/tool-staad-unbraced-length.html" />
-<link rel="alternate" hreflang="en" href="https://robertostructural.com/tool-staad-unbraced-length.html" />
-<link rel="alternate" hreflang="vi" href="https://robertostructural.com/tool-staad-unbraced-length-vi.html" />
-<link rel="alternate" hreflang="x-default" href="https://robertostructural.com/tool-staad-unbraced-length.html" />
+<title>Unbraced Length Calculator — Roberto Structural</title>
+<meta name="description" content="Classifies elements, groups them into physical members and computes major, minor and LTB unbraced lengths for the steel members of a SAP2000 or STAAD.Pro…" />
+<link rel="canonical" href="https://robertostructural.com/tool-unbraced-length-calculator.html" />
+<link rel="alternate" hreflang="en" href="https://robertostructural.com/tool-unbraced-length-calculator.html" />
+<link rel="alternate" hreflang="vi" href="https://robertostructural.com/tool-unbraced-length-calculator-vi.html" />
+<link rel="alternate" hreflang="x-default" href="https://robertostructural.com/tool-unbraced-length-calculator.html" />
 <meta property="og:type" content="product" />
 <meta property="og:site_name" content="Roberto Structural" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:title" content="STAAD Unbraced Length Calculator — Roberto Structural" />
-<meta property="og:description" content="Determines unbraced lengths and effective-length factors for members in a STAAD.Pro model." />
-<meta property="og:url" content="https://robertostructural.com/tool-staad-unbraced-length.html" />
-<meta property="og:image" content="https://robertostructural.com/Resource/01.png" />
+<meta property="og:title" content="Unbraced Length Calculator — Roberto Structural" />
+<meta property="og:description" content="Classifies elements, groups them into physical members and computes major, minor and LTB unbraced lengths for the steel members of a SAP2000 or STAAD.Pro…" />
+<meta property="og:url" content="https://robertostructural.com/tool-unbraced-length-calculator.html" />
+<meta property="og:image" content="https://robertostructural.com/Resource/tools/web_description_15/00_cover.webp" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="STAAD Unbraced Length Calculator — Roberto Structural" />
-<meta name="twitter:description" content="Determines unbraced lengths and effective-length factors for members in a STAAD.Pro model." />
-<meta name="twitter:image" content="https://robertostructural.com/Resource/01.png" />
-<meta name="robots" content="noindex,follow" />
+<meta name="twitter:title" content="Unbraced Length Calculator — Roberto Structural" />
+<meta name="twitter:description" content="Classifies elements, groups them into physical members and computes major, minor and LTB unbraced lengths for the steel members of a SAP2000 or STAAD.Pro…" />
+<meta name="twitter:image" content="https://robertostructural.com/Resource/tools/web_description_15/00_cover.webp" />
 <link rel="icon" type="image/x-icon" href="Logo/rbt.ico" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -62,39 +61,45 @@
 
 <main id="tool-detail">
   <section class="page-hero page-hero--img page-hero--detail"><div class="container">
-    <p class="breadcrumb"><a href="index.html" data-vi="Trang chủ" data-en="Home">Home</a> / <a href="tools.html" data-vi="Phần mềm" data-en="Software">Software</a> / <span>STAAD Unbraced Length Calculator</span></p>
+    <p class="breadcrumb"><a href="index.html" data-vi="Trang chủ" data-en="Home">Home</a> / <a href="tools.html" data-vi="Phần mềm" data-en="Software">Software</a> / <span>Unbraced Length Calculator</span></p>
     <p class="eyebrow" data-vi="Tính tải trọng" data-en="Loading Calculation">Loading Calculation</p>
-    <h1 data-vi="Tính chiều dài tính toán (STAAD.Pro)" data-en="STAAD Unbraced Length Calculator">STAAD Unbraced Length Calculator</h1>
-    <p data-vi="Xác định chiều dài không giằng và hệ số chiều dài tính toán cho cấu kiện trong mô hình STAAD.Pro." data-en="Determines unbraced lengths and effective-length factors for members in a STAAD.Pro model.">Determines unbraced lengths and effective-length factors for members in a STAAD.Pro model.</p>
+    <h1 data-vi="Tính chiều dài không giằng (SAP2000 / STAAD.Pro)" data-en="Unbraced Length Calculator">Unbraced Length Calculator</h1>
+    <p data-vi="Phân loại phần tử, gom cấu kiện thật (Physical Member) và tính chiều dài không giằng trục mạnh, trục yếu, LTB cho kết cấu thép trong mô hình SAP2000 hoặc STAAD.Pro. Dùng cho mô hình có các phần tử thanh được chia thật tại các nút giao nhau." data-en="Classifies elements, groups them into physical members and computes major, minor and LTB unbraced lengths for the steel members of a SAP2000 or STAAD.Pro model. For models whose frame members are actually split at the intersection nodes.">Classifies elements, groups them into physical members and computes major, minor and LTB unbraced lengths for the steel members of a SAP2000 or STAAD.Pro model. For models whose frame members are actually split at the intersection nodes.</p>
   </div></section>
 
   <section class="section" style="padding-top:clamp(2rem,5vw,3.5rem)"><div class="container">
     <div class="detail-grid">
       <div>
         
-        <div class="shot-none">
-          <span class="shot-none-initials">SUL</span>
-          <p data-vi="Ảnh giao diện sẽ được cập nhật." data-en="Interface screenshots coming soon.">Interface screenshots coming soon.</p>
+        <div class="gallery">
+          <img class="main-img" id="mainImg" src="Resource/tools/web_description_15/01.webp" alt="Unbraced Length Calculator" onclick="rsOpenShot()" title="Bấm để phóng to | Click to zoom"/>
+          <span class="gallery-zoom">⤢</span>
+          <div class="thumbs">
+            <img src="Resource/tools/web_description_15/01.webp" class="active" onclick="rsSwapShot(this,0)" alt="screenshot 1"/><img src="Resource/tools/web_description_15/02.webp" class="" onclick="rsSwapShot(this,1)" alt="screenshot 2"/><img src="Resource/tools/web_description_15/03.webp" class="" onclick="rsSwapShot(this,2)" alt="screenshot 3"/><img src="Resource/tools/web_description_15/04.webp" class="" onclick="rsSwapShot(this,3)" alt="screenshot 4"/><img src="Resource/tools/web_description_15/05.webp" class="" onclick="rsSwapShot(this,4)" alt="screenshot 5"/>
+          </div>
         </div>
 
         
+        <p class="block-title" data-vi="Tính năng chính" data-en="Key features">Key features</p>
+        <ul class="feat-list">
+          <li data-vi="Quan trọng: dùng cho mô hình có các phần tử thanh được chia thật tại các nút giao nhau — điểm giằng được xác định tại các nút đó" data-en="Important: for models whose frame members are actually split at the intersection nodes — brace points are found at those nodes">Important: for models whose frame members are actually split at the intersection nodes — brace points are found at those nodes</li><li data-vi="Một công cụ cho cả SAP2000 (kết nối mô hình đang mở) và STAAD.Pro (đọc file .std)" data-en="One tool for both SAP2000 (live link to the open model) and STAAD.Pro (reads the .std file)">One tool for both SAP2000 (live link to the open model) and STAAD.Pro (reads the .std file)</li><li data-vi="Tự phân loại cột, dầm, giằng ngang, giằng đứng, console; sửa tay ngay trong bảng" data-en="Classifies columns, beams, horizontal and vertical bracing and cantilevers; edit any of it in the table">Classifies columns, beams, horizontal and vertical bracing and cantilevers; edit any of it in the table</li><li data-vi="Gom phần tử thành Physical Member; với STAAD.Pro có thể dùng lại DEFINE PMEMBER sẵn có" data-en="Groups elements into physical members; for STAAD.Pro an existing DEFINE PMEMBER can be reused">Groups elements into physical members; for STAAD.Pro an existing DEFINE PMEMBER can be reused</li><li data-vi="SAP2000: tính XLMajor / XLMinor / XLLTB và ghi tỷ số thẳng vào Steel Design Overwrites" data-en="SAP2000: computes XLMajor / XLMinor / XLLTB and writes the ratios straight into the Steel Design Overwrites">SAP2000: computes XLMajor / XLMinor / XLLTB and writes the ratios straight into the Steel Design Overwrites</li><li data-vi="STAAD.Pro: tính LZ / LY / UNB / UNT và xuất sẵn các lệnh để dán vào mô hình" data-en="STAAD.Pro: computes LZ / LY / UNB / UNT and writes ready-to-paste commands">STAAD.Pro: computes LZ / LY / UNB / UNT and writes ready-to-paste commands</li><li data-vi="Quy tắc điểm giằng chỉnh được trong Settings, riêng cho từng chương trình" data-en="Brace-point rules editable in Settings, separately for each program">Brace-point rules editable in Settings, separately for each program</li>
+        </ul>
 
         <p class="block-title" data-vi="Yêu cầu hệ thống" data-en="System requirements">System requirements</p>
-        <p class="lead" style="margin-top:.3rem" data-vi="Windows / STAAD.Pro" data-en="Windows / STAAD.Pro">Windows / STAAD.Pro</p>
+        <p class="lead" style="margin-top:.3rem" data-vi="Windows / SAP2000 v17+ hoặc STAAD.Pro" data-en="Windows / SAP2000 v17+ or STAAD.Pro">Windows / SAP2000 v17+ or STAAD.Pro</p>
       </div>
 
       <aside>
         <div class="buybox">
-          <div class="price">50.000 ₫ <small data-vi="· bản quyền vĩnh viễn" data-en="· perpetual licence">· perpetual licence</small></div>
+          <div class="price">125.000 ₫ <small data-vi="· bản quyền vĩnh viễn" data-en="· perpetual licence">· perpetual licence</small></div>
           <table class="spec">
-            <tr><td data-vi="Phiên bản" data-en="Version">Version</td><td>v2.1</td></tr>
+            <tr><td data-vi="Phiên bản" data-en="Version">Version</td><td>v3.0</td></tr>
             
-            <tr><td data-vi="Yêu cầu" data-en="Requires">Requires</td><td>STAAD.Pro</td></tr>
+            <tr><td data-vi="Yêu cầu" data-en="Requires">Requires</td><td>SAP2000 / STAAD.Pro</td></tr>
             <tr><td data-vi="Hệ điều hành" data-en="OS">OS</td><td>Windows</td></tr>
           </table>
 
-          <button class="btn btn-primary btn-block" style="margin-top:1.2rem;opacity:.55;cursor:not-allowed" disabled data-vi="Đang phát triển" data-en="In development">In development</button>
-               <p class="muted small" style="margin-top:.7rem;text-align:center;color:var(--steel);font-size:.82rem" data-vi="Đăng ký nhận tin để biết khi phát hành." data-en="Follow us to hear when this is released.">Follow us to hear when this is released.</p>
+          <a class="btn btn-primary btn-block" style="margin-top:1.2rem" href="purchase.html?id=unbraced-length-calculator" data-vi="Mua bản quyền" data-en="Buy licence">Buy licence</a>
 
           
           
@@ -147,7 +152,7 @@
   <div class="foot-bottom">© <span id="yr"></span> Roberto Structural · <span data-vi="Đã đăng ký bản quyền" data-en="All rights reserved">Đã đăng ký bản quyền</span></div>
 </div></footer>
 
-<script>window.RS_PAGE_ID = "staad-unbraced-length"; window.RS_PAGE_LANG = "en";</script>
+<script>window.RS_PAGE_ID = "unbraced-length-calculator"; window.RS_PAGE_LANG = "en";</script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/lightbox.js"></script>
 <script src="assets/js/tools-data.js"></script>

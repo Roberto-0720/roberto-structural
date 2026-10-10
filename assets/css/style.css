@@ -368,8 +368,11 @@ html[lang="vi"] .hero h1{font-size:min(8.5vw,3.1rem);max-width:27ch}
 .spec tr:last-child td{border-bottom:0}
 .spec td:last-child{text-align:right;color:var(--charcoal);font-weight:600}
 .feat-list{list-style:none;display:grid;gap:.6rem;margin-top:1rem}
-.feat-list li{display:flex;gap:.6rem;align-items:flex-start;color:var(--steel);font-size:.95rem}
-.feat-list li::before{content:"✓";color:var(--accent);font-weight:800}
+/* Not flex: in a flex <li> every text run and every <b> becomes its own flex
+   item, so a feature with bold words split into columns. The tick hangs in
+   the left padding instead and the text flows as one paragraph. */
+.feat-list li{position:relative;padding-left:1.4rem;color:var(--steel);font-size:.95rem}
+.feat-list li::before{content:"✓";position:absolute;left:0;top:0;color:var(--accent);font-weight:800}
 .trust{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.1rem}
 .trust .chip{background:var(--paper);border:1px solid var(--silver);border-radius:999px;padding:.35rem .8rem;color:var(--steel);font-size:.76rem}
 .checksum{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.72rem;word-break:break-all;background:var(--paper);padding:.6rem .7rem;border-radius:8px;color:var(--steel);margin-top:.6rem;border:1px solid var(--silver)}
