@@ -9,7 +9,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>STAAD.Pro Loading Assignment — Roberto Structural</title>
-<meta name="description" content="Batch-assigns loads to a STAAD.Pro model and generates load combinations automatically." />
+<meta name="description" content="From one loading table, computes uniform and concentrated loads on the selected beams of a STAAD.Pro model and groups them into ready-to-paste MEMBER LOAD…" />
 <link rel="canonical" href="https://robertostructural.com/tool-staad-loading-assignment.html" />
 <link rel="alternate" hreflang="en" href="https://robertostructural.com/tool-staad-loading-assignment.html" />
 <link rel="alternate" hreflang="vi" href="https://robertostructural.com/tool-staad-loading-assignment-vi.html" />
@@ -18,14 +18,13 @@
 <meta property="og:site_name" content="Roberto Structural" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:title" content="STAAD.Pro Loading Assignment — Roberto Structural" />
-<meta property="og:description" content="Batch-assigns loads to a STAAD.Pro model and generates load combinations automatically." />
+<meta property="og:description" content="From one loading table, computes uniform and concentrated loads on the selected beams of a STAAD.Pro model and groups them into ready-to-paste MEMBER LOAD…" />
 <meta property="og:url" content="https://robertostructural.com/tool-staad-loading-assignment.html" />
-<meta property="og:image" content="https://robertostructural.com/Resource/01.png" />
+<meta property="og:image" content="https://robertostructural.com/Resource/tools/web_description_21/00_cover.webp" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="STAAD.Pro Loading Assignment — Roberto Structural" />
-<meta name="twitter:description" content="Batch-assigns loads to a STAAD.Pro model and generates load combinations automatically." />
-<meta name="twitter:image" content="https://robertostructural.com/Resource/01.png" />
-<meta name="robots" content="noindex,follow" />
+<meta name="twitter:description" content="From one loading table, computes uniform and concentrated loads on the selected beams of a STAAD.Pro model and groups them into ready-to-paste MEMBER LOAD…" />
+<meta name="twitter:image" content="https://robertostructural.com/Resource/tools/web_description_21/00_cover.webp" />
 <link rel="icon" type="image/x-icon" href="Logo/rbt.ico" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -65,19 +64,26 @@
     <p class="breadcrumb"><a href="index.html" data-vi="Trang chủ" data-en="Home">Home</a> / <a href="tools.html" data-vi="Phần mềm" data-en="Software">Software</a> / <span>STAAD.Pro Loading Assignment</span></p>
     <p class="eyebrow" data-vi="Tính tải trọng" data-en="Loading Calculation">Loading Calculation</p>
     <h1 data-vi="Gán tải trọng tự động (STAAD.Pro)" data-en="STAAD.Pro Loading Assignment">STAAD.Pro Loading Assignment</h1>
-    <p data-vi="Gán tải trọng hàng loạt vào mô hình STAAD.Pro và sinh tổ hợp tải trọng tự động." data-en="Batch-assigns loads to a STAAD.Pro model and generates load combinations automatically.">Batch-assigns loads to a STAAD.Pro model and generates load combinations automatically.</p>
+    <p data-vi="Từ một bảng tải, tính tải phân bố đều và tải tập trung lên các dầm đã chọn trong mô hình STAAD.Pro, rồi gom thành lệnh MEMBER LOAD sẵn để dán vào mô hình." data-en="From one loading table, computes uniform and concentrated loads on the selected beams of a STAAD.Pro model and groups them into ready-to-paste MEMBER LOAD commands.">From one loading table, computes uniform and concentrated loads on the selected beams of a STAAD.Pro model and groups them into ready-to-paste MEMBER LOAD commands.</p>
   </div></section>
 
   <section class="section" style="padding-top:clamp(2rem,5vw,3.5rem)"><div class="container">
     <div class="detail-grid">
       <div>
         
-        <div class="shot-none">
-          <span class="shot-none-initials">SLA</span>
-          <p data-vi="Ảnh giao diện sẽ được cập nhật." data-en="Interface screenshots coming soon.">Interface screenshots coming soon.</p>
+        <div class="gallery">
+          <img class="main-img" id="mainImg" src="Resource/tools/web_description_21/01.webp" alt="STAAD.Pro Loading Assignment" onclick="rsOpenShot()" title="Bấm để phóng to | Click to zoom"/>
+          <span class="gallery-zoom">⤢</span>
+          <div class="thumbs">
+            <img src="Resource/tools/web_description_21/01.webp" class="active" onclick="rsSwapShot(this,0)" alt="screenshot 1"/><img src="Resource/tools/web_description_21/02.webp" class="" onclick="rsSwapShot(this,1)" alt="screenshot 2"/><img src="Resource/tools/web_description_21/03.webp" class="" onclick="rsSwapShot(this,2)" alt="screenshot 3"/><img src="Resource/tools/web_description_21/04.webp" class="" onclick="rsSwapShot(this,3)" alt="screenshot 4"/><img src="Resource/tools/web_description_21/05.webp" class="" onclick="rsSwapShot(this,4)" alt="screenshot 5"/><img src="Resource/tools/web_description_21/06.webp" class="" onclick="rsSwapShot(this,5)" alt="screenshot 6"/><img src="Resource/tools/web_description_21/07.webp" class="" onclick="rsSwapShot(this,6)" alt="screenshot 7"/><img src="Resource/tools/web_description_21/08.webp" class="" onclick="rsSwapShot(this,7)" alt="screenshot 8"/>
+          </div>
         </div>
 
         
+        <p class="block-title" data-vi="Tính năng chính" data-en="Key features">Key features</p>
+        <ul class="feat-list">
+          <li data-vi="Lấy dầm đang chọn trong STAAD.Pro qua OpenSTAAD, hoặc đọc file .std và gõ danh sách dầm (TO, BY, tên group)" data-en="Takes the beams selected in STAAD.Pro through OpenSTAAD, or reads the .std file with a typed beam list (TO, BY, group names)">Takes the beams selected in STAAD.Pro through OpenSTAAD, or reads the .std file with a typed beam list (TO, BY, group names)</li><li data-vi="Bảng tải gõ trực tiếp hoặc dán từ Excel (Ctrl+V); ô sai được tô đỏ kèm lý do" data-en="Loading table typed in or pasted from Excel (Ctrl+V); invalid cells turn red with the reason">Loading table typed in or pasted from Excel (Ctrl+V); invalid cells turn red with the reason</li><li data-vi="Tự tính bề rộng chịu tải (loading span) của từng hàng dầm" data-en="Computes the loading span of every row of beams">Computes the loading span of every row of beams</li><li data-vi="Tải phân bố đều (UNI) và tải tập trung (CON), mỗi P là một load case" data-en="Uniform (UNI) and concentrated (CON) loads, one load case per P">Uniform (UNI) and concentrated (CON) loads, one load case per P</li><li data-vi="Vị trí tải luôn tính từ node A, đúng cả khi dầm vẽ ngược chiều" data-en="Load positions always measured from node A, correct even for beams drawn backwards">Load positions always measured from node A, correct even for beams drawn backwards</li><li data-vi="Xem trước tải trên mặt bằng để kiểm tra trước khi xuất" data-en="Plan view of any load row to check it before export">Plan view of any load row to check it before export</li><li data-vi="Gom lệnh MEMBER LOAD cùng nội dung, sẵn để dán vào STAAD.Pro" data-en="Groups identical MEMBER LOAD commands, ready to paste into STAAD.Pro">Groups identical MEMBER LOAD commands, ready to paste into STAAD.Pro</li>
+        </ul>
 
         <p class="block-title" data-vi="Yêu cầu hệ thống" data-en="System requirements">System requirements</p>
         <p class="lead" style="margin-top:.3rem" data-vi="Windows / STAAD.Pro" data-en="Windows / STAAD.Pro">Windows / STAAD.Pro</p>
@@ -87,14 +93,13 @@
         <div class="buybox">
           <div class="price">100.000 ₫ <small data-vi="· bản quyền vĩnh viễn" data-en="· perpetual licence">· perpetual licence</small></div>
           <table class="spec">
-            <tr><td data-vi="Phiên bản" data-en="Version">Version</td><td>v1.0</td></tr>
+            <tr><td data-vi="Phiên bản" data-en="Version">Version</td><td>v2.0</td></tr>
             
             <tr><td data-vi="Yêu cầu" data-en="Requires">Requires</td><td>STAAD.Pro</td></tr>
             <tr><td data-vi="Hệ điều hành" data-en="OS">OS</td><td>Windows</td></tr>
           </table>
 
-          <button class="btn btn-primary btn-block" style="margin-top:1.2rem;opacity:.55;cursor:not-allowed" disabled data-vi="Đang phát triển" data-en="In development">In development</button>
-               <p class="muted small" style="margin-top:.7rem;text-align:center;color:var(--steel);font-size:.82rem" data-vi="Đăng ký nhận tin để biết khi phát hành." data-en="Follow us to hear when this is released.">Follow us to hear when this is released.</p>
+          <a class="btn btn-primary btn-block" style="margin-top:1.2rem" href="purchase.html?id=staad-loading-assignment" data-vi="Mua bản quyền" data-en="Buy licence">Buy licence</a>
 
           
           

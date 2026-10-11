@@ -166,7 +166,9 @@ nhưng **không đẩy lên GitHub** (xem `.gitignore`).
 ```
 Resource/01–07,21,22.webp          ảnh nhà máy (trang chủ, CSS)
 Resource/background/               ảnh nền hero — xem §12
-Resource/tools/Picture/web_description_NN/   ảnh giao diện tool (NN = STT trong softwarelist.xlsx)
+Resource/tools/web_description_NN/   ảnh tool (NN = STT trong softwarelist.xlsx)
+    00_cover.webp                    ảnh bìa → `thumb` (thẻ ở tab Phần mềm + og:image)
+    01.webp, 02.webp …               ảnh chụp giao diện → `screenshots` (thư viện ảnh)
 Resource/tools/grds/               ảnh tool GRDS (số 05)
 Resource/drawings/townhouse-01/    ảnh bản vẽ
 Resource/articles/01-deck-slab/    hình minh hoạ bài viết
@@ -180,6 +182,12 @@ Resource/articles/01-deck-slab/    hình minh hoạ bài viết
 | Ảnh chụp giao diện, bản vẽ CAD | WebP **lossless** | lossy làm ảnh màu phẳng **to hơn** PNG gốc và nhoè chữ |
 
 Luôn so sánh dung lượng: nếu `.webp` ≥ ảnh gốc thì đổi sang lossless.
+
+⚠️ **Ảnh để dạng `.png` sẽ KHÔNG lên web** (`.gitignore` chặn `Resource/**/*.png`):
+trên máy vẫn hiện, trên site thật thì 404. Tool 21 (2026-10) suýt dính đúng lỗi này —
+phải chuyển 8 ảnh sang WebP lossless (146 KB → 43 KB, không mất nét). Sau khi thêm ảnh:
+`node scripts/check-images.mjs` — báo mọi ảnh mà data file trỏ tới nhưng **thiếu** hoặc
+**bị gitignore**, thoát mã 1 nếu có lỗi.
 
 ⚠️ **Bài học xương máu:** file `.webp` nằm **cùng thư mục** với ảnh gốc.
 Đừng xoá cả thư mục ảnh — sẽ mất luôn bản `.webp` mà website đang dùng.
@@ -268,6 +276,8 @@ kiểm key nằm **trong từng tool** và phải nhúng thủ công cho mỗi t
 | Tool | Cổng chặn |
 |---|---|
 | 11/12 tool trả phí đã phát hành | ✅ xong 2026-08-09 (01, 02, 03, 04, 06, 08, 09, 11, 12, 13, 20) |
+| 14 Octagon EQ (`OCTAGONEQ`) | ✅ 2026-09 |
+| 17 Shallow FDN (`SHALLOWFDN`), 19 ULC (`ULC`), 21 STLA (`STAADLOAD`) | ✅ 2026-10, đã build + test key thật |
 | `STEELCAD` (tool 07) | ❌ chưa — là plugin `.dll` cho AutoCAD (.NET), bộ bản quyền Python không dùng được |
 
 Chỉ `SIDESWAY` đã build + test tay đầu-cuối. 10 tool còn lại mới kiểm ở mức
@@ -276,6 +286,19 @@ một lượt trước khi bán**.
 
 → **Không bán tool nào trước khi tool đó có cổng chặn.** File đã ra ngoài không thu hồi
 được, và người mua sớm giữ mãi bản không khoá.
+
+**Tool chỉ xuất CSV / lệnh STAAD (19 ULC, 21 STLA)** không có báo cáo để in tên người mua
+→ tên hiện ở **tab Log** khi mở app. Răn đe yếu hơn tool có báo cáo Excel — chấp nhận.
+
+**Tool 17 có thêm bản dùng thử** (`build_nuitka_onedir_trial/build_trial.bat`): script
+đổi `REQUIRE_LICENCE = False` và đặt `EXPIRY_DATE` **trong bản sao**, không chép `data/`
+→ bản thử không chứa secret, báo cáo in "UNLICENSED / TRIAL".
+
+**`.bat` của 17, 19, 21 từ chối build** khi thiếu `data/license_config.py` hoặc file đó
+không đúng mã sản phẩm — chặn đúng lỗi "Unknown product" từng gặp ở tool 14.
+
+**Mã cũ đã gỡ:** `SAPUL` + `STAADUL` → gộp thành `ULC` (tool 19 v3.0, 2026-10). Chưa cấp
+key nào cho hai mã cũ (`customers.csv`), nên xoá hẳn khỏi `products.py`.
 
 Cách nhúng: xem `_LicenseSystem/integration/README.md`, và `BUILD_NOTES.md` mục
 *Licence gate* trong repo tool 02 (bản tham chiếu đã chạy thật).
@@ -312,6 +335,10 @@ Sửa `assets/js/tools-data.js` — copy một khối, điền:
 - `priceVnd: 0` → miễn phí (được có link `download`)
 - `priceVnd > 0` → trả phí (**bắt buộc** `download: ""`)
 - `status: "soon"` → hiện "In development", khoá nút
+- `thumb` → `00_cover.webp` nếu có (ảnh bìa đẹp hơn ảnh chụp màn hình); thiếu thì dùng `01.webp`
+- `features` → câu ngắn, 6–8 dòng (người đọc lướt). `<b>` dùng thoải mái: trước 2026-10
+  `.feat-list li` là `display:flex` nên mỗi đoạn `<b>` bị tách thành một cột — đã sửa sang
+  `position:relative` + dấu ✓ tuyệt đối. **Đừng đổi lại thành flex.**
 - Thứ tự hiển thị tự sắp: miễn phí → rẻ → đắt → đang phát triển
 - `orderPick` (tuỳ chọn) → trên trang thanh toán, ô "Ghi chú" được **thay bằng một ô chọn
   bắt buộc**. Giá trị khách chọn và tên gói cần gửi (`send`) đi thẳng vào email Formspree

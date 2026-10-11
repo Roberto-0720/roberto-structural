@@ -536,12 +536,23 @@ window.TOOLS = [
     category: CAT_LOAD,
     name: { vi: "Gán tải trọng tự động (STAAD.Pro)", en: "STAAD.Pro Loading Assignment" },
     tagline: {
-      vi: "Gán tải trọng hàng loạt vào mô hình STAAD.Pro và sinh tổ hợp tải trọng tự động.",
-      en: "Batch-assigns loads to a STAAD.Pro model and generates load combinations automatically."
+      vi: "Từ một bảng tải, tính tải phân bố đều và tải tập trung lên các dầm đã chọn trong mô hình STAAD.Pro, rồi gom thành lệnh MEMBER LOAD sẵn để dán vào mô hình.",
+      en: "From one loading table, computes uniform and concentrated loads on the selected beams of a STAAD.Pro model and groups them into ready-to-paste MEMBER LOAD commands."
     },
-    version: "1.0", size: "—", updated: "—", os: WIN, host: "STAAD.Pro",
-    priceVnd: 100000, productCode: "STAADLOAD", status: "soon",
-    thumb: "", screenshots: [], features: [], requirements: REQ_STAAD,
+    version: "2.0", size: "—", updated: "2026-10", os: WIN, host: "STAAD.Pro",
+    priceVnd: 100000, productCode: "STAADLOAD", status: "ready",
+    thumb: PIC + "web_description_21/00_cover.webp",
+    screenshots: ["01", "02", "03", "04", "05", "06", "07", "08"].map(n => PIC + "web_description_21/" + n + ".webp"),
+    features: [
+      { vi: "Lấy dầm đang chọn trong STAAD.Pro qua OpenSTAAD, hoặc đọc file .std và gõ danh sách dầm (TO, BY, tên group)", en: "Takes the beams selected in STAAD.Pro through OpenSTAAD, or reads the .std file with a typed beam list (TO, BY, group names)" },
+      { vi: "Bảng tải gõ trực tiếp hoặc dán từ Excel (Ctrl+V); ô sai được tô đỏ kèm lý do", en: "Loading table typed in or pasted from Excel (Ctrl+V); invalid cells turn red with the reason" },
+      { vi: "Tự tính bề rộng chịu tải (loading span) của từng hàng dầm", en: "Computes the loading span of every row of beams" },
+      { vi: "Tải phân bố đều (UNI) và tải tập trung (CON), mỗi P là một load case", en: "Uniform (UNI) and concentrated (CON) loads, one load case per P" },
+      { vi: "Vị trí tải luôn tính từ node A, đúng cả khi dầm vẽ ngược chiều", en: "Load positions always measured from node A, correct even for beams drawn backwards" },
+      { vi: "Xem trước tải trên mặt bằng để kiểm tra trước khi xuất", en: "Plan view of any load row to check it before export" },
+      { vi: "Gom lệnh MEMBER LOAD cùng nội dung, sẵn để dán vào STAAD.Pro", en: "Groups identical MEMBER LOAD commands, ready to paste into STAAD.Pro" }
+    ],
+    requirements: REQ_STAAD,
     download: "", checksum: "", virustotal: ""
   }
 ];
