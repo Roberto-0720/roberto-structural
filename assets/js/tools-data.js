@@ -170,7 +170,7 @@ window.TOOLS = [
     },
     version: "1.2", size: "~45 MB", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 100000, productCode: "MONORAIL", status: "ready",
-    thumb: PIC + "web_description_08/01.webp",
+    thumb: PIC + "web_description_08/00_cover.webp",
     screenshots: [PIC + "web_description_08/01.webp", PIC + "web_description_08/02.webp", PIC + "web_description_08/03.webp", PIC + "web_description_08/04.webp"],
     features: [
       { vi: "<b>Thư viện tiết diện đa dạng</b>: W, H (tổ hợp), I, UB/UC, HE/IPE", en: "<b>Multi-section support</b>: W, H (built-up), I, UB/UC, HE/IPE" },
@@ -195,7 +195,7 @@ window.TOOLS = [
     },
     version: "3.0", size: "—", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 100000, productCode: "CRANEGIRDER", status: "ready",
-    thumb: PIC + "web_description_06/01.webp",
+    thumb: PIC + "web_description_06/00_cover.webp",
     screenshots: [PIC + "web_description_06/01.webp", PIC + "web_description_06/03.webp"],
     features: [
       { vi: "Tổ hợp tải trọng cầu trục: tải đứng có hệ số xung, lực hãm ngang và lực dọc ray", en: "Crane load combinations: vertical loads with impact, lateral surge and longitudinal tractive forces" },
@@ -293,7 +293,7 @@ window.TOOLS = [
     },
     version: "1.0", size: "—", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 100000, productCode: "RCCORBEL", status: "ready",
-    thumb: PIC + "web_description_12/01.webp",
+    thumb: PIC + "web_description_12/00_cover.webp",
     screenshots: [PIC + "web_description_12/01.webp", PIC + "web_description_12/02.webp"],
     features: [
       { vi: "Thiết kế theo <b>mô hình giàn ảo (strut-and-tie)</b> cho vai cột chịu tải đứng và ngang", en: "Design by the <b>strut-and-tie model</b> for corbels under vertical and horizontal load" },
@@ -340,7 +340,7 @@ window.TOOLS = [
     },
     version: "1.1", size: "63 MB", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 0, productCode: "GRDS", status: "ready",
-    thumb: "Resource/tools/web_description_05/01.webp",
+    thumb: PIC + "web_description_05/00_cover.webp",
     screenshots: [
       "Resource/tools/web_description_05/01.webp",
       "Resource/tools/web_description_05/04.webp",
@@ -427,7 +427,7 @@ window.TOOLS = [
     },
     version: "1.1", size: "—", updated: "2026-08", os: WIN, host: "General",
     priceVnd: 100000, productCode: "EQAB", status: "ready",
-    thumb: PIC + "web_description_20/01.webp",
+    thumb: PIC + "web_description_20/00_cover.webp",
     screenshots: [PIC + "web_description_20/01.webp", PIC + "web_description_20/02.webp", PIC + "web_description_20/03.webp", PIC + "web_description_20/04.webp"],
     features: [
       { vi: "Thiết kế theo <b>ACI 318</b> cho bệ bát giác", en: "Design per <b>ACI 318</b> for octagonal pedestals" },
@@ -480,7 +480,7 @@ window.TOOLS = [
     },
     version: "2.1", size: "—", updated: "—", os: WIN, host: "SAP2000",
     priceVnd: 250000, productCode: "PILEDFDN", status: "soon",
-    thumb: "", screenshots: [], features: [], requirements: REQ_SAP,
+    thumb: PIC + "web_description_18/00_cover.webp", screenshots: [], features: [], requirements: REQ_SAP,
     download: "", checksum: "", virustotal: ""
   },
   {
@@ -493,7 +493,7 @@ window.TOOLS = [
     },
     version: "1.0", size: "—", updated: "2026-09", os: WIN, host: "General",
     priceVnd: 250000, productCode: "OCTAGONEQ", status: "ready",
-    thumb: PIC + "web_description_14/01.webp",
+    thumb: PIC + "web_description_14/00_cover.webp",
     screenshots: [PIC + "web_description_14/01.webp", PIC + "web_description_14/02.webp", PIC + "web_description_14/03.webp", PIC + "web_description_14/04.webp", PIC + "web_description_14/05.webp"],
     features: [
       { vi: "Kiểm tra <b>lật, trượt, tỷ số ổn định</b> và <b>áp lực nền</b> theo PIP STE03350", en: "<b>Overturning, sliding, stability ratio</b> and <b>bearing pressure</b> per PIP STE03350" },
