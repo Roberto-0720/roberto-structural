@@ -440,6 +440,29 @@ window.TOOLS = [
     download: "",
     checksum: "", virustotal: ""
   },
+  {
+    id: "girt-purlin-design",
+    category: CAT_STEEL,
+    name: { vi: "Thiết kế xà gồ mái & xà gồ tường", en: "Girt & Purlin Design" },
+    tagline: {
+      vi: "Thiết kế xà gồ mái (purlin) và xà gồ tường (girt) thép tạo hình nguội tiết diện C, Z theo AISI S100 (ASD), với áp lực gió C&C theo ASCE 7 Chương 30.",
+      en: "Cold-formed steel purlins and girts, C and Z sections, per AISI S100 (ASD), with Components & Cladding wind pressures per ASCE 7 Chapter 30."
+    },
+    version: "2.2", size: "—", updated: "2026-10", os: WIN, host: "General",
+    priceVnd: 200000, productCode: "GIRTPURLIN", status: "ready",
+    thumb: PIC + "web_description_22/00_cover.webp",
+    screenshots: ["01", "02", "03", "04"].map(n => PIC + "web_description_22/" + n + ".webp"),
+    features: [
+      { vi: "Áp lực gió C&C theo <b>ASCE 7 Chương 30</b>: GCp theo diện tích hiệu dụng và vùng, tự chuyển sang tab thiết kế", en: "C&C wind pressures per <b>ASCE 7 Chapter 30</b>: GCp by effective area and zone, passed straight to the design tabs" },
+      { vi: "183 tiết diện C và Z có sẵn, kèm công cụ tính đặc trưng tiết diện thành mỏng từ kích thước", en: "183 built-in C and Z sections, plus a thin-walled section-property calculator" },
+      { vi: "Kiểm tra uốn (tiết diện hữu hiệu, oằn xoắn ngang), oằn méo, cắt, ép mặt bụng, tương tác và độ võng theo <b>AISI S100</b>", en: "Flexure (effective section, LTB), distortional buckling, shear, web crippling, interaction and deflection per <b>AISI S100</b>" },
+      { vi: "Dầm đơn giản và liên tục 2–4 nhịp, thanh chống võng (sag rod), phương pháp hệ số R cho tôn bắt vít", en: "Simple and 2–4-span continuous members, sag rods, R-factor method for through-fastened sheeting" },
+      { vi: "Kết quả cập nhật ngay khi đổi số liệu; lưu / mở dự án", en: "Results update on every input change; save / open projects" },
+      { vi: "Xuất báo cáo Excel đầy đủ từng bước, đơn vị SI", en: "Step-by-step Excel calculation report, SI units" }
+    ],
+    requirements: REQ_STD,
+    download: "", checksum: "", virustotal: ""
+  },
 
   /* ==========================================================
      IN DEVELOPMENT — shown as "Coming soon"
