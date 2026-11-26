@@ -278,6 +278,8 @@ kiểm key nằm **trong từng tool** và phải nhúng thủ công cho mỗi t
 | 11/12 tool trả phí đã phát hành | ✅ xong 2026-08-09 (01, 02, 03, 04, 06, 08, 09, 11, 12, 13, 20) |
 | 14 Octagon EQ (`OCTAGONEQ`) | ✅ 2026-09 |
 | 17 Shallow FDN (`SHALLOWFDN`), 19 ULC (`ULC`), 21 STLA (`STAADLOAD`) | ✅ 2026-10, đã build + test key thật |
+| Girt & Purlin (`GIRTPURLIN`, repo `15_Girt-Purlin`) | ✅ 2026-10 — bản trial GPD.exe tự bỏ qua cổng (`gpd_trial`) |
+| Wind Load ASCE 7-22 (`WINDLOAD`, repo `14_WindLoadCalculation`) | ✅ 2026-11 — khác `WINDTANK` (tool 09); trial tắt cổng qua `main_trial.py` |
 | `STEELCAD` (tool 07) | ❌ chưa — là plugin `.dll` cho AutoCAD (.NET), bộ bản quyền Python không dùng được |
 
 Chỉ `SIDESWAY` đã build + test tay đầu-cuối. 10 tool còn lại mới kiểm ở mức

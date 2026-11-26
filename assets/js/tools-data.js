@@ -85,7 +85,7 @@ window.TOOLS = [
       vi: "Kiểm tra độ võng dầm kết cấu thép bằng phương pháp chord rotation 3D, kết nối trực tiếp SAP2000. Tự nhận diện dầm console và tự gom Physical Member.",
       en: "Steel beam deflection check using the 3D chord-rotation method, connected live to SAP2000. Automatic cantilever detection and Physical-Member grouping."
     },
-    version: "2.5", size: "~23 MB", updated: "2026-08", os: WIN, host: "SAP2000",
+    version: "2.7", size: "~23 MB", updated: "2026-11", os: WIN, host: "SAP2000",
     priceVnd: 200000, productCode: "DEFLECT", status: "ready",
     thumb: PIC + "web_description_03/00_cover.webp",
     screenshots: [PIC + "web_description_03/01.webp", PIC + "web_description_03/02.webp"],
@@ -265,7 +265,7 @@ window.TOOLS = [
       vi: "Thiết kế bản thép chôn sẵn trong bê tông: bố trí chốt neo, kiểm tra kéo – cắt – tổ hợp và các dạng phá hoại bê tông theo ACI 318.",
       en: "Design of plates cast into concrete: stud layout, tension–shear–interaction checks and concrete failure modes per ACI 318."
     },
-    version: "1.1", size: "—", updated: "2026-08", os: WIN, host: "General",
+    version: "1.2", size: "—", updated: "2026-11", os: WIN, host: "General",
     priceVnd: 100000, productCode: "EMBPLATE", status: "ready",
     thumb: PIC + "web_description_11/00_cover.webp",
     screenshots: [PIC + "web_description_11/01.webp", PIC + "web_description_11/02.webp", PIC + "web_description_11/03.webp", PIC + "web_description_11/04.webp"],
@@ -315,7 +315,7 @@ window.TOOLS = [
       vi: "Kiểm tra chuyển vị ngang giữa các tầng cho kết cấu.",
       en: "Storey-drift check for structures"
     },
-    version: "2.3", size: "~23 MB", updated: "2026-08", os: WIN, host: "SAP2000",
+    version: "2.4", size: "~23 MB", updated: "2026-11", os: WIN, host: "SAP2000",
     priceVnd: 100000, productCode: "SIDESWAY", status: "ready",
     thumb: PIC + "web_description_02/00_cover.webp",
     screenshots: [PIC + "web_description_02/01.webp", PIC + "web_description_02/02.webp"],
@@ -461,6 +461,30 @@ window.TOOLS = [
       { vi: "Xuất báo cáo Excel đầy đủ từng bước, đơn vị SI", en: "Step-by-step Excel calculation report, SI units" }
     ],
     requirements: REQ_STD,
+    download: "", checksum: "", virustotal: ""
+  },
+  {
+    id: "wind-load-calculation",
+    category: CAT_LOAD,
+    name: { vi: "Tính tải gió theo ASCE 7-22", en: "Wind Load Calculation (ASCE 7-22)" },
+    tagline: {
+      vi: "Tải gió theo ASCE 7-22 cho kết cấu hở (pipe rack, khung thép hở), nhà kín và kín một phần, mái hở và mái che — kết nối SAP2000 để đọc mô hình và gán tải ngược lại.",
+      en: "ASCE 7-22 wind loads for open structures (pipe racks, open steel frames), enclosed and partially enclosed buildings, and free roofs — with a SAP2000 link that reads the model and assigns the loads back."
+    },
+    version: "1.1.0", size: "—", updated: "2026-11", os: WIN, host: "SAP2000",
+    priceVnd: 300000, productCode: "WINDLOAD", status: "ready",
+    thumb: PIC + "web_description_17/00_cover.webp",
+    screenshots: ["01", "02", "03", "04", "05", "06", "07", "08", "09"].map(n => PIC + "web_description_17/" + n + ".webp"),
+    features: [
+      { vi: "Áp lực vận tốc qz tự động theo <b>Chương 26</b>: Kz, Kzt, Kd, Ke, hệ số giật G / Gf — hệ số nào cũng sửa tay được", en: "Velocity pressure qz per <b>Chapter 26</b>: Kz, Kzt, Kd, Ke, gust factor G / Gf — every factor can be typed over" },
+      { vi: "Phân loại kín / kín một phần / hở theo từng hướng gió, kèm GCpi", en: "Enclosure class per wind direction, with GCpi" },
+      { vi: "Nhà: hệ chịu lực chính <b>MWFRS Chương 27</b> (16 trường hợp tải, có xoắn) và <b>C&C Chương 30</b> Phần 1–4", en: "Buildings: <b>Chapter 27 MWFRS</b> (16 load cases, with torsion) and <b>Chapter 30 C&C</b> Parts 1–4" },
+      { vi: "Kết cấu hở theo hướng dẫn ASCE <i>Wind Loads for Petrochemical and Other Industrial Facilities</i>: khung, ống, lớp chống cháy", en: "Open structures per the ASCE <i>Wind Loads for Petrochemical and Other Industrial Facilities</i> guide: frames, pipe runs, fire proofing" },
+      { vi: "Mái hở / mái che theo ASCE 7-22: gió hai phía mỗi trục, dòng thoáng hoặc bị cản", en: "Free roofs and canopies per ASCE 7-22: wind from both sides of each axis, clear or obstructed flow" },
+      { vi: "<b>Kết nối SAP2000</b>: đọc khung và tấm từ mô hình, gán tải gió ngược lại vào mô hình", en: "<b>SAP2000 link</b>: reads frames and panels from the model and assigns the wind loads back" },
+      { vi: "Ma trận trường hợp tải; xuất CSV, STAAD.Pro, SAP2000 .s2k và báo cáo Excel đầy đủ từng bước", en: "Load-case matrix; exports to CSV, STAAD.Pro and SAP2000 .s2k, plus a step-by-step Excel report" }
+    ],
+    requirements: { vi: "Windows / SAP2000 (tuỳ chọn)", en: "Windows / SAP2000 (optional)" },
     download: "", checksum: "", virustotal: ""
   },
 
